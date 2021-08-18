@@ -23,6 +23,8 @@ public class Character : MonoBehaviour
     private int walkingDistance;
     private int attackRange;
 
+    private GameObject targetSquare;
+
     public Character(String faction, String classs, int x, int y)
     {
         this.faction = faction;
@@ -53,9 +55,11 @@ public class Character : MonoBehaviour
     }
     private void attack()
     {
+        SelectSquare();
     }
     private void walk()
     {
+        SelectSquare();
     }
     private void useSkill()
     {
@@ -63,5 +67,9 @@ public class Character : MonoBehaviour
     private void defense()
     {
         specialDefense += 1;
+    }
+    private void SelectSquare()
+    {
+
     }
 }
