@@ -1,0 +1,168 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Map</title>
+    <script src="vue.js"></script>
+    <script src="html2canvas.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div id="image">
+            <div v-for="num in 100" class="floor" :id="`floor${num}`">
+
+                <div class="sett">
+                    <div class="type_floor" :id="`type_floor${num}`" onclick="setmap(this, 'floor')"
+                        ondragover="setmap(this, 'floor')"></div>
+                </div>
+
+            </div>
+        </div>
+        <div class="sel">
+            <div class="item">
+                <div class="showcolor nowc"></div>
+                <p>Now Color</p>
+            </div>
+
+            <div class="ccc">
+                <h1>Floor</h1>
+                <div class="item">
+                    <div class="showcolor nf" onclick="setcolor(this)"></div>
+                    <p>Normal floor</p>
+                </div>
+                <div class="item">
+                    <div class="showcolor cw" onclick="setcolor(this)"></div>
+                    <p>Can't walk</p>
+                </div>
+                <div class="item">
+                    <div class="showcolor dl" onclick="setcolor(this)"></div>
+                    <p>Delete</p>
+                </div>
+                <button class="SaveMap" onclick="doCapture()">Save Map</button>
+            </div>
+
+        </div>
+    </div>
+</body>
+<script>
+    var test = null;
+    let app = new Vue({
+        el: '#app',
+        data: {
+            color: "white",
+            status: true,
+            link:"555",
+        }
+    })
+    function setcolor(obj) {
+        if (obj.classList[1] == 'nf') {
+            app.color = "gray";
+        } else if (obj.classList[1] == 'dl') {
+            app.color = "white";
+        } else if (obj.classList[1] == 'cw') {
+            app.color = "red";
+        }
+        document.getElementsByClassName('nowc')[0].style.backgroundColor = app.color;
+
+        if (obj.classList[1] == 'dl') {
+            document.getElementsByClassName('nowc')[0].style.backgroundColor = "white";
+        }
+    }
+    function setmap(obj, type) {
+        obj.style.backgroundColor = app.color;
+    }
+    function doCapture() {
+        window.scrollTo(0, 0);
+        html2canvas(document.getElementById('image')).then(function (canvas){
+            console.log(canvas.toDataURL("image/jpg", 1));
+        });
+    }
+</script>
+<style>
+    .ccc{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .SaveMap{
+        font-size: 20px;
+    }
+    #app {
+        display: flex;
+        align-items: center;
+    }
+
+    .type_floor {
+        width: 100%;
+        height: 100%;
+    }
+
+    #image {
+        width: 900px;
+        max-width: 900px;
+    }
+
+    .floor {
+        width: 88px;
+        height: 88px;
+        display: inline-block;
+        border: 1px solid black;
+    }
+
+    .nowc {
+        background-color: white;
+    }
+
+    .sett {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    .sel {
+        margin: 3px;
+        padding: 3px;
+        border: 3px solid black;
+    }
+
+    .item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 10px;
+    }
+
+    .showcolor {
+        height: 28px;
+        width: 28px;
+        border: 1px solid black;
+    }
+
+    .showcolor:hover {
+        cursor: pointer;
+    }
+
+    .nf {
+        background-color: gray;
+    }
+
+    .cw {
+        background-color: red;
+    }
+
+    .dl {
+        background-color: white;
+    }
+
+    p {
+        margin: 3px;
+    }
+</style>
+
+</html>
