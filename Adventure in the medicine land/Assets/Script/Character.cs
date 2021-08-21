@@ -25,6 +25,9 @@ public class Character : MonoBehaviour
 
     private GameObject targetSquare;
 
+    public GameObject system;
+    private GameSystem gameSystem;
+
     public Character(String faction, String classs, int x, int y)
     {
         this.faction = faction;
@@ -47,11 +50,22 @@ public class Character : MonoBehaviour
 
     void Start()
     {
+        gameSystem = system.GetComponent<GameSystem>();
+        faction = "Player";
     }
 
     void Update()
     {
 
+    }
+
+    void OnMouseDown()
+    {
+        if (gameSystem.State.Equals("Choose a player character") && faction.Equals("Player"))
+        {
+            gameSystem.Player = this;
+            gameSystem.State = "walk";
+        }
     }
     private void attack()
     {
