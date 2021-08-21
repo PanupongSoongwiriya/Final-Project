@@ -8,10 +8,14 @@ public class GameSystem : MonoBehaviour
     private string state;//("Choose a player character", "waiting for orders", "walk", "Choose a enemy character", "round of bots")
     private Character charecterPlayer;
     private GameObject charecterEnimy;
+
+    public List<GameObject> allFloor;
     void Start()
     {
         turn = 0;
         state = "Choose a player character";
+        allFloor = new List<GameObject>();
+
     }
 
     void Update()

@@ -65,6 +65,7 @@ public class Character : MonoBehaviour
         {
             gameSystem.Player = this;
             gameSystem.State = "walk";
+            Debug.Log(gameSystem.State);
         }
     }
     private void attack()

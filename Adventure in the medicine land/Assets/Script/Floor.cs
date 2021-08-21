@@ -30,11 +30,17 @@ public class Floor : MonoBehaviour
     {
         // this object was clicked - do something
         //Destroy(this.gameObject);
-        Debug.Log(gameSystem.State);
         if (gameSystem.State.Equals("walk") && inRange)
         {
             gameSystem.Player.transform.position = this.transform.position;
+            gameSystem.State = "Choose a player character";
+            Debug.Log(gameSystem.State);
             //Debug.Log(this.GetComponent<Transform>().position); //getposition for move Character
         }
+    }
+    public GameObject test
+    {
+        get { return system; }
+        set { system = value; }
     }
 }

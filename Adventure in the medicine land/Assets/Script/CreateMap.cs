@@ -13,8 +13,12 @@ public class CreateMap : MonoBehaviour
     public Texture2D image;
     Dictionary<string, Color> typeColor = new Dictionary<string, Color>();
 
+    public GameObject system;
+    private GameSystem gameSystem;
+
     void Start()
     {
+        gameSystem = system.GetComponent<GameSystem>();
         setColor();
         readMapImage();
         // x = Left(-), Right(+)
@@ -67,34 +71,35 @@ public class CreateMap : MonoBehaviour
     {
         floorObject = Instantiate(floorModel, new Vector3(x_Coordinate, 0, z_Coordinate), transform.rotation);
         floorObject.AddComponent<BoxCollider>();
+        gameSystem.allFloor.Add(floorObject);
         if (pixFloor.gamma.Equals(typeColor["white"].gamma))//Normal
         {
-            floorObject.AddComponent<Floor>();
+            floorObject.AddComponent<Floor>().system = system;
             floorObject.GetComponents<Floor>()[0].setTypeFloor("white", pixFloor);//test
         }
         else if (pixFloor.gamma.Equals(typeColor["red"].gamma))//+ATK
         {
-            floorObject.AddComponent<Floor>();
+            floorObject.AddComponent<Floor>().system = system;
             floorObject.GetComponents<Floor>()[0].setTypeFloor("red", pixFloor);//test
         }
         else if (pixFloor.gamma.Equals(typeColor["cyan"].gamma))//-ATK
         {
-            floorObject.AddComponent<Floor>();
+            floorObject.AddComponent<Floor>().system = system;
             floorObject.GetComponents<Floor>()[0].setTypeFloor("cyan", pixFloor);//test
         }
         else if (pixFloor.gamma.Equals(typeColor["gray"].gamma))//+DEF
         {
-            floorObject.AddComponent<Floor>();
+            floorObject.AddComponent<Floor>().system = system;
             floorObject.GetComponents<Floor>()[0].setTypeFloor("gray", pixFloor);//test
         }
         else if (pixFloor.gamma.Equals(typeColor["brown"].gamma))//-DEF
         {
-            floorObject.AddComponent<Floor>();
+            floorObject.AddComponent<Floor>().system = system;
             floorObject.GetComponents<Floor>()[0].setTypeFloor("brown", pixFloor);//test
         }
         else if (pixFloor.gamma.Equals(typeColor["purple"].gamma))//Poison
         {
-            floorObject.AddComponent<Floor>();
+            floorObject.AddComponent<Floor>().system = system;
             floorObject.GetComponents<Floor>()[0].setTypeFloor("purple", pixFloor);//test
         }
     }
