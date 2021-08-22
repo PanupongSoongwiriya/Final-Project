@@ -6,7 +6,7 @@ using System;
 public class Character : MonoBehaviour
 {
 
-    private String faction;
+    public String faction;
     private String classs;
 
     public int hp;
@@ -53,7 +53,8 @@ public class Character : MonoBehaviour
     void Start()
     {
         gameSystem = system.GetComponent<GameSystem>();
-        faction = "Player";
+        //faction = "Player";
+        //hp = 2;
     }
 
     void Update()
@@ -69,6 +70,13 @@ public class Character : MonoBehaviour
             gameSystem.State = "waiting for orders";
             Debug.Log(gameSystem.State);
             controlPanel.gameObject.SetActive(true);
+        }else if (gameSystem.State.Equals("Choose a enemy character") && !gameSystem.Player.Faction.Equals(faction))
+        {
+            controlPanel.gameObject.SetActive(false);
+            hp -= 1;
+            gameSystem.State = "Choose a player character";
+            Debug.Log(gameSystem.State);
+            checkHP();
         }
     }
     private void attack()
@@ -89,5 +97,20 @@ public class Character : MonoBehaviour
     private void SelectSquare()
     {
 
+    }
+    private void checkHP()
+    {
+        if (hp <= 0)
+        {
+            Debug.Log("Check222222222222222222222222");
+            Debug.Log("HP: " + hp);
+            Destroy(this.gameObject);
+        }
+
+    }
+    public String Faction
+    {
+        get { return faction; }
+        set { faction = value; }
     }
 }
