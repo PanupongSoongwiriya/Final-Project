@@ -28,6 +28,8 @@ public class Character : MonoBehaviour
     public GameObject system;
     private GameSystem gameSystem;
 
+    public GameObject controlPanel;
+
     public Character(String faction, String classs, int x, int y)
     {
         this.faction = faction;
@@ -64,8 +66,9 @@ public class Character : MonoBehaviour
         if (gameSystem.State.Equals("Choose a player character") && faction.Equals("Player"))
         {
             gameSystem.Player = this;
-            gameSystem.State = "walk";
+            gameSystem.State = "waiting for orders";
             Debug.Log(gameSystem.State);
+            controlPanel.gameObject.SetActive(true);
         }
     }
     private void attack()
