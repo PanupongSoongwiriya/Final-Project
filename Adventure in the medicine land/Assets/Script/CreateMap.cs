@@ -70,37 +70,30 @@ public class CreateMap : MonoBehaviour
     private void createFloor(float x_Coordinate, float z_Coordinate, Color pixFloor)
     {
         floorObject = Instantiate(floorModel, new Vector3(x_Coordinate, 0, z_Coordinate), transform.rotation);
-        floorObject.AddComponent<BoxCollider>();
         gameSystem.allFloor.Add(floorObject);
         if (pixFloor.gamma.Equals(typeColor["white"].gamma))//Normal
         {
             floorObject.AddComponent<Floor>().system = system;
-            floorObject.GetComponents<Floor>()[0].setTypeFloor("white", pixFloor);//test
         }
         else if (pixFloor.gamma.Equals(typeColor["red"].gamma))//+ATK
         {
-            floorObject.AddComponent<Floor>().system = system;
-            floorObject.GetComponents<Floor>()[0].setTypeFloor("red", pixFloor);//test
+            floorObject.AddComponent<floorPlusATK>().system = system;
         }
         else if (pixFloor.gamma.Equals(typeColor["cyan"].gamma))//-ATK
         {
-            floorObject.AddComponent<Floor>().system = system;
-            floorObject.GetComponents<Floor>()[0].setTypeFloor("cyan", pixFloor);//test
+            floorObject.AddComponent<floorMinusATK>().system = system;
         }
         else if (pixFloor.gamma.Equals(typeColor["gray"].gamma))//+DEF
         {
-            floorObject.AddComponent<Floor>().system = system;
-            floorObject.GetComponents<Floor>()[0].setTypeFloor("gray", pixFloor);//test
+            floorObject.AddComponent<floorPlusDEF>().system = system;
         }
         else if (pixFloor.gamma.Equals(typeColor["brown"].gamma))//-DEF
         {
-            floorObject.AddComponent<Floor>().system = system;
-            floorObject.GetComponents<Floor>()[0].setTypeFloor("brown", pixFloor);//test
+            floorObject.AddComponent<floorMinusDEF>().system = system;
         }
         else if (pixFloor.gamma.Equals(typeColor["purple"].gamma))//Poison
         {
-            floorObject.AddComponent<Floor>().system = system;
-            floorObject.GetComponents<Floor>()[0].setTypeFloor("purple", pixFloor);//test
+            floorObject.AddComponent<floorPoison>().system = system;
         }
     }
 

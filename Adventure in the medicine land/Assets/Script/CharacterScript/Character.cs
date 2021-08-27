@@ -15,7 +15,7 @@ public class Character : MonoBehaviour
     public int y;
 
     private int attackPower;
-    private int specialAttack;
+    public int specialAttack;
 
     public int defensePower;
     public int specialDefense;
