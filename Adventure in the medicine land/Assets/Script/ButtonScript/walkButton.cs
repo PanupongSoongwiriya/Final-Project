@@ -10,7 +10,7 @@ public class walkButton : controlPanelButton
         {
             gameSystem.State = "walk";
             Debug.Log(gameSystem.State);
-            controlPanel.gameObject.SetActive(false);
+            switchPanel(true, false, false);//controlPanel, optionsPanel, skillPanel
         }
     }
 }

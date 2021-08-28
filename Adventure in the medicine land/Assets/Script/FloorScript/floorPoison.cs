@@ -26,7 +26,7 @@ public class floorPoison : Floor
     }
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.tag == "Medicine" && false)
+        if (collision.gameObject.tag == "Medicine" && false)//false = Conditions related to the turn
         {
             Character charecterPlayer = collision.gameObject.GetComponent<Character>();
             charecterPlayer.hp -= 1;

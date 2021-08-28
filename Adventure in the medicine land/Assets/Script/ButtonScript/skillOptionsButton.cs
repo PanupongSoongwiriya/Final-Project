@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class attackButton : controlPanelButton
+public class skillOptionsButton : controlPanelButton
 {
     public override void changeState()
     {
         if (gameSystem.State.Equals("waiting for orders"))
         {
-            gameSystem.State = "Choose a enemy character";
+            gameSystem.State = "waiting for skill";
             Debug.Log(gameSystem.State);
-            switchPanel(true, false, false);//controlPanel, optionsPanel, skillPanel
+            switchPanel(true, false, true);//controlPanel, optionsPanel, skillPanel
         }
     }
 }

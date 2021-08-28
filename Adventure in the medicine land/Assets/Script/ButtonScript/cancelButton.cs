@@ -10,13 +10,13 @@ public class cancelButton : controlPanelButton
         {
             gameSystem.State = "Choose a player character";
             Debug.Log(gameSystem.State);
-            controlPanel.gameObject.SetActive(false);
+            switchPanel(false, true, false);//controlPanel, optionsPanel, skillPanel
         }
-        else if (gameSystem.State.Equals("walk") || gameSystem.State.Equals("Choose a enemy character"))
+        else if (gameSystem.State.Equals("walk") || gameSystem.State.Equals("Choose a enemy character") || gameSystem.State.Equals("waiting for skill"))
         {
             gameSystem.State = "waiting for orders";
             Debug.Log(gameSystem.State);
-            controlPanel.gameObject.SetActive(true);
+            switchPanel(true, true, false);//controlPanel, optionsPanel, skillPanel
         }
     }
 }

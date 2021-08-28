@@ -28,6 +28,7 @@ public class Floor : MonoBehaviour
         {
             gameSystem.Player.transform.position = new Vector3(transform.position.x, gameSystem.Player.transform.position.y, transform.position.z);//getposition for move Character
             gameSystem.State = "Choose a player character";
+            gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false);
             Debug.Log(gameSystem.State);
         }
     }

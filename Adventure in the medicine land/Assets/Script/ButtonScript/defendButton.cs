@@ -13,7 +13,7 @@ public class defendButton : controlPanelButton
             gameSystem.State = "Choose a player character";
             Debug.Log(gameSystem.State);
             Debug.Log(gameSystem.Player.specialDefense);
-            controlPanel.gameObject.SetActive(false);
+            switchPanel(false, true, false);//controlPanel, optionsPanel, skillPanel
         }
     }
 }

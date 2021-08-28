@@ -5,9 +5,10 @@ using UnityEngine;
 public class GameSystem : MonoBehaviour
 {
     private int turn;
-    private string state;//("Choose a player character", "waiting for orders", "walk", "Choose a enemy character", "round of bots")
+    private string state;//("Choose a player character", "waiting for orders", "walk", "Choose a enemy character", "waiting for skill", "round of bots")
     private Character charecterPlayer;
     private GameObject charecterEnimy;
+    public GameObject controlPanel;
 
     public List<GameObject> allFloor;
     void Start()

@@ -76,6 +76,7 @@ public class Character : MonoBehaviour
             hp -= 1;
             gameSystem.State = "Choose a player character";
             Debug.Log(gameSystem.State);
+            gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false);
             checkHP();
         }
     }
