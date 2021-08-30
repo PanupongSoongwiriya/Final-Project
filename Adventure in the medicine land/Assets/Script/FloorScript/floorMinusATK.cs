@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class floorMinusATK : Floor
 {
+    public int SA = -1;
     void Start()
     {
         gameSystem = system.GetComponent<GameSystem>();
-        inRange = true;
         setTypeFloor();
     }
 
@@ -18,10 +18,27 @@ public class floorMinusATK : Floor
     }
     protected override void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Medicine")
+        if (collision.gameObject.tag == "Medicine" || collision.gameObject.tag == "Disease")
         {
             Character charecterPlayer = collision.gameObject.GetComponent<Character>();
-            charecterPlayer.specialAttack -= 1;
+            charecterPlayer.specialAttack += SA;
+        }
+    }
+    private void OnCollisionStay(Collision collision)
+    {
+        if ((collision.gameObject.tag == "Medicine" || collision.gameObject.tag == "Disease") && changeTurn)
+        {
+            Character charecterPlayer = collision.gameObject.GetComponent<Character>();
+            charecterPlayer.specialAttack = SA;
+            changeTurn = false;
+        }
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Medicine" || collision.gameObject.tag == "Disease")
+        {
+            Character charecterPlayer = collision.gameObject.GetComponent<Character>();
+            charecterPlayer.specialAttack -= SA;
         }
     }
 }

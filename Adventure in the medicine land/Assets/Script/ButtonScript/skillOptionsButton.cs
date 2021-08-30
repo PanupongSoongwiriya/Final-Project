@@ -9,7 +9,6 @@ public class skillOptionsButton : controlPanelButton
         if (gameSystem.State.Equals("waiting for orders"))
         {
             gameSystem.State = "waiting for skill";
-            Debug.Log(gameSystem.State);
             switchPanel(true, false, true);//controlPanel, optionsPanel, skillPanel
         }
     }

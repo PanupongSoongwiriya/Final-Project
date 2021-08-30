@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class floorPoison : Floor
 {
+    public int poison = 1;
     void Start()
     {
         gameSystem = system.GetComponent<GameSystem>();
-        inRange = true;
         setTypeFloor();
     }
 
@@ -18,18 +18,21 @@ public class floorPoison : Floor
     }
     protected override void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Medicine")
+        if (collision.gameObject.tag == "Medicine" || collision.gameObject.tag == "Disease")
         {
+            changeTurn = false;
             Character charecterPlayer = collision.gameObject.GetComponent<Character>();
-            charecterPlayer.hp -= 1;
+            charecterPlayer.hp -= poison;
+            charecterPlayer.checkHP();
         }
     }
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.tag == "Medicine" && false)//false = Conditions related to the turn
+        if ((collision.gameObject.tag == "Medicine" || collision.gameObject.tag == "Disease") && changeTurn)
         {
             Character charecterPlayer = collision.gameObject.GetComponent<Character>();
-            charecterPlayer.hp -= 1;
+            charecterPlayer.hp -= poison;
+            changeTurn = false;
         }
     }
 }

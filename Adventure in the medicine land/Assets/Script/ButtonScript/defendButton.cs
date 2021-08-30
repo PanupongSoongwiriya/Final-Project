@@ -7,12 +7,12 @@ public class defendButton : controlPanelButton
 
     public override void changeState()
     {
+        gameSystem.NowCharecter.doneIt();
         if (gameSystem.State.Equals("waiting for orders"))
         {
-            gameSystem.Player.specialDefense += 1;
-            gameSystem.State = "Choose a player character";
-            Debug.Log(gameSystem.State);
-            Debug.Log(gameSystem.Player.specialDefense);
+            gameSystem.NowCharecter.specialDefense += 1;
+            gameSystem.State = "Choose a medicine character";
+            Debug.Log(gameSystem.NowCharecter.specialDefense);
             switchPanel(false, true, false);//controlPanel, optionsPanel, skillPanel
         }
     }

@@ -9,7 +9,6 @@ public class walkButton : controlPanelButton
         if (gameSystem.State.Equals("waiting for orders"))
         {
             gameSystem.State = "walk";
-            Debug.Log(gameSystem.State);
             switchPanel(true, false, false);//controlPanel, optionsPanel, skillPanel
         }
     }

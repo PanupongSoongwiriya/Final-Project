@@ -8,13 +8,14 @@ public class Character : MonoBehaviour
 
     public String faction;
     private String classs;
+    public bool doneItYet;
 
     public int hp;
 
     public int x;
     public int y;
 
-    private int attackPower;
+    public int attackPower;
     public int specialAttack;
 
     public int defensePower;
@@ -22,8 +23,6 @@ public class Character : MonoBehaviour
 
     private int walkingDistance;
     private int attackRange;
-
-    private GameObject targetSquare;
 
     public GameObject system;
     private GameSystem gameSystem;
@@ -53,8 +52,8 @@ public class Character : MonoBehaviour
     void Start()
     {
         gameSystem = system.GetComponent<GameSystem>();
-        //faction = "Player";
-        //hp = 2;
+        memberUpdate();
+        doneItYet = true;
     }
 
     void Update()
@@ -64,29 +63,19 @@ public class Character : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (gameSystem.State.Equals("Choose a player character") && faction.Equals("Player"))
+        if (gameSystem.State.Equals("Choose a medicine character") && faction.Equals("Medicine"))
         {
-            gameSystem.Player = this;
+            gameSystem.NowCharecter = this;
             gameSystem.State = "waiting for orders";
-            Debug.Log(gameSystem.State);
-            controlPanel.gameObject.SetActive(true);
-        }else if (gameSystem.State.Equals("Choose a enemy character") && !gameSystem.Player.Faction.Equals(faction))
+            gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(true, true, false);
+        }
+        else if (gameSystem.State.Equals("Choose a enemy character") && !gameSystem.NowCharecter.Faction.Equals(faction))
         {
-            controlPanel.gameObject.SetActive(false);
-            hp -= 1;
-            gameSystem.State = "Choose a player character";
-            Debug.Log(gameSystem.State);
+            gameSystem.NowCharecter.doneIt();
+            gameSystem.State = "Choose a medicine character";
             gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false);
             checkHP();
         }
-    }
-    private void attack()
-    {
-        SelectSquare();
-    }
-    private void walk()
-    {
-        SelectSquare();
     }
     private void useSkill()
     {
@@ -95,19 +84,33 @@ public class Character : MonoBehaviour
     {
         specialDefense += 1;
     }
-    private void SelectSquare()
-    {
 
-    }
-    private void checkHP()
+    public void checkHP()
     {
+        int dmg = (gameSystem.NowCharecter.attackPower + gameSystem.NowCharecter.specialAttack) - (defensePower + specialDefense);
+        hp -= Math.Max(0, dmg);
         if (hp <= 0)
         {
-            Debug.Log("Check222222222222222222222222");
-            Debug.Log("HP: " + hp);
             Destroy(this.gameObject);
         }
 
+    }
+    public void doneIt()
+    {
+        doneItYet = false;
+        gameSystem.checkChangeTurn();
+    }
+
+    private void memberUpdate()
+    {
+        if (faction.Equals("Medicine"))
+        {
+            gameSystem.medicineFaction.Add(this);
+        }
+        else
+        {
+            gameSystem.diseaseFaction.Add(this);
+        }
     }
     public String Faction
     {

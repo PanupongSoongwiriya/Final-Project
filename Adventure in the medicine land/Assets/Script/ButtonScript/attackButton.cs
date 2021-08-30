@@ -9,7 +9,6 @@ public class attackButton : controlPanelButton
         if (gameSystem.State.Equals("waiting for orders"))
         {
             gameSystem.State = "Choose a enemy character";
-            Debug.Log(gameSystem.State);
             switchPanel(true, false, false);//controlPanel, optionsPanel, skillPanel
         }
     }

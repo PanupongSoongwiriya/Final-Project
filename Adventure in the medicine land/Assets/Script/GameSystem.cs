@@ -4,39 +4,98 @@ using UnityEngine;
 
 public class GameSystem : MonoBehaviour
 {
-    private int turn;
-    private string state;//("Choose a player character", "waiting for orders", "walk", "Choose a enemy character", "waiting for skill", "round of bots")
-    private Character charecterPlayer;
-    private GameObject charecterEnimy;
+    public int turn;
+    public string whoTurn;
+    private string state;//("Choose a medicine character", "waiting for orders", "walk", "Choose a enemy character", "waiting for skill", "round of bots")
+    private Character nowCharecter;
     public GameObject controlPanel;
 
     public List<GameObject> allFloor;
+    public List<Character> medicineFaction;
+    public List<Character> diseaseFaction;
     void Start()
     {
         turn = 0;
-        state = "Choose a player character";
+        whoTurn = "Medicine";
+        state = "Choose a medicine character";
         allFloor = new List<GameObject>();
+        medicineFaction = new List<Character>();
+        diseaseFaction = new List<Character>();
 
     }
 
-    void Update()
+    public void checkChangeTurn()
     {
+        bool statusChangeTurn = true;
+        if (whoTurn == "Medicine")
+        {
+            foreach (Character medicine in medicineFaction)
+            {
+                if (medicine.doneItYet)
+                {
+                    statusChangeTurn = false;
+                }
+            }
+        }
+        else
+        {
+            foreach (Character disease in diseaseFaction)
+            {
+                if (disease.doneItYet)
+                {
+                    statusChangeTurn = false;
+                }
+            }
+        }
+        if (statusChangeTurn)
+        {
+            Debug.Log(whoTurn + " Turn");
+            //change whoTurn
+            if (whoTurn == "Medicine")
+            {
+                whoTurn = "Disease";
+            }
+            else
+            {
+                whoTurn = "Medicine";
+                changeTurn();
+            }
 
+            //set doneItYet
+            if (whoTurn == "Medicine")
+            {
+                foreach (Character medicine in medicineFaction)
+                {
+                    medicine.doneItYet = true;
+                }
+            }
+            else
+            {
+                foreach (Character disease in diseaseFaction)
+                {
+                    disease.doneItYet = true;
+                }
+            }
+        }
     }
+    public void changeTurn()
+    {
+        turn++;
+        foreach (GameObject floor in allFloor)
+        {
+            floor.GetComponent<Floor>().changeTurn = true;
+        }
+    }
+
+
     public string State
     {
         get { return state; }
-        set { state = value; }
+        set { state = value; Debug.Log(state); }
     }
-    public Character Player
+    public Character NowCharecter
     {
-        get { return charecterPlayer; }
-        set { charecterPlayer = value; }
+        get { return nowCharecter; }
+        set { nowCharecter = value; }
     }
-    public GameObject Enimy
-    {
-        get { return charecterEnimy; }
-        set { charecterEnimy = value; }
-    }
-
 }
