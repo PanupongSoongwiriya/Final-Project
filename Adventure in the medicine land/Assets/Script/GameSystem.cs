@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class GameSystem : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class GameSystem : MonoBehaviour
     public GameObject controlPanel;
 
     public List<GameObject> allFloor;
+    public List<GameObject> allFloorInTerm;
     public List<Character> medicineFaction;
     public List<Character> diseaseFaction;
     void Start()
@@ -34,6 +36,7 @@ public class GameSystem : MonoBehaviour
                 if (medicine.doneItYet)
                 {
                     statusChangeTurn = false;
+                    break;
                 }
             }
         }
@@ -44,6 +47,7 @@ public class GameSystem : MonoBehaviour
                 if (disease.doneItYet)
                 {
                     statusChangeTurn = false;
+                    break;
                 }
             }
         }
@@ -54,6 +58,7 @@ public class GameSystem : MonoBehaviour
             if (whoTurn == "Medicine")
             {
                 whoTurn = "Disease";
+                botChackInTerm();//test
             }
             else
             {
@@ -86,12 +91,79 @@ public class GameSystem : MonoBehaviour
             floor.GetComponent<Floor>().changeTurn = true;
         }
     }
+    public void chackInTerm()
+    {
+        double distance;
+        double x1 = nowCharecter.transform.position.x;
+        double z1 = nowCharecter.transform.position.z;
+        double x2;
+        double z2;
+        int checkTerm = -1;
+        if (state == "waiting for orders")
+        {
+            foreach (GameObject floor in allFloor)
+            {
+                floor.GetComponent<Floor>().InTerm = false;
+            }
+        }
+        else
+        {
+            if (state == "walk")
+            {
+                checkTerm = nowCharecter.walkingDistance;
 
+            }
+            else if (state == "Choose a enemy character")
+            {
+                checkTerm = nowCharecter.attackRange;
+
+            }
+            foreach (GameObject floor in allFloor)
+            {
+                x2 = floor.transform.position.x;
+                z2 = floor.transform.position.z;
+                distance = (Math.Sqrt(Math.Pow((x1 - x2), 2) + Math.Pow((z1 - z2), 2))) / 6;//6 = scale of floor(px)
+                //Debug.Log("Distance: " + distance + " px");
+                if (checkTerm >= distance && ((x1 == x2) || (z1 == z2)))
+                {
+                    floor.GetComponent<Floor>().InTerm = true;
+                }
+            }
+        }
+    }
+    public void botChackInTerm()//test
+    {
+        double distance;
+        double x1 = nowCharecter.transform.position.x;
+        double z1 = nowCharecter.transform.position.z;
+        double x2;
+        double z2;
+        allFloorInTerm.Clear();
+        int checkTerm = nowCharecter.walkingDistance;
+        foreach (GameObject floor in allFloor)
+        {
+            x2 = floor.transform.position.x;
+            z2 = floor.transform.position.z;
+            distance = (Math.Sqrt(Math.Pow((x1 - x2), 2) + Math.Pow((z1 - z2), 2))) / 6;//6 = scale of floor(px)
+            //Debug.Log("Distance: " + distance + " px");
+            if (checkTerm == distance)
+            {
+                allFloorInTerm.Add(floor);
+                floor.GetComponent<Floor>().InTerm = true;
+            }
+        }
+
+    }
 
     public string State
     {
         get { return state; }
-        set { state = value; Debug.Log(state); }
+        set
+        {
+            state = value;
+            Debug.Log(state);
+            chackInTerm();
+        }
     }
     public Character NowCharecter
     {

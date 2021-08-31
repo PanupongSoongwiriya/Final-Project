@@ -28,6 +28,7 @@ public class bot : MonoBehaviour
     {
         testddd = true;
         gameSystem.NowCharecter = chr;
-        gameSystem.allFloor[new System.Random().Next(gameSystem.allFloor.Count)].GetComponent<Floor>().setPositionCharacter();
+        gameSystem.botChackInTerm();
+        gameSystem.allFloorInTerm[new System.Random().Next(gameSystem.allFloorInTerm.Count)].GetComponent<Floor>().setPositionCharacter();
     }
 }

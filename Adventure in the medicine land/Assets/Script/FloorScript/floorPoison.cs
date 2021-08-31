@@ -22,8 +22,7 @@ public class floorPoison : Floor
         {
             changeTurn = false;
             Character charecterPlayer = collision.gameObject.GetComponent<Character>();
-            charecterPlayer.hp -= poison;
-            charecterPlayer.checkHP();
+            charecterPlayer.HP -= poison;
         }
     }
     private void OnCollisionStay(Collision collision)
@@ -31,7 +30,7 @@ public class floorPoison : Floor
         if ((collision.gameObject.tag == "Medicine" || collision.gameObject.tag == "Disease") && changeTurn)
         {
             Character charecterPlayer = collision.gameObject.GetComponent<Character>();
-            charecterPlayer.hp -= poison;
+            charecterPlayer.HP -= poison;
             changeTurn = false;
         }
     }

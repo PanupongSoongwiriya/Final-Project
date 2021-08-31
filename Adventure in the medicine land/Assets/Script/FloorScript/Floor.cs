@@ -7,7 +7,7 @@ public class Floor : MonoBehaviour
     protected GameObject Character;
     public GameObject system;
     protected GameSystem gameSystem;
-    protected bool inRange = true;
+    protected bool inTerm = false;
     protected Color floorColor;
     public bool changeTurn = false;
     void Start()
@@ -23,7 +23,7 @@ public class Floor : MonoBehaviour
     }
     void OnMouseDown()
     {
-        if (gameSystem.State.Equals("walk") && inRange)
+        if (gameSystem.State.Equals("walk") && inTerm)
         {
             setPositionCharacter();
         }
@@ -42,5 +42,11 @@ public class Floor : MonoBehaviour
         gameSystem.NowCharecter.transform.position = new Vector3(transform.position.x, gameSystem.NowCharecter.transform.position.y, transform.position.z);//getposition for move Character
         gameSystem.State = "Choose a medicine character";
         gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false);
+    }
+
+    public bool InTerm
+    {
+        get { return inTerm; }
+        set { inTerm = value; }
     }
 }

@@ -21,8 +21,8 @@ public class Character : MonoBehaviour
     public int defensePower;
     public int specialDefense;
 
-    private int walkingDistance;
-    private int attackRange;
+    public int walkingDistance;
+    public int attackRange;
 
     public GameObject system;
     private GameSystem gameSystem;
@@ -63,18 +63,26 @@ public class Character : MonoBehaviour
 
     void OnMouseDown()
     {
+        bool inEnimyTerm = false;
+        double distance = -1;
+        if (gameSystem.NowCharecter != null)
+        {
+            distance = (Math.Sqrt(Math.Pow((transform.position.x - gameSystem.NowCharecter.transform.position.x), 2) + Math.Pow((transform.position.z - gameSystem.NowCharecter.transform.position.z), 2))) / 6;
+            inEnimyTerm = (gameSystem.NowCharecter.attackRange >= distance && (transform.position.x == gameSystem.NowCharecter.transform.position.x || transform.position.z == gameSystem.NowCharecter.transform.position.z));
+        }
         if (gameSystem.State.Equals("Choose a medicine character") && faction.Equals("Medicine"))
         {
             gameSystem.NowCharecter = this;
             gameSystem.State = "waiting for orders";
             gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(true, true, false);
         }
-        else if (gameSystem.State.Equals("Choose a enemy character") && !gameSystem.NowCharecter.Faction.Equals(faction))
+        else if (gameSystem.State.Equals("Choose a enemy character") && !gameSystem.NowCharecter.Faction.Equals(faction) && inEnimyTerm)
         {
             gameSystem.NowCharecter.doneIt();
             gameSystem.State = "Choose a medicine character";
             gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false);
-            checkHP();
+            int dmg = (gameSystem.NowCharecter.attackPower + gameSystem.NowCharecter.specialAttack) - (defensePower + specialDefense);
+            HP -= Math.Max(0, dmg);
         }
     }
     private void useSkill()
@@ -87,8 +95,6 @@ public class Character : MonoBehaviour
 
     public void checkHP()
     {
-        int dmg = (gameSystem.NowCharecter.attackPower + gameSystem.NowCharecter.specialAttack) - (defensePower + specialDefense);
-        hp -= Math.Max(0, dmg);
         if (hp <= 0)
         {
             Destroy(this.gameObject);
@@ -116,5 +122,10 @@ public class Character : MonoBehaviour
     {
         get { return faction; }
         set { faction = value; }
+    }
+    public int HP
+    {
+        get { return hp; }
+        set { hp = value; checkHP(); }
     }
 }
