@@ -54,6 +54,7 @@ public class Character : MonoBehaviour
         gameSystem = system.GetComponent<GameSystem>();
         memberUpdate();
         doneItYet = true;
+        walkingDistance = 2;
     }
 
     void Update()
@@ -63,6 +64,7 @@ public class Character : MonoBehaviour
 
     void OnMouseDown()
     {
+        Debug.Log("111111111111111111111111111");
         bool inEnimyTerm = false;
         double distance = -1;
         if (gameSystem.NowCharecter != null)

@@ -124,7 +124,7 @@ public class GameSystem : MonoBehaviour
                 z2 = floor.transform.position.z;
                 distance = (Math.Sqrt(Math.Pow((x1 - x2), 2) + Math.Pow((z1 - z2), 2))) / 6;//6 = scale of floor(px)
                 //Debug.Log("Distance: " + distance + " px");
-                if (checkTerm >= distance && ((x1 == x2) || (z1 == z2)))
+                if (checkTerm >= distance && distance != 0)
                 {
                     floor.GetComponent<Floor>().InTerm = true;
                 }
@@ -146,7 +146,7 @@ public class GameSystem : MonoBehaviour
             z2 = floor.transform.position.z;
             distance = (Math.Sqrt(Math.Pow((x1 - x2), 2) + Math.Pow((z1 - z2), 2))) / 6;//6 = scale of floor(px)
             //Debug.Log("Distance: " + distance + " px");
-            if (checkTerm == distance)
+            if (checkTerm >= distance && distance != 0)
             {
                 allFloorInTerm.Add(floor);
                 floor.GetComponent<Floor>().InTerm = true;
