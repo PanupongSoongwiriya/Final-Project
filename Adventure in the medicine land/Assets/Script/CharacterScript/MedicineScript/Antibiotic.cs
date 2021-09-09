@@ -3,45 +3,43 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Character : MonoBehaviour
+public class Antibiotic : Character
 {
-    public String characterName;
-    public String faction;
-    public String classCharacter;
-    public bool doneItYet;
-
-    public int hp;
-
-    public int x;
-    public int y;
-
-    public int attackPower;
-    public int specialAttack;
-
-    public int defensePower;
-    public int specialDefense;
-
-    public int walkingDistance;
-    public int attackRange;
-
-    public GameObject system;
-    protected GameSystem gameSystem;
-
-   
-    protected List<Skill> allSkill;
-
-    
-
     void Start()
     {
+        characterName = "Hero";
+        faction = "Medicine";
+        classCharacter = "Antibiotic";
+
+        HP = 10;
+
+        attackPower = 2;
+        defensePower = 1;
+
+        walkingDistance = 3;
+        attackRange = 1;
+
+
         gameSystem = system.GetComponent<GameSystem>();
         memberUpdate();
         doneItYet = true;
+
+        allSkill.Add(new HeavyATK());
     }
 
+    // Update is called once per frame
     void Update()
     {
-
+        
+    }
+    public float checkAdvantage()
+    {
+        if (gameSystem.NowCharecter.classCharacter.Equals("Infect"))
+        {
+            return 0.5f;
+        }
+        return 1;
+        
     }
 
     void OnMouseDown()
@@ -64,51 +62,9 @@ public class Character : MonoBehaviour
             gameSystem.NowCharecter.doneIt();
             gameSystem.State = "Choose a medicine character";
             gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false, false, false);//controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
+            checkAdvantage();
             int dmg = (gameSystem.NowCharecter.attackPower + gameSystem.NowCharecter.specialAttack) - (defensePower + specialDefense);
-            HP -= Math.Max(0, dmg);
+            HP -= Math.Max(0, (int)(dmg*checkAdvantage()));
         }
-    }
-    protected void useSkill()
-    {
-    }
-    private void defense()
-    {
-        specialDefense += 1;
-    }
-
-    public void checkHP()
-    {
-        if (hp <= 0)
-        {
-            Destroy(this.gameObject);
-        }
-
-    }
-    public void doneIt()
-    {
-        doneItYet = false;
-        gameSystem.checkChangeTurn();
-    }
-
-    protected void memberUpdate()
-    {
-        if (faction.Equals("Medicine"))
-        {
-            gameSystem.medicineFaction.Add(this);
-        }
-        else
-        {
-            gameSystem.diseaseFaction.Add(this);
-        }
-    }
-    public String Faction
-    {
-        get { return faction; }
-        set { faction = value; }
-    }
-    public int HP
-    {
-        get { return hp; }
-        set { hp = value; checkHP(); }
     }
 }

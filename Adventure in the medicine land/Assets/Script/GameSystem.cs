@@ -7,7 +7,7 @@ public class GameSystem : MonoBehaviour
 {
     public int turn;
     public string whoTurn;
-    private string state;//("Choose a medicine character", "waiting for orders", "walk", "Choose a enemy character", "waiting for skill", "round of bots")
+    private string state;//("Choose a medicine character", "waiting for orders", "walk", "Choose a enemy character", "waiting for skill", "Use skills with enemies", "Use skills with ally", "round of bots")
     private Character nowCharecter;
     public GameObject controlPanel;
 
@@ -19,7 +19,7 @@ public class GameSystem : MonoBehaviour
     {
         turn = 0;
         whoTurn = "Medicine";
-        state = "Choose a medicine character";
+        State = "Choose a medicine character";
         allFloor = new List<GameObject>();
         medicineFaction = new List<Character>();
         diseaseFaction = new List<Character>();
@@ -36,6 +36,7 @@ public class GameSystem : MonoBehaviour
                 if (medicine.doneItYet)
                 {
                     statusChangeTurn = false;
+                    State = "Choose a medicine character";
                     break;
                 }
             }
@@ -53,18 +54,20 @@ public class GameSystem : MonoBehaviour
         }
         if (statusChangeTurn)
         {
-            Debug.Log(whoTurn + " Turn");
             //change whoTurn
             if (whoTurn == "Medicine")
             {
                 whoTurn = "Disease";
+                State = "round of bots";
                 botChackInTerm();//test
             }
             else
             {
                 whoTurn = "Medicine";
+                State = "Choose a medicine character";
                 changeTurn();
             }
+            Debug.Log(whoTurn + " Turn");
 
             //set doneItYet
             if (whoTurn == "Medicine")
@@ -94,12 +97,19 @@ public class GameSystem : MonoBehaviour
     public void chackInTerm()
     {
         double distance;
-        double x1 = nowCharecter.transform.position.x;
-        double z1 = nowCharecter.transform.position.z;
+        double x1 = 0;
+        double z1 = 0;
         double x2;
         double z2;
         int checkTerm = -1;
-        if (state == "waiting for orders")
+
+        if (nowCharecter != null)
+        {
+            x1 = nowCharecter.transform.position.x;
+            z1 = nowCharecter.transform.position.z;
+        }
+
+        if (State == "waiting for orders")
         {
             foreach (GameObject floor in allFloor)
             {
@@ -108,12 +118,12 @@ public class GameSystem : MonoBehaviour
         }
         else
         {
-            if (state == "walk")
+            if (State == "walk")
             {
                 checkTerm = nowCharecter.walkingDistance;
 
             }
-            else if (state == "Choose a enemy character")
+            else if (State == "Choose a enemy character")
             {
                 checkTerm = nowCharecter.attackRange;
 
@@ -149,7 +159,7 @@ public class GameSystem : MonoBehaviour
             if (checkTerm >= distance && distance != 0)
             {
                 allFloorInTerm.Add(floor);
-                floor.GetComponent<Floor>().InTerm = true;
+                //floor.GetComponent<Floor>().InTerm = true;
             }
         }
 

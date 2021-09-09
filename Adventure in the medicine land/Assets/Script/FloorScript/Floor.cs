@@ -35,13 +35,23 @@ public class Floor : MonoBehaviour
         Debug.Log("Who: " + collision.gameObject.name);
         Debug.Log("Floor: " + floorColor);
     }
+    private void OnCollisionStay(Collision collision)
+    {
+        if ((collision.gameObject.tag == "Medicine" || collision.gameObject.tag == "Disease") && changeTurn)
+        {
+            Character charecterPlayer = collision.gameObject.GetComponent<Character>();
+            charecterPlayer.specialDefense = 0;
+            charecterPlayer.specialAttack = 0;
+            changeTurn = false;
+        }
+    }
 
     public void setPositionCharacter()
     {
         gameSystem.NowCharecter.doneIt();
         gameSystem.NowCharecter.transform.position = new Vector3(transform.position.x, gameSystem.NowCharecter.transform.position.y, transform.position.z);//getposition for move Character
-        gameSystem.State = "Choose a medicine character";
-        gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false);
+        gameSystem.checkChangeTurn();
+        gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false, false, false);//controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
     }
 
     public bool InTerm

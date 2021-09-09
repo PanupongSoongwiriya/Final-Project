@@ -11,7 +11,7 @@ public class bot : MonoBehaviour
     void Start()
     {
         gameSystem = system.GetComponent<GameSystem>();
-        chr = gameObject.GetComponent<Character>();
+        chr = gameObject.GetComponent<Infect>();
         testddd = true;
     }
 
