@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class defendButton : controlPanelButton
 {
-
     public override void changeState()
     {
         if (gameSystem.State.Equals("waiting for orders"))

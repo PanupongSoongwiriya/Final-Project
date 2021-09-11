@@ -27,10 +27,11 @@ public class Character : MonoBehaviour
     public GameObject system;
     protected GameSystem gameSystem;
 
-   
-    protected List<Skill> allSkill;
 
-    
+    public List<Skill> allSkill;
+    protected int beforeTurn = -1;
+
+
 
     void Start()
     {
@@ -41,32 +42,14 @@ public class Character : MonoBehaviour
 
     void Update()
     {
-
+        resetSP();
     }
 
     void OnMouseDown()
     {
-        bool inEnimyTerm = false;
-        double distance = -1;
-        if (gameSystem.NowCharecter != null)
-        {
-            distance = (Math.Sqrt(Math.Pow((transform.position.x - gameSystem.NowCharecter.transform.position.x), 2) + Math.Pow((transform.position.z - gameSystem.NowCharecter.transform.position.z), 2))) / 6;
-            inEnimyTerm = (gameSystem.NowCharecter.attackRange >= distance && (transform.position.x == gameSystem.NowCharecter.transform.position.x || transform.position.z == gameSystem.NowCharecter.transform.position.z));
-        }
-        if (gameSystem.State.Equals("Choose a medicine character") && faction.Equals("Medicine"))
-        {
-            gameSystem.NowCharecter = this;
-            gameSystem.State = "waiting for orders";
-            gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(true, true, false, true, false);//controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
-        }
-        else if (gameSystem.State.Equals("Choose a enemy character") && !gameSystem.NowCharecter.Faction.Equals(faction) && inEnimyTerm)
-        {
-            gameSystem.NowCharecter.doneIt();
-            gameSystem.State = "Choose a medicine character";
-            gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false, false, false);//controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
-            int dmg = (gameSystem.NowCharecter.attackPower + gameSystem.NowCharecter.specialAttack) - (defensePower + specialDefense);
-            HP -= Math.Max(0, dmg);
-        }
+        showDetailDisease();
+        prepare();
+        attacked();
     }
     protected void useSkill()
     {
@@ -76,6 +59,48 @@ public class Character : MonoBehaviour
         specialDefense += 1;
     }
 
+    protected void prepare()
+    {
+        if (gameSystem.State.Equals("Choose a medicine character") && faction.Equals("Medicine"))
+        {
+            gameSystem.NowCharecter = this;
+            gameSystem.State = "waiting for orders";
+            gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(true, true, false, true, false);//controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
+        }
+    }
+    protected void showDetailDisease()
+    {
+        if ((gameSystem.State.Equals("Choose a medicine character") && faction.Equals("Disease")) || (gameSystem.State.Equals("waiting for orders") && faction.Equals("Disease")))
+        {
+            gameSystem.NowCharecter = this;
+            gameSystem.State = "Choose a medicine character";
+            gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(true, false, false, true, false);//controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
+        }
+    }
+
+    protected void attacked()
+    {
+        bool inEnimyTerm = false;
+        if (gameSystem.NowCharecter != null)
+        {
+            double distance = (Math.Sqrt(Math.Pow((transform.position.x - gameSystem.NowCharecter.transform.position.x), 2) + Math.Pow((transform.position.z - gameSystem.NowCharecter.transform.position.z), 2))) / 6;
+            inEnimyTerm = (gameSystem.NowCharecter.attackRange >= distance && (transform.position.x == gameSystem.NowCharecter.transform.position.x || transform.position.z == gameSystem.NowCharecter.transform.position.z));
+        }
+        if (gameSystem.State.Equals("Choose a enemy character") && !gameSystem.NowCharecter.Faction.Equals(faction) && inEnimyTerm)
+        {
+            gameSystem.NowCharecter.doneIt();
+            gameSystem.State = "Choose a medicine character";
+            gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false, false, false);//controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
+            checkAdvantage();
+            int dmg = (gameSystem.NowCharecter.attackPower + gameSystem.NowCharecter.specialAttack) - (defensePower + specialDefense);
+            HP -= Math.Max(0, (int)(dmg * checkAdvantage()));
+        }
+    }
+
+    protected virtual float checkAdvantage()
+    {
+        return 1;
+    }
     public void checkHP()
     {
         if (hp <= 0)
@@ -99,6 +124,18 @@ public class Character : MonoBehaviour
         else
         {
             gameSystem.diseaseFaction.Add(this);
+        }
+    }
+
+    protected void resetSP()
+    {
+        if (beforeTurn != gameSystem.turn)
+        {
+            beforeTurn = gameSystem.turn;
+            specialDefense = 0;
+            specialAttack = 0;
+            Debug.Log("specialAttack: " + specialAttack);
+            Debug.Log("specialDefense: " + specialDefense);
         }
     }
     public String Faction
