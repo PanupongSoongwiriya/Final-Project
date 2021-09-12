@@ -12,9 +12,6 @@ public class Character : MonoBehaviour
 
     public int hp;
 
-    public int x;
-    public int y;
-
     public int attackPower;
     public int specialAttack;
 
@@ -26,10 +23,11 @@ public class Character : MonoBehaviour
 
     public GameObject system;
     protected GameSystem gameSystem;
+    protected int beforeTurn = -1;
+    public int indexSkill;
 
 
     public List<Skill> allSkill;
-    protected int beforeTurn = -1;
 
 
 
@@ -51,8 +49,10 @@ public class Character : MonoBehaviour
         prepare();
         attacked();
     }
-    protected void useSkill()
+    public void useSkill(int index)
     {
+        indexSkill = index;
+        allSkill[indexSkill].changeState();
     }
     private void defense()
     {
@@ -85,13 +85,11 @@ public class Character : MonoBehaviour
         {
             double distance = (Math.Sqrt(Math.Pow((transform.position.x - gameSystem.NowCharecter.transform.position.x), 2) + Math.Pow((transform.position.z - gameSystem.NowCharecter.transform.position.z), 2))) / 6;
             inEnimyTerm = (gameSystem.NowCharecter.attackRange >= distance && (transform.position.x == gameSystem.NowCharecter.transform.position.x || transform.position.z == gameSystem.NowCharecter.transform.position.z));
-        }
-        if (gameSystem.State.Equals("Choose a enemy character") && !gameSystem.NowCharecter.Faction.Equals(faction) && inEnimyTerm)
+        }if ((gameSystem.State.Equals("Choose a enemy character") || gameSystem.State.Equals("Use skills with enemies")) && !gameSystem.NowCharecter.Faction.Equals(faction) && inEnimyTerm)
         {
             gameSystem.NowCharecter.doneIt();
             gameSystem.State = "Choose a medicine character";
             gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false, false, false);//controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
-            checkAdvantage();
             int dmg = (gameSystem.NowCharecter.attackPower + gameSystem.NowCharecter.specialAttack) - (defensePower + specialDefense);
             HP -= Math.Max(0, (int)(dmg * checkAdvantage()));
         }
@@ -134,8 +132,6 @@ public class Character : MonoBehaviour
             beforeTurn = gameSystem.turn;
             specialDefense = 0;
             specialAttack = 0;
-            Debug.Log("specialAttack: " + specialAttack);
-            Debug.Log("specialDefense: " + specialDefense);
         }
     }
     public String Faction

@@ -10,7 +10,6 @@ public class skillOptionsButton : controlPanelButton
         if (gameSystem.State.Equals("waiting for orders"))
         {
             gameSystem.State = "waiting for skill";
-            Debug.Log("Skill Count: " + gameSystem.NowCharecter.allSkill.Count);
             SkillPanel.GetComponent<SkillPanel>().numberOfSkill = gameSystem.NowCharecter.allSkill.Count;
             SkillPanel.GetComponent<SkillPanel>().gameSystem = gameSystem;
             skillDetailPanel.GetComponent<SkillDetailPanel>().numberOfSkill = gameSystem.NowCharecter.allSkill.Count;

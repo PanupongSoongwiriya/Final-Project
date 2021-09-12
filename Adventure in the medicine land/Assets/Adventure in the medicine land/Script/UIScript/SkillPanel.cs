@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SkillPanel : MonoBehaviour
 {
@@ -28,12 +29,20 @@ public class SkillPanel : MonoBehaviour
         skillButton_3.gameObject.SetActive(numberOfSkill > 2);
         if (numberOfSkill > 0)
         {
+            skillButton_1.GetComponentsInChildren<Text>()[0].text = gameSystem.NowCharecter.allSkill[0].SkillName;
         }
         if (numberOfSkill > 1)
         {
+            skillButton_2.GetComponentsInChildren<Text>()[0].text = gameSystem.NowCharecter.allSkill[1].SkillName;
         }
         if (numberOfSkill > 2)
         {
+            skillButton_3.GetComponentsInChildren<Text>()[0].text = gameSystem.NowCharecter.allSkill[2].SkillName;
         }
+    }
+
+    public void activeSkill(int index)
+    {
+        gameSystem.NowCharecter.useSkill(index);
     }
 }

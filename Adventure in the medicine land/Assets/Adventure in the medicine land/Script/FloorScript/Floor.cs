@@ -31,9 +31,6 @@ public class Floor : MonoBehaviour
 
     protected virtual void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("--------------------------------------");
-        Debug.Log("Who: " + collision.gameObject.name);
-        Debug.Log("Floor: " + floorColor);
     }
     private void OnCollisionStay(Collision collision)
     {

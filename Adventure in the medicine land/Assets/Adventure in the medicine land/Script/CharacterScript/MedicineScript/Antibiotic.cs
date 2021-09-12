@@ -24,12 +24,18 @@ public class Antibiotic : Character
         memberUpdate();
         doneItYet = true;
 
-        allSkill.Add(new HeavyATK());
+        allSkill.Add(new HeavyATK(gameSystem));
     }
 
     void Update()
     {
         resetSP();
+    }
+    void OnMouseDown()
+    {
+        showDetailDisease();
+        prepare();
+        attacked();
     }
     protected override float checkAdvantage()
     {
@@ -38,13 +44,6 @@ public class Antibiotic : Character
             return 0.5f;
         }
         return 1;
-        
     }
 
-    void OnMouseDown()
-    {
-        showDetailDisease();
-        prepare();
-        attacked();
-    }
 }

@@ -19,7 +19,8 @@ public class cancelButton : controlPanelButton
         else if (gameSystem.State.Equals("Use skills with enemies") || gameSystem.State.Equals("Use skills with ally"))
         {
             gameSystem.State = "waiting for skill";
-            switchPanel(true, false, true, false, false);//controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
+            gameSystem.NowCharecter.allSkill[gameSystem.NowCharecter.indexSkill].cancelSkill();
+            switchPanel(true, false, true, false, true);//controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
         }
     }
 }

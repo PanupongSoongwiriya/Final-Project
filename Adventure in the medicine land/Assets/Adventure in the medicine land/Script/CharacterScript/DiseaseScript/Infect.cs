@@ -11,7 +11,7 @@ public class Infect : Character
         faction = "Disease";
         classCharacter = "Infect";
 
-        HP = 3;
+        HP = 4;
 
         attackPower = 1;
         defensePower = 1;
@@ -30,6 +30,12 @@ public class Infect : Character
     {
         resetSP();
     }
+    void OnMouseDown()
+    {
+        showDetailDisease();
+        prepare();
+        attacked();
+    }
     protected override float checkAdvantage()
     {
         if (gameSystem.NowCharecter.classCharacter.Equals("Antibiotic"))
@@ -40,10 +46,5 @@ public class Infect : Character
 
     }
 
-    void OnMouseDown()
-    {
-        showDetailDisease();
-        prepare();
-        attacked();
-    }
+    
 }
