@@ -10,13 +10,6 @@ public class SkillPanel : MonoBehaviour
     public GameObject skillButton_2;
     public GameObject skillButton_3;
     public GameSystem gameSystem;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         showButton();

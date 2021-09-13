@@ -13,12 +13,11 @@ public class CreateMap : MonoBehaviour
     public Texture2D image;
     Dictionary<string, Color> typeColor = new Dictionary<string, Color>();
 
-    public GameObject system;
     private GameSystem gameSystem;
 
     void Start()
     {
-        gameSystem = system.GetComponent<GameSystem>();
+        gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
         setColor();
         readMapImage();
         // x = Left(-), Right(+)
@@ -73,27 +72,27 @@ public class CreateMap : MonoBehaviour
         gameSystem.allFloor.Add(floorObject);
         if (pixFloor.gamma.Equals(typeColor["white"].gamma))//Normal
         {
-            floorObject.AddComponent<Floor>().system = system;
+            floorObject.AddComponent<Floor>();
         }
         else if (pixFloor.gamma.Equals(typeColor["red"].gamma))//+ATK
         {
-            floorObject.AddComponent<floorPlusATK>().system = system;
+            floorObject.AddComponent<floorPlusATK>();
         }
         else if (pixFloor.gamma.Equals(typeColor["cyan"].gamma))//-ATK
         {
-            floorObject.AddComponent<floorMinusATK>().system = system;
+            floorObject.AddComponent<floorMinusATK>();
         }
         else if (pixFloor.gamma.Equals(typeColor["gray"].gamma))//+DEF
         {
-            floorObject.AddComponent<floorPlusDEF>().system = system;
+            floorObject.AddComponent<floorPlusDEF>();
         }
         else if (pixFloor.gamma.Equals(typeColor["brown"].gamma))//-DEF
         {
-            floorObject.AddComponent<floorMinusDEF>().system = system;
+            floorObject.AddComponent<floorMinusDEF>();
         }
         else if (pixFloor.gamma.Equals(typeColor["purple"].gamma))//Poison
         {
-            floorObject.AddComponent<floorPoison>().system = system;
+            floorObject.AddComponent<floorPoison>();
         }
     }
 

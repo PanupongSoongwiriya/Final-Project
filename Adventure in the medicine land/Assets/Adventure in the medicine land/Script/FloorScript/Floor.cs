@@ -5,14 +5,13 @@ using UnityEngine;
 public class Floor : MonoBehaviour
 {
     protected GameObject Character;
-    public GameObject system;
     protected GameSystem gameSystem;
     protected bool inTerm = false;
     protected Color floorColor;
     public bool changeTurn = false;
     void Start()
     {
-        gameSystem = system.GetComponent<GameSystem>();
+        gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
         setTypeFloor();
     }
 
@@ -29,6 +28,19 @@ public class Floor : MonoBehaviour
         }
     }
 
+    protected void showInTerm()
+    {
+        GameObject show = transform.GetChild(0).gameObject;
+        show.SetActive(inTerm);
+        if (gameSystem.State == "walk" || gameSystem.State == "Use skills with ally")
+        {
+            show.GetComponent<Renderer>().material.SetColor("_Color", new Color(0, 1, 0, 0.25f));
+        }
+        else if (gameSystem.State == "Choose a enemy character" || gameSystem.State == "Use skills with enemies")
+        {
+            show.GetComponent<Renderer>().material.SetColor("_Color", new Color(1, 0, 0, 0.5f));
+        }
+    }
     protected virtual void OnCollisionEnter(Collision collision)
     {
     }
@@ -48,12 +60,13 @@ public class Floor : MonoBehaviour
         gameSystem.NowCharecter.doneIt();
         gameSystem.NowCharecter.transform.position = new Vector3(transform.position.x, gameSystem.NowCharecter.transform.position.y, transform.position.z);//getposition for move Character
         gameSystem.checkChangeTurn();
+        gameSystem.resetInTerm();
         gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false, false, false);//controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
     }
 
     public bool InTerm
     {
         get { return inTerm; }
-        set { inTerm = value; }
+        set { inTerm = value; showInTerm(); }
     }
 }

@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,8 +8,8 @@ public class HeavyATK : Skill
     {
         gameSystem = gs;
         skillName = "Heavy ATK";
-        desCripTion = "Select 1 enemy within the attack range to deal extra damage.";
-        bonusEffect = 2;
+        desCripTion = "เลือกศัตรูในระยะการโจมตีหนึ่งตัวเพื่อสร้างความเสียหายแบบพิเศษ(+spAtk 1)";
+        bonusEffect = 1;
     }
     void Start()
     {

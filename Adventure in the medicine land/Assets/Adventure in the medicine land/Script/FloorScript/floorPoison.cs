@@ -7,7 +7,7 @@ public class floorPoison : Floor
     public int poison = 1;
     void Start()
     {
-        gameSystem = system.GetComponent<GameSystem>();
+        gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
         setTypeFloor();
     }
 

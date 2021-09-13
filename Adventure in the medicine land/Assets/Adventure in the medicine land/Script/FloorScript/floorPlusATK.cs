@@ -7,7 +7,7 @@ public class floorPlusATK : Floor
     public int SA = 1;
     void Start()
     {
-        gameSystem = system.GetComponent<GameSystem>();
+        gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
         setTypeFloor();
     }
 
@@ -26,6 +26,7 @@ public class floorPlusATK : Floor
     }
     private void OnCollisionStay(Collision collision)
     {
+        Debug.Log("activeeeeeeeeeeeeeeeeeeeee");
         if ((collision.gameObject.tag == "Medicine" || collision.gameObject.tag == "Disease") && changeTurn)
         {
             Character charecterPlayer = collision.gameObject.GetComponent<Character>();

@@ -21,7 +21,6 @@ public class Character : MonoBehaviour
     public int walkingDistance;
     public int attackRange;
 
-    public GameObject system;
     protected GameSystem gameSystem;
     protected int beforeTurn = -1;
     public int indexSkill;
@@ -33,7 +32,6 @@ public class Character : MonoBehaviour
 
     void Start()
     {
-        gameSystem = system.GetComponent<GameSystem>();
         memberUpdate();
         doneItYet = true;
     }
@@ -45,6 +43,7 @@ public class Character : MonoBehaviour
 
     void OnMouseDown()
     {
+        setPositionCamera();
         showDetailDisease();
         prepare();
         attacked();
@@ -57,6 +56,14 @@ public class Character : MonoBehaviour
     private void defense()
     {
         specialDefense += 1;
+    }
+
+    protected void setPositionCamera()
+    {
+        if (!gameSystem.State.Equals("round of bots") || !gameSystem.State.Equals("walk") || !gameSystem.State.Equals("Choose a enemy character"))
+        {
+            GameObject.Find("Main Camera").transform.position = new Vector3(transform.position.x, GameObject.Find("Main Camera").transform.position.y, transform.position.z);
+        }
     }
 
     protected void prepare()
@@ -127,9 +134,9 @@ public class Character : MonoBehaviour
 
     protected void resetSP()
     {
-        if (beforeTurn != gameSystem.turn)
+        if (beforeTurn != gameSystem.Turn)
         {
-            beforeTurn = gameSystem.turn;
+            beforeTurn = gameSystem.Turn;
             specialDefense = 0;
             specialAttack = 0;
         }

@@ -5,7 +5,7 @@ using System;
 
 public class GameSystem : MonoBehaviour
 {
-    public int turn;
+    private int turn;
     public string whoTurn;
     private string state;//("Choose a medicine character", "waiting for orders", "walk", "Choose a enemy character", "waiting for skill", "Use skills with enemies", "Use skills with ally", "round of bots")
     private Character nowCharecter;
@@ -109,12 +109,9 @@ public class GameSystem : MonoBehaviour
             z1 = nowCharecter.transform.position.z;
         }
 
-        if (State == "waiting for orders")
+        if (State == "waiting for orders" || State == "waiting for skill")
         {
-            foreach (GameObject floor in allFloor)
-            {
-                floor.GetComponent<Floor>().InTerm = false;
-            }
+            resetInTerm();
         }
         else
         {
@@ -123,18 +120,17 @@ public class GameSystem : MonoBehaviour
                 checkTerm = nowCharecter.walkingDistance;
 
             }
-            else if (State == "Choose a enemy character")
+            else if (State == "Choose a enemy character" || State == "Use skills with enemies")
             {
                 checkTerm = nowCharecter.attackRange;
-
             }
             foreach (GameObject floor in allFloor)
             {
                 x2 = floor.transform.position.x;
                 z2 = floor.transform.position.z;
-                distance = (Math.Sqrt(Math.Pow((x1 - x2), 2) + Math.Pow((z1 - z2), 2))) / 6;//6 = scale of floor(px)
+                distance = (Math.Sqrt(Math.Pow((x1 - x2), 2) + Math.Pow((z1 - z2), 2)));
                 //Debug.Log("Distance: " + distance + " px");
-                if (checkTerm >= distance && distance != 0)
+                if (distance != 0 && distance <= (checkTerm * 6))//6 = scale of floor(px)
                 {
                     floor.GetComponent<Floor>().InTerm = true;
                 }
@@ -165,6 +161,14 @@ public class GameSystem : MonoBehaviour
 
     }
 
+    public void resetInTerm()
+    {
+        foreach (GameObject floor in allFloor)
+        {
+            floor.GetComponent<Floor>().InTerm = false;
+        }
+    }
+
     public string State
     {
         get { return state; }
@@ -180,4 +184,10 @@ public class GameSystem : MonoBehaviour
         get { return nowCharecter; }
         set { nowCharecter = value; }
     }
+    public int Turn
+    {
+        get { return turn; }
+        set { turn = value; }
+    }
+    
 }

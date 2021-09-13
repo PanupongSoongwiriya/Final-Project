@@ -7,7 +7,7 @@ public class floorMinusATK : Floor
     public int SA = -1;
     void Start()
     {
-        gameSystem = system.GetComponent<GameSystem>();
+        gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
         setTypeFloor();
     }
 

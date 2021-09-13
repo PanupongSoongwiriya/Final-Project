@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
@@ -9,18 +9,16 @@ public class Antibiotic : Character
     {
         characterName = "Hero";
         faction = "Medicine";
-        classCharacter = "Antibiotic";
+        classCharacter = "ยาฆ่าเชื้อ";
 
         HP = 10;
-
         attackPower = 2;
         defensePower = 1;
 
         walkingDistance = 3;
         attackRange = 1;
 
-
-        gameSystem = system.GetComponent<GameSystem>();
+        gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
         memberUpdate();
         doneItYet = true;
 
@@ -33,13 +31,14 @@ public class Antibiotic : Character
     }
     void OnMouseDown()
     {
+        setPositionCamera();
         showDetailDisease();
         prepare();
         attacked();
     }
     protected override float checkAdvantage()
     {
-        if (gameSystem.NowCharecter.classCharacter.Equals("Infect"))
+        if (gameSystem.NowCharecter.classCharacter.Equals("ติดเชื้อ"))
         {
             return 0.5f;
         }

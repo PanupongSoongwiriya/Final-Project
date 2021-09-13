@@ -7,7 +7,7 @@ public class floorPlusDEF : Floor
     public int SD = 1;
     void Start()
     {
-        gameSystem = system.GetComponent<GameSystem>();
+        gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
         setTypeFloor();
     }
 
