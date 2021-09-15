@@ -8,7 +8,7 @@ public class HeavyATK : Skill
     {
         gameSystem = gs;
         skillName = "Heavy ATK";
-        desCripTion = "เลือกศัตรูในระยะการโจมตีหนึ่งตัวเพื่อสร้างความเสียหายแบบพิเศษ(+spAtk 1)";
+        desCripTion = "เลือกศัตรูในระยะการโจมตี\n1 ตัวเพื่อสร้างความเสียหาย\nแบบพิเศษ(+spAtk 1)";
         bonusEffect = 1;
     }
     void Start()
