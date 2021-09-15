@@ -31,7 +31,6 @@ public class Antibiotic : Character
     }
     void OnMouseDown()
     {
-        setPositionCamera();
         showDetailDisease();
         prepare();
         attacked();

@@ -59,7 +59,7 @@ public class Floor : MonoBehaviour
     {
         gameSystem.NowCharecter.doneIt();
         gameSystem.NowCharecter.transform.position = new Vector3(transform.position.x, gameSystem.NowCharecter.transform.position.y, transform.position.z);//getposition for move Character
-        gameSystem.checkChangeTurn();
+        //gameSystem.checkChangeTurn();
         gameSystem.resetInTerm();
         gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false, false, false);//controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
     }

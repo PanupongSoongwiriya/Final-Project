@@ -11,22 +11,18 @@ public class GameSystem : MonoBehaviour
     private Character nowCharecter;
     public GameObject controlPanel;
 
-    public List<GameObject> allFloor;
+    public List<GameObject> allFloor = new List<GameObject>();
     public List<GameObject> allFloorInTerm;
-    public List<Character> medicineFaction;
-    public List<Character> diseaseFaction;
+    public List<Character> medicineFaction = new List<Character>();
+    public List<Character> diseaseFaction = new List<Character>();
     void Start()
     {
-        turn = 0;
         whoTurn = "Medicine";
-        State = "Choose a medicine character";
-        allFloor = new List<GameObject>();
-        medicineFaction = new List<Character>();
-        diseaseFaction = new List<Character>();
-
+        state = "Choose a medicine character";
+        turn = 0;
     }
-
-    public void checkChangeTurn()
+    
+        public void checkChangeTurn()
     {
         bool statusChangeTurn = true;
         if (whoTurn == "Medicine")
@@ -59,7 +55,7 @@ public class GameSystem : MonoBehaviour
             {
                 whoTurn = "Disease";
                 State = "round of bots";
-                botChackInTerm();//test
+                //botChackInTerm();//test
             }
             else
             {
@@ -96,18 +92,7 @@ public class GameSystem : MonoBehaviour
     }
     public void chackInTerm()
     {
-        double distance;
-        double x1 = 0;
-        double z1 = 0;
-        double x2;
-        double z2;
         int checkTerm = -1;
-
-        if (nowCharecter != null)
-        {
-            x1 = nowCharecter.transform.position.x;
-            z1 = nowCharecter.transform.position.z;
-        }
 
         if (State == "waiting for orders" || State == "waiting for skill")
         {
@@ -124,41 +109,127 @@ public class GameSystem : MonoBehaviour
             {
                 checkTerm = nowCharecter.attackRange;
             }
-            foreach (GameObject floor in allFloor)
+            if(nowCharecter != null)
             {
-                x2 = floor.transform.position.x;
-                z2 = floor.transform.position.z;
-                distance = (Math.Sqrt(Math.Pow((x1 - x2), 2) + Math.Pow((z1 - z2), 2)));
-                //Debug.Log("Distance: " + distance + " px");
-                if (distance != 0 && distance <= (checkTerm * 6))//6 = scale of floor(px)
-                {
-                    floor.GetComponent<Floor>().InTerm = true;
-                }
+                findDistance(checkTerm);
             }
         }
     }
     public void botChackInTerm()//test
     {
-        double distance;
-        double x1 = nowCharecter.transform.position.x;
-        double z1 = nowCharecter.transform.position.z;
-        double x2;
-        double z2;
         allFloorInTerm.Clear();
         int checkTerm = nowCharecter.walkingDistance;
-        foreach (GameObject floor in allFloor)
+        findDistance(checkTerm);
+    }
+
+    public void findDistance(int rang)
+    {
+        List<int> charPosition = new List<int> { (int)NowCharecter.transform.position.x, (int)NowCharecter.transform.position.z };
+        List<List<List<int>>> allPosition = new List<List<List<int>>>();
+
+        int start_x = charPosition[0] - (6 * rang);
+        int stop_x = charPosition[0] + (6 * (rang + 1));
+        int step = 6;
+        int start_z = charPosition[1] + (6 * rang);
+        int stop_z = charPosition[1] - (6 * (rang + 1));
+
+        //Find all boxes within a square.
+        for (int z = start_z; z > stop_z; z -= step)
         {
-            x2 = floor.transform.position.x;
-            z2 = floor.transform.position.z;
-            distance = (Math.Sqrt(Math.Pow((x1 - x2), 2) + Math.Pow((z1 - z2), 2))) / 6;//6 = scale of floor(px)
-            //Debug.Log("Distance: " + distance + " px");
-            if (checkTerm >= distance && distance != 0)
+            List<List<int>> lis = new List<List<int>>();
+            for (int x = start_x; x < stop_x; x += step)
             {
-                allFloorInTerm.Add(floor);
-                //floor.GetComponent<Floor>().InTerm = true;
+                if (charPosition[0] == x && charPosition[1] == z)
+                {
+                }
+                else
+                {
+                    lis.Add(new List<int> { x, z });
+                }
+            }
+            allPosition.Add(lis);
+        }
+        List<List<int>> index = new List<List<int>>();
+
+        //Find a square corner to remove the back to become a diamond.
+
+        //Top Left
+        for (int i = 0; i < rang; i++)
+        {
+            for (int j = 0; j < rang - i; j++)
+            {
+                index.Add(allPosition[i][j]);
+            }
+        }
+        //Bottom Left
+        for (int i = allPosition.Count - 1; i > allPosition.Count - rang - 1; i--)
+        {
+            for (int j = 0; j < rang - (allPosition.Count - 1 - i); j++)
+            {
+                index.Add(allPosition[i][j]);
             }
         }
 
+        //Top Right
+        for (int i = 0; i < rang; i++)
+        {
+            for (int j = allPosition.Count - 1; j > allPosition.Count - rang - 1 + i; j--)
+            {
+                index.Add(allPosition[i][j]);
+            }
+        }
+
+        //Bottom Right
+        for (int i = allPosition.Count - 1; i > allPosition.Count - rang - 1; i--)
+        {
+            for (int j = allPosition.Count - 1; j > allPosition.Count - rang - 1 + (allPosition.Count - 1 - i); j--)
+            {
+                index.Add(allPosition[i][j]);
+            }
+        }
+
+        //Find the part that is not in the corner.
+        List<List<int>> ans = new List<List<int>>();
+        bool check;
+        foreach (List<List<int>> i in allPosition)
+        {
+            foreach (List<int> j in i)
+            {
+                check = true;
+                foreach (List<int> x in index)
+                {
+                    if (x.Equals(j))
+                    {
+                        check = false;
+                        break;
+                    }
+                }
+                if (check)
+                {
+                    ans.Add(j);
+                }
+            }
+        }
+        foreach(GameObject floor in allFloor)
+        {
+            int x = (int)floor.transform.position.x;
+            int z = (int)floor.transform.position.z;
+            foreach(List<int> ttt in ans)
+            {
+                if (ttt[0] == x && ttt[1] == z)
+                {
+                    if (NowCharecter.Faction.Equals("Disease"))
+                    {
+                        allFloorInTerm.Add(floor);
+                    }
+                    else
+                    {
+                        floor.GetComponent<Floor>().InTerm = true;
+                    }
+                    break;
+                }
+            }
+        }
     }
 
     public void resetInTerm()

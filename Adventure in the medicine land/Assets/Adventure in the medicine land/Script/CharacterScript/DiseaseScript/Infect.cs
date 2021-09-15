@@ -29,7 +29,6 @@ public class Infect : Character
     }
     void OnMouseDown()
     {
-        setPositionCamera();
         showDetailDisease();
         prepare();
         attacked();

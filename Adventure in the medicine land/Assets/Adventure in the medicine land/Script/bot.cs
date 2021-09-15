@@ -5,13 +5,12 @@ using UnityEngine;
 public class bot : MonoBehaviour
 {
     private Character chr;
-    public GameObject system;
-    protected GameSystem gameSystem;
+    public GameSystem gameSystem;
     private bool testddd;
     void Start()
     {
-        gameSystem = system.GetComponent<GameSystem>();
         chr = gameObject.GetComponent<Infect>();
+        gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
         testddd = true;
     }
 
@@ -27,6 +26,7 @@ public class bot : MonoBehaviour
     private void testDelay()
     {
         testddd = true;
+        chr.doneIt();
         gameSystem.NowCharecter = chr;
         gameSystem.botChackInTerm();
         gameSystem.allFloorInTerm[new System.Random().Next(gameSystem.allFloorInTerm.Count)].GetComponent<Floor>().setPositionCharacter();

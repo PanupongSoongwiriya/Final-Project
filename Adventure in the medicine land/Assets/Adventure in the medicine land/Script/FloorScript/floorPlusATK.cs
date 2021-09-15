@@ -26,7 +26,6 @@ public class floorPlusATK : Floor
     }
     private void OnCollisionStay(Collision collision)
     {
-        Debug.Log("activeeeeeeeeeeeeeeeeeeeee");
         if ((collision.gameObject.tag == "Medicine" || collision.gameObject.tag == "Disease") && changeTurn)
         {
             Character charecterPlayer = collision.gameObject.GetComponent<Character>();

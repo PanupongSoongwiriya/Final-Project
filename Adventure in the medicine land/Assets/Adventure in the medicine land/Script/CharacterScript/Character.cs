@@ -6,7 +6,7 @@ using System;
 public class Character : MonoBehaviour
 {
     public String characterName;
-    public String faction;
+    protected String faction;
     public String classCharacter;
     public bool doneItYet;
 
@@ -21,7 +21,7 @@ public class Character : MonoBehaviour
     public int walkingDistance;
     public int attackRange;
 
-    protected GameSystem gameSystem;
+    public GameSystem gameSystem;
     protected int beforeTurn = -1;
     public int indexSkill;
 
@@ -43,7 +43,6 @@ public class Character : MonoBehaviour
 
     void OnMouseDown()
     {
-        setPositionCamera();
         showDetailDisease();
         prepare();
         attacked();
@@ -53,11 +52,6 @@ public class Character : MonoBehaviour
         indexSkill = index;
         allSkill[indexSkill].changeState();
     }
-    private void defense()
-    {
-        specialDefense += 1;
-    }
-
     protected void setPositionCamera()
     {
         if (!gameSystem.State.Equals("round of bots") || !gameSystem.State.Equals("walk") || !gameSystem.State.Equals("Choose a enemy character"))
@@ -70,6 +64,7 @@ public class Character : MonoBehaviour
     {
         if (gameSystem.State.Equals("Choose a medicine character") && faction.Equals("Medicine"))
         {
+            setPositionCamera();
             gameSystem.NowCharecter = this;
             gameSystem.State = "waiting for orders";
             gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(true, true, false, true, false);//controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
@@ -79,6 +74,7 @@ public class Character : MonoBehaviour
     {
         if ((gameSystem.State.Equals("Choose a medicine character") && faction.Equals("Disease")) || (gameSystem.State.Equals("waiting for orders") && faction.Equals("Disease")))
         {
+            setPositionCamera();
             gameSystem.NowCharecter = this;
             gameSystem.State = "Choose a medicine character";
             gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(true, false, false, true, false);//controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
@@ -95,6 +91,7 @@ public class Character : MonoBehaviour
         }if ((gameSystem.State.Equals("Choose a enemy character") || gameSystem.State.Equals("Use skills with enemies")) && !gameSystem.NowCharecter.Faction.Equals(faction) && inEnimyTerm)
         {
             gameSystem.NowCharecter.doneIt();
+            gameSystem.resetInTerm();
             gameSystem.State = "Choose a medicine character";
             gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false, false, false);//controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
             int dmg = (gameSystem.NowCharecter.attackPower + gameSystem.NowCharecter.specialAttack) - (defensePower + specialDefense);
@@ -150,5 +147,10 @@ public class Character : MonoBehaviour
     {
         get { return hp; }
         set { hp = value; checkHP(); }
+    }
+    public GameSystem GS
+    {
+        get { return gameSystem; }
+        set { gameSystem = value; }
     }
 }
