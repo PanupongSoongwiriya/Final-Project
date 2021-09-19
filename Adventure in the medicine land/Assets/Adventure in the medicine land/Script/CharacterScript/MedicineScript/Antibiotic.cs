@@ -19,7 +19,7 @@ public class Antibiotic : Character
         attackRange = 1;
 
         gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
-        memberUpdate();
+        gameSystem.memberUpdate(this);
         doneItYet = true;
 
         allSkill.Add(new HeavyATK(gameSystem));

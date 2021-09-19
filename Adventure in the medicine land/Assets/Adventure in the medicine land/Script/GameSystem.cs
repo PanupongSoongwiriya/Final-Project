@@ -55,7 +55,6 @@ public class GameSystem : MonoBehaviour
             {
                 whoTurn = "Disease";
                 State = "round of bots";
-                //botChackInTerm();//test
             }
             else
             {
@@ -115,6 +114,31 @@ public class GameSystem : MonoBehaviour
             }
         }
     }
+
+    public void memberUpdate(Character chr)
+    {
+        if (chr.Faction.Equals("Medicine"))
+        {
+            medicineFaction.Add(chr);
+        }
+        else
+        {
+            diseaseFaction.Add(chr);
+        }
+    }
+
+    public void memberRemove(Character chr)
+    {
+        if (chr.Faction.Equals("Medicine"))
+        {
+            medicineFaction.Remove(chr);
+        }
+        else
+        {
+            diseaseFaction.Remove(chr);
+        }
+    }
+
     public void botChackInTerm()//test
     {
         allFloorInTerm.Clear();

@@ -32,7 +32,7 @@ public class Character : MonoBehaviour
 
     void Start()
     {
-        memberUpdate();
+        gameSystem.memberUpdate(this);
         doneItYet = true;
     }
 
@@ -62,7 +62,7 @@ public class Character : MonoBehaviour
 
     protected void prepare()
     {
-        if (gameSystem.State.Equals("Choose a medicine character") && faction.Equals("Medicine"))
+        if ((gameSystem.State.Equals("Choose a medicine character") || gameSystem.State.Equals("waiting for orders")) && faction.Equals("Medicine") && doneItYet)
         {
             setPositionCamera();
             gameSystem.NowCharecter = this;
@@ -107,6 +107,7 @@ public class Character : MonoBehaviour
     {
         if (hp <= 0)
         {
+            gameSystem.memberRemove(this);
             Destroy(this.gameObject);
         }
 
@@ -115,18 +116,6 @@ public class Character : MonoBehaviour
     {
         doneItYet = false;
         gameSystem.checkChangeTurn();
-    }
-
-    protected void memberUpdate()
-    {
-        if (faction.Equals("Medicine"))
-        {
-            gameSystem.medicineFaction.Add(this);
-        }
-        else
-        {
-            gameSystem.diseaseFaction.Add(this);
-        }
     }
 
     protected void resetSP()
