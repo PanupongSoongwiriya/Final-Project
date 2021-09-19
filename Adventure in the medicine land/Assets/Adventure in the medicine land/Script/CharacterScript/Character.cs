@@ -62,12 +62,19 @@ public class Character : MonoBehaviour
 
     protected void prepare()
     {
-        if ((gameSystem.State.Equals("Choose a medicine character") || gameSystem.State.Equals("waiting for orders")) && faction.Equals("Medicine") && doneItYet)
+        if ((gameSystem.State.Equals("Choose a medicine character") || gameSystem.State.Equals("waiting for orders")) && faction.Equals("Medicine"))
         {
             setPositionCamera();
             gameSystem.NowCharecter = this;
-            gameSystem.State = "waiting for orders";
-            gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(true, true, false, true, false);//controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
+            if (doneItYet)
+            {
+                gameSystem.State = "waiting for orders";
+                gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(true, true, false, true, false);//controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
+            }
+            else
+            {
+                gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(true, false, false, true, false);//controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
+            }
         }
     }
     protected void showDetailDisease()

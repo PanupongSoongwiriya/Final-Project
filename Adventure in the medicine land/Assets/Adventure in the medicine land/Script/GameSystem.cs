@@ -20,6 +20,7 @@ public class GameSystem : MonoBehaviour
         whoTurn = "Medicine";
         state = "Choose a medicine character";
         turn = 0;
+        Screen.orientation = ScreenOrientation.Landscape;
     }
     
         public void checkChangeTurn()
@@ -238,13 +239,27 @@ public class GameSystem : MonoBehaviour
         {
             int x = (int)floor.transform.position.x;
             int z = (int)floor.transform.position.z;
-            foreach(List<int> ttt in ans)
+            foreach(List<int> position in ans)
             {
-                if (ttt[0] == x && ttt[1] == z)
+                if (position[0] == x && position[1] == z)
                 {
                     if (NowCharecter.Faction.Equals("Disease"))
                     {
-                        allFloorInTerm.Add(floor);
+                        bool add = true;
+                        foreach(Character medicine in medicineFaction)
+                        {
+                            int medicineX = (int)medicine.transform.position.x;
+                            int medicineZ = (int)medicine.transform.position.z;
+                            if (position[0] == medicineX && position[1] == medicineZ)
+                            {
+                                add = false;
+                                break;
+                            }
+                        }
+                        if (add)
+                        {
+                            allFloorInTerm.Add(floor);
+                        }
                     }
                     else
                     {
