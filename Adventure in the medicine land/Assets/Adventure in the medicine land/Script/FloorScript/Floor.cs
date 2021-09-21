@@ -32,7 +32,11 @@ public class Floor : MonoBehaviour
     {
         GameObject show = transform.GetChild(0).gameObject;
         show.SetActive(inTerm);
-        if (gameSystem.State == "walk" || gameSystem.State == "Use skills with ally")
+        if (gameSystem.State == "walk")
+        {
+            show.GetComponent<Renderer>().material.SetColor("_Color", new Color(0, 0, 1, 0.25f));
+        }
+        else if(gameSystem.State == "Use skills with ally")
         {
             show.GetComponent<Renderer>().material.SetColor("_Color", new Color(0, 1, 0, 0.25f));
         }

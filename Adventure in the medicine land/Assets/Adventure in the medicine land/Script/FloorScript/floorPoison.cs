@@ -22,7 +22,7 @@ public class floorPoison : Floor
         {
             characterOnIt = collision.gameObject.GetComponent<Character>();
             characterOnIt.PedalFloor = this;
-            characterOnIt.showDMG(-poison);
+            characterOnIt.showDMG(-poison, "floor");
             characterOnIt.HP -= poison;
         }
     }
@@ -37,7 +37,7 @@ public class floorPoison : Floor
 {
         if (characterOnIt != null)
         {
-            characterOnIt.showDMG(-poison);
+            characterOnIt.showDMG(-poison, "floor");
             characterOnIt.HP -= poison;
         }
     }

@@ -149,16 +149,17 @@ public class Character : MonoBehaviour
             gameSystem.State = "Choose a medicine character";
             gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false, false, false);//controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
             int dmg = Math.Max(0, (int)((gameSystem.NowCharecter.attackPower + gameSystem.NowCharecter.specialAttack) - (defensePower + specialDefense) * checkAdvantage()));
-            showDMG(-dmg);
+            showDMG(-dmg, "Character");
             HP -= dmg;
         }
     }
 
-    public void showDMG(int dmg)
+    public void showDMG(int dmg, String typeDMG)
     {
         if (dmgText != null)
         {
             dmgText.GetComponent<DamageText>().dmg = dmg;
+            dmgText.GetComponent<DamageText>().typeDMG = typeDMG;
             Vector3 position = new Vector3(transform.position.x, transform.position.y+3, transform.position.z);
             Instantiate(dmgText, position, Quaternion.Euler(new Vector3(90, 270, 0)));
         }
