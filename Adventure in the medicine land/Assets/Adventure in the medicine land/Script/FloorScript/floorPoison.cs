@@ -16,7 +16,7 @@ public class floorPoison : Floor
         floorColor = new Color(0.5019608f, 0f, 0.5019608f, 1f);
         GetComponent<Renderer>().material.SetColor("_Color", floorColor);
     }
-    protected override void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Medicine" || collision.gameObject.tag == "Disease")
         {
@@ -24,21 +24,9 @@ public class floorPoison : Floor
             characterOnIt.PedalFloor = this;
             characterOnIt.HP -= poison;
         }
-        /*if (collision.gameObject.tag == "Medicine" || collision.gameObject.tag == "Disease")
-        {
-            changeTurn = false;
-            Character charecterPlayer = collision.gameObject.GetComponent<Character>();
-            charecterPlayer.HP -= poison;
-        }*/
     }
     private void OnCollisionStay(Collision collision)
     {
-        /*if ((collision.gameObject.tag == "Medicine" || collision.gameObject.tag == "Disease") && changeTurn)
-        {
-            Character charecterPlayer = collision.gameObject.GetComponent<Character>();
-            charecterPlayer.HP -= poison;
-            changeTurn = false;
-        }*/
     }
     private void OnCollisionExit(Collision collision)
     {

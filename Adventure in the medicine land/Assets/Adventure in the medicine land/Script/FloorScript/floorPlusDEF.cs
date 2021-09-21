@@ -16,7 +16,7 @@ public class floorPlusDEF : Floor
         floorColor = new Color(0.5019608f, 0.5019608f, 0.5019608f, 1f);
         GetComponent<Renderer>().material.SetColor("_Color", floorColor);
     }
-    protected override void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Medicine" || collision.gameObject.tag == "Disease")
         {
@@ -26,30 +26,14 @@ public class floorPlusDEF : Floor
             characterOnIt.specialDefense += SD;
             Debug.Log(characterOnIt.name + " specialDefense: " + characterOnIt.specialDefense);
         }
-        /*if (collision.gameObject.tag == "Medicine" || collision.gameObject.tag == "Disease")
-        {
-            Character charecterPlayer = collision.gameObject.GetComponent<Character>();
-            charecterPlayer.specialDefense += SD;
-        }*/
     }
     private void OnCollisionStay(Collision collision)
     {
-        /*if ((collision.gameObject.tag == "Medicine" || collision.gameObject.tag == "Disease") && changeTurn)
-        {
-            Character charecterPlayer = collision.gameObject.GetComponent<Character>();
-            charecterPlayer.specialDefense = SD;
-            changeTurn = false;
-        }*/
     }
     private void OnCollisionExit(Collision collision)
     {
         characterOnIt.specialDefense -= SD;
         characterOnIt = null;
-        /*if (collision.gameObject.tag == "Medicine" || collision.gameObject.tag == "Disease")
-        {
-            Character charecterPlayer = collision.gameObject.GetComponent<Character>();
-            charecterPlayer.specialDefense -= SD;
-        }*/
     }
     public override void floorEffect()
     {

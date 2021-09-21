@@ -16,7 +16,7 @@ public class floorPlusATK : Floor
         floorColor = Color.red;
         GetComponent<Renderer>().material.SetColor("_Color", floorColor);
     }
-    protected override void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Medicine" || collision.gameObject.tag == "Disease")
         {
@@ -26,30 +26,11 @@ public class floorPlusATK : Floor
             characterOnIt.specialAttack += SA;
             Debug.Log(characterOnIt.name + " specialAttack: " + characterOnIt.specialAttack);
         }
-        /*if (collision.gameObject.tag == "Medicine" || collision.gameObject.tag == "Disease")
-        {
-            Character charecterPlayer = collision.gameObject.GetComponent<Character>();
-            charecterPlayer.specialAttack += SA;
-        }*/
-    }
-    private void OnCollisionStay(Collision collision)
-    {
-        /*if ((collision.gameObject.tag == "Medicine" || collision.gameObject.tag == "Disease") && changeTurn)
-        {
-            Character charecterPlayer = collision.gameObject.GetComponent<Character>();
-            charecterPlayer.specialAttack = SA;
-            changeTurn = false;
-        }*/
     }
     private void OnCollisionExit(Collision collision)
     {
         characterOnIt.specialAttack -= SA;
         characterOnIt = null;
-        /*if (collision.gameObject.tag == "Medicine" || collision.gameObject.tag == "Disease")
-        {
-            Character charecterPlayer = collision.gameObject.GetComponent<Character>();
-            charecterPlayer.specialAttack -= SA;
-        }*/
     }
     public override void floorEffect()
     {

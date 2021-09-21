@@ -41,29 +41,16 @@ public class Floor : MonoBehaviour
             show.GetComponent<Renderer>().material.SetColor("_Color", new Color(1, 0, 0, 0.5f));
         }
     }
-    protected virtual void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(name + ": Enter");
-        Debug.Log(name + ": " + collision.gameObject.GetComponent<Character>().name);
         if (collision.gameObject.tag == "Medicine" || collision.gameObject.tag == "Disease")
         {
             characterOnIt = collision.gameObject.GetComponent<Character>();
             characterOnIt.PedalFloor = this;
         }
     }
-    private void OnCollisionStay(Collision collision)
-    {
-        /*if ((collision.gameObject.tag == "Medicine" || collision.gameObject.tag == "Disease") && changeTurn)
-        {
-            Character charecterPlayer = collision.gameObject.GetComponent<Character>();
-            charecterPlayer.specialDefense = 0;
-            charecterPlayer.specialAttack = 0;
-            changeTurn = false;
-        }*/
-    }
     private void OnCollisionExit(Collision collision)
     {
-        Debug.Log(name + ": Exit");
         characterOnIt = null;
     }
 
