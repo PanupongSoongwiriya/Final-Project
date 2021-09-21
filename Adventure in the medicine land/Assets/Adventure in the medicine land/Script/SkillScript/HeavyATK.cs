@@ -11,16 +11,6 @@ public class HeavyATK : Skill
         desCripTion = "เลือกศัตรูในระยะการโจมตี\n1 ตัวเพื่อสร้างความเสียหาย\nแบบพิเศษ(+spAtk 1)";
         bonusEffect = 1;
     }
-    void Start()
-    {
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     public override void changeState()
     {
         if (gameSystem.State.Equals("waiting for skill"))

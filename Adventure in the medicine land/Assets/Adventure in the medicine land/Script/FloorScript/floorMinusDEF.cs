@@ -20,25 +20,40 @@ public class floorMinusDEF : Floor
     {
         if (collision.gameObject.tag == "Medicine" || collision.gameObject.tag == "Disease")
         {
+            characterOnIt = collision.gameObject.GetComponent<Character>();
+            characterOnIt.PedalFloor = this;
+            characterOnIt.specialDefense += SD;
+        }
+        /*if (collision.gameObject.tag == "Medicine" || collision.gameObject.tag == "Disease")
+        {
             Character charecterPlayer = collision.gameObject.GetComponent<Character>();
             charecterPlayer.specialDefense += SD;
-        }
+        }*/
     }
     private void OnCollisionStay(Collision collision)
     {
-        if ((collision.gameObject.tag == "Medicine" || collision.gameObject.tag == "Disease") && changeTurn)
+        /*if ((collision.gameObject.tag == "Medicine" || collision.gameObject.tag == "Disease") && changeTurn)
         {
             Character charecterPlayer = collision.gameObject.GetComponent<Character>();
             charecterPlayer.specialDefense = SD;
             changeTurn = false;
-        }
+        }*/
     }
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.tag == "Medicine" || collision.gameObject.tag == "Disease")
+        characterOnIt.specialDefense -= SD;
+        characterOnIt = null;
+        /*if (collision.gameObject.tag == "Medicine" || collision.gameObject.tag == "Disease")
         {
             Character charecterPlayer = collision.gameObject.GetComponent<Character>();
             charecterPlayer.specialDefense -= SD;
+        }*/
+    }
+    public override void floorEffect()
+    {
+        if (characterOnIt != null)
+        {
+            characterOnIt.specialDefense = SD;
         }
     }
 }

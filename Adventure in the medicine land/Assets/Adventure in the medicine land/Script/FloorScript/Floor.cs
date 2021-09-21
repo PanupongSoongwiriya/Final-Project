@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Floor : MonoBehaviour
 {
-    protected GameObject Character;
+    public Character characterOnIt;
     protected GameSystem gameSystem;
     protected bool inTerm = false;
     protected Color floorColor;
@@ -43,15 +43,36 @@ public class Floor : MonoBehaviour
     }
     protected virtual void OnCollisionEnter(Collision collision)
     {
+        Debug.Log(name + ": Enter");
+        Debug.Log(name + ": " + collision.gameObject.GetComponent<Character>().name);
+        if (collision.gameObject.tag == "Medicine" || collision.gameObject.tag == "Disease")
+        {
+            characterOnIt = collision.gameObject.GetComponent<Character>();
+            characterOnIt.PedalFloor = this;
+        }
     }
     private void OnCollisionStay(Collision collision)
     {
-        if ((collision.gameObject.tag == "Medicine" || collision.gameObject.tag == "Disease") && changeTurn)
+        /*if ((collision.gameObject.tag == "Medicine" || collision.gameObject.tag == "Disease") && changeTurn)
         {
             Character charecterPlayer = collision.gameObject.GetComponent<Character>();
             charecterPlayer.specialDefense = 0;
             charecterPlayer.specialAttack = 0;
             changeTurn = false;
+        }*/
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        Debug.Log(name + ": Exit");
+        characterOnIt = null;
+    }
+
+    public virtual void floorEffect()
+    {
+        if (characterOnIt != null)
+        {
+            characterOnIt.specialDefense = 0;
+            characterOnIt.specialAttack = 0;
         }
     }
 
@@ -59,7 +80,6 @@ public class Floor : MonoBehaviour
     {
         gameSystem.NowCharecter.doneIt();
         gameSystem.NowCharecter.transform.position = new Vector3(transform.position.x, gameSystem.NowCharecter.transform.position.y, transform.position.z);//getposition for move Character
-        //gameSystem.checkChangeTurn();
         gameSystem.resetInTerm();
         gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false, false, false);//controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
     }

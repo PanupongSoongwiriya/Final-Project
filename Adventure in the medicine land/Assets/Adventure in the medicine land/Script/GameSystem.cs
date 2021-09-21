@@ -7,8 +7,13 @@ public class GameSystem : MonoBehaviour
 {
     private int turn;
     public string whoTurn;
-    private string state;//("Choose a medicine character", "waiting for orders", "walk", "Choose a enemy character", "waiting for skill", "Use skills with enemies", "Use skills with ally", "round of bots")
+
+    private string state;
+    //("Choose a medicine character", "waiting for orders", "walk", "Choose a enemy character", "waiting for skill", "Use skills with enemies", "Use skills with ally", "Debuff with enemies", "round of bots")
+
     private Character nowCharecter;
+    private String skillType;
+    private int skillBonusEffect;
     public GameObject controlPanel;
 
     public List<GameObject> allFloor = new List<GameObject>();
@@ -20,7 +25,6 @@ public class GameSystem : MonoBehaviour
         whoTurn = "Medicine";
         state = "Choose a medicine character";
         turn = 0;
-        Screen.orientation = ScreenOrientation.Landscape;
     }
     
         public void checkChangeTurn()
@@ -61,7 +65,8 @@ public class GameSystem : MonoBehaviour
             {
                 whoTurn = "Medicine";
                 State = "Choose a medicine character";
-                changeTurn();
+                //changeTurn();
+                Turn++;
             }
             Debug.Log(whoTurn + " Turn");
 
@@ -84,10 +89,20 @@ public class GameSystem : MonoBehaviour
     }
     public void changeTurn()
     {
-        turn++;
+        //turn++;
+
+        foreach (Character medicine in medicineFaction)
+        {
+            medicine.resetSP();
+        }
+        foreach (Character disease in diseaseFaction)
+        {
+            disease.resetSP();
+        }
         foreach (GameObject floor in allFloor)
         {
-            floor.GetComponent<Floor>().changeTurn = true;
+            floor.GetComponent<Floor>().floorEffect();
+            //floor.GetComponent<Floor>().changeTurn = true;
         }
     }
     public void chackInTerm()
@@ -105,7 +120,7 @@ public class GameSystem : MonoBehaviour
                 checkTerm = nowCharecter.walkingDistance;
 
             }
-            else if (State == "Choose a enemy character" || State == "Use skills with enemies")
+            else if (State == "Choose a enemy character" || State == "Use skills with enemies" || State == "Use skills with ally")
             {
                 checkTerm = nowCharecter.attackRange;
             }
@@ -294,10 +309,20 @@ public class GameSystem : MonoBehaviour
         get { return nowCharecter; }
         set { nowCharecter = value; }
     }
+    public String SkillType
+    {
+        get { return skillType; }
+        set { skillType = value; }
+    }
+    public int SkillBonusEffect
+    {
+        get { return skillBonusEffect; }
+        set { skillBonusEffect = value; }
+    }
     public int Turn
     {
         get { return turn; }
-        set { turn = value; }
+        set { turn = value; changeTurn(); }
     }
     
 }

@@ -7,12 +7,13 @@ public class Antibiotic : Character
 {
     void Start()
     {
-        characterName = "Hero";
+        characterName = "Amox";
         faction = "Medicine";
         classCharacter = "ยาฆ่าเชื้อ";
+        genusPhase = "ระยะใกล้";
 
         HP = 10;
-        attackPower = 2;
+        attackPower = 3;
         defensePower = 1;
 
         walkingDistance = 3;
@@ -27,17 +28,22 @@ public class Antibiotic : Character
 
     void Update()
     {
-        resetSP();
+        //resetSP();
     }
     void OnMouseDown()
     {
         showDetailDisease();
         prepare();
         attacked();
+        checkBuffDebuff();
     }
     protected override float checkAdvantage()
     {
         if (gameSystem.NowCharecter.classCharacter.Equals("ติดเชื้อ"))
+        {
+            return 0.5f;
+        }
+        else if (gameSystem.NowCharecter.genusPhase.Equals("ระยะใกล้"))
         {
             return 0.5f;
         }

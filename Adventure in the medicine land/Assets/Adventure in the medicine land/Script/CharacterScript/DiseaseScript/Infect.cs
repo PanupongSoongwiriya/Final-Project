@@ -7,11 +7,12 @@ public class Infect : Character
 {
     void Start()
     {
-        characterName = "Villain";
+        characterName = "Infect";
         faction = "Disease";
         classCharacter = "ติดเชื้อ";
+        genusPhase = "ระยะใกล้";
 
-        HP = 4;
+        HP = 5;
         attackPower = 1;
         defensePower = 1;
 
@@ -25,13 +26,14 @@ public class Infect : Character
 
     void Update()
     {
-        resetSP();
+        //resetSP();
     }
     void OnMouseDown()
     {
         showDetailDisease();
         prepare();
         attacked();
+        checkBuffDebuff();
     }
     protected override float checkAdvantage()
     {
@@ -39,8 +41,15 @@ public class Infect : Character
         {
             return 1.5f;
         }
+        else if (gameSystem.NowCharecter.classCharacter.Equals("Hero"))
+        {
+            return 1.25f;
+        }
+        else if (gameSystem.NowCharecter.genusPhase.Equals("ระยะใกล้"))
+        {
+            return 0.5f;
+        }
         return 1;
-
     }
 
     

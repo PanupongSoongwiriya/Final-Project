@@ -20,18 +20,35 @@ public class floorPoison : Floor
     {
         if (collision.gameObject.tag == "Medicine" || collision.gameObject.tag == "Disease")
         {
+            characterOnIt = collision.gameObject.GetComponent<Character>();
+            characterOnIt.PedalFloor = this;
+            characterOnIt.HP -= poison;
+        }
+        /*if (collision.gameObject.tag == "Medicine" || collision.gameObject.tag == "Disease")
+        {
             changeTurn = false;
             Character charecterPlayer = collision.gameObject.GetComponent<Character>();
             charecterPlayer.HP -= poison;
-        }
+        }*/
     }
     private void OnCollisionStay(Collision collision)
     {
-        if ((collision.gameObject.tag == "Medicine" || collision.gameObject.tag == "Disease") && changeTurn)
+        /*if ((collision.gameObject.tag == "Medicine" || collision.gameObject.tag == "Disease") && changeTurn)
         {
             Character charecterPlayer = collision.gameObject.GetComponent<Character>();
             charecterPlayer.HP -= poison;
             changeTurn = false;
+        }*/
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        characterOnIt = null;
+    }
+    public override void floorEffect()
+{
+        if (characterOnIt != null)
+        {
+            characterOnIt.HP -= poison;
         }
     }
 }
