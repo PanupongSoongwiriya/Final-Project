@@ -6,6 +6,7 @@ using System;
 public class Character : MonoBehaviour
 {
     public String characterName;
+    protected int id;
     protected String faction;
     public String classCharacter;
     public String genusPhase;
@@ -29,26 +30,34 @@ public class Character : MonoBehaviour
 
     public List<Skill> allSkill;
     public Floor pedalFloor;
+    public GameObject dmgText;
 
 
 
     void Start()
     {
-        gameSystem.memberUpdate(this);
-        doneItYet = true;
-    }
-
-    void Update()
-    {
-        //resetSP();
+        startSetUp();
     }
 
     void OnMouseDown()
+    {
+        allAction();
+    }
+    protected void allAction()
     {
         showDetailDisease();
         prepare();
         attacked();
         checkBuffDebuff();
+    }
+
+    protected void startSetUp()
+    {
+        gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
+        gameSystem.memberUpdate(this);
+        dmgText = gameSystem.dmgText;
+        doneItYet = true;
+        Debug.Log(dmgText);
     }
     public void useSkill(int index)
     {
@@ -59,7 +68,7 @@ public class Character : MonoBehaviour
     {
         if (!gameSystem.State.Equals("round of bots") || !gameSystem.State.Equals("walk") || !gameSystem.State.Equals("Choose a enemy character"))
         {
-            GameObject.Find("Main Camera").transform.position = new Vector3(transform.position.x, GameObject.Find("Main Camera").transform.position.y, transform.position.z);
+            gameSystem.cf.Target = transform;
         }
     }
 
@@ -117,10 +126,17 @@ public class Character : MonoBehaviour
             if (type.Equals("ATK"))
             {
                 specialAttack += bonusEffect;
-            }else if (type.Equals("DEF"))
+            }
+            else if (type.Equals("DEF"))
             {
                 specialDefense += bonusEffect;
             }
+            else if (type.Equals("HP"))
+            {
+                HP += bonusEffect;
+            }
+            gameSystem.SkillType = "";
+            gameSystem.SkillBonusEffect = 0;
         }
     }
 
@@ -133,19 +149,19 @@ public class Character : MonoBehaviour
             gameSystem.State = "Choose a medicine character";
             gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false, false, false);//controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
             int dmg = Math.Max(0, (int)((gameSystem.NowCharecter.attackPower + gameSystem.NowCharecter.specialAttack) - (defensePower + specialDefense) * checkAdvantage()));
+            showDMG(-dmg);
             HP -= dmg;
         }
     }
 
-    protected bool inTerm()
+    public void showDMG(int dmg)
     {
-        bool inEnimyTerm = false;
-        if (gameSystem.NowCharecter != null)
+        if (dmgText != null)
         {
-            double distance = (Math.Sqrt(Math.Pow((transform.position.x - gameSystem.NowCharecter.transform.position.x), 2) + Math.Pow((transform.position.z - gameSystem.NowCharecter.transform.position.z), 2))) / 6;
-            inEnimyTerm = (gameSystem.NowCharecter.attackRange >= distance && (transform.position.x == gameSystem.NowCharecter.transform.position.x || transform.position.z == gameSystem.NowCharecter.transform.position.z));
+            dmgText.GetComponent<DamageText>().dmg = dmg;
+            Vector3 position = new Vector3(transform.position.x, transform.position.y+3, transform.position.z);
+            Instantiate(dmgText, position, Quaternion.Euler(new Vector3(90, 270, 0)));
         }
-        return inEnimyTerm;
     }
 
     protected virtual float checkAdvantage()
@@ -171,12 +187,6 @@ public class Character : MonoBehaviour
     {
         specialDefense = 0;
         specialAttack = 0;
-        /*if (beforeTurn != gameSystem.Turn)
-        {
-            beforeTurn = gameSystem.Turn;
-            specialDefense = 0;
-            specialAttack = 0;
-        }*/
     }
     public String Faction
     {
@@ -196,6 +206,11 @@ public class Character : MonoBehaviour
 
     public Floor PedalFloor { 
         get { return pedalFloor; }
-        set { pedalFloor = value; Debug.Log(name + ": " + value); }
+        set { pedalFloor = value; }
+    }
+    public int ID
+    {
+        get { return id; }
+        set { id = value; }
     }
 }

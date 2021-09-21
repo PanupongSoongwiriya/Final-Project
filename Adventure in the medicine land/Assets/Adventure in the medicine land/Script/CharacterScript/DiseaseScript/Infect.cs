@@ -19,21 +19,12 @@ public class Infect : Character
         walkingDistance = 3;
         attackRange = 1;
 
-        gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
-        gameSystem.memberUpdate(this);
-        doneItYet = true;
+        startSetUp();
     }
 
-    void Update()
-    {
-        //resetSP();
-    }
     void OnMouseDown()
     {
-        showDetailDisease();
-        prepare();
-        attacked();
-        checkBuffDebuff();
+        allAction();
     }
     protected override float checkAdvantage()
     {

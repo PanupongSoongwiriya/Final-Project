@@ -15,6 +15,8 @@ public class GameSystem : MonoBehaviour
     private String skillType;
     private int skillBonusEffect;
     public GameObject controlPanel;
+    public CameraFollow cf;
+    public GameObject dmgText;
 
     public List<GameObject> allFloor = new List<GameObject>();
     public List<GameObject> allFloorInTerm;
@@ -136,10 +138,12 @@ public class GameSystem : MonoBehaviour
         if (chr.Faction.Equals("Medicine"))
         {
             medicineFaction.Add(chr);
+            chr.ID = medicineFaction.Count;
         }
         else
         {
             diseaseFaction.Add(chr);
+            chr.ID = diseaseFaction.Count;
         }
     }
 

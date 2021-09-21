@@ -29,7 +29,12 @@ public class characterDetailPanel : MonoBehaviour
     {
         String spATK = " (";
         String spDEF = " (";
-        nameText.text = "Name: " + gameSystem.NowCharecter.characterName;
+        nameText.text = "";
+        nameText.text = "Name: " + gameSystem.NowCharecter.characterName + " " + gameSystem.NowCharecter.ID;
+        /*if (gameSystem.NowCharecter.Faction.Equals("Medicine"))
+        {
+            nameText.text = "Name: " + gameSystem.NowCharecter.characterName;
+        }*/
         classText.text = "Class: " + gameSystem.NowCharecter.classCharacter;
         hpText.text = "Hp: " + gameSystem.NowCharecter.hp;
         if (gameSystem.NowCharecter.specialAttack > 0)

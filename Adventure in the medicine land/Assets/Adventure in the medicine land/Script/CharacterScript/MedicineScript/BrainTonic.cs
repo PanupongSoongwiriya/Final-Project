@@ -18,22 +18,13 @@ public class BrainTonic : Character
         walkingDistance = 2;
         attackRange = 3;
 
-        gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
-        gameSystem.memberUpdate(this);
-        doneItYet = true;
+        startSetUp();
 
         allSkill.Add(new BootATK(gameSystem, this));
     }
 
-    void Update()
-    {
-        //resetSP();
-    }
     void OnMouseDown()
     {
-        showDetailDisease();
-        prepare();
-        attacked();
-        checkBuffDebuff();
+        allAction();
     }
 }

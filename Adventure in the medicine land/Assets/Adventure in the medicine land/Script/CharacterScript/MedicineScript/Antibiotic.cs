@@ -19,23 +19,14 @@ public class Antibiotic : Character
         walkingDistance = 3;
         attackRange = 1;
 
-        gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
-        gameSystem.memberUpdate(this);
-        doneItYet = true;
+        startSetUp();
 
         allSkill.Add(new HeavyATK(gameSystem));
     }
 
-    void Update()
-    {
-        //resetSP();
-    }
     void OnMouseDown()
     {
-        showDetailDisease();
-        prepare();
-        attacked();
-        checkBuffDebuff();
+        allAction();
     }
     protected override float checkAdvantage()
     {
