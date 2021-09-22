@@ -3,25 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Antibiotic : Character
+public class RunnyNose : Character
 {
     void Start()
     {
-        characterName = "Amox";
-        faction = "Medicine";
-        classCharacter = "ยาฆ่าเชื้อ";
+        characterName = "RunnyNose";
+        faction = "Disease";
+        classCharacter = "น้ำมูกไหล";
         genusPhase = "ระยะใกล้";
 
-        HP = 4;
-        attackPower = 3;
+        HP = 6;
+        attackPower = 1;
         defensePower = 1;
 
         walkingDistance = 3;
         attackRange = 1;
 
         startSetUp();
-
-        //allSkill.Add(new HeavyATK(gameSystem));
     }
 
     void OnMouseDown()
@@ -30,15 +28,20 @@ public class Antibiotic : Character
     }
     protected override float checkAdvantage()
     {
-        if (gameSystem.NowCharecter.classCharacter.Equals("ติดเชื้อ"))
+        if (gameSystem.NowCharecter.classCharacter.Equals("ลดน้ำมูก"))
         {
-            return 0.5f;
+            return 1.5f;
+        }
+        else if (gameSystem.NowCharecter.classCharacter.Equals("Hero"))
+        {
+            return 1.25f;
         }
         else if (gameSystem.NowCharecter.genusPhase.Equals("ระยะใกล้"))
         {
-            return 0.75f;
+            return 0.5f;
         }
         return 1;
     }
+
 
 }

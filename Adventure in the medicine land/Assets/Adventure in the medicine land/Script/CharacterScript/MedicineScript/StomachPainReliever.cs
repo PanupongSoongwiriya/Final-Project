@@ -3,34 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Antibiotic : Character
+public class StomachPainReliever : Character
 {
     void Start()
     {
-        characterName = "Amox";
+        characterName = "Gavis";
         faction = "Medicine";
-        classCharacter = "ยาฆ่าเชื้อ";
+        classCharacter = "ยาแก้ปวดท้อง";
         genusPhase = "ระยะใกล้";
 
-        HP = 4;
-        attackPower = 3;
-        defensePower = 1;
-
-        walkingDistance = 3;
         attackRange = 1;
+        walkingDistance = 2;
+
+        HP = 3;
+        attackPower = 2;
+        defensePower = 2;
+
 
         startSetUp();
 
-        //allSkill.Add(new HeavyATK(gameSystem));
+        allSkill.Add(new HeavyATK(gameSystem));
     }
 
     void OnMouseDown()
     {
         allAction();
     }
+
     protected override float checkAdvantage()
     {
-        if (gameSystem.NowCharecter.classCharacter.Equals("ติดเชื้อ"))
+        if (gameSystem.NowCharecter.classCharacter.Equals("ปวดท้อง"))
         {
             return 0.5f;
         }

@@ -3,21 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Antibiotic : Character
+public class Antipruritic : Character
 {
     void Start()
     {
-        characterName = "Amox";
+        characterName = "Kela";
         faction = "Medicine";
-        classCharacter = "ยาฆ่าเชื้อ";
-        genusPhase = "ระยะใกล้";
+        classCharacter = "ยาแก้คัน";
+        genusPhase = "ระยะกลาง";
 
-        HP = 4;
+        attackRange = 2;
+        walkingDistance = 2;
+
         attackPower = 3;
         defensePower = 1;
+        HP = 1;
 
-        walkingDistance = 3;
-        attackRange = 1;
 
         startSetUp();
 
@@ -28,13 +29,14 @@ public class Antibiotic : Character
     {
         allAction();
     }
+
     protected override float checkAdvantage()
     {
-        if (gameSystem.NowCharecter.classCharacter.Equals("ติดเชื้อ"))
+        if (gameSystem.NowCharecter.classCharacter.Equals("อาการคัน"))
         {
             return 0.5f;
         }
-        else if (gameSystem.NowCharecter.genusPhase.Equals("ระยะใกล้"))
+        else if (gameSystem.NowCharecter.genusPhase.Equals("ระยะกลาง"))
         {
             return 0.75f;
         }

@@ -339,7 +339,7 @@ GameObject:
   - component: {fileID: 316040766}
   - component: {fileID: 316040765}
   - component: {fileID: 316040764}
-  - component: {fileID: 316040763}
+  - component: {fileID: 316040769}
   m_Layer: 0
   m_Name: TestPlayer 2
   m_TagString: Medicine
@@ -347,36 +347,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &316040763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 316040762}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dad63d97f542a5944b66bc9ee293b38b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterName: 
-  id: 0
-  faction: 
-  classCharacter: 
-  genusPhase: 
-  doneItYet: 0
-  hp: 0
-  attackPower: 0
-  specialAttack: 0
-  defensePower: 0
-  specialDefense: 0
-  walkingDistance: 0
-  attackRange: 0
-  gameSystem: {fileID: 0}
-  indexSkill: 0
-  allSkill: []
-  pedalFloor: {fileID: 0}
-  dmgText: {fileID: 0}
 --- !u!54 &316040764
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -471,6 +441,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &316040769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316040762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7138331bae087e24692ca9c2ff7cc5b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterName: 
+  id: 0
+  faction: 
+  classCharacter: 
+  genusPhase: 
+  doneItYet: 0
+  hp: 0
+  attackPower: 0
+  specialAttack: 0
+  defensePower: 0
+  specialDefense: 0
+  walkingDistance: 0
+  attackRange: 0
+  gameSystem: {fileID: 0}
+  indexSkill: 0
+  allSkill: []
+  pedalFloor: {fileID: 0}
+  dmgText: {fileID: 0}
 --- !u!1 &351173779
 GameObject:
   m_ObjectHideFlags: 0
@@ -1604,7 +1604,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 709441479}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6, y: 2, z: 12}
+  m_LocalPosition: {x: -6, y: 2, z: 18}
   m_LocalScale: {x: 6, y: 2, z: 6}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3811,7 +3811,7 @@ GameObject:
   - component: {fileID: 1671720894}
   - component: {fileID: 1671720893}
   - component: {fileID: 1671720892}
-  - component: {fileID: 1671720891}
+  - component: {fileID: 1671720897}
   m_Layer: 0
   m_Name: TestPlayer 3
   m_TagString: Medicine
@@ -3819,36 +3819,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1671720891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1671720890}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f069a4d7a20575f43a6df2ee02202627, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterName: 
-  id: 0
-  faction: 
-  classCharacter: 
-  genusPhase: 
-  doneItYet: 0
-  hp: 0
-  attackPower: 0
-  specialAttack: 0
-  defensePower: 0
-  specialDefense: 0
-  walkingDistance: 0
-  attackRange: 0
-  gameSystem: {fileID: 0}
-  indexSkill: 0
-  allSkill: []
-  pedalFloor: {fileID: 0}
-  dmgText: {fileID: 0}
 --- !u!54 &1671720892
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3943,6 +3913,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1671720897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671720890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 290568d798a9cec469a75a9914057acb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterName: 
+  id: 0
+  faction: 
+  classCharacter: 
+  genusPhase: 
+  doneItYet: 0
+  hp: 0
+  attackPower: 0
+  specialAttack: 0
+  defensePower: 0
+  specialDefense: 0
+  walkingDistance: 0
+  attackRange: 0
+  gameSystem: {fileID: 0}
+  indexSkill: 0
+  allSkill: []
+  pedalFloor: {fileID: 0}
+  dmgText: {fileID: 0}
 --- !u!1 &1695438410
 GameObject:
   m_ObjectHideFlags: 0
@@ -4633,7 +4633,7 @@ GameObject:
   - component: {fileID: 2117606084}
   - component: {fileID: 2117606083}
   - component: {fileID: 2117606087}
-  - component: {fileID: 2117606088}
+  - component: {fileID: 2117606082}
   m_Layer: 0
   m_Name: TestPlayer
   m_TagString: Medicine
@@ -4641,6 +4641,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2117606082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117606081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3adbba4a2bf54d04d9f8f16b8e957dee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterName: 
+  id: 0
+  faction: 
+  classCharacter: 
+  genusPhase: 
+  doneItYet: 0
+  hp: 0
+  attackPower: 0
+  specialAttack: 0
+  defensePower: 0
+  specialDefense: 0
+  walkingDistance: 0
+  attackRange: 0
+  gameSystem: {fileID: 0}
+  indexSkill: 0
+  allSkill: []
+  pedalFloor: {fileID: 0}
+  dmgText: {fileID: 0}
 --- !u!136 &2117606083
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4735,36 +4765,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!114 &2117606088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2117606081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dad63d97f542a5944b66bc9ee293b38b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterName: 
-  id: 0
-  faction: 
-  classCharacter: 
-  genusPhase: 
-  doneItYet: 0
-  hp: 0
-  attackPower: 0
-  specialAttack: 0
-  defensePower: 0
-  specialDefense: 0
-  walkingDistance: 0
-  attackRange: 0
-  gameSystem: {fileID: 0}
-  indexSkill: 0
-  allSkill: []
-  pedalFloor: {fileID: 0}
-  dmgText: {fileID: 0}
 --- !u!1 &2141996531
 GameObject:
   m_ObjectHideFlags: 0
@@ -4902,7 +4902,7 @@ PrefabInstance:
         type: 3}
       propertyPath: image
       value: 
-      objectReference: {fileID: 2800000, guid: c06d80cb79b5a2f488a2414f213badf8, type: 3}
+      objectReference: {fileID: 2800000, guid: b03b6750c3df643469302f6ce4c517aa, type: 3}
     - target: {fileID: 8053176766272577634, guid: f564728f98ec6f342919a8d8bb555746,
         type: 3}
       propertyPath: start_x

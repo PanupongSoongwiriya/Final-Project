@@ -3,21 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Antibiotic : Character
+public class HeadacheMedicine : Character
 {
     void Start()
     {
-        characterName = "Amox";
+        characterName = "Voltaren";
         faction = "Medicine";
-        classCharacter = "ยาฆ่าเชื้อ";
+        classCharacter = "ยาแก้ปวดหัว";
         genusPhase = "ระยะใกล้";
 
-        HP = 4;
-        attackPower = 3;
-        defensePower = 1;
-
-        walkingDistance = 3;
         attackRange = 1;
+        walkingDistance = 1;
+
+        HP = 3;
+        attackPower = 1;
+        defensePower = 2;
+
 
         startSetUp();
 
@@ -28,9 +29,10 @@ public class Antibiotic : Character
     {
         allAction();
     }
+
     protected override float checkAdvantage()
     {
-        if (gameSystem.NowCharecter.classCharacter.Equals("ติดเชื้อ"))
+        if (gameSystem.NowCharecter.classCharacter.Equals("ปวดหัว"))
         {
             return 0.5f;
         }
