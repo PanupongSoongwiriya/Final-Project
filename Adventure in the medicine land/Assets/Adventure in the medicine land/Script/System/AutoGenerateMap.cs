@@ -15,6 +15,7 @@ public class AutoGenerateMap : MonoBehaviour
     public int scaleFloor = 6;
     private int start_x;//half of phase
     private int start_y;//half of phase
+    public int bonusFloor = 1;
 
     public GameObject floorModel;
     public GameObject lineModel;
@@ -103,19 +104,19 @@ public class AutoGenerateMap : MonoBehaviour
         }
         else if (pixFloor.gamma.Equals(typeColor["red"].gamma))//+ATK
         {
-            floorObject.AddComponent<floorPlusATK>();
+            floorObject.AddComponent<floorATK>().SA = bonusFloor;
         }
         else if (pixFloor.gamma.Equals(typeColor["cyan"].gamma))//-ATK
         {
-            floorObject.AddComponent<floorMinusATK>();
+            floorObject.AddComponent<floorATK>().SA = -bonusFloor;
         }
         else if (pixFloor.gamma.Equals(typeColor["gray"].gamma))//+DEF
         {
-            floorObject.AddComponent<floorPlusDEF>();
+            floorObject.AddComponent<floorDEF>().SD = bonusFloor;
         }
         else if (pixFloor.gamma.Equals(typeColor["brown"].gamma))//-DEF
         {
-            floorObject.AddComponent<floorMinusDEF>();
+            floorObject.AddComponent<floorDEF>().SD = -bonusFloor;
         }
         else if (pixFloor.gamma.Equals(typeColor["purple"].gamma))//Poison
         {

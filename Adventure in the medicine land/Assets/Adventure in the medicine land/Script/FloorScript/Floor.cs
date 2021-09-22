@@ -8,7 +8,6 @@ public class Floor : MonoBehaviour
     protected GameSystem gameSystem;
     protected bool inTerm = false;
     protected Color floorColor;
-    public bool changeTurn = false;
     void Start()
     {
         gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
@@ -69,10 +68,11 @@ public class Floor : MonoBehaviour
 
     public void setPositionCharacter()
     {
-        gameSystem.NowCharecter.doneIt();
         gameSystem.NowCharecter.transform.position = new Vector3(transform.position.x, gameSystem.NowCharecter.transform.position.y, transform.position.z);//getposition for move Character
         gameSystem.resetInTerm();
-        gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false, false, false);//controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
+        gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false, false, false);
+        //controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
+        gameSystem.NowCharecter.doneIt();
     }
 
     public bool InTerm

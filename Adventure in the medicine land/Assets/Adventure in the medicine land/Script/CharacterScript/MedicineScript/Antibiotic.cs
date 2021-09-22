@@ -12,7 +12,7 @@ public class Antibiotic : Character
         classCharacter = "ยาฆ่าเชื้อ";
         genusPhase = "ระยะใกล้";
 
-        HP = 10;
+        HP = 4;
         attackPower = 3;
         defensePower = 1;
 
@@ -36,7 +36,7 @@ public class Antibiotic : Character
         }
         else if (gameSystem.NowCharecter.genusPhase.Equals("ระยะใกล้"))
         {
-            return 0.5f;
+            return 0.75f;
         }
         return 1;
     }

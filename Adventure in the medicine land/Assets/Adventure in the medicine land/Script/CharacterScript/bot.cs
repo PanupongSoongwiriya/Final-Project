@@ -6,27 +6,27 @@ public class bot : MonoBehaviour
 {
     private Character chr;
     public GameSystem gameSystem;
-    private bool testddd;
+    public bool botActive;
     void Start()
     {
         chr = gameObject.GetComponent<Infect>();
         gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
-        testddd = true;
+        botActive = false;
+
     }
 
     void Update()
     {
-        if (gameSystem.whoTurn == "Disease" && testddd)
+        if (botActive)
         {
-            testddd = false;
-            Invoke("testDelay", 1.0f);
+            botWalk();
         }
     }
 
-    private void testDelay()
+    private void botWalk()
     {
-        testddd = true;
-        chr.doneIt();
+        botActive = false;
+        gameSystem.cf.Target = transform;
         gameSystem.NowCharecter = chr;
         gameSystem.botChackInTerm();
         gameSystem.allFloorInTerm[new System.Random().Next(gameSystem.allFloorInTerm.Count)].GetComponent<Floor>().setPositionCharacter();

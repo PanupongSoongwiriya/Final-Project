@@ -22,6 +22,8 @@ public class GameSystem : MonoBehaviour
     public List<GameObject> allFloorInTerm;
     public List<Character> medicineFaction = new List<Character>();
     public List<Character> diseaseFaction = new List<Character>();
+    private Dictionary<String, int> allClassID = new Dictionary<string, int>();
+
     void Start()
     {
         whoTurn = "Medicine";
@@ -67,8 +69,6 @@ public class GameSystem : MonoBehaviour
             {
                 whoTurn = "Medicine";
                 State = "Choose a medicine character";
-                //changeTurn();
-                Turn++;
             }
             Debug.Log(whoTurn + " Turn");
 
@@ -79,20 +79,28 @@ public class GameSystem : MonoBehaviour
                 {
                     medicine.doneItYet = true;
                 }
+                Turn++;
             }
             else
             {
-                foreach (Character disease in diseaseFaction)
-                {
-                    disease.doneItYet = true;
-                }
+                StartCoroutine(diseaseActive());
             }
         }
     }
-    public void changeTurn()
-    {
-        //turn++;
 
+    IEnumerator diseaseActive()
+    {
+        foreach (Character disease in diseaseFaction)
+        {
+            disease.doneItYet = true;
+            yield return new WaitForSeconds(1.5f);
+            disease.GetComponent<bot>().botActive = true;
+        }
+    }
+
+    IEnumerator changeTurn()
+    {
+        yield return new WaitForSeconds(0.1f);
         foreach (Character medicine in medicineFaction)
         {
             medicine.resetSP();
@@ -104,7 +112,6 @@ public class GameSystem : MonoBehaviour
         foreach (GameObject floor in allFloor)
         {
             floor.GetComponent<Floor>().floorEffect();
-            //floor.GetComponent<Floor>().changeTurn = true;
         }
     }
     public void chackInTerm()
@@ -120,7 +127,6 @@ public class GameSystem : MonoBehaviour
             if (State == "walk")
             {
                 checkTerm = nowCharecter.walkingDistance;
-
             }
             else if (State == "Choose a enemy character" || State == "Use skills with enemies" || State == "Use skills with ally")
             {
@@ -135,16 +141,29 @@ public class GameSystem : MonoBehaviour
 
     public void memberUpdate(Character chr)
     {
+        bool without = true;
         if (chr.Faction.Equals("Medicine"))
         {
             medicineFaction.Add(chr);
-            chr.ID = medicineFaction.Count;
         }
         else
         {
             diseaseFaction.Add(chr);
-            chr.ID = diseaseFaction.Count;
         }
+        foreach (String key in allClassID.Keys)
+        {
+            if (chr.classCharacter.Equals(key))
+            {
+                without = false;
+                break;
+            }
+        }
+        if (without)
+        {
+            allClassID.Add(chr.classCharacter, 1);
+        }
+        chr.ID = allClassID[chr.classCharacter];
+        allClassID[chr.classCharacter] += 1;
     }
 
     public void memberRemove(Character chr)
@@ -326,7 +345,7 @@ public class GameSystem : MonoBehaviour
     public int Turn
     {
         get { return turn; }
-        set { turn = value; changeTurn(); }
+        set { turn = value; StartCoroutine(changeTurn()); }
     }
     
 }

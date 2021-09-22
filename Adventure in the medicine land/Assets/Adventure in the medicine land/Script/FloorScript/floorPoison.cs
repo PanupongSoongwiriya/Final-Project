@@ -26,9 +26,6 @@ public class floorPoison : Floor
             characterOnIt.HP -= poison;
         }
     }
-    private void OnCollisionStay(Collision collision)
-    {
-    }
     private void OnCollisionExit(Collision collision)
     {
         characterOnIt = null;

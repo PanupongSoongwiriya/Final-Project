@@ -6,8 +6,8 @@ using System;
 public class Character : MonoBehaviour
 {
     public String characterName;
-    protected int id;
-    protected String faction;
+    public int id;
+    public String faction;
     public String classCharacter;
     public String genusPhase;
     public bool doneItYet;
@@ -24,7 +24,6 @@ public class Character : MonoBehaviour
     public int attackRange;
 
     public GameSystem gameSystem;
-    protected int beforeTurn = -1;
     public int indexSkill;
 
 
@@ -57,7 +56,6 @@ public class Character : MonoBehaviour
         gameSystem.memberUpdate(this);
         dmgText = gameSystem.dmgText;
         doneItYet = true;
-        Debug.Log(dmgText);
     }
     public void useSkill(int index)
     {
@@ -148,7 +146,7 @@ public class Character : MonoBehaviour
             gameSystem.resetInTerm();
             gameSystem.State = "Choose a medicine character";
             gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false, false, false);//controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
-            int dmg = Math.Max(0, (int)((gameSystem.NowCharecter.attackPower + gameSystem.NowCharecter.specialAttack) - (defensePower + specialDefense) * checkAdvantage()));
+            int dmg = Math.Max(0, (int)(((gameSystem.NowCharecter.attackPower + gameSystem.NowCharecter.specialAttack) * checkAdvantage()) - (defensePower + specialDefense)));
             showDMG(-dmg, "Character");
             HP -= dmg;
         }

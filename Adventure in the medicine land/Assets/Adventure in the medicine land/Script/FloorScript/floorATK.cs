@@ -2,18 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class floorPlusDEF : Floor
+public class floorATK : Floor
 {
-    public int SD = 1;
+    public int sa;
     void Start()
     {
         gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
-        setTypeFloor();
     }
 
     protected override void setTypeFloor()
     {
-        floorColor = new Color(0.5019608f, 0.5019608f, 0.5019608f, 1f);
+        if (sa < 0)
+        {
+            floorColor = Color.cyan;
+        }
+        else
+        {
+            floorColor = Color.red;
+        }
         GetComponent<Renderer>().material.SetColor("_Color", floorColor);
     }
     private void OnCollisionEnter(Collision collision)
@@ -22,24 +28,25 @@ public class floorPlusDEF : Floor
         {
             characterOnIt = collision.gameObject.GetComponent<Character>();
             characterOnIt.PedalFloor = this;
-            Debug.Log(characterOnIt.name + " specialDefense: " + characterOnIt.specialDefense);
-            characterOnIt.specialDefense += SD;
-            Debug.Log(characterOnIt.name + " specialDefense: " + characterOnIt.specialDefense);
+            characterOnIt.specialAttack += sa;
         }
-    }
-    private void OnCollisionStay(Collision collision)
-    {
     }
     private void OnCollisionExit(Collision collision)
     {
-        characterOnIt.specialDefense -= SD;
+        characterOnIt.specialAttack -= sa;
         characterOnIt = null;
     }
     public override void floorEffect()
     {
         if (characterOnIt != null)
         {
-            characterOnIt.specialDefense = SD;
+            characterOnIt.specialAttack = sa;
         }
+    }
+
+    public int SA
+    {
+        get { return sa; }
+        set { sa = value; setTypeFloor(); }
     }
 }

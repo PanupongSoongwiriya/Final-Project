@@ -12,7 +12,7 @@ public class Infect : Character
         classCharacter = "ติดเชื้อ";
         genusPhase = "ระยะใกล้";
 
-        HP = 5;
+        HP = 6;
         attackPower = 1;
         defensePower = 1;
 

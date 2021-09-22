@@ -17,7 +17,6 @@ public class characterDetailPanel : MonoBehaviour
     void Start()
     {
         gameSystem = system.GetComponent<GameSystem>();
-
     }
 
     void Update()
@@ -29,14 +28,16 @@ public class characterDetailPanel : MonoBehaviour
     {
         String spATK = " (";
         String spDEF = " (";
-        nameText.text = "";
-        nameText.text = "Name: " + gameSystem.NowCharecter.characterName + " " + gameSystem.NowCharecter.ID;
-        /*if (gameSystem.NowCharecter.Faction.Equals("Medicine"))
+        nameText.text = "Name: " + gameSystem.NowCharecter.characterName;
+
+        if (gameSystem.NowCharecter.Faction.Equals("Disease"))
         {
-            nameText.text = "Name: " + gameSystem.NowCharecter.characterName;
-        }*/
+            nameText.text += " " + gameSystem.NowCharecter.ID;
+        }
+
         classText.text = "Class: " + gameSystem.NowCharecter.classCharacter;
         hpText.text = "Hp: " + gameSystem.NowCharecter.hp;
+
         if (gameSystem.NowCharecter.specialAttack > 0)
         {
             spATK += "+" + gameSystem.NowCharecter.specialAttack + ")";
@@ -45,6 +46,7 @@ public class characterDetailPanel : MonoBehaviour
         {
             spATK += gameSystem.NowCharecter.specialAttack + ")";
         }
+
         if (gameSystem.NowCharecter.specialDefense > 0)
         {
             spDEF += "+" + gameSystem.NowCharecter.specialDefense + ")";
@@ -53,6 +55,7 @@ public class characterDetailPanel : MonoBehaviour
         {
             spDEF += gameSystem.NowCharecter.specialDefense + ")";
         }
+
         atkText.text = "Atk: " + gameSystem.NowCharecter.attackPower + spATK;
         defText.text = "Def: " + gameSystem.NowCharecter.defensePower + spDEF;
     }
