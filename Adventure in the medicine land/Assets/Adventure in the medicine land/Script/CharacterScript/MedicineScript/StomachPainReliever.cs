@@ -12,8 +12,6 @@ public class StomachPainReliever : Character
         classCharacter = "ยาแก้ปวดท้อง";
         genusPhase = "ระยะใกล้";
 
-        attackRange = 1;
-        walkingDistance = 2;
 
         HP = 3;
         attackPower = 2;
@@ -28,6 +26,12 @@ public class StomachPainReliever : Character
     void OnMouseDown()
     {
         allAction();
+    }
+
+    protected override void resetRange()
+    {
+        attackRange = 1;
+        walkingDistance = 2;
     }
 
     protected override float checkAdvantage()

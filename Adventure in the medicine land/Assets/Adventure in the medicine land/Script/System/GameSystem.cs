@@ -31,7 +31,7 @@ public class GameSystem : MonoBehaviour
         turn = 0;
     }
     
-        public void checkChangeTurn()
+    public void checkChangeTurn()
     {
         bool statusChangeTurn = true;
         if (whoTurn == "Medicine")
@@ -79,10 +79,14 @@ public class GameSystem : MonoBehaviour
                 {
                     medicine.doneItYet = true;
                 }
-                Turn++;
+                ++Turn;
             }
             else
             {
+                foreach (Character disease in diseaseFaction)
+                {
+                    disease.doneItYet = true;
+                }
                 StartCoroutine(diseaseActive());
             }
         }
@@ -90,17 +94,17 @@ public class GameSystem : MonoBehaviour
 
     IEnumerator diseaseActive()
     {
+        yield return new WaitForSeconds(0.25f);
         foreach (Character disease in diseaseFaction)
         {
-            disease.doneItYet = true;
-            yield return new WaitForSeconds(1.5f);
-            disease.GetComponent<bot>().botActive = true;
+            disease.GetComponent<bot>().botWalk();
+            yield return new WaitForSeconds(1.25f);
         }
     }
 
     IEnumerator changeTurn()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(1f);
         foreach (Character medicine in medicineFaction)
         {
             medicine.resetSP();
@@ -128,7 +132,7 @@ public class GameSystem : MonoBehaviour
             {
                 checkTerm = nowCharecter.walkingDistance;
             }
-            else if (State == "Choose a enemy character" || State == "Use skills with enemies" || State == "Use skills with ally")
+            else if (State == "Choose a enemy character" || State == "Use skills with enemies" || State == "Debuff with enemies" || State == "Use skills with ally")
             {
                 checkTerm = nowCharecter.attackRange;
             }
@@ -178,7 +182,7 @@ public class GameSystem : MonoBehaviour
         }
     }
 
-    public void botChackInTerm()//test
+    public void botChackInTerm()
     {
         allFloorInTerm.Clear();
         int checkTerm = nowCharecter.walkingDistance;

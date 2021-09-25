@@ -12,8 +12,6 @@ public class Antipruritic : Character
         classCharacter = "ยาแก้คัน";
         genusPhase = "ระยะกลาง";
 
-        attackRange = 2;
-        walkingDistance = 2;
 
         attackPower = 3;
         defensePower = 1;
@@ -30,6 +28,11 @@ public class Antipruritic : Character
         allAction();
     }
 
+    protected override void resetRange()
+    {
+        attackRange = 2;
+        walkingDistance = 2;
+    }
     protected override float checkAdvantage()
     {
         if (gameSystem.NowCharecter.classCharacter.Equals("อาการคัน"))

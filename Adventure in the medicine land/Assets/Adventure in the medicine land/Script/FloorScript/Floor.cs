@@ -39,7 +39,7 @@ public class Floor : MonoBehaviour
         {
             show.GetComponent<Renderer>().material.SetColor("_Color", new Color(0, 1, 0, 0.25f));
         }
-        else if (gameSystem.State == "Choose a enemy character" || gameSystem.State == "Use skills with enemies")
+        else if (gameSystem.State == "Choose a enemy character" || gameSystem.State == "Use skills with enemies" || gameSystem.State == "Debuff with enemies")
         {
             show.GetComponent<Renderer>().material.SetColor("_Color", new Color(1, 0, 0, 0.5f));
         }

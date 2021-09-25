@@ -1,22 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public class BootATK : Skill
+public class BootSpeed : Skill
 {
-    public BootATK(GameSystem gs)
+    public BootSpeed(GameSystem gs)
     {
         gameSystem = gs;
-        skillName = "Boot ATK";
-        bonusEffect = 2;
-        desCripTion = "เพิ่มพลังโจมตีให้กับพันธมิตร 1 ตัวในระยะการโจมตี\n(+spAtk " + bonusEffect + ")";
+        skillName = "BootSpeed";
+        bonusEffect = 1;
+        desCripTion = "เพิ่มระยะการเดินให้กับพันธมิตร 1 ตัวในระยะการโจมตี(+ระยะเดิน " + bonusEffect + ")";
     }
     public override void changeState()
     {
         if (gameSystem.State.Equals("waiting for skill"))
         {
             gameSystem.State = "Use skills with ally";
-            gameSystem.SkillType = "ATK";
+            gameSystem.SkillType = "WD";
             gameSystem.SkillBonusEffect = bonusEffect;
             gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(true, false, false, false, false);//controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
         }

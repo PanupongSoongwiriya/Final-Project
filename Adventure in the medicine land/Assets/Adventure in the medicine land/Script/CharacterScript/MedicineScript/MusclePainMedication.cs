@@ -12,8 +12,6 @@ public class MusclePainMedication : Character
         classCharacter = "ยาแก้ปวดกล้ามเนื้อ";
         genusPhase = "ระยะกลาง";
 
-        attackRange = 2;
-        walkingDistance = 2;
 
         attackPower = 2;
         defensePower = 1;
@@ -22,12 +20,18 @@ public class MusclePainMedication : Character
 
         startSetUp();
 
-        //allSkill.Add(new HeavyATK(gameSystem));
+        allSkill.Add(new DebuffATK(gameSystem));
+        allSkill.Add(new DebuffDEF(gameSystem));
     }
 
     void OnMouseDown()
     {
         allAction();
+    }
+    protected override void resetRange()
+    {
+        attackRange = 2;
+        walkingDistance = 2;
     }
 
     protected override float checkAdvantage()

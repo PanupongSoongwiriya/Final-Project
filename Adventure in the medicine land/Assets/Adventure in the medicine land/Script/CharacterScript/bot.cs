@@ -6,29 +6,25 @@ public class bot : MonoBehaviour
 {
     private Character chr;
     public GameSystem gameSystem;
-    public bool botActive;
+    //public bool botActive;
     void Start()
     {
         chr = gameObject.GetComponent<Infect>();
         gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
-        botActive = false;
-
     }
 
-    void Update()
+    public void botWalk()
     {
-        if (botActive)
-        {
-            botWalk();
-        }
-    }
-
-    private void botWalk()
-    {
-        botActive = false;
         gameSystem.cf.Target = transform;
         gameSystem.NowCharecter = chr;
-        gameSystem.botChackInTerm();
-        gameSystem.allFloorInTerm[new System.Random().Next(gameSystem.allFloorInTerm.Count)].GetComponent<Floor>().setPositionCharacter();
+        if (chr.walkingDistance > 0)
+        {
+            gameSystem.botChackInTerm();
+            gameSystem.allFloorInTerm[new System.Random().Next(gameSystem.allFloorInTerm.Count)].GetComponent<Floor>().setPositionCharacter();
+        }
+        else
+        {
+            gameSystem.NowCharecter.doneIt();
+        }
     }
 }

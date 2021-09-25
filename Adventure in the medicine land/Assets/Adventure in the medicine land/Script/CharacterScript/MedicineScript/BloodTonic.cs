@@ -9,11 +9,9 @@ public class BloodTonic : Character
     {
         characterName = "Folic";
         faction = "Medicine";
-        classCharacter = "ยาฆ่าเชื้อรา";
+        classCharacter = "ยาบำรุงเลือด";
         genusPhase = "ระยะไกล";
 
-        attackRange = 3;
-        walkingDistance = 2;
 
         attackPower = 2;
         defensePower = 1;
@@ -22,11 +20,16 @@ public class BloodTonic : Character
 
         startSetUp();
 
-        //allSkill.Add(new HeavyATK(gameSystem));
+        allSkill.Add(new Heal(gameSystem));
     }
 
     void OnMouseDown()
     {
         allAction();
+    }
+    protected override void resetRange()
+    {
+        attackRange = 3;
+        walkingDistance = 2;
     }
 }

@@ -56,6 +56,7 @@ public class Character : MonoBehaviour
         gameSystem.memberUpdate(this);
         dmgText = gameSystem.dmgText;
         doneItYet = true;
+        resetRange();
     }
     public void useSkill(int index)
     {
@@ -132,9 +133,23 @@ public class Character : MonoBehaviour
             else if (type.Equals("HP"))
             {
                 HP += bonusEffect;
+                if (bonusEffect > 0)
+                {
+                    showDMG(bonusEffect, "heal");
+                }
+            }
+            else if (type.Equals("WD"))
+            {
+                walkingDistance += bonusEffect;
+            }
+            else if (type.Equals("AR"))
+            {
+                attackRange += bonusEffect;
             }
             gameSystem.SkillType = "";
             gameSystem.SkillBonusEffect = 0;
+            gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false, false, false);
+            //controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
         }
     }
 
@@ -145,8 +160,9 @@ public class Character : MonoBehaviour
             gameSystem.NowCharecter.doneIt();
             gameSystem.resetInTerm();
             gameSystem.State = "Choose a medicine character";
-            gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false, false, false);//controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
-            int dmg = Math.Max(0, (int)(((gameSystem.NowCharecter.attackPower + gameSystem.NowCharecter.specialAttack) * checkAdvantage()) - (defensePower + specialDefense)));
+            gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false, false, false);
+            //controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
+            int dmg = Math.Max(1, (int)(((gameSystem.NowCharecter.attackPower + gameSystem.NowCharecter.specialAttack) - (defensePower + specialDefense)) * checkAdvantage()));
             showDMG(-dmg, "Character");
             HP -= dmg;
         }
@@ -186,6 +202,12 @@ public class Character : MonoBehaviour
     {
         specialDefense = 0;
         specialAttack = 0;
+        resetRange();
+    }
+    protected virtual void resetRange()
+    {
+        walkingDistance = 0;
+        attackRange = 0;
     }
     public String Faction
     {

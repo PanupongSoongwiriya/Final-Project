@@ -12,8 +12,6 @@ public class Fungicide : Character
         classCharacter = "ยาฆ่าเชื้อรา";
         genusPhase = "ระยะกลาง";
 
-        attackRange = 0;
-        walkingDistance = 0;
 
         attackPower = 0;
         defensePower = 0;
@@ -28,6 +26,11 @@ public class Fungicide : Character
     void OnMouseDown()
     {
         allAction();
+    }
+    protected override void resetRange()
+    {
+        attackRange = 0;
+        walkingDistance = 0;
     }
 
     protected override float checkAdvantage()

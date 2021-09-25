@@ -12,8 +12,6 @@ public class AcneDisinfectant : Character
         classCharacter = "ยาฆ่าเชื้อสิว";
         genusPhase = "ระยะกลาง";
 
-        attackRange = 2;
-        walkingDistance = 2;
 
         attackPower = 2;
         defensePower = 2;
@@ -28,6 +26,11 @@ public class AcneDisinfectant : Character
     void OnMouseDown()
     {
         allAction();
+    }
+    protected override void resetRange()
+    {
+        attackRange = 2;
+        walkingDistance = 2;
     }
 
     protected override float checkAdvantage()

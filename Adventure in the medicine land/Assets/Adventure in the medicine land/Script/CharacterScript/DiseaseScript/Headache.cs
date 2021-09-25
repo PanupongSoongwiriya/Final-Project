@@ -16,8 +16,6 @@ public class Headache : Character
         attackPower = 1;
         defensePower = 1;
 
-        walkingDistance = 3;
-        attackRange = 1;
 
         startSetUp();
     }
@@ -25,6 +23,11 @@ public class Headache : Character
     void OnMouseDown()
     {
         allAction();
+    }
+    protected override void resetRange()
+    {
+        walkingDistance = 3;
+        attackRange = 1;
     }
     protected override float checkAdvantage()
     {

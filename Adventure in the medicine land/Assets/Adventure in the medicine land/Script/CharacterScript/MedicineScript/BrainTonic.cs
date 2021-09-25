@@ -15,16 +15,20 @@ public class BrainTonic : Character
         attackPower = 2;
         defensePower = 1;
 
-        walkingDistance = 2;
-        attackRange = 3;
 
         startSetUp();
 
-        allSkill.Add(new BootATK(gameSystem, this));
+        allSkill.Add(new BootATK(gameSystem));
+        allSkill.Add(new BootDEF(gameSystem));
     }
 
     void OnMouseDown()
     {
         allAction();
+    }
+    protected override void resetRange()
+    {
+        walkingDistance = 2;
+        attackRange = 3;
     }
 }

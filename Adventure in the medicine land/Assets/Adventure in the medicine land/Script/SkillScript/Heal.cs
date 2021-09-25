@@ -2,21 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BootATK : Skill
+public class Heal : Skill
 {
-    public BootATK(GameSystem gs)
+    public Heal(GameSystem gs)
     {
         gameSystem = gs;
-        skillName = "Boot ATK";
+        skillName = "Heal";
         bonusEffect = 2;
-        desCripTion = "เพิ่มพลังโจมตีให้กับพันธมิตร 1 ตัวในระยะการโจมตี\n(+spAtk " + bonusEffect + ")";
+        desCripTion = "รักษาให้กับพันธมิตร\n1 ตัวในระยะการโจมตี\n(+HP " + bonusEffect + ")";
     }
     public override void changeState()
     {
         if (gameSystem.State.Equals("waiting for skill"))
         {
             gameSystem.State = "Use skills with ally";
-            gameSystem.SkillType = "ATK";
+            gameSystem.SkillType = "HP";
             gameSystem.SkillBonusEffect = bonusEffect;
             gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(true, false, false, false, false);//controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
         }

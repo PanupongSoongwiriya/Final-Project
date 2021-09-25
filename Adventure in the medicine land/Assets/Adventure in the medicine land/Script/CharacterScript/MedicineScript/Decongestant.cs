@@ -12,8 +12,6 @@ public class Decongestant : Character
         classCharacter = "ยาลดน้ำมูก";
         genusPhase = "ระยะใกล้";
 
-        attackRange = 1;
-        walkingDistance = 1;
 
         HP = 3;
         attackPower = 1;
@@ -28,6 +26,11 @@ public class Decongestant : Character
     void OnMouseDown()
     {
         allAction();
+    }
+    protected override void resetRange()
+    {
+        attackRange = 1;
+        walkingDistance = 1;
     }
 
     protected override float checkAdvantage()

@@ -1,21 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public class BootATK : Skill
+public class DebuffATK : Skill
 {
-    public BootATK(GameSystem gs)
+    public DebuffATK(GameSystem gs)
     {
         gameSystem = gs;
-        skillName = "Boot ATK";
-        bonusEffect = 2;
-        desCripTion = "เพิ่มพลังโจมตีให้กับพันธมิตร 1 ตัวในระยะการโจมตี\n(+spAtk " + bonusEffect + ")";
+        skillName = "Debuff ATK";
+        bonusEffect = -2;
+        desCripTion = "ลดพลังโจมตีศัตรู 1 ตัวในระยะการโจมตี\n(-spAtk " + Math.Abs(bonusEffect) + ")";
     }
     public override void changeState()
     {
         if (gameSystem.State.Equals("waiting for skill"))
         {
-            gameSystem.State = "Use skills with ally";
+            gameSystem.State = "Debuff with enemies";
             gameSystem.SkillType = "ATK";
             gameSystem.SkillBonusEffect = bonusEffect;
             gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(true, false, false, false, false);//controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel

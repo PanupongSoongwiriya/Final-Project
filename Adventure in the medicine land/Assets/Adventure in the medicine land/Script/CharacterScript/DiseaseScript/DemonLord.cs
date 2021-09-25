@@ -16,8 +16,6 @@ public class DemonLord : Character
         attackPower = 3;
         defensePower = 3;
 
-        walkingDistance = 3;
-        attackRange = 3;
 
         startSetUp();
     }
@@ -27,6 +25,11 @@ public class DemonLord : Character
         allAction();
     }
 
+    protected override void resetRange()
+    {
+        walkingDistance = 3;
+        attackRange = 3;
+    }
     protected override float checkAdvantage()
     {
         if (gameSystem.NowCharecter.classCharacter.Equals("Hero"))

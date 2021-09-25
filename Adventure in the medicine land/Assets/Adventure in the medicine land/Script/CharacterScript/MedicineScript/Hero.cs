@@ -12,8 +12,6 @@ public class Hero : Character
         classCharacter = "ฮีโร่";
         genusPhase = "";
 
-        attackRange = 2;
-        walkingDistance = 3;
 
         attackPower = 3;
         defensePower = 3;
@@ -28,6 +26,11 @@ public class Hero : Character
     void OnMouseDown()
     {
         allAction();
+    }
+    protected override void resetRange()
+    {
+        attackRange = 2;
+        walkingDistance = 3;
     }
 
     protected override float checkAdvantage()
