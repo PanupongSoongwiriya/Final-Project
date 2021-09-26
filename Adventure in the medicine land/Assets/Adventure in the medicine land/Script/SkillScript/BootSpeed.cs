@@ -5,9 +5,8 @@ using System;
 
 public class BootSpeed : Skill
 {
-    public BootSpeed(GameSystem gs)
+    void Start()
     {
-        gameSystem = gs;
         skillName = "BootSpeed";
         bonusEffect = 1;
         desCripTion = "เพิ่มระยะการเดินให้กับพันธมิตร 1 ตัวในระยะการโจมตี(+ระยะเดิน " + bonusEffect + ")";

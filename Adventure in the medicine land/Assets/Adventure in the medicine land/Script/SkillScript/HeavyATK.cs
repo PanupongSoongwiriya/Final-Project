@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class HeavyATK : Skill
 {
-    public HeavyATK(GameSystem gs)
+    void Start()
     {
-        gameSystem = gs;
         skillName = "Heavy ATK";
         bonusEffect = 1;
         desCripTion = "เลือกศัตรูในระยะการโจมตี\n1 ตัวเพื่อสร้างความเสียหาย\nแบบพิเศษ(+spAtk " + bonusEffect + ")";

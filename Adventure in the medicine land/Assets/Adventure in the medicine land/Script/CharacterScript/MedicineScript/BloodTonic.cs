@@ -20,7 +20,10 @@ public class BloodTonic : Character
 
         startSetUp();
 
-        allSkill.Add(new Heal(gameSystem));
+        GameObject skill = new GameObject();
+        skill.name = name + " Skill";
+        skill.AddComponent<Heal>().gameSystem = gameSystem;
+        allSkill.Add(skill.GetComponent<Heal>());
     }
 
     void OnMouseDown()

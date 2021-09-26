@@ -102,17 +102,17 @@ public class Character : MonoBehaviour
         //Buff
         if (gameSystem.State.Equals("Use skills with ally") && !gameSystem.NowCharecter.Equals(this) && faction.Equals("Medicine") && pedalFloor.InTerm)
         {
+            gameSystem.State = "Choose a medicine character";
             gameSystem.NowCharecter.doneIt();
             gameSystem.resetInTerm();
-            gameSystem.State = "Choose a medicine character";
             status = true;
         }
         //Debuff
         else if (gameSystem.State.Equals("Debuff with enemies") && faction.Equals("Disease") && pedalFloor.InTerm)
         {
+            gameSystem.State = "Choose a medicine character";
             gameSystem.NowCharecter.doneIt();
             gameSystem.resetInTerm();
-            gameSystem.State = "Choose a medicine character";
             status = true;
         }
         if (status)
@@ -156,9 +156,9 @@ public class Character : MonoBehaviour
         //Player Attack
         if ((gameSystem.State.Equals("Choose a enemy character") || gameSystem.State.Equals("Use skills with enemies")) && !gameSystem.NowCharecter.Faction.Equals(faction) && pedalFloor.InTerm)
         {
+            gameSystem.State = "Choose a medicine character";
             gameSystem.NowCharecter.doneIt();
             gameSystem.resetInTerm();
-            gameSystem.State = "Choose a medicine character";
             gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false, false, false);
             //controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
             int dmg = Math.Max(1, (int)(((gameSystem.NowCharecter.attackPower + gameSystem.NowCharecter.specialAttack) - (defensePower + specialDefense)) * checkAdvantage()));
@@ -182,7 +182,7 @@ public class Character : MonoBehaviour
         {
             dmgText.GetComponent<DamageText>().dmg = dmg;
             dmgText.GetComponent<DamageText>().typeDMG = typeDMG;
-            Vector3 position = new Vector3(transform.position.x, transform.position.y+3, transform.position.z);
+            Vector3 position = new Vector3(transform.position.x, transform.position.y + 3, transform.position.z);
             Instantiate(dmgText, position, Quaternion.Euler(new Vector3(90, 270, 0)));
         }
     }
@@ -233,7 +233,8 @@ public class Character : MonoBehaviour
         set { gameSystem = value; }
     }
 
-    public Floor PedalFloor { 
+    public Floor PedalFloor
+    {
         get { return pedalFloor; }
         set { pedalFloor = value; }
     }

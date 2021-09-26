@@ -8,7 +8,7 @@ public class GameSystem : MonoBehaviour
     private int turn;
     public string whoTurn;
 
-    private string state;
+    public string state;
     //("Choose a medicine character", "waiting for orders", "walk", "Choose a enemy character", "waiting for skill", "Use skills with enemies", "Use skills with ally", "Debuff with enemies", "round of bots")
 
     private Character nowCharecter;
@@ -183,18 +183,11 @@ public class GameSystem : MonoBehaviour
         }
     }
 
-    public void botChackInTerm(String doingWhat)
+    public void botChackInTerm(int checkTerm)
     {
-        int checkTerm = 0;
+        resetInTerm();
         allFloorInTerm.Clear();
         allMedicineInTerm.Clear();
-        if (doingWhat.Equals("walk"))
-        {
-            checkTerm = nowCharecter.walkingDistance;
-        }else if (doingWhat.Equals("attack"))
-        {
-            checkTerm = nowCharecter.attackRange;
-        }
         findDistance(checkTerm);
     }
 
@@ -297,7 +290,8 @@ public class GameSystem : MonoBehaviour
                     if (NowCharecter.Faction.Equals("Disease"))
                     {
                         bool add = true;
-                        foreach(Character medicine in medicineFaction)
+                        //Find out if there is a medicine character there or not.
+                        foreach (Character medicine in medicineFaction)
                         {
                             int medicineX = (int)medicine.transform.position.x;
                             int medicineZ = (int)medicine.transform.position.z;
@@ -310,11 +304,24 @@ public class GameSystem : MonoBehaviour
                         }
                         if (add)
                         {
+                            //Find out if there is a disease character there or not.
+                            foreach (Character disease in diseaseFaction)
+                            {
+                                int diseaseX = (int)disease.transform.position.x;
+                                int diseaseZ = (int)disease.transform.position.z;
+                                if (position[0] == diseaseX && position[1] == diseaseZ)
+                                {
+                                    add = false;
+                                    break;
+                                }
+                            }
+                        }
+                        if (add)
+                        {
                             allFloorInTerm.Add(floor);
                         }
                     }
                     floor.GetComponent<Floor>().InTerm = true;
-
                     break;
                 }
             }
@@ -359,5 +366,4 @@ public class GameSystem : MonoBehaviour
         get { return turn; }
         set { turn = value; StartCoroutine(changeTurn()); }
     }
-    
 }

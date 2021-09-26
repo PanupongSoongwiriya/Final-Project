@@ -5,9 +5,8 @@ using System;
 
 public class Chain : Skill
 {
-    public Chain(GameSystem gs)
+    void Start()
     {
-        gameSystem = gs;
         skillName = "Chain";
         bonusEffect = -99;
         desCripTion = "ตรึงศัตรูในระยะการโจมตี 1 ตัวและทำให้อีกฝ่ายไม่สามาร\nเคลื่อนไหวได้ 1 เทิร์น";

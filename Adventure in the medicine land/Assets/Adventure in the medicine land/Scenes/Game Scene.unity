@@ -202,51 +202,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 134600209}
   m_CullTransparentMesh: 1
---- !u!1 &178524804
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 178524806}
-  - component: {fileID: 178524805}
-  m_Layer: 0
-  m_Name: PerspectiveHolder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &178524805
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 178524804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0968682c8d783a449c9d20d0ea24101, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cam: {fileID: 963194227}
-  groundZ: 0
---- !u!4 &178524806
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 178524804}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1022.8196, y: 304.86444, z: -13.046122}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &271245744
 GameObject:
   m_ObjectHideFlags: 0
@@ -2438,10 +2393,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd4f23fa949b82440a97f504f6865a69, type: 3}
+  m_Script: {fileID: 11500000, guid: a0968682c8d783a449c9d20d0ea24101, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 100
+  speed: 40
 --- !u!1 &1028801660
 GameObject:
   m_ObjectHideFlags: 0
@@ -3969,7 +3924,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1671720890}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5b0095c37d7aba408e0d6bfb747cba4, type: 3}
+  m_Script: {fileID: 11500000, guid: 3adbba4a2bf54d04d9f8f16b8e957dee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   characterName: 

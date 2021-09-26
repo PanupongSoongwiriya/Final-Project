@@ -18,8 +18,12 @@ public class BrainTonic : Character
 
         startSetUp();
 
-        allSkill.Add(new BootATK(gameSystem));
-        allSkill.Add(new BootDEF(gameSystem));
+        GameObject skill = new GameObject();
+        skill.name = name + " Skill";
+        skill.AddComponent<BootATK>().gameSystem = gameSystem;
+        skill.AddComponent<BootDEF>().gameSystem = gameSystem;
+        allSkill.Add(skill.GetComponent<BootATK>());
+        allSkill.Add(skill.GetComponent<BootDEF>());
     }
 
     void OnMouseDown()

@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class BootDEF : Skill
 {
-    public BootDEF(GameSystem gs)
+    void Start()
     {
-        gameSystem = gs;
         skillName = "Boot DEF";
         bonusEffect = 2;
         desCripTion = "เพิ่มพลังป้องกันให้กับพันธมิตร 1 ตัวในระยะการโจมตี\n(+spDEF " + bonusEffect + ")";

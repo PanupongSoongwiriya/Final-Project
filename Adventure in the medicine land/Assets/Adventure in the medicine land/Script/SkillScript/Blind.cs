@@ -5,9 +5,8 @@ using System;
 
 public class Blind : Skill
 {
-    public Blind(GameSystem gs)
+    void Start()
     {
-        gameSystem = gs;
         skillName = "Blind";
         bonusEffect = -99;
         desCripTion = "เลือกศัตรูในระยะการโจมตี 1 ตัวและทำให้อีกฝ่ายไม่สามาร\nโจมตีได้ 1 เทิร์น";

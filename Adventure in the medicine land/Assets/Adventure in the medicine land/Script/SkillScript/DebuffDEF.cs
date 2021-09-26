@@ -5,9 +5,8 @@ using System;
 
 public class DebuffDEF : Skill
 {
-    public DebuffDEF(GameSystem gs)
+    void Start()
     {
-        gameSystem = gs;
         skillName = "Debuff DEF";
         bonusEffect = -2;
         desCripTion = "ลดพลังป้องกันศัตรู 1 ตัวในระยะการโจมตี\n(-spDEF " + Math.Abs(bonusEffect) + ")";

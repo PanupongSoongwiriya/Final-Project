@@ -20,8 +20,12 @@ public class MusclePainMedication : Character
 
         startSetUp();
 
-        allSkill.Add(new DebuffATK(gameSystem));
-        allSkill.Add(new DebuffDEF(gameSystem));
+        GameObject skill = new GameObject();
+        skill.name = name + " Skill";
+        skill.AddComponent<DebuffATK>().gameSystem = gameSystem;
+        skill.AddComponent<DebuffDEF>().gameSystem = gameSystem;
+        allSkill.Add(skill.GetComponent<DebuffATK>());
+        allSkill.Add(skill.GetComponent<DebuffDEF>());
     }
 
     void OnMouseDown()

@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class Heal : Skill
 {
-    public Heal(GameSystem gs)
+    void Start()
     {
-        gameSystem = gs;
         skillName = "Heal";
         bonusEffect = 2;
         desCripTion = "รักษาให้กับพันธมิตร\n1 ตัวในระยะการโจมตี\n(+HP " + bonusEffect + ")";

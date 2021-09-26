@@ -5,9 +5,8 @@ using System;
 
 public class HawkEye : Skill
 {
-    public HawkEye(GameSystem gs)
+    void Start()
     {
-        gameSystem = gs;
         skillName = "Hawk Eye";
         bonusEffect = 1;
         desCripTion = "เพิ่มระยะการโจมตีให้กับพันธมิตร 1 ตัวในระยะการโจมตี(+ระยะโจมตี " + bonusEffect + ")";

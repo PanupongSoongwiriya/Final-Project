@@ -16,7 +16,7 @@ public class bot : MonoBehaviour
     {
         gameSystem.cf.Target = transform;
         gameSystem.NowCharecter = chr;
-        gameSystem.botChackInTerm("attack");
+        gameSystem.botChackInTerm(gameSystem.NowCharecter.attackRange);
         if (gameSystem.allMedicineInTerm.Count != 0)
         {
             botAttack();
@@ -28,7 +28,7 @@ public class bot : MonoBehaviour
 
     private void botWalk()
     {
-        gameSystem.botChackInTerm("walk");
+        gameSystem.botChackInTerm(gameSystem.NowCharecter.walkingDistance);
         if (gameSystem.NowCharecter.walkingDistance > 0)
         {
             gameSystem.allFloorInTerm[new System.Random().Next(gameSystem.allFloorInTerm.Count)].GetComponent<Floor>().setPositionCharacter();
@@ -36,6 +36,7 @@ public class bot : MonoBehaviour
         else
         {
             gameSystem.NowCharecter.doneIt();
+            gameSystem.resetInTerm();
         }
     }
     private void botAttack()
@@ -47,6 +48,7 @@ public class bot : MonoBehaviour
         else
         {
             gameSystem.NowCharecter.doneIt();
+            gameSystem.resetInTerm();
         }
     }
 }
