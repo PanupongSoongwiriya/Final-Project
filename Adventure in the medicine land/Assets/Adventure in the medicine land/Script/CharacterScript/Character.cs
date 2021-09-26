@@ -30,6 +30,7 @@ public class Character : MonoBehaviour
     public List<Skill> allSkill;
     public Floor pedalFloor;
     public GameObject dmgText;
+    protected bot bot;
 
     void Start()
     {
@@ -55,6 +56,12 @@ public class Character : MonoBehaviour
         dmgText = gameSystem.dmgText;
         doneItYet = true;
         resetRange();
+        if (Faction.Equals("Disease"))
+        {
+            bot = GetComponent<bot>();
+            bot.chr = this;
+            bot.gameSystem = gameSystem;
+        }
     }
     public void useSkill(int index)
     {

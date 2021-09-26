@@ -36,7 +36,7 @@ public class SkinFungus : Character
         {
             return 1.5f;
         }
-        else if (gameSystem.NowCharecter.classCharacter.Equals("Hero"))
+        else if (gameSystem.NowCharecter.classCharacter.Equals("ฮีโร่"))
         {
             return 1.25f;
         }

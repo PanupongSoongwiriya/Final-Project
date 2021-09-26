@@ -31,11 +31,11 @@ public class RunnyNose : Character
     }
     protected override float checkAdvantage()
     {
-        if (gameSystem.NowCharecter.classCharacter.Equals("ลดน้ำมูก"))
+        if (gameSystem.NowCharecter.classCharacter.Equals("ยาลดน้ำมูก"))
         {
             return 1.5f;
         }
-        else if (gameSystem.NowCharecter.classCharacter.Equals("Hero"))
+        else if (gameSystem.NowCharecter.classCharacter.Equals("ฮีโร่"))
         {
             return 1.25f;
         }

@@ -25,7 +25,7 @@ public class CameraFollow : MonoBehaviour
             transform.position = new Vector3(smoothedPosition.x, Camera.main.transform.position.y, smoothedPosition.z);
             bool equalsX = 0.1 > Math.Abs(transform.position.x - target.position.x);
             bool equalsZ = 0.1 > Math.Abs(transform.position.z - target.position.z);
-            if (equalsX && equalsZ)
+            if (equalsX && equalsZ || Input.GetMouseButtonDown(0))
             {
                 changTarget = false;
             }

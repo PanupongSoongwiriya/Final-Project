@@ -32,11 +32,11 @@ public class MusclePain : Character
 
     protected override float checkAdvantage()
     {
-        if (gameSystem.NowCharecter.classCharacter.Equals("แก้ปวดกล้ามเนื้อ"))
+        if (gameSystem.NowCharecter.classCharacter.Equals("ยาแก้ปวดกล้ามเนื้อ"))
         {
             return 1.5f;
         }
-        else if (gameSystem.NowCharecter.classCharacter.Equals("Hero"))
+        else if (gameSystem.NowCharecter.classCharacter.Equals("ฮีโร่"))
         {
             return 1.25f;
         }

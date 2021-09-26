@@ -4,13 +4,8 @@ using UnityEngine;
 
 public class bot : MonoBehaviour
 {
-    private Character chr;
+    public Character chr;
     public GameSystem gameSystem;
-    void Start()
-    {
-        chr = gameObject.GetComponent<Infect>();
-        gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
-    }
 
     public void botActive()
     {

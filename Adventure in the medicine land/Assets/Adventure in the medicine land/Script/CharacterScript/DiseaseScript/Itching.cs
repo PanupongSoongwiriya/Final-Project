@@ -31,11 +31,11 @@ public class Itching : Character
     }
     protected override float checkAdvantage()
     {
-        if (gameSystem.NowCharecter.classCharacter.Equals("แก้คัน"))
+        if (gameSystem.NowCharecter.classCharacter.Equals("ยาแก้คัน"))
         {
             return 1.5f;
         }
-        else if (gameSystem.NowCharecter.classCharacter.Equals("Hero"))
+        else if (gameSystem.NowCharecter.classCharacter.Equals("ฮีโร่"))
         {
             return 1.25f;
         }

@@ -31,11 +31,11 @@ public class Acne : Character
     }
     protected override float checkAdvantage()
     {
-        if (gameSystem.NowCharecter.classCharacter.Equals("ฆ่าเชื้อสิว"))
+        if (gameSystem.NowCharecter.classCharacter.Equals("ยาฆ่าเชื้อสิว"))
         {
             return 1.5f;
         }
-        else if (gameSystem.NowCharecter.classCharacter.Equals("Hero"))
+        else if (gameSystem.NowCharecter.classCharacter.Equals("ฮีโร่"))
         {
             return 1.25f;
         }

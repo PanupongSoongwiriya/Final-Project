@@ -32,7 +32,7 @@ public class DemonLord : Character
     }
     protected override float checkAdvantage()
     {
-        if (gameSystem.NowCharecter.classCharacter.Equals("Hero"))
+        if (gameSystem.NowCharecter.classCharacter.Equals("ฮีโร่"))
         {
             return 1.25f;
         }
