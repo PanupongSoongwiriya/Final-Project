@@ -18,10 +18,7 @@ public class BrainTonic : Character
 
         startSetUp();
 
-        GameObject skill = new GameObject();
-        skill.name = name + " Skill";
-        skill.AddComponent<BootATK>().gameSystem = gameSystem;
-        skill.AddComponent<BootDEF>().gameSystem = gameSystem;
+        GameObject skill = GameObject.Find("SkillList");
         allSkill.Add(skill.GetComponent<BootATK>());
         allSkill.Add(skill.GetComponent<BootDEF>());
     }

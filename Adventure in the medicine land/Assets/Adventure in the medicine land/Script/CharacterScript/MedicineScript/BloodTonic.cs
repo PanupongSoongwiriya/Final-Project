@@ -20,9 +20,7 @@ public class BloodTonic : Character
 
         startSetUp();
 
-        GameObject skill = new GameObject();
-        skill.name = name + " Skill";
-        skill.AddComponent<Heal>().gameSystem = gameSystem;
+        GameObject skill = GameObject.Find("SkillList");
         allSkill.Add(skill.GetComponent<Heal>());
     }
 

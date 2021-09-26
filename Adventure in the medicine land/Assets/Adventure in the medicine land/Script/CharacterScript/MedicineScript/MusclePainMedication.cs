@@ -20,10 +20,7 @@ public class MusclePainMedication : Character
 
         startSetUp();
 
-        GameObject skill = new GameObject();
-        skill.name = name + " Skill";
-        skill.AddComponent<DebuffATK>().gameSystem = gameSystem;
-        skill.AddComponent<DebuffDEF>().gameSystem = gameSystem;
+        GameObject skill = GameObject.Find("SkillList");
         allSkill.Add(skill.GetComponent<DebuffATK>());
         allSkill.Add(skill.GetComponent<DebuffDEF>());
     }

@@ -6,6 +6,7 @@ public class BootDEF : Skill
 {
     void Start()
     {
+        gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
         skillName = "Boot DEF";
         bonusEffect = 2;
         desCripTion = "เพิ่มพลังป้องกันให้กับพันธมิตร 1 ตัวในระยะการโจมตี\n(+spDEF " + bonusEffect + ")";

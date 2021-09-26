@@ -6,6 +6,7 @@ public class Heal : Skill
 {
     void Start()
     {
+        gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
         skillName = "Heal";
         bonusEffect = 2;
         desCripTion = "รักษาให้กับพันธมิตร\n1 ตัวในระยะการโจมตี\n(+HP " + bonusEffect + ")";

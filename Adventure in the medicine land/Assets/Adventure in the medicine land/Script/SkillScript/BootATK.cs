@@ -6,6 +6,7 @@ public class BootATK : Skill
 {
     void Start()
     {
+        gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
         skillName = "Boot ATK";
         bonusEffect = 2;
         desCripTion = "เพิ่มพลังโจมตีให้กับพันธมิตร 1 ตัวในระยะการโจมตี\n(+spAtk " + bonusEffect + ")";

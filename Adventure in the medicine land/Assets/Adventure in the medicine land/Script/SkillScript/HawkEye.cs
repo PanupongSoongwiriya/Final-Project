@@ -7,6 +7,7 @@ public class HawkEye : Skill
 {
     void Start()
     {
+        gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
         skillName = "Hawk Eye";
         bonusEffect = 1;
         desCripTion = "เพิ่มระยะการโจมตีให้กับพันธมิตร 1 ตัวในระยะการโจมตี(+ระยะโจมตี " + bonusEffect + ")";

@@ -19,9 +19,7 @@ public class Antibiotic : Character
 
         startSetUp();
 
-        /*GameObject skill = new GameObject();
-        skill.name = name+" Skill";
-        skill.AddComponent<HeavyATK>().gameSystem = gameSystem;
+        /*GameObject skill = GameObject.Find("SkillList");
         allSkill.Add(skill.GetComponent<HeavyATK>());*/
     }
 

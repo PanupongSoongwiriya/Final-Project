@@ -7,6 +7,7 @@ public class Blind : Skill
 {
     void Start()
     {
+        gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
         skillName = "Blind";
         bonusEffect = -99;
         desCripTion = "เลือกศัตรูในระยะการโจมตี 1 ตัวและทำให้อีกฝ่ายไม่สามาร\nโจมตีได้ 1 เทิร์น";
