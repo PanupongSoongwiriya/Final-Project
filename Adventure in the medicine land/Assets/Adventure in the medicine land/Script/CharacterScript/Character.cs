@@ -31,8 +31,6 @@ public class Character : MonoBehaviour
     public Floor pedalFloor;
     public GameObject dmgText;
 
-
-
     void Start()
     {
         startSetUp();
@@ -153,8 +151,9 @@ public class Character : MonoBehaviour
         }
     }
 
-    protected void attacked()
+    public void attacked()
     {
+        //Player Attack
         if ((gameSystem.State.Equals("Choose a enemy character") || gameSystem.State.Equals("Use skills with enemies")) && !gameSystem.NowCharecter.Faction.Equals(faction) && pedalFloor.InTerm)
         {
             gameSystem.NowCharecter.doneIt();
@@ -162,6 +161,15 @@ public class Character : MonoBehaviour
             gameSystem.State = "Choose a medicine character";
             gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false, false, false);
             //controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
+            int dmg = Math.Max(1, (int)(((gameSystem.NowCharecter.attackPower + gameSystem.NowCharecter.specialAttack) - (defensePower + specialDefense)) * checkAdvantage()));
+            showDMG(-dmg, "Character");
+            HP -= dmg;
+        }
+        //Bot Attack
+        else if (gameSystem.State.Equals("round of bots") && !gameSystem.NowCharecter.Faction.Equals(faction) && pedalFloor.InTerm)
+        {
+            gameSystem.NowCharecter.doneIt();
+            gameSystem.resetInTerm();
             int dmg = Math.Max(1, (int)(((gameSystem.NowCharecter.attackPower + gameSystem.NowCharecter.specialAttack) - (defensePower + specialDefense)) * checkAdvantage()));
             showDMG(-dmg, "Character");
             HP -= dmg;

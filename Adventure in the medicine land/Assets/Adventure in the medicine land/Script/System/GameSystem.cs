@@ -20,6 +20,7 @@ public class GameSystem : MonoBehaviour
 
     public List<GameObject> allFloor = new List<GameObject>();
     public List<GameObject> allFloorInTerm;
+    public List<Character> allMedicineInTerm;
     public List<Character> medicineFaction = new List<Character>();
     public List<Character> diseaseFaction = new List<Character>();
     private Dictionary<String, int> allClassID = new Dictionary<string, int>();
@@ -97,7 +98,7 @@ public class GameSystem : MonoBehaviour
         yield return new WaitForSeconds(0.25f);
         foreach (Character disease in diseaseFaction)
         {
-            disease.GetComponent<bot>().botWalk();
+            disease.GetComponent<bot>().botActive();
             yield return new WaitForSeconds(1.25f);
         }
     }
@@ -182,10 +183,18 @@ public class GameSystem : MonoBehaviour
         }
     }
 
-    public void botChackInTerm()
+    public void botChackInTerm(String doingWhat)
     {
+        int checkTerm = 0;
         allFloorInTerm.Clear();
-        int checkTerm = nowCharecter.walkingDistance;
+        allMedicineInTerm.Clear();
+        if (doingWhat.Equals("walk"))
+        {
+            checkTerm = nowCharecter.walkingDistance;
+        }else if (doingWhat.Equals("attack"))
+        {
+            checkTerm = nowCharecter.attackRange;
+        }
         findDistance(checkTerm);
     }
 
@@ -295,6 +304,7 @@ public class GameSystem : MonoBehaviour
                             if (position[0] == medicineX && position[1] == medicineZ)
                             {
                                 add = false;
+                                allMedicineInTerm.Add(medicine);
                                 break;
                             }
                         }
@@ -303,10 +313,8 @@ public class GameSystem : MonoBehaviour
                             allFloorInTerm.Add(floor);
                         }
                     }
-                    else
-                    {
-                        floor.GetComponent<Floor>().InTerm = true;
-                    }
+                    floor.GetComponent<Floor>().InTerm = true;
+
                     break;
                 }
             }

@@ -7,7 +7,7 @@ public class CameraFollow : MonoBehaviour
 {
     public Transform target;
 
-    public float smoothSpeed = 0.3f;
+    public float smoothSpeed = 0.1f;
 
     public bool changTarget = false;
 

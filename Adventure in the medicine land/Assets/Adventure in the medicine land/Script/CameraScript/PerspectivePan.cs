@@ -22,8 +22,8 @@ public class PerspectivePan : MonoBehaviour
                 beforeMousePosition = Input.mousePosition;
                 Vector3 direction = -((touchStart - Input.mousePosition)/500);
 
-                float x = Math.Max(-25, Math.Min(25, Camera.main.transform.position.x + direction.y)); ;
-                float zzz = Math.Max(5, Math.Min(60, Camera.main.transform.position.z + -direction.x));
+                float x = Math.Max(-30, Math.Min(24, Camera.main.transform.position.x + direction.y));
+                float zzz = Math.Max(6, Math.Min(60, Camera.main.transform.position.z + -direction.x));
                 Camera.main.transform.position = new Vector3(x, 35, zzz);
             }
             else
