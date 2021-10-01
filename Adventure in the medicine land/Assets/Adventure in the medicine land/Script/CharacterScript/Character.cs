@@ -168,7 +168,7 @@ public class Character : MonoBehaviour
             gameSystem.resetInTerm();
             gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false, false, false);
             //controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
-            int dmg = Math.Max(1, (int)(((gameSystem.NowCharecter.attackPower + gameSystem.NowCharecter.specialAttack) - (defensePower + specialDefense)) * checkAdvantage()));
+            int dmg = Math.Max(1, (int)(((gameSystem.NowCharecter.attackPower + gameSystem.NowCharecter.specialAttack) * checkAdvantage()) - (defensePower + specialDefense)));
             showDMG(-dmg, "Character");
             HP -= dmg;
         }
@@ -177,7 +177,7 @@ public class Character : MonoBehaviour
         {
             gameSystem.NowCharecter.doneIt();
             gameSystem.resetInTerm();
-            int dmg = Math.Max(1, (int)(((gameSystem.NowCharecter.attackPower + gameSystem.NowCharecter.specialAttack) - (defensePower + specialDefense)) * checkAdvantage()));
+            int dmg = Math.Max(1, (int)(((gameSystem.NowCharecter.attackPower + gameSystem.NowCharecter.specialAttack) * checkAdvantage()) - (defensePower + specialDefense)));
             showDMG(-dmg, "Character");
             HP -= dmg;
         }

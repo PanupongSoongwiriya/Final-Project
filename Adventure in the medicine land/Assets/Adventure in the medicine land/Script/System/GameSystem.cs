@@ -30,8 +30,11 @@ public class GameSystem : MonoBehaviour
         whoTurn = "Medicine";
         state = "Choose a medicine character";
         turn = 0;
+        controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false, false, false);
+        //controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
+
     }
-    
+
     public void checkChangeTurn()
     {
         bool statusChangeTurn = true;
