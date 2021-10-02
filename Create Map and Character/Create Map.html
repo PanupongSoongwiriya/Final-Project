@@ -1,0 +1,188 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Map</title>
+    <link rel="stylesheet" href="StyleCreateMap.css">
+</head>
+
+<body>
+    <div id="app">
+        <div id="image">
+            <div v-for="num in 100" class="floor" :id="`floor${num}`">
+                <div class="sett2">
+                    <div :id="`type_floor${num}`" class="wallCorner" onclick="setmap(this, 'wallCorner')"
+                        ondragover="setmap(this, 'wallCorner')" ondragstart="setmap(this, 'wall')"></div>
+                    <div :id="`type_floor${num}`" class="wallTB" onclick="setmap(this, 'wall')"
+                        ondragover="setmap(this, 'wall')" ondragstart="setmap(this, 'wall')"></div>
+                    <div :id="`type_floor${num}`" class="wallCorner" onclick="setmap(this, 'wallCorner')"
+                        ondragover="setmap(this, 'wallCorner')" ondragstart="setmap(this, 'wall')"></div>
+                </div>
+
+                <div class="sett">
+                    <div :id="`type_floor${num}`" class="wallLR" onclick="setmap(this, 'wall')"
+                        ondragover="setmap(this, 'wall')" ondragstart="setmap(this, 'wall')"></div>
+                    <div class="type_floor" :id="`type_floor${num}`" onclick="setmap(this, 'floor')"
+                        ondragover="setmap(this, 'floor')"></div>
+                    <div :id="`type_floor${num}`" class="wallLR" onclick="setmap(this, 'wall')"
+                        ondragover="setmap(this, 'wall')" ondragstart="setmap(this, 'wall')"></div>
+                </div>
+
+                <div class="sett2">
+                    <div :id="`type_floor${num}`" class="wallCorner" onclick="setmap(this, 'wallCorner')"
+                        ondragover="setmap(this, 'wallCorner')" ondragstart="setmap(this, 'wall')"></div>
+                    <div :id="`type_floor${num}`" class="wallTB" onclick="setmap(this, 'wall')"
+                        ondragover="setmap(this, 'wall')" ondragstart="setmap(this, 'wall')"></div>
+                    <div :id="`type_floor${num}`" class="wallCorner" onclick="setmap(this, 'wallCorner')"
+                        ondragover="setmap(this, 'wallCorner')" ondragstart="setmap(this, 'wall')"></div>
+                </div>
+            </div>
+        </div>
+        <div class="sel">
+            <div class="item">
+                <div class="showcolor nowc"></div>
+                <p>สี ณ ตอนนี้</p>
+            </div>
+
+            <div class="ccc">
+                <div class="allItem">
+                    <div class="itemFloor">
+                        <h1>พื้น</h1>
+                        <div class="item">
+                            <div class="showcolor nf" onclick="setcolor(this)"></div>
+                            <p>ธรรมดา</p>
+                        </div>
+                        <div class="item">
+                            <div class="showcolor atkp" onclick="setcolor(this)"></div>
+                            <p>+ATK</p>
+                        </div>
+                        <div class="item">
+                            <div class="showcolor atkn" onclick="setcolor(this)"></div>
+                            <p>-ATK</p>
+                        </div>
+                        <div class="item">
+                            <div class="showcolor defp" onclick="setcolor(this)"></div>
+                            <p>+DEF</p>
+                        </div>
+                        <div class="item">
+                            <div class="showcolor defn" onclick="setcolor(this)"></div>
+                            <p>-DEF</p>
+                        </div>
+                        <div class="item">
+                            <div class="showcolor poison" onclick="setcolor(this)"></div>
+                            <p>พิษ</p>
+                        </div>
+                        <div class="item">
+                            <div class="showcolor dl" onclick="setcolor(this)"></div>
+                            <p>พื้นที่ว่าง</p>
+                        </div>
+                    </div>
+                    <div class="aaa">
+                        <h1>ตัวละคร</h1>
+                        <div class="character">
+                            <div class="medicine">
+                                <h2>ยา</h2>
+                                <div class="item">
+                                    <div class="showcolor spr" onclick="setcolor(this)"></div>
+                                    <p>ยาแก้ปวดท้อง</p>
+                                </div>
+                                <div class="item">
+                                    <div class="showcolor hm" onclick="setcolor(this)"></div>
+                                    <p>ยาแก้ปวดหัว</p>
+                                </div>
+                                <div class="item">
+                                    <div class="showcolor nd" onclick="setcolor(this)"></div>
+                                    <p>ยาลดน้ำมูก</p>
+                                </div>
+                                <div class="item">
+                                    <div class="showcolor dft" onclick="setcolor(this)"></div>
+                                    <p>ยาฆ่าเชื้อ</p>
+                                </div>
+                                <div class="item">
+                                    <div class="showcolor ap" onclick="setcolor(this)"></div>
+                                    <p>ยาแก้คัน</p>
+                                </div>
+                                <div class="item">
+                                    <div class="showcolor ad" onclick="setcolor(this)"></div>
+                                    <p>ยาฆ่าเชื้อสิว</p>
+                                </div>
+                                <div class="item">
+                                    <div class="showcolor mpm" onclick="setcolor(this)"></div>
+                                    <p>ยาแก้ปวดกล้ามเนื้อ</p>
+                                </div>
+                                <div class="item">
+                                    <div class="showcolor fgc" onclick="setcolor(this)"></div>
+                                    <p>ยาฆ่าเชื้อรา</p>
+                                </div>
+                                <div class="item">
+                                    <div class="showcolor bt" onclick="setcolor(this)"></div>
+                                    <p>ยาบำรุงสมอง</p>
+                                </div>
+                                <div class="item">
+                                    <div class="showcolor blt" onclick="setcolor(this)"></div>
+                                    <p>ยาบำรุงเลือด</p>
+                                </div>
+                                <div class="item">
+                                    <div class="showcolor bnt" onclick="setcolor(this)"></div>
+                                    <p>ยาบำรุงกระดูก</p>
+                                </div>
+                                <div class="item">
+                                    <div class="showcolor hero" onclick="setcolor(this)"></div>
+                                    <p>ฮีโร่</p>
+                                </div>
+                            </div>
+                            <div class="disease">
+                                <h2>โรค</h2>
+                                <div class="item">
+                                    <div class="showcolor sa" onclick="setcolor(this)"></div>
+                                    <p>ปวดท้อง</p>
+                                </div>
+                                <div class="item">
+                                    <div class="showcolor hah" onclick="setcolor(this)"></div>
+                                    <p>ปวดหัว</p>
+                                </div>
+                                <div class="item">
+                                    <div class="showcolor rn" onclick="setcolor(this)"></div>
+                                    <p>น้ำมูกไหล</p>
+                                </div>
+                                <div class="item">
+                                    <div class="showcolor if" onclick="setcolor(this)"></div>
+                                    <p>ติดเชื้อ</p>
+                                </div>
+                                <div class="item">
+                                    <div class="showcolor ich" onclick="setcolor(this)"></div>
+                                    <p>อาการคัน</p>
+                                </div>
+                                <div class="item">
+                                    <div class="showcolor acne" onclick="setcolor(this)"></div>
+                                    <p>สิว</p>
+                                </div>
+                                <div class="item">
+                                    <div class="showcolor musp" onclick="setcolor(this)"></div>
+                                    <p>ปวดกล้ามเนื้อ</p>
+                                </div>
+                                <div class="item">
+                                    <div class="showcolor skf" onclick="setcolor(this)"></div>
+                                    <p>เชื้อราที่ผิวหนัง</p>
+                                </div>
+                                <div class="item">
+                                    <div class="showcolor delo" onclick="setcolor(this)"></div>
+                                    <p>จอมมาร</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="SaveMap" onclick="doCapture()">บันทึกแผนที่</button>
+                <button class="SaveMap" onclick="reset()">ล้างแผนที่</button>
+            </div>
+
+        </div>
+    </div>
+</body>
+<script src="vue.js"></script>
+<script src="html2canvas.js"></script>
+<script src="ScriptCreateMap.js"></script>
+</html>

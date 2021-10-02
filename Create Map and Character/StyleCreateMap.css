@@ -1,0 +1,260 @@
+:root {
+    --border: 1px solid seagreen;
+    --imageW: 900px;
+    --floorSize: 90px;
+    --floorW: calc(var(--floorSize) - 2px);
+    --floorH: calc(var(--floorSize) - 2px);
+    --w1: calc((var(--floorSize) * 0.6) - 2px);
+    --hw1: calc((var(--floorSize) * 0.2) - 2px);
+    --w2: calc((var(--floorSize) * 0.2) - 1px);
+    --h1: calc(var(--floorSize) * 0.2);
+    --h2: calc(var(--floorSize) * 0.6);
+}
+
+#app {
+    display: flex;
+    align-items: center;
+}
+
+.wallTB {
+    width: var(--w1);
+    height: var(--hw1);
+    border: var(--border);
+    background-color: black;
+}
+
+.wallCorner {
+    width: var(--w2);
+    height: var(--h1);
+    background-color: black;
+}
+
+.wallLR {
+    width: var(--hw1);
+    height: var(--h2);
+    border: var(--border);
+    background-color: black;
+}
+
+.type_floor {
+    width: var(--w1);
+    height: var(--h2);
+    background-color: black;
+}
+
+.sett {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: var(--h2);
+}
+
+.sett2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: var(--h1);
+}
+
+#image {
+    width: var(--imageW);
+    max-width: var(--imageW);
+}
+
+.floor {
+    width: var(--floorW);
+    height: var(--floorH);
+    display: inline-block;
+    border: var(--border);
+}
+
+.nowc {
+    background-color: white;
+}
+
+.sel {
+    margin: 3px;
+    padding: 3px;
+    border: 3px solid black;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1.5px;
+}
+
+.showcolor {
+    height: 38px;
+    width: 38px;
+    border: 1px solid black;
+}
+
+.showcolor:hover {
+    cursor: pointer;
+}
+
+
+
+p {
+    margin: 3px;
+}
+
+.ccc {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.SaveMap {
+    font-size: 20px;
+    margin-top: 12.5px;
+    margin-bottom: 12.5px;
+}
+
+.allItem,
+.itemFloor,
+.character,
+.aaa {
+    display: flex;
+    justify-content: center;
+}
+
+.allItem,
+.itemFloor,
+.aaa {
+    align-items: center;
+}
+
+.itemFloor,
+.aaa {
+    flex-direction: column;
+}
+
+.medicine,
+.itemFloor,
+.disease,
+.aaa {
+    margin: 5px;
+    padding: 5px;
+    border: 3px solid black;
+}
+
+.medicine,
+.disease {
+    text-align: center;
+}
+.defp {
+    background-color: gray;
+}
+
+.atkp {
+    background-color: red;
+}
+
+.defn {
+    background-color: brown;
+}
+
+.atkn {
+    background-color: cyan;
+}
+
+.nf {
+    background-color: white;
+}
+
+.dl {
+    background-color: black;
+}
+
+.poison {
+    background-color: purple;
+}
+.spr {
+    background-color: chartreuse;
+}
+
+.hm {
+    background-color: pink;
+}
+
+.nd {
+    background-color: yellow;
+}
+
+.dft {
+    background-color: hotpink;
+}
+
+.ap {
+    background-color: turquoise;
+}
+
+.ad {
+    background-color: violet;
+}
+
+.mpm {
+    background-color: coral;
+}
+
+.fgc {
+    background-color: indianred;
+}
+
+.bt {
+    background-color: darkblue;
+}
+
+.blt {
+    background-color: crimson;
+}
+
+.bnt {
+    background-color: chocolate;
+}
+
+.hero {
+    background-color: gold;
+}
+
+.sa {
+    background-color: olivedrab;
+}
+
+.hah {
+    background-color: darkcyan;
+}
+
+.rn {
+    background-color: green;
+}
+
+.if {
+    background-color: lightsteelblue;
+}
+
+.ich {
+    background-color: peru;
+}
+
+.acne {
+    background-color: navajowhite;
+}
+
+.musp {
+    background-color: palevioletred;
+}
+
+.skf {
+    background-color: lightyellow;
+}
+
+.delo {
+    background-color: mediumslateblue;
+}
