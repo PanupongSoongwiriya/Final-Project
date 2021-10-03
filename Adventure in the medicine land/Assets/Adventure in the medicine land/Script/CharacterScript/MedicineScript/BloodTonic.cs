@@ -12,15 +12,12 @@ public class BloodTonic : Character
         classCharacter = "ยาบำรุงเลือด";
         genusPhase = "ระยะไกล";
 
-
         attackPower = 2;
         defensePower = 1;
         HP = 2;
 
-
         startSetUp();
 
-        GameObject skill = GameObject.Find("SkillList");
         allSkill.Add(skill.GetComponent<Heal>());
     }
 

@@ -20,8 +20,7 @@ public class HeadacheMedicine : Character
 
         startSetUp();
 
-        /*GameObject skill = GameObject.Find("SkillList");
-        allSkill.Add(skill.GetComponent<HeavyATK>());*/
+        /*allSkill.Add(skill.GetComponent<HeavyATK>());*/
     }
 
     void OnMouseDown()

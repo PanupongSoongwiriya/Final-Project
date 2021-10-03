@@ -28,9 +28,6 @@ public class AutoGenerateMap : MonoBehaviour
         gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
         setColor();
         readMapImage();
-        // x = Left(-), Right(+)
-        // y = Front(+), Back(-)
-        // createFloor(0, 0);
 
     }
 
@@ -123,6 +120,4 @@ public class AutoGenerateMap : MonoBehaviour
             floorObject.AddComponent<floorPoison>();
         }
     }
-
-
 }

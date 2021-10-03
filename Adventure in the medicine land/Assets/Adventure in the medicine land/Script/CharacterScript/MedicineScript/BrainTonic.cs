@@ -15,10 +15,8 @@ public class BrainTonic : Character
         attackPower = 2;
         defensePower = 1;
 
-
         startSetUp();
 
-        GameObject skill = GameObject.Find("SkillList");
         allSkill.Add(skill.GetComponent<BootATK>());
         allSkill.Add(skill.GetComponent<BootDEF>());
     }

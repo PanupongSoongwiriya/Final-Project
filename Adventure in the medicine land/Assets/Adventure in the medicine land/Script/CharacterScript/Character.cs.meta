@@ -3,7 +3,13 @@ guid: fda22a5b116a2c646837776781420e3e
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - gameSystem: {fileID: 7077443505708588831, guid: 3b7410473bda60b499801773470e8aba,
+      type: 3}
+  - skill: {fileID: 5285432598334002107, guid: 53a4292436ace0a4a8df797aec3bb1d5, type: 3}
+  - pedalFloor: {instanceID: 0}
+  - dmgText: {fileID: 1287350803780729741, guid: de2fddcdb0c6e304b880fa7be3eb0a1d,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -20,7 +20,6 @@ public class StomachPainReliever : Character
 
         startSetUp();
 
-        GameObject skill = GameObject.Find("SkillList");
         allSkill.Add(skill.GetComponent<HeavyATK>());
     }
 

@@ -20,8 +20,7 @@ public class Hero : Character
 
         startSetUp();
 
-        /*GameObject skill = GameObject.Find("SkillList");
-        allSkill.Add(skill.GetComponent<DebuffATK>());
+        /*allSkill.Add(skill.GetComponent<DebuffATK>());
         allSkill.Add(skill.GetComponent<DebuffDEF>());*/
     }
 
