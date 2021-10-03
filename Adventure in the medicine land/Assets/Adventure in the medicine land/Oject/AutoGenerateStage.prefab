@@ -43,7 +43,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3466bcab66cfc0946b67d4810eca7e4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 2800000, guid: 8a5748cd5107d6a4bbaa04c3f6082aec, type: 3}
+  allStage:
+  - {fileID: 2800000, guid: 8a5748cd5107d6a4bbaa04c3f6082aec, type: 3}
+  - {fileID: 2800000, guid: 63a3b142bc6130d4b92901f81a6f0097, type: 3}
+  - {fileID: 2800000, guid: c09178b3f60aec2479d18a1e38818358, type: 3}
+  image: {fileID: 0}
   tolerancea: 0.04
   phase: 90
   scaleFloor: 6

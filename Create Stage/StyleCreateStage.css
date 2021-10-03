@@ -88,9 +88,10 @@
 }
 
 .showcolor {
-    height: 38px;
-    width: 38px;
+    height: 35px;
+    width: 35px;
     border: 1px solid black;
+    border-radius: 5px;
 }
 
 .showcolor:hover {
@@ -111,9 +112,10 @@ p {
 }
 
 .SaveMap {
-    font-size: 20px;
-    margin-top: 12.5px;
-    margin-bottom: 12.5px;
+    font-size: 18px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font: bold;
 }
 
 .allItem,
@@ -138,9 +140,9 @@ p {
 .medicine,
 .itemFloor,
 .disease,
-.aaa {
-    margin: 5px;
-    padding: 5px;
+.aaa , .range{
+    margin: 3px;
+    padding: 3px;
     border: 3px solid black;
 }
 
@@ -148,6 +150,21 @@ p {
 .disease {
     text-align: center;
 }
+
+h1, h2, h3, h4{
+    margin: 5px;
+}
+button{
+    border-radius: 5px;
+}
+
+button:hover{
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
 .defp {
     background-color: gray;
 }

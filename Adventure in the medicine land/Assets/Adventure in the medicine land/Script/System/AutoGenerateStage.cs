@@ -6,9 +6,10 @@ using System.Linq;
 
 public class AutoGenerateStage : MonoBehaviour
 {
+    public List<Texture2D> allStage = new List<Texture2D>();
     public Texture2D image;
     Dictionary<string, Color> typeColor = new Dictionary<string, Color>();
-    public float tolerancea = 0.04f;
+    private float tolerancea = 0.04f;
 
     private GameSystem gameSystem;
 
@@ -26,6 +27,10 @@ public class AutoGenerateStage : MonoBehaviour
 
     void Start()
     {
+        if (image == null)
+        {
+            image = allStage[new System.Random().Next(allStage.Count)];
+        }
         start_x = phase / 2;
         start_y = phase / 2;
         gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();

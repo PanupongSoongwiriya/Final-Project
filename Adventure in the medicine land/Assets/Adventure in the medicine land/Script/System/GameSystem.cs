@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class GameSystem : MonoBehaviour
 {
@@ -183,6 +184,14 @@ public class GameSystem : MonoBehaviour
         else
         {
             diseaseFaction.Remove(chr);
+        }
+        if (medicineFaction.Count == 0)
+        {
+            SceneManager.LoadScene(3);//Game Play Scene
+        }
+        if (diseaseFaction.Count == 0)
+        {
+            SceneManager.LoadScene(2);//Story Scene
         }
     }
 
