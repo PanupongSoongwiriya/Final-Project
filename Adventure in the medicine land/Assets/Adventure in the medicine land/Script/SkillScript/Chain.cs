@@ -10,7 +10,7 @@ public class Chain : Skill
         gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
         skillName = "Chain";
         bonusEffect = -99;
-        desCripTion = "ตรึงศัตรูในระยะการโจมตี 1 ตัวและทำให้อีกฝ่ายไม่สามาร\nเคลื่อนไหวได้ 1 เทิร์น";
+        desCripTion = "ตรึงศัตรูในระยะการโจมตี 1 ตัวและทำให้อีกฝ่ายไม่สามารเคลื่อนไหวได้ 1 เทิร์น";
     }
     public override void changeState()
     {

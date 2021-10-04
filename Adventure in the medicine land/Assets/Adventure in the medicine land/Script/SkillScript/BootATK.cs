@@ -9,7 +9,7 @@ public class BootATK : Skill
         gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
         skillName = "Boot ATK";
         bonusEffect = 2;
-        desCripTion = "เพิ่มพลังโจมตีให้กับพันธมิตร 1 ตัวในระยะการโจมตี\n(+spATK " + bonusEffect + ")";
+        desCripTion = "เพิ่มพลังโจมตีให้กับพันธมิตร 1 ตัวในระยะ\nการโจมตี(+spATK " + bonusEffect + ")";
     }
     public override void changeState()
     {

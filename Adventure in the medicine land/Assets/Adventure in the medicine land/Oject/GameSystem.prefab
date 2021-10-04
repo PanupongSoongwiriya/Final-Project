@@ -48,6 +48,8 @@ MonoBehaviour:
   controlPanel: {fileID: 0}
   cf: {fileID: 0}
   dmgText: {fileID: 1287350803780729741, guid: de2fddcdb0c6e304b880fa7be3eb0a1d, type: 3}
+  yourTurnText: {fileID: 2951335023777039610, guid: 80b8649f265dc634482cdd4f9d8b9993,
+    type: 3}
   allFloor: []
   allFloorInTerm: []
   allMedicineInTerm: []

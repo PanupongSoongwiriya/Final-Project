@@ -36,6 +36,7 @@ public class AutoGenerateStage : MonoBehaviour
         gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
         setColor();
         readStageImage();
+        gameSystem.AGS = this;
     }
 
     void Update()
@@ -73,31 +74,35 @@ public class AutoGenerateStage : MonoBehaviour
         typeColor.Add("lightyellow", new Color(1f, 1f, 0.8784314f, 1f));//เชื้อราที่ผิวหนัง
         typeColor.Add("mediumslateblue", new Color(0.4823529f, 0.4078431f, 0.9333333f, 1f));//จอมมาร
     }
-    private void readStageImage()
+    public void readStageImage()
     {
         bool horizontalLine = true;
         int count_id = 1;
 
-        //Generate Vertical Line
-        Instantiate(lineModel, new Vector3(-3, 0, 3), transform.rotation).transform.localScale = new Vector3(((image.width / phase) * scaleFloor), 0.2f, 0.2f);
+        if (!gameSystem.endGame)
+        {
+            //Generate Vertical Line
+            Instantiate(lineModel, new Vector3(-3, 0, 3), transform.rotation).transform.localScale = new Vector3(((image.width / phase) * scaleFloor), 0.2f, 0.2f);
 
-        //Generate Horizontal Line
-        Instantiate(lineModel, new Vector3(((image.width / phase) * 3) - 3, 0, ((image.height / phase) * 3) + 3), transform.rotation).transform.localScale = new Vector3(0.2f, 0.2f, ((image.height / phase) * scaleFloor));
+            //Generate Horizontal Line
+            Instantiate(lineModel, new Vector3(((image.width / phase) * 3) - 3, 0, ((image.height / phase) * 3) + 3), transform.rotation).transform.localScale = new Vector3(0.2f, 0.2f, ((image.height / phase) * scaleFloor));
 
+        }
         for (int x = 0; x < image.width; x += phase)
         {
-
-            //Generate Vertical Line
-            Instantiate(lineModel, new Vector3(-3, 0, (((x + phase) / phase) * scaleFloor) + 3), transform.rotation).transform.localScale = new Vector3(((image.width / phase) * scaleFloor), 0.2f, 0.2f);
-            //Generate Vertical Line
-
+            if (!gameSystem.endGame) { 
+                //Generate Vertical Line
+                Instantiate(lineModel, new Vector3(-3, 0, (((x + phase) / phase) * scaleFloor) + 3), transform.rotation).transform.localScale = new Vector3(((image.width / phase) * scaleFloor), 0.2f, 0.2f);
+                //Generate Vertical Line
+            }
             for (int y = 0; y < image.height; y += phase)
             {
                 Color pix = image.GetPixel((start_x + x), (start_y + y));
                 Color pixFloor = image.GetPixel((start_x + x), (int)((start_y * 0.2f) + y));
-                if ((!((((typeColor["black"].r - tolerancea) < pixFloor.r) && (pixFloor.r < (typeColor["black"].r + tolerancea))) 
-                    && (((typeColor["black"].g - tolerancea) < pixFloor.g) && (pixFloor.g < (typeColor["black"].g + tolerancea))) 
-                    && (((typeColor["black"].b - tolerancea) < pixFloor.b) && (pixFloor.b < (typeColor["black"].b + tolerancea))))))
+                if ((!((((typeColor["black"].r - tolerancea) < pixFloor.r) && (pixFloor.r < (typeColor["black"].r + tolerancea)))
+                   && (((typeColor["black"].g - tolerancea) < pixFloor.g) && (pixFloor.g < (typeColor["black"].g + tolerancea)))
+                   && (((typeColor["black"].b - tolerancea) < pixFloor.b) && (pixFloor.b < (typeColor["black"].b + tolerancea)))))
+                   && !gameSystem.endGame)
                 {
                     int floor_x = scaleFloor * (((start_y + y - (phase / 2)) / phase) - 4);
                     int floor_z = scaleFloor * ((start_x + x + (phase / 2)) / phase);
@@ -134,8 +139,9 @@ public class AutoGenerateStage : MonoBehaviour
                     }
                     generateCharacter(floor_x, floor_z, pix);
                 }
+                
                 //Generate Horizontal Line
-                if (horizontalLine)
+                if (horizontalLine && !gameSystem.endGame)
                 {
                     Instantiate(lineModel, new Vector3(((image.width / phase) * (scaleFloor / 2)) - 3 - (scaleFloor * ((y + phase) / phase)), 0, ((image.height / phase) * (scaleFloor / 2)) + 3), transform.rotation).transform.localScale = new Vector3(0.2f, 0.2f, ((image.height / phase) * scaleFloor));
                 }

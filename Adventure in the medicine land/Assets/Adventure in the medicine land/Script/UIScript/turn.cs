@@ -15,7 +15,6 @@ public class turn : MonoBehaviour
 
     void Update()
     {
-
         txt.text = ThaiFontAdjuster.Adjust("เทิร์น: " + gameSystem.Turn);
     }
 }

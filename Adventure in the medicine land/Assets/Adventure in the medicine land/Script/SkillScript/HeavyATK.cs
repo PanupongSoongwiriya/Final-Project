@@ -9,7 +9,7 @@ public class HeavyATK : Skill
         gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
         skillName = "Heavy ATK";
         bonusEffect = 1;
-        desCripTion = "เลือกศัตรูในระยะการโจมตี 1 ตัวเพื่อสร้างความเสียหาย\nแบบพิเศษ(+spATK " + bonusEffect + ")";
+        desCripTion = "เลือกศัตรูในระยะการโจมตี 1 ตัวเพื่อสร้าง\nความเสียหายแบบพิเศษ(+spATK " + bonusEffect + ")";
     }
     public override void changeState()
     {

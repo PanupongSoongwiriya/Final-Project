@@ -9,7 +9,7 @@ public class BootDEF : Skill
         gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
         skillName = "Boot DEF";
         bonusEffect = 2;
-        desCripTion = "เพิ่มพลังป้องกันให้กับพันธมิตร 1 ตัวในระยะการโจมตี\n(+spDEF " + bonusEffect + ")";
+        desCripTion = "เพิ่มพลังป้องกันให้กับพันธมิตร 1 ตัวในระยะ\nการโจมตี(+spDEF " + bonusEffect + ")";
     }
     public override void changeState()
     {

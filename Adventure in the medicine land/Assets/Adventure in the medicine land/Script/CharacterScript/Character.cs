@@ -13,6 +13,7 @@ public class Character : MonoBehaviour
     public bool doneItYet;
 
     public int hp;
+    public int maxHP;
 
     public int attackPower;
     public int specialAttack;
@@ -44,14 +45,17 @@ public class Character : MonoBehaviour
     }
     protected void allAction()
     {
-        showDetailDisease();
-        prepare();
-        attacked();
-        checkBuffDebuff();
+        if (!gameSystem.endGame){
+            showDetailDisease();
+            prepare();
+            attacked();
+            checkBuffDebuff();
+        }
     }
 
     protected void startSetUp()
     {
+        maxHP = hp;
         gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
         gameSystem.memberUpdate(this);
         dmgText = gameSystem.dmgText;
@@ -142,11 +146,11 @@ public class Character : MonoBehaviour
             }
             else if (type.Equals("HP"))
             {
-                HP += bonusEffect;
                 if (bonusEffect > 0)
                 {
-                    showDMG(bonusEffect, "heal");
+                    showDMG(Math.Min(MAXHP - HP, bonusEffect), "heal");
                 }
+                HP = Math.Min(HP + bonusEffect, MAXHP);
             }
             else if (type.Equals("WD"))
             {
@@ -208,9 +212,14 @@ public class Character : MonoBehaviour
         if (hp <= 0)
         {
             gameSystem.memberRemove(this);
-            Destroy(this.gameObject);
+            selfDestruct();
         }
 
+    }
+
+    public void selfDestruct()
+    {
+        Destroy(this.gameObject);
     }
     public void doneIt()
     {
@@ -254,5 +263,10 @@ public class Character : MonoBehaviour
     {
         get { return id; }
         set { id = value; }
+    }
+    public int MAXHP
+    {
+        get { return maxHP; }
+        set { maxHP = value; }
     }
 }

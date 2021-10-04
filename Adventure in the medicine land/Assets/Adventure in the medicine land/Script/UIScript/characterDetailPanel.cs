@@ -36,7 +36,7 @@ public class characterDetailPanel : MonoBehaviour
         }
 
         classText.text = "Class: " + gameSystem.NowCharecter.classCharacter;
-        hpText.text = "Hp: " + gameSystem.NowCharecter.hp;
+        hpText.text = "Hp: " + gameSystem.NowCharecter.hp + "/" + gameSystem.NowCharecter.MAXHP;
 
         if (gameSystem.NowCharecter.specialAttack > 0)
         {

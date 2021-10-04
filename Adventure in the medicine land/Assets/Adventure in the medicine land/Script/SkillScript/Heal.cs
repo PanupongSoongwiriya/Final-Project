@@ -9,7 +9,7 @@ public class Heal : Skill
         gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
         skillName = "Heal";
         bonusEffect = 2;
-        desCripTion = "รักษาให้กับพันธมิตร\n1 ตัวในระยะการโจมตี\n(+HP " + bonusEffect + ")";
+        desCripTion = "รักษาให้กับพันธมิตร 1 ตัวในระยะการโจมตี\n(+HP " + bonusEffect + ")";
     }
     public override void changeState()
     {

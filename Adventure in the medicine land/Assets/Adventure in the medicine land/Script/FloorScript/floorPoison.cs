@@ -22,8 +22,7 @@ public class floorPoison : Floor
         {
             characterOnIt = collision.gameObject.GetComponent<Character>();
             characterOnIt.PedalFloor = this;
-            characterOnIt.showDMG(-poison, "poison");
-            characterOnIt.HP -= poison;
+            floorEffect();
         }
     }
     private void OnCollisionExit(Collision collision)

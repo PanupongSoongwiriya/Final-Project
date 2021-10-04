@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameSystem : MonoBehaviour
 {
     private int turn;
     public string whoTurn;
+    public bool endGame = false;
 
     public string state;
     //("Choose a medicine character", "waiting for orders", "walk", "Choose a enemy character", "waiting for skill", "Use skills with enemies", "Use skills with ally", "Debuff with enemies", "round of bots")
@@ -17,7 +19,12 @@ public class GameSystem : MonoBehaviour
     private int skillBonusEffect;
     public GameObject controlPanel;
     public CameraFollow cf;
+    public bool lockCamera = false;
     public GameObject dmgText;
+    public GameObject yourTurnText;
+    public GameObject whoTurnPanel;
+    public GameObject endGamePanel;
+    public Animator anim;
 
     public List<GameObject> allFloor = new List<GameObject>();
     public List<GameObject> allFloorInTerm;
@@ -25,6 +32,8 @@ public class GameSystem : MonoBehaviour
     public List<Character> medicineFaction = new List<Character>();
     public List<Character> diseaseFaction = new List<Character>();
     private Dictionary<String, int> allClassID = new Dictionary<string, int>();
+
+    public AutoGenerateStage AGS;
 
     void Start()
     {
@@ -69,6 +78,8 @@ public class GameSystem : MonoBehaviour
             {
                 whoTurn = "Disease";
                 State = "round of bots";
+                whoTurnPanel.GetComponent<whoTurn>().Changed();
+                lockCamera = true;
             }
             else
             {
@@ -122,6 +133,14 @@ public class GameSystem : MonoBehaviour
         {
             floor.GetComponent<Floor>().floorEffect();
         }
+        if (!endGame)
+        {
+            cf.Target = transform;
+            Instantiate(yourTurnText, new Vector3(0, 25, 33), Quaternion.Euler(90, 270, 0));
+            whoTurnPanel.GetComponent<whoTurn>().Changed();
+            lockCamera = false;
+        }
+
     }
     public void chackInTerm()
     {
@@ -185,14 +204,44 @@ public class GameSystem : MonoBehaviour
         {
             diseaseFaction.Remove(chr);
         }
-        if (medicineFaction.Count == 0)
+        if ((medicineFaction.Count == 0 || diseaseFaction.Count == 0) && !endGame)
         {
-            SceneManager.LoadScene(3);//Game Play Scene
+            endGame = true;
+            Invoke("showEndGamePanel", 2f);
         }
-        if (diseaseFaction.Count == 0)
+    }
+
+    public void showEndGamePanel()
+    {
+        endGamePanel.SetActive(true);
+        endGamePanel.GetComponent<EndGame>().checkTheWin();
+    }
+
+    public void resetGame()
+    {
+        anim.SetBool("FadeIn", true);
+        anim.SetBool("FadeOut", false);
+        lockCamera = false;
+        cf.transform.position = transform.position;
+        turn = 0;
+        controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false, false, false);
+        //controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
+        foreach (Character medicine in medicineFaction)
         {
-            SceneManager.LoadScene(2);//Story Scene
+            medicine.selfDestruct();
         }
+        foreach (Character disease in diseaseFaction)
+        {
+            disease.selfDestruct();
+        }
+        medicineFaction.Clear();
+        diseaseFaction.Clear();
+        allClassID.Clear();
+        whoTurn = "Medicine";
+        whoTurnPanel.GetComponent<whoTurn>().Changed();
+        state = "Choose a medicine character";
+        AGS.readStageImage();
+        endGame = false;
     }
 
     public void botChackInTerm(int checkTerm)
