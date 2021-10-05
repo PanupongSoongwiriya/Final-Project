@@ -5,12 +5,18 @@ using System;
 
 public class CameraFollow : MonoBehaviour
 {
+    public GameSystem gameSystem;
+
     public Transform target;
 
     public float smoothSpeed = 0.1f;
 
     public bool changTarget = false;
 
+    void Start()
+    {
+        gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
+    }
     void FixedUpdate()
     {
         if (changTarget)
@@ -25,9 +31,13 @@ public class CameraFollow : MonoBehaviour
             transform.position = new Vector3(smoothedPosition.x, Camera.main.transform.position.y, smoothedPosition.z);
             bool equalsX = 0.1 > Math.Abs(transform.position.x - target.position.x);
             bool equalsZ = 0.1 > Math.Abs(transform.position.z - target.position.z);
-            if (equalsX && equalsZ || Input.GetMouseButtonDown(0))
+            if (equalsX && equalsZ || (Input.GetMouseButtonDown(0)) && !gameSystem.lockCamera)
             {
                 changTarget = false;
+                if (gameSystem.NowCharecter.bot != null && gameSystem.State.Equals("round of bots"))
+                {
+                    gameSystem.NowCharecter.bot.botWork();
+                }
             }
         }
     }

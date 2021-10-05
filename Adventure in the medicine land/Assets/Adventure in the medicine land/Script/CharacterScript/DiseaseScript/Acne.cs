@@ -19,6 +19,10 @@ public class Acne : Character
 
         startSetUp();
     }
+    void Update()
+    {
+        moveSmoothly();
+    }
 
     void OnMouseDown()
     {

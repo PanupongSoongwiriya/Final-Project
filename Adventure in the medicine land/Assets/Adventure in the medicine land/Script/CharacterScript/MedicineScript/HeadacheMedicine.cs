@@ -23,6 +23,10 @@ public class HeadacheMedicine : Character
         /*allSkill.Add(skill.GetComponent<HeavyATK>());*/
     }
 
+    void Update()
+    {
+        moveSmoothly();
+    }
     void OnMouseDown()
     {
         allAction();

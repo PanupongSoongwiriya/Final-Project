@@ -19,6 +19,10 @@ public class MusclePain : Character
 
         startSetUp();
     }
+    void Update()
+    {
+        moveSmoothly();
+    }
 
     void OnMouseDown()
     {

@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Floor : MonoBehaviour
 {
     public Character characterOnIt;
     protected GameSystem gameSystem;
-    protected bool inTerm = false;
+    public bool inTerm = false;
     protected Color floorColor;
     void Start()
     {
@@ -23,23 +24,23 @@ public class Floor : MonoBehaviour
     {
         if (gameSystem.State.Equals("walk") && inTerm)
         {
-            setPositionCharacter();
+            gameSystem.NowCharecter.PedalFloor = this;
         }
     }
 
-    protected void showInTerm()
+    public void showInTerm(String doingWhat)
     {
         GameObject show = transform.GetChild(0).gameObject;
         show.SetActive(inTerm);
-        if (gameSystem.State == "walk")
+        if (doingWhat.Equals("walk"))
         {
             show.GetComponent<Renderer>().material.SetColor("_Color", new Color(0, 0, 1, 0.25f));
         }
-        else if(gameSystem.State == "Use skills with ally")
+        else if(doingWhat.Equals("support"))
         {
             show.GetComponent<Renderer>().material.SetColor("_Color", new Color(0, 1, 0, 0.25f));
         }
-        else if (gameSystem.State == "Choose a enemy character" || gameSystem.State == "Use skills with enemies" || gameSystem.State == "Debuff with enemies")
+        else if (doingWhat.Equals("bad for the enemy"))
         {
             show.GetComponent<Renderer>().material.SetColor("_Color", new Color(1, 0, 0, 0.5f));
         }
@@ -48,8 +49,11 @@ public class Floor : MonoBehaviour
     {
         if (collision.gameObject.tag == "Medicine" || collision.gameObject.tag == "Disease")
         {
-            characterOnIt = collision.gameObject.GetComponent<Character>();
-            characterOnIt.PedalFloor = this;
+            if (collision.gameObject.GetComponent<Character>().PedalFloor == null)
+            {
+                characterOnIt = collision.gameObject.GetComponent<Character>();
+                characterOnIt.PedalFloor = this;
+            }
         }
     }
     private void OnCollisionExit(Collision collision)
@@ -66,18 +70,10 @@ public class Floor : MonoBehaviour
         }
     }
 
-    public void setPositionCharacter()
-    {
-        gameSystem.NowCharecter.transform.position = new Vector3(transform.position.x, gameSystem.NowCharecter.transform.position.y, transform.position.z);//getposition for move Character
-        gameSystem.resetInTerm();
-        gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false, false, false);
-        //controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
-        gameSystem.NowCharecter.doneIt();
-    }
 
     public bool InTerm
     {
         get { return inTerm; }
-        set { inTerm = value; showInTerm(); }
+        set { inTerm = value; }
     }
 }

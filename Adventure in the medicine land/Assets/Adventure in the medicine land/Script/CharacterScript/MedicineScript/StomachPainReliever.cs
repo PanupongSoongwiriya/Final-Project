@@ -28,6 +28,10 @@ public class StomachPainReliever : Character
         allAction();
     }
 
+    void Update()
+    {
+        moveSmoothly();
+    }
     protected override void resetRange()
     {
         attackRange = 1;

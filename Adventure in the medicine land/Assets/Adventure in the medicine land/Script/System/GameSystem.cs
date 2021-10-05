@@ -14,7 +14,7 @@ public class GameSystem : MonoBehaviour
     public string state;
     //("Choose a medicine character", "waiting for orders", "walk", "Choose a enemy character", "waiting for skill", "Use skills with enemies", "Use skills with ally", "Debuff with enemies", "round of bots")
 
-    private Character nowCharecter;
+    public Character nowCharecter;
     private String skillType;
     private int skillBonusEffect;
     public GameObject controlPanel;
@@ -42,7 +42,7 @@ public class GameSystem : MonoBehaviour
         turn = 0;
         controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false, false, false);
         //controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
-
+        cf = Camera.main.GetComponent<CameraFollow>();
     }
 
     public void checkChangeTurn()
@@ -145,24 +145,32 @@ public class GameSystem : MonoBehaviour
     public void chackInTerm()
     {
         int checkTerm = -1;
+        String doingWhat = "";
 
-        if (State == "waiting for orders" || State == "waiting for skill")
+        if (State.Equals("waiting for orders") || State.Equals("waiting for skill"))
         {
             resetInTerm();
         }
         else
         {
-            if (State == "walk")
+            if (State.Equals("walk"))
             {
                 checkTerm = nowCharecter.walkingDistance;
+                doingWhat = "walk";
             }
-            else if (State == "Choose a enemy character" || State == "Use skills with enemies" || State == "Debuff with enemies" || State == "Use skills with ally")
+            else if (State.Equals("Choose a enemy character") || State.Equals("Use skills with enemies") || State.Equals("Debuff with enemies"))
             {
                 checkTerm = nowCharecter.attackRange;
+                doingWhat = "bad for the enemy";
             }
-            if(nowCharecter != null)
+            else if (State.Equals("Use skills with ally"))
             {
-                findDistance(checkTerm);
+                checkTerm = nowCharecter.attackRange;
+                doingWhat = "support";
+            }
+            if (nowCharecter != null && checkTerm != -1)
+            {
+                findDistance(checkTerm, doingWhat);
             }
         }
     }
@@ -244,15 +252,15 @@ public class GameSystem : MonoBehaviour
         endGame = false;
     }
 
-    public void botChackInTerm(int checkTerm)
+    public void botChackInTerm(int checkTerm, String doingWhat)
     {
         resetInTerm();
         allFloorInTerm.Clear();
         allMedicineInTerm.Clear();
-        findDistance(checkTerm);
+        findDistance(checkTerm, doingWhat);
     }
 
-    public void findDistance(int rang)
+    public void findDistance(int rang, String doingWhat)
     {
         List<int> charPosition = new List<int> { (int)NowCharecter.transform.position.x, (int)NowCharecter.transform.position.z };
         List<List<List<int>>> allPosition = new List<List<List<int>>>();
@@ -383,6 +391,7 @@ public class GameSystem : MonoBehaviour
                         }
                     }
                     floor.GetComponent<Floor>().InTerm = true;
+                    floor.GetComponent<Floor>().showInTerm(doingWhat);
                     break;
                 }
             }
@@ -394,6 +403,7 @@ public class GameSystem : MonoBehaviour
         foreach (GameObject floor in allFloor)
         {
             floor.GetComponent<Floor>().InTerm = false;
+            floor.GetComponent<Floor>().showInTerm("");
         }
     }
 

@@ -11,6 +11,7 @@ public class Character : MonoBehaviour
     public String classCharacter;
     public String genusPhase;
     public bool doneItYet;
+    public bool moving;
 
     public int hp;
     public int maxHP;
@@ -32,11 +33,16 @@ public class Character : MonoBehaviour
     public GameObject skill;
     public Floor pedalFloor;
     public GameObject dmgText;
-    protected bot bot;
+    public bot bot;
 
     void Start()
     {
         startSetUp();
+    }
+
+    void Update()
+    {
+        moveSmoothly();
     }
 
     void OnMouseDown()
@@ -60,6 +66,7 @@ public class Character : MonoBehaviour
         gameSystem.memberUpdate(this);
         dmgText = gameSystem.dmgText;
         doneItYet = true;
+        moving = false;
         resetRange();
         if (Faction.Equals("Disease"))
         {
@@ -238,6 +245,43 @@ public class Character : MonoBehaviour
         walkingDistance = 0;
         attackRange = 0;
     }
+
+    protected void moveSmoothly()
+    {
+        if (moving)
+        {
+            float smoothSpeed = 0.1f;
+            bool equalsX = 0.1 > Math.Abs(transform.position.x - pedalFloor.transform.position.x);
+            bool equalsZ = 0.1 > Math.Abs(transform.position.z - pedalFloor.transform.position.z);
+            if (!(equalsX && equalsZ))
+            {
+                transform.position = new Vector3(transform.position.x, Math.Min(transform.position.y + smoothSpeed, 3.3f), transform.position.z);
+            }
+            gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false, false, false);
+            //controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
+            gameSystem.resetInTerm();
+            if (transform.position.y == 3.3f)
+            {
+                Vector3 desiredPosition = pedalFloor.transform.position;
+                Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+
+                transform.position = new Vector3(smoothedPosition.x, transform.position.y, smoothedPosition.z);
+            }
+            if (equalsX && equalsZ)
+            {
+                if (transform.position.y != 2)
+                {
+                    transform.position = new Vector3(transform.position.x, Math.Max(transform.position.y - smoothSpeed, 2), transform.position.z);
+                }
+                else
+                {
+                    transform.position = new Vector3((int)Math.Round(transform.position.x), 2, (int)Math.Round(transform.position.z));
+                    moving = false;
+                    gameSystem.NowCharecter.doneIt();
+                }
+            }
+        }
+    }
     public String Faction
     {
         get { return faction; }
@@ -257,7 +301,7 @@ public class Character : MonoBehaviour
     public Floor PedalFloor
     {
         get { return pedalFloor; }
-        set { pedalFloor = value; }
+        set { pedalFloor = value; moving = true; pedalFloor.characterOnIt = this; }
     }
     public int ID
     {

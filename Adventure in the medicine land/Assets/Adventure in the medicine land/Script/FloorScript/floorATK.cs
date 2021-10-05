@@ -26,15 +26,24 @@ public class floorATK : Floor
     {
         if (collision.gameObject.tag == "Medicine" || collision.gameObject.tag == "Disease")
         {
-            characterOnIt = collision.gameObject.GetComponent<Character>();
-            characterOnIt.PedalFloor = this;
-            characterOnIt.specialAttack += sa;
+            if (collision.gameObject.GetComponent<Character>().PedalFloor == null)
+            {
+                characterOnIt = collision.gameObject.GetComponent<Character>();
+                characterOnIt.PedalFloor = this;
+            }
+            if (characterOnIt.Equals(collision.gameObject.GetComponent<Character>()))
+            {
+                characterOnIt.specialAttack += sa;
+            }
         }
     }
     private void OnCollisionExit(Collision collision)
     {
-        characterOnIt.specialAttack -= sa;
-        characterOnIt = null;
+        if (characterOnIt.Equals(collision.gameObject.GetComponent<Character>()))
+        {
+            characterOnIt.specialAttack -= sa;
+            characterOnIt = null;
+        }
     }
     public override void floorEffect()
     {

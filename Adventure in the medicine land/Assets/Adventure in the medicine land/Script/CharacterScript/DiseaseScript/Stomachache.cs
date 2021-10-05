@@ -19,6 +19,10 @@ public class Stomachache : Character
         startSetUp();
     }
 
+    void Update()
+    {
+        moveSmoothly();
+    }
     void OnMouseDown()
     {
         allAction();

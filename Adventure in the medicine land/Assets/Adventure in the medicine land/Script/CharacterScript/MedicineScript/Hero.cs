@@ -24,6 +24,10 @@ public class Hero : Character
         allSkill.Add(skill.GetComponent<DebuffDEF>());*/
     }
 
+    void Update()
+    {
+        moveSmoothly();
+    }
     void OnMouseDown()
     {
         allAction();

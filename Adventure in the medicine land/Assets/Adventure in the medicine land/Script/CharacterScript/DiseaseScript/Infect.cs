@@ -19,6 +19,10 @@ public class Infect : Character
 
         startSetUp();
     }
+    void Update()
+    {
+        moveSmoothly();
+    }
 
     void OnMouseDown()
     {

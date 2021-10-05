@@ -19,6 +19,10 @@ public class RunnyNose : Character
 
         startSetUp();
     }
+    void Update()
+    {
+        moveSmoothly();
+    }
 
     void OnMouseDown()
     {

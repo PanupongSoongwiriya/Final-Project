@@ -20,9 +20,15 @@ public class floorPoison : Floor
     {
         if (collision.gameObject.tag == "Medicine" || collision.gameObject.tag == "Disease")
         {
-            characterOnIt = collision.gameObject.GetComponent<Character>();
-            characterOnIt.PedalFloor = this;
-            floorEffect();
+            if (collision.gameObject.GetComponent<Character>().PedalFloor == null)
+            {
+                characterOnIt = collision.gameObject.GetComponent<Character>();
+                characterOnIt.PedalFloor = this;
+            }
+            if (characterOnIt.Equals(collision.gameObject.GetComponent<Character>()))
+            {
+                floorEffect();
+            }
         }
     }
     private void OnCollisionExit(Collision collision)

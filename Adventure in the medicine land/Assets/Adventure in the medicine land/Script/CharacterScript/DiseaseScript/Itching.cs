@@ -19,6 +19,10 @@ public class Itching : Character
 
         startSetUp();
     }
+    void Update()
+    {
+        moveSmoothly();
+    }
 
     void OnMouseDown()
     {

@@ -34,6 +34,10 @@ public class MusclePainMedication : Character
         walkingDistance = 2;
     }
 
+    void Update()
+    {
+        moveSmoothly();
+    }
     protected override float checkAdvantage()
     {
         if (gameSystem.NowCharecter.classCharacter.Equals("ปวดกล้ามเนื้อ"))

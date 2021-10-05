@@ -20,6 +20,10 @@ public class BrainTonic : Character
         allSkill.Add(skill.GetComponent<BootATK>());
         allSkill.Add(skill.GetComponent<BootDEF>());
     }
+    void Update()
+    {
+        moveSmoothly();
+    }
 
     void OnMouseDown()
     {

@@ -21,6 +21,10 @@ public class Antibiotic : Character
 
         /*allSkill.Add(skill.GetComponent<HeavyATK>());*/
     }
+    void Update()
+    {
+        moveSmoothly();
+    }
 
     void OnMouseDown()
     {

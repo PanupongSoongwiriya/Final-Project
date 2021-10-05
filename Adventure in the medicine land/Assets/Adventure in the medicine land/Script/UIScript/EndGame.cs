@@ -21,15 +21,11 @@ public class EndGame : MonoBehaviour
         lose.SetActive(checkLose);
         yesButton.SetActive(checkLose);
         noButton.SetActive(checkLose);
+        fadeToBlack();
         if (checkWin)
         {
             AutoSeve();
-            Invoke("fadeToBlack", 1.5f);
             Invoke("goToStoryScene", 3f);
-        }
-        else if (checkLose)
-        {
-            fadeToBlack();
         }
     }
 

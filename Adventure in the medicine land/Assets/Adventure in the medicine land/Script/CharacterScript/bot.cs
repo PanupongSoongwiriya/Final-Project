@@ -11,27 +11,27 @@ public class bot : MonoBehaviour
     {
         gameSystem.cf.Target = transform;
         gameSystem.NowCharecter = chr;
-        gameSystem.botChackInTerm(gameSystem.NowCharecter.attackRange);
+    }
+
+    public void botWork()
+    {
+        gameSystem.botChackInTerm(gameSystem.NowCharecter.attackRange, "bad for the enemy");
         if (gameSystem.allMedicineInTerm.Count != 0)
         {
             botAttack();
         }
-        else {
+        else
+        {
             botWalk();
         }
     }
 
     private void botWalk()
     {
-        gameSystem.botChackInTerm(gameSystem.NowCharecter.walkingDistance);
+        gameSystem.botChackInTerm(gameSystem.NowCharecter.walkingDistance, "walk");
         if (gameSystem.NowCharecter.walkingDistance > 0)
         {
-            gameSystem.allFloorInTerm[new System.Random().Next(gameSystem.allFloorInTerm.Count)].GetComponent<Floor>().setPositionCharacter();
-        }
-        else
-        {
-            gameSystem.NowCharecter.doneIt();
-            gameSystem.resetInTerm();
+            gameSystem.NowCharecter.PedalFloor = gameSystem.allFloorInTerm[new System.Random().Next(gameSystem.allFloorInTerm.Count)].GetComponent<Floor>();
         }
     }
     private void botAttack()

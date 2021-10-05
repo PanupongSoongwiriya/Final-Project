@@ -21,6 +21,10 @@ public class BloodTonic : Character
         allSkill.Add(skill.GetComponent<Heal>());
     }
 
+    void Update()
+    {
+        moveSmoothly();
+    }
     void OnMouseDown()
     {
         allAction();
