@@ -17,13 +17,17 @@ public class GameSystem : MonoBehaviour
     public Character nowCharecter;
     private String skillType;
     private int skillBonusEffect;
+
     public GameObject controlPanel;
+
     public CameraFollow cf;
     public bool lockCamera = false;
+
     public GameObject dmgText;
     public GameObject yourTurnText;
     public GameObject whoTurnPanel;
     public GameObject endGamePanel;
+
     public Animator anim;
 
     public List<GameObject> allFloor = new List<GameObject>();
@@ -42,7 +46,7 @@ public class GameSystem : MonoBehaviour
         turn = 0;
         controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false, false, false);
         //controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
-        cf = Camera.main.GetComponent<CameraFollow>();
+        cf = GameObject.Find("Game Camera").GetComponent<CameraFollow>();
     }
 
     public void checkChangeTurn()
@@ -136,7 +140,7 @@ public class GameSystem : MonoBehaviour
         if (!endGame)
         {
             cf.Target = transform;
-            Instantiate(yourTurnText, new Vector3(0, 25, 33), Quaternion.Euler(90, 270, 0));
+            Instantiate(yourTurnText, new Vector3(0, 25, 33), Quaternion.Euler(73.875f, 270, 0));
             whoTurnPanel.GetComponent<whoTurn>().Changed();
             lockCamera = false;
         }

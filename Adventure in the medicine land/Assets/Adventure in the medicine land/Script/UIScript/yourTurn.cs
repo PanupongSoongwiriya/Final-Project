@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class yourTurn : MonoBehaviour
 {
-    private float speed = 0.005f;
+    public float speed = 1.003f;
     private float y = 10;
+    private Vector3 gameCamera;
+    public float differenceX = 3;
     void Start()
     {
         Invoke("Destroy", 1.5f);
@@ -13,8 +15,9 @@ public class yourTurn : MonoBehaviour
 
     void Update()
     {
-        transform.position = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y-y, Camera.main.transform.position.z);
-        y -= speed;
+        gameCamera = GameObject.Find("Game Camera").transform.position;
+        transform.position = new Vector3(gameCamera.x - differenceX, gameCamera.y-y, gameCamera.z);
+        transform.localScale *= speed;
     }
     private void Destroy()
     {

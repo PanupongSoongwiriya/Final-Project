@@ -34,6 +34,7 @@ public class floorDEF : Floor
             if (characterOnIt.Equals(collision.gameObject.GetComponent<Character>()))
             {
                 characterOnIt.specialDefense += sd;
+                characterOnIt.showDMG(sd, "DEF");
             }
         }
     }

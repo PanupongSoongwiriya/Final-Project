@@ -13,6 +13,8 @@ public class CameraFollow : MonoBehaviour
 
     public bool changTarget = false;
 
+    public float differenceX = 10;
+
     void Start()
     {
         gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
@@ -25,11 +27,11 @@ public class CameraFollow : MonoBehaviour
             {
                 changTarget = false;
             }
-            Vector3 desiredPosition = target.position;
+            Vector3 desiredPosition = new Vector3(target.position.x + differenceX, target.position.y, target.position.z);
             Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
 
             transform.position = new Vector3(smoothedPosition.x, Camera.main.transform.position.y, smoothedPosition.z);
-            bool equalsX = 0.1 > Math.Abs(transform.position.x - target.position.x);
+            bool equalsX = 0.1 > Math.Abs(transform.position.x - (target.position.x + differenceX));
             bool equalsZ = 0.1 > Math.Abs(transform.position.z - target.position.z);
             if (equalsX && equalsZ || (Input.GetMouseButtonDown(0)) && !gameSystem.lockCamera)
             {

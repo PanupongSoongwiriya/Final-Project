@@ -8,6 +8,7 @@ public class Skill : MonoBehaviour
     protected String skillName;
     protected String desCripTion;
     protected int bonusEffect;
+    protected int bonusEffect_2;
     public GameSystem gameSystem;
     public virtual void changeState()
     {

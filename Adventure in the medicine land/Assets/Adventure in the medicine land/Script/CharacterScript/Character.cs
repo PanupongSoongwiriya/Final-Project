@@ -125,17 +125,11 @@ public class Character : MonoBehaviour
         //Buff
         if (gameSystem.State.Equals("Use skills with ally") && !gameSystem.NowCharecter.Equals(this) && faction.Equals("Medicine") && pedalFloor.InTerm)
         {
-            gameSystem.State = "Choose a medicine character";
-            gameSystem.NowCharecter.doneIt();
-            gameSystem.resetInTerm();
             status = true;
         }
         //Debuff
         else if (gameSystem.State.Equals("Debuff with enemies") && faction.Equals("Disease") && pedalFloor.InTerm)
         {
-            gameSystem.State = "Choose a medicine character";
-            gameSystem.NowCharecter.doneIt();
-            gameSystem.resetInTerm();
             status = true;
         }
         if (status)
@@ -145,10 +139,12 @@ public class Character : MonoBehaviour
 
             if (type.Equals("ATK"))
             {
+                showDMG(bonusEffect, "ATK");
                 specialAttack += bonusEffect;
             }
             else if (type.Equals("DEF"))
             {
+                showDMG(bonusEffect, "DEF");
                 specialDefense += bonusEffect;
             }
             else if (type.Equals("HP"))
@@ -161,14 +157,30 @@ public class Character : MonoBehaviour
             }
             else if (type.Equals("WD"))
             {
+                showDMG(bonusEffect, "MOVE");
                 walkingDistance += bonusEffect;
             }
             else if (type.Equals("AR"))
             {
+                showDMG(bonusEffect, "RANGE");
                 attackRange += bonusEffect;
             }
-            gameSystem.SkillType = "";
-            gameSystem.SkillBonusEffect = 0;
+            else if (type.Equals("ATK/DEF"))
+            {
+                int dmg = Math.Max(1, (int)(((gameSystem.NowCharecter.attackPower + gameSystem.NowCharecter.specialAttack) * checkAdvantage()) - (defensePower + specialDefense)));
+                showDMG(-dmg, "attack");
+                HP -= dmg;
+                Invoke("showBuff", 1f);
+                specialDefense += bonusEffect;
+            }
+            gameSystem.State = "Choose a medicine character";
+            gameSystem.NowCharecter.doneIt();
+            gameSystem.resetInTerm();
+            if (!(type.Equals("ATK/DEF")))
+            {
+                gameSystem.SkillType = "";
+                gameSystem.SkillBonusEffect = 0;
+            }
             gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false, false, false);
             //controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
         }
@@ -185,7 +197,7 @@ public class Character : MonoBehaviour
             gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false, false, false);
             //controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
             int dmg = Math.Max(1, (int)(((gameSystem.NowCharecter.attackPower + gameSystem.NowCharecter.specialAttack) * checkAdvantage()) - (defensePower + specialDefense)));
-            showDMG(-dmg, "Character");
+            showDMG(-dmg, "attack");
             HP -= dmg;
         }
         //Bot Attack
@@ -194,7 +206,7 @@ public class Character : MonoBehaviour
             gameSystem.NowCharecter.doneIt();
             gameSystem.resetInTerm();
             int dmg = Math.Max(1, (int)(((gameSystem.NowCharecter.attackPower + gameSystem.NowCharecter.specialAttack) * checkAdvantage()) - (defensePower + specialDefense)));
-            showDMG(-dmg, "Character");
+            showDMG(-dmg, "attack");
             HP -= dmg;
         }
     }
@@ -203,10 +215,24 @@ public class Character : MonoBehaviour
     {
         if (dmgText != null)
         {
-            dmgText.GetComponent<DamageText>().dmg = dmg;
-            dmgText.GetComponent<DamageText>().typeDMG = typeDMG;
+            dmgText.GetComponent<DamageText>().num = dmg;
+            dmgText.GetComponent<DamageText>().type = typeDMG;
             Vector3 position = new Vector3(transform.position.x, transform.position.y + 3, transform.position.z);
-            Instantiate(dmgText, position, Quaternion.Euler(new Vector3(90, 270, 0)));
+            Instantiate(dmgText, position, Quaternion.Euler(new Vector3(73.875f, 270, 0)));
+        }
+    }
+    public void showBuff()
+    {
+        String type = gameSystem.SkillType;
+        int bonusEffect = gameSystem.SkillBonusEffect;
+        if (dmgText != null)
+        {
+            dmgText.GetComponent<DamageText>().num = bonusEffect;
+            dmgText.GetComponent<DamageText>().type = type.Split("/"[0])[1];
+            Vector3 position = new Vector3(transform.position.x, transform.position.y + 3, transform.position.z);
+            Instantiate(dmgText, position, Quaternion.Euler(new Vector3(73.875f, 270, 0)));
+            gameSystem.SkillType = "";
+            gameSystem.SkillBonusEffect = 0;
         }
     }
 

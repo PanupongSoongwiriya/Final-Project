@@ -19,6 +19,9 @@ GameObject:
   - component: {fileID: 5285432598334002104}
   - component: {fileID: 5285432598334002105}
   - component: {fileID: 5285432598334002106}
+  - component: {fileID: 8829438971244099460}
+  - component: {fileID: 5927191554945728158}
+  - component: {fileID: 2752296563129561455}
   m_Layer: 0
   m_Name: SkillList
   m_TagString: Untagged
@@ -167,6 +170,45 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ae21bd54a0e6cd43b7aa321e485d0d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameSystem: {fileID: 0}
+--- !u!114 &8829438971244099460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5285432598334002107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d535cf2f278d107459fa73c01b1d631e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameSystem: {fileID: 0}
+--- !u!114 &5927191554945728158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5285432598334002107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec8c210e06c50e47a983618643bdf1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameSystem: {fileID: 0}
+--- !u!114 &2752296563129561455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5285432598334002107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17ba6d845fe84d241a4dd81849d7e0f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameSystem: {fileID: 0}

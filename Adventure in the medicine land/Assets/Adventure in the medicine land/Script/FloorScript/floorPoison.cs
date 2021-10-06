@@ -39,8 +39,8 @@ public class floorPoison : Floor
 {
         if (characterOnIt != null)
         {
-            characterOnIt.showDMG(-poison, "poison");
             characterOnIt.HP -= poison;
+            characterOnIt.showDMG(-poison, "poison");
         }
     }
 }

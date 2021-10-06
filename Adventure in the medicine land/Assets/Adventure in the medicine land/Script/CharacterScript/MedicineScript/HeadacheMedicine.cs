@@ -21,6 +21,9 @@ public class HeadacheMedicine : Character
         startSetUp();
 
         /*allSkill.Add(skill.GetComponent<HeavyATK>());*/
+        allSkill.Add(skill.GetComponent<H_Guard>());
+        allSkill.Add(skill.GetComponent<PoisonKnife>());
+        allSkill.Add(skill.GetComponent<BrokenArmor>());
     }
 
     void Update()

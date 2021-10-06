@@ -34,6 +34,7 @@ public class floorATK : Floor
             if (characterOnIt.Equals(collision.gameObject.GetComponent<Character>()))
             {
                 characterOnIt.specialAttack += sa;
+                characterOnIt.showDMG(sa, "ATK");
             }
         }
     }
