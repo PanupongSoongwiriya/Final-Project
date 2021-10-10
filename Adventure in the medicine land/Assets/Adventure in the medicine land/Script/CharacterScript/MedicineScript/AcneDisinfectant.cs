@@ -37,13 +37,13 @@ public class AcneDisinfectant : Character
         walkingDistance = 2;
     }
 
-    protected override float checkAdvantage()
+    public override float checkAdvantage(Character actor)
     {
-        if (gameSystem.NowCharecter.classCharacter.Equals("สิว"))
+        if (actor.classCharacter.Equals("สิว"))
         {
             return 0.5f;
         }
-        else if (gameSystem.NowCharecter.genusPhase.Equals("ระยะกลาง"))
+        else if (actor.genusPhase.Equals("ระยะกลาง"))
         {
             return 0.75f;
         }

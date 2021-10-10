@@ -38,9 +38,9 @@ public class Hero : Character
         walkingDistance = 3;
     }
 
-    protected override float checkAdvantage()
+    public override float checkAdvantage(Character actor)
     {
-        if (gameSystem.NowCharecter.classCharacter.Equals("จอมมาร"))
+        if (actor.classCharacter.Equals("จอมมาร"))
         {
             return 1.0f;
         }

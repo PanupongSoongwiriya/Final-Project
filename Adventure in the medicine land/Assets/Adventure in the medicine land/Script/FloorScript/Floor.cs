@@ -8,11 +8,14 @@ public class Floor : MonoBehaviour
     public Character characterOnIt;
     protected GameSystem gameSystem;
     public bool inTerm = false;
+    public int floorBonus = 0;
     protected Color floorColor;
+    public String typrFloor;
     void Start()
     {
         gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
-        setTypeFloor();
+        FloorBonus = 0;
+        typrFloor = "Normal";
     }
 
     protected virtual void setTypeFloor()
@@ -68,6 +71,11 @@ public class Floor : MonoBehaviour
             characterOnIt.specialDefense = 0;
             characterOnIt.specialAttack = 0;
         }
+    }
+    public int FloorBonus
+    {
+        get { return floorBonus; }
+        set { floorBonus = value; setTypeFloor(); }
     }
 
 

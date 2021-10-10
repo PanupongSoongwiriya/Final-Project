@@ -37,13 +37,13 @@ public class Decongestant : Character
         walkingDistance = 1;
     }
 
-    protected override float checkAdvantage()
+    public override float checkAdvantage(Character actor)
     {
-        if (gameSystem.NowCharecter.classCharacter.Equals("น้ำมูกไหล"))
+        if (actor.classCharacter.Equals("น้ำมูกไหล"))
         {
             return 0.5f;
         }
-        else if (gameSystem.NowCharecter.genusPhase.Equals("ระยะใกล้"))
+        else if (actor.genusPhase.Equals("ระยะใกล้"))
         {
             return 0.75f;
         }

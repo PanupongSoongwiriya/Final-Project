@@ -33,17 +33,17 @@ public class Itching : Character
         walkingDistance = 3;
         attackRange = 1;
     }
-    protected override float checkAdvantage()
+    public override float checkAdvantage(Character actor)
     {
-        if (gameSystem.NowCharecter.classCharacter.Equals("ยาแก้คัน"))
+        if (actor.classCharacter.Equals("ยาแก้คัน"))
         {
             return 1.5f;
         }
-        else if (gameSystem.NowCharecter.classCharacter.Equals("ฮีโร่"))
+        else if (actor.classCharacter.Equals("ฮีโร่"))
         {
             return 1.25f;
         }
-        else if (gameSystem.NowCharecter.genusPhase.Equals("ระยะกลาง"))
+        else if (actor.genusPhase.Equals("ระยะกลาง"))
         {
             return 0.5f;
         }

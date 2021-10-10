@@ -13,16 +13,17 @@ public class bot : MonoBehaviour
         gameSystem.NowCharecter = chr;
     }
 
+    //When the camera arrives, Bot it works.
     public void botWork()
     {
         gameSystem.botChackInTerm(gameSystem.NowCharecter.attackRange, "bad for the enemy");
         if (gameSystem.allMedicineInTerm.Count != 0)
         {
-            botAttack();
+            //botAttack();
         }
         else
         {
-            botWalk();
+            //botWalk();
         }
     }
 

@@ -37,13 +37,13 @@ public class Fungicide : Character
         walkingDistance = 0;
     }
 
-    protected override float checkAdvantage()
+    public override float checkAdvantage(Character actor)
     {
-        if (gameSystem.NowCharecter.classCharacter.Equals("เชื้อราที่ผิวหนัง"))
+        if (actor.classCharacter.Equals("เชื้อราที่ผิวหนัง"))
         {
             return 0.5f;
         }
-        else if (gameSystem.NowCharecter.genusPhase.Equals("ระยะกลาง"))
+        else if (actor.genusPhase.Equals("ระยะกลาง"))
         {
             return 0.75f;
         }

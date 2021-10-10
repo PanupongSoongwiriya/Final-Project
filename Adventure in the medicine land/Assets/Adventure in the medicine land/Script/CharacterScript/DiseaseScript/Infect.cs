@@ -34,17 +34,17 @@ public class Infect : Character
         walkingDistance = 3;
         attackRange = 1;
     }
-    protected override float checkAdvantage()
+    public override float checkAdvantage(Character actor)
     {
-        if (gameSystem.NowCharecter.classCharacter.Equals("ยาฆ่าเชื้อ"))
+        if (actor.classCharacter.Equals("ยาฆ่าเชื้อ"))
         {
             return 1.5f;
         }
-        else if (gameSystem.NowCharecter.classCharacter.Equals("ฮีโร่"))
+        else if (actor.classCharacter.Equals("ฮีโร่"))
         {
             return 1.25f;
         }
-        else if (gameSystem.NowCharecter.genusPhase.Equals("ระยะใกล้"))
+        else if (actor.genusPhase.Equals("ระยะใกล้"))
         {
             return 0.5f;
         }

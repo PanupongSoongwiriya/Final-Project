@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class floorATK : Floor
 {
-    public int sa;
     void Start()
     {
         gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
+        typrFloor = "ATK";
     }
 
     protected override void setTypeFloor()
     {
-        if (sa < 0)
+        if (floorBonus < 0)
         {
             floorColor = Color.cyan;
         }
@@ -33,8 +33,8 @@ public class floorATK : Floor
             }
             if (characterOnIt.Equals(collision.gameObject.GetComponent<Character>()))
             {
-                characterOnIt.specialAttack += sa;
-                characterOnIt.showDMG(sa, "ATK");
+                characterOnIt.specialAttack += floorBonus;
+                characterOnIt.showDMG(floorBonus, typrFloor);
             }
         }
     }
@@ -42,7 +42,7 @@ public class floorATK : Floor
     {
         if (characterOnIt.Equals(collision.gameObject.GetComponent<Character>()))
         {
-            characterOnIt.specialAttack -= sa;
+            characterOnIt.specialAttack -= floorBonus;
             characterOnIt = null;
         }
     }
@@ -50,13 +50,8 @@ public class floorATK : Floor
     {
         if (characterOnIt != null)
         {
-            characterOnIt.specialAttack = sa;
+            characterOnIt.specialAttack = floorBonus;
         }
     }
 
-    public int SA
-    {
-        get { return sa; }
-        set { sa = value; setTypeFloor(); }
-    }
 }

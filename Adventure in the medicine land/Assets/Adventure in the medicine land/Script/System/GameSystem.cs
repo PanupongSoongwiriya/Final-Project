@@ -117,7 +117,7 @@ public class GameSystem : MonoBehaviour
         yield return new WaitForSeconds(0.25f);
         foreach (Character disease in diseaseFaction)
         {
-            disease.GetComponent<bot>().botActive();
+            disease.GetComponent<BotDisease>().botActive();
             yield return new WaitForSeconds(1.25f);
         }
     }
@@ -362,7 +362,6 @@ public class GameSystem : MonoBehaviour
                 {
                     if (NowCharecter.Faction.Equals("Disease"))
                     {
-                        bool add = true;
                         //Find out if there is a medicine character there or not.
                         foreach (Character medicine in medicineFaction)
                         {
@@ -370,31 +369,24 @@ public class GameSystem : MonoBehaviour
                             int medicineZ = (int)medicine.transform.position.z;
                             if (position[0] == medicineX && position[1] == medicineZ)
                             {
-                                add = false;
                                 allMedicineInTerm.Add(medicine);
                                 break;
                             }
                         }
-                        if (add)
-                        {
-                            //Find out if there is a disease character there or not.
-                            foreach (Character disease in diseaseFaction)
-                            {
-                                int diseaseX = (int)disease.transform.position.x;
-                                int diseaseZ = (int)disease.transform.position.z;
-                                if (position[0] == diseaseX && position[1] == diseaseZ)
-                                {
-                                    add = false;
-                                    break;
-                                }
-                            }
-                        }
-                        if (add)
+                        if (floor.GetComponent<Floor>().characterOnIt == null && !floor.GetComponent<Floor>().typrFloor.Equals("poison"))
                         {
                             allFloorInTerm.Add(floor);
                         }
                     }
-                    floor.GetComponent<Floor>().InTerm = true;
+                    bool areYouAlly = true;
+                    if (floor.GetComponent<Floor>().characterOnIt != null)
+                    {
+                        areYouAlly = floor.GetComponent<Floor>().characterOnIt.Faction.Equals(NowCharecter.Faction);
+                    }
+                    if (floor.GetComponent<Floor>().characterOnIt == null || (doingWhat.Equals("bad for the enemy")  && !areYouAlly) || (doingWhat.Equals("support") && areYouAlly))
+                    {
+                        floor.GetComponent<Floor>().InTerm = true;
+                    }
                     floor.GetComponent<Floor>().showInTerm(doingWhat);
                     break;
                 }
@@ -417,7 +409,7 @@ public class GameSystem : MonoBehaviour
         set
         {
             state = value;
-            Debug.Log(state);
+            //Debug.Log(state);
             chackInTerm();
         }
     }

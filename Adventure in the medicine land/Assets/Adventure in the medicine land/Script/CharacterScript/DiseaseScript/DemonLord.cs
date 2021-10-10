@@ -34,9 +34,9 @@ public class DemonLord : Character
         walkingDistance = 3;
         attackRange = 3;
     }
-    protected override float checkAdvantage()
+    public override float checkAdvantage(Character actor)
     {
-        if (gameSystem.NowCharecter.classCharacter.Equals("ฮีโร่"))
+        if (actor.classCharacter.Equals("ฮีโร่"))
         {
             return 1.25f;
         }

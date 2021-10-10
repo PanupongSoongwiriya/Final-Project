@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class floorDEF : Floor
 {
-    public int sd;
     void Start()
     {
         gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
+        typrFloor = "DEF";
     }
 
     protected override void setTypeFloor()
     {
-        if (sd < 0)
+        if (floorBonus < 0)
         {
             floorColor = new Color(0.6470588f, 0.1647059f, 0.1647059f, 1f);
         }
@@ -33,8 +33,8 @@ public class floorDEF : Floor
             }
             if (characterOnIt.Equals(collision.gameObject.GetComponent<Character>()))
             {
-                characterOnIt.specialDefense += sd;
-                characterOnIt.showDMG(sd, "DEF");
+                characterOnIt.specialDefense += floorBonus;
+                characterOnIt.showDMG(floorBonus, typrFloor);
             }
         }
     }
@@ -42,7 +42,7 @@ public class floorDEF : Floor
     {
         if (characterOnIt.Equals(collision.gameObject.GetComponent<Character>()))
         {
-            characterOnIt.specialDefense -= sd;
+            characterOnIt.specialDefense -= floorBonus;
             characterOnIt = null;
         }
     }
@@ -50,12 +50,7 @@ public class floorDEF : Floor
     {
         if (characterOnIt != null)
         {
-            characterOnIt.specialDefense = sd;
+            characterOnIt.specialDefense = floorBonus;
         }
-    }
-    public int SD
-    {
-        get { return sd; }
-        set { sd = value; setTypeFloor(); }
     }
 }

@@ -17,13 +17,16 @@ public class AutoGenerateStage : MonoBehaviour
     public int scaleFloor = 6;
     private int start_x;//half of phase
     private int start_y;//half of phase
-    public int bonusFloor = 1;
+    public int floorBonus = 1;
 
     public GameObject floorModel;
     public GameObject lineModel;
     public GameObject characterModel;
     private GameObject floorObject;
     private GameObject characterObject;
+    private GameObject lineObject;
+
+    private GameObject Map;
 
     void Start()
     {
@@ -34,6 +37,7 @@ public class AutoGenerateStage : MonoBehaviour
         start_x = phase / 2;
         start_y = phase / 2;
         gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
+        Map = new GameObject("Map");
         setColor();
         readStageImage();
         gameSystem.AGS = this;
@@ -82,17 +86,24 @@ public class AutoGenerateStage : MonoBehaviour
         if (!gameSystem.endGame)
         {
             //Generate Vertical Line
-            Instantiate(lineModel, new Vector3(-3, 0, 3), transform.rotation).transform.localScale = new Vector3(((image.width / phase) * scaleFloor), 0.2f, 0.2f);
+            lineObject = Instantiate(lineModel, new Vector3(-3, 0, 3), transform.rotation);
+            lineObject.transform.localScale = new Vector3(((image.width / phase) * scaleFloor), 0.2f, 0.2f);
+            lineObject.transform.parent = Map.transform;
 
             //Generate Horizontal Line
-            Instantiate(lineModel, new Vector3(((image.width / phase) * 3) - 3, 0, ((image.height / phase) * 3) + 3), transform.rotation).transform.localScale = new Vector3(0.2f, 0.2f, ((image.height / phase) * scaleFloor));
+            lineObject = Instantiate(lineModel, new Vector3(((image.width / phase) * 3) - 3, 0, ((image.height / phase) * 3) + 3), transform.rotation);
+            lineObject.transform.localScale = new Vector3(0.2f, 0.2f, ((image.height / phase) * scaleFloor));
+            lineObject.transform.parent = Map.transform;
 
         }
         for (int x = 0; x < image.width; x += phase)
         {
-            if (!gameSystem.endGame) { 
+            if (!gameSystem.endGame)
+            {
                 //Generate Vertical Line
-                Instantiate(lineModel, new Vector3(-3, 0, (((x + phase) / phase) * scaleFloor) + 3), transform.rotation).transform.localScale = new Vector3(((image.width / phase) * scaleFloor), 0.2f, 0.2f);
+                lineObject = Instantiate(lineModel, new Vector3(-3, 0, (((x + phase) / phase) * scaleFloor) + 3), transform.rotation);
+                lineObject.transform.localScale = new Vector3(((image.width / phase) * scaleFloor), 0.2f, 0.2f);
+                lineObject.transform.parent = Map.transform;
                 //Generate Vertical Line
             }
             for (int y = 0; y < image.height; y += phase)
@@ -139,11 +150,13 @@ public class AutoGenerateStage : MonoBehaviour
                     }
                     generateCharacter(floor_x, floor_z, pix);
                 }
-                
+
                 //Generate Horizontal Line
                 if (horizontalLine && !gameSystem.endGame)
                 {
-                    Instantiate(lineModel, new Vector3(((image.width / phase) * (scaleFloor / 2)) - 3 - (scaleFloor * ((y + phase) / phase)), 0, ((image.height / phase) * (scaleFloor / 2)) + 3), transform.rotation).transform.localScale = new Vector3(0.2f, 0.2f, ((image.height / phase) * scaleFloor));
+                    lineObject = Instantiate(lineModel, new Vector3(((image.width / phase) * (scaleFloor / 2)) - 3 - (scaleFloor * ((y + phase) / phase)), 0, ((image.height / phase) * (scaleFloor / 2)) + 3), transform.rotation);
+                    lineObject.transform.localScale = new Vector3(0.2f, 0.2f, ((image.height / phase) * scaleFloor));
+                    lineObject.transform.parent = Map.transform;
                 }
             }
             horizontalLine = false;
@@ -163,32 +176,33 @@ public class AutoGenerateStage : MonoBehaviour
         else if (((((typeColor["red"].r - tolerancea) < pixFloor.r) && (pixFloor.r < (typeColor["red"].r + tolerancea))) && (((typeColor["red"].g - tolerancea) < pixFloor.g) && (pixFloor.g < (typeColor["red"].g + tolerancea))) && (((typeColor["red"].b - tolerancea) < pixFloor.b) && (pixFloor.b < (typeColor["red"].b + tolerancea)))))
         {
             //+ATK
-            floorObject.AddComponent<floorATK>().SA = bonusFloor;
+            floorObject.AddComponent<floorATK>().FloorBonus = floorBonus;
         }
 
         else if (((((typeColor["cyan"].r - tolerancea) < pixFloor.r) && (pixFloor.r < (typeColor["cyan"].r + tolerancea))) && (((typeColor["cyan"].g - tolerancea) < pixFloor.g) && (pixFloor.g < (typeColor["cyan"].g + tolerancea))) && (((typeColor["cyan"].b - tolerancea) < pixFloor.b) && (pixFloor.b < (typeColor["cyan"].b + tolerancea)))))
         {
             //-ATK
-            floorObject.AddComponent<floorATK>().SA = -bonusFloor;
+            floorObject.AddComponent<floorATK>().FloorBonus = -floorBonus;
         }
 
         else if (((((typeColor["gray"].r - tolerancea) < pixFloor.r) && (pixFloor.r < (typeColor["gray"].r + tolerancea))) && (((typeColor["gray"].g - tolerancea) < pixFloor.g) && (pixFloor.g < (typeColor["gray"].g + tolerancea))) && (((typeColor["gray"].b - tolerancea) < pixFloor.b) && (pixFloor.b < (typeColor["gray"].b + tolerancea)))))
         {
             //+DEF
-            floorObject.AddComponent<floorDEF>().SD = bonusFloor;
+            floorObject.AddComponent<floorDEF>().FloorBonus = floorBonus;
         }
 
         else if (((((typeColor["brown"].r - tolerancea) < pixFloor.r) && (pixFloor.r < (typeColor["brown"].r + tolerancea))) && (((typeColor["brown"].g - tolerancea) < pixFloor.g) && (pixFloor.g < (typeColor["brown"].g + tolerancea))) && (((typeColor["brown"].b - tolerancea) < pixFloor.b) && (pixFloor.b < (typeColor["brown"].b + tolerancea)))))
         {
             //-DEF
-            floorObject.AddComponent<floorDEF>().SD = -bonusFloor;
+            floorObject.AddComponent<floorDEF>().FloorBonus = -floorBonus;
         }
 
         else if (((((typeColor["purple"].r - tolerancea) < pixFloor.r) && (pixFloor.r < (typeColor["purple"].r + tolerancea))) && (((typeColor["purple"].g - tolerancea) < pixFloor.g) && (pixFloor.g < (typeColor["purple"].g + tolerancea))) && (((typeColor["purple"].b - tolerancea) < pixFloor.b) && (pixFloor.b < (typeColor["purple"].b + tolerancea)))))
         {
             //Poison
-            floorObject.AddComponent<floorPoison>();
+            floorObject.AddComponent<floorPoison>().FloorBonus = floorBonus;
         }
+        floorObject.transform.parent = Map.transform;
     }
     private void generateCharacter(int x_Coordinate, int z_Coordinate, Color pix)
     {

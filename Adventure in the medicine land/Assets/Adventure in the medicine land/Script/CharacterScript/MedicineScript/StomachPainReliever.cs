@@ -38,13 +38,13 @@ public class StomachPainReliever : Character
         walkingDistance = 2;
     }
 
-    protected override float checkAdvantage()
+    public override float checkAdvantage(Character actor)
     {
-        if (gameSystem.NowCharecter.classCharacter.Equals("ปวดท้อง"))
+        if (actor.classCharacter.Equals("ปวดท้อง"))
         {
             return 0.5f;
         }
-        else if (gameSystem.NowCharecter.genusPhase.Equals("ระยะใกล้"))
+        else if (actor.genusPhase.Equals("ระยะใกล้"))
         {
             return 0.75f;
         }

@@ -37,13 +37,13 @@ public class Antipruritic : Character
         attackRange = 2;
         walkingDistance = 2;
     }
-    protected override float checkAdvantage()
+    public override float checkAdvantage(Character actor)
     {
-        if (gameSystem.NowCharecter.classCharacter.Equals("อาการคัน"))
+        if (actor.classCharacter.Equals("อาการคัน"))
         {
             return 0.5f;
         }
-        else if (gameSystem.NowCharecter.genusPhase.Equals("ระยะกลาง"))
+        else if (actor.genusPhase.Equals("ระยะกลาง"))
         {
             return 0.75f;
         }

@@ -33,7 +33,7 @@ public class Character : MonoBehaviour
     public GameObject skill;
     public Floor pedalFloor;
     public GameObject dmgText;
-    public bot bot;
+    public BotDisease botDisease;
 
     void Start()
     {
@@ -70,9 +70,9 @@ public class Character : MonoBehaviour
         resetRange();
         if (Faction.Equals("Disease"))
         {
-            bot = gameObject.AddComponent<bot>();
-            bot.chr = this;
-            bot.gameSystem = gameSystem;
+            botDisease = gameObject.AddComponent<BotDisease>();
+            botDisease.chr = this;
+            botDisease.gameSystem = gameSystem;
         }
 
         name = classCharacter + " " + id;
@@ -167,7 +167,7 @@ public class Character : MonoBehaviour
             }
             else if (type.Equals("ATK/DEF"))
             {
-                int dmg = Math.Max(1, (int)(((gameSystem.NowCharecter.attackPower + gameSystem.NowCharecter.specialAttack) * checkAdvantage()) - (defensePower + specialDefense)));
+                int dmg = calculateDMG(gameSystem.NowCharecter, this);
                 showDMG(-dmg, "attack");
                 HP -= dmg;
                 Invoke("showBuff", 1f);
@@ -196,7 +196,7 @@ public class Character : MonoBehaviour
             gameSystem.resetInTerm();
             gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false, false, false);
             //controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
-            int dmg = Math.Max(1, (int)(((gameSystem.NowCharecter.attackPower + gameSystem.NowCharecter.specialAttack) * checkAdvantage()) - (defensePower + specialDefense)));
+            int dmg = calculateDMG(gameSystem.NowCharecter, this);
             showDMG(-dmg, "attack");
             HP -= dmg;
         }
@@ -205,7 +205,7 @@ public class Character : MonoBehaviour
         {
             gameSystem.NowCharecter.doneIt();
             gameSystem.resetInTerm();
-            int dmg = Math.Max(1, (int)(((gameSystem.NowCharecter.attackPower + gameSystem.NowCharecter.specialAttack) * checkAdvantage()) - (defensePower + specialDefense)));
+            int dmg = calculateDMG(gameSystem.NowCharecter, this); 
             showDMG(-dmg, "attack");
             HP -= dmg;
         }
@@ -235,8 +235,12 @@ public class Character : MonoBehaviour
             gameSystem.SkillBonusEffect = 0;
         }
     }
+    public int calculateDMG(Character attacker, Character victim)
+    {
+        return Math.Max(1, (int)(((attacker.attackPower + attacker.specialAttack) * victim.checkAdvantage(attacker)) - (victim.defensePower + victim.specialDefense)));
+    }
 
-    protected virtual float checkAdvantage()
+    public virtual float checkAdvantage(Character actor)
     {
         return 1;
     }
@@ -247,17 +251,24 @@ public class Character : MonoBehaviour
             gameSystem.memberRemove(this);
             selfDestruct();
         }
-
     }
 
     public void selfDestruct()
     {
+        if (Faction.Equals("Disease"))
+        {
+            botDisease.deleteData();
+        }
         Destroy(this.gameObject);
     }
     public void doneIt()
     {
         doneItYet = false;
         gameSystem.checkChangeTurn();
+        if (Faction.Equals("Disease"))
+        {
+            botDisease.deleteData();
+        }
     }
 
     public void resetSP()

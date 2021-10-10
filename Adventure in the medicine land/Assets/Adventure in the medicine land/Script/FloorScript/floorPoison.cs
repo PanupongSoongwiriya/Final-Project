@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class floorPoison : Floor
 {
-    public int poison = 1;
     void Start()
     {
         gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
-        setTypeFloor();
+        typrFloor = "poison";
     }
 
     protected override void setTypeFloor()
@@ -39,8 +38,8 @@ public class floorPoison : Floor
 {
         if (characterOnIt != null)
         {
-            characterOnIt.HP -= poison;
-            characterOnIt.showDMG(-poison, "poison");
+            characterOnIt.HP -= floorBonus;
+            characterOnIt.showDMG(-floorBonus, typrFloor);
         }
     }
 }

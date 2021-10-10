@@ -38,13 +38,13 @@ public class MusclePainMedication : Character
     {
         moveSmoothly();
     }
-    protected override float checkAdvantage()
+    public override float checkAdvantage(Character actor)
     {
-        if (gameSystem.NowCharecter.classCharacter.Equals("ปวดกล้ามเนื้อ"))
+        if (actor.classCharacter.Equals("ปวดกล้ามเนื้อ"))
         {
             return 0.5f;
         }
-        else if (gameSystem.NowCharecter.genusPhase.Equals("ระยะกลาง"))
+        else if (actor.genusPhase.Equals("ระยะกลาง"))
         {
             return 0.75f;
         }
