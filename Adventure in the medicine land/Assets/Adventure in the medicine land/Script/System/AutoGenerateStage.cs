@@ -13,8 +13,9 @@ public class AutoGenerateStage : MonoBehaviour
 
     private GameSystem gameSystem;
 
-    public int phase = 90;//width of one channel
-    public int scaleFloor = 6;
+    private int phase;//width of one channel
+    private int numWidth;//num of all channel in image width 
+    private int scaleFloor;
     private int start_x;//half of phase
     private int start_y;//half of phase
     public int floorBonus = 1;
@@ -34,6 +35,9 @@ public class AutoGenerateStage : MonoBehaviour
         {
             image = allStage[new System.Random().Next(allStage.Count)];
         }
+        numWidth = int.Parse(image.name.Split(char.Parse("x"))[1]);
+        phase = image.width / numWidth;
+        scaleFloor = (int)floorModel.transform.localScale.x;
         start_x = phase / 2;
         start_y = phase / 2;
         gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
@@ -82,16 +86,17 @@ public class AutoGenerateStage : MonoBehaviour
     {
         bool horizontalLine = true;
         int count_id = 1;
+        int lineX = (((((10 - numWidth)*10) / 2) * 6)/10) - 3;
 
         if (!gameSystem.endGame)
         {
             //Generate Vertical Line
-            lineObject = Instantiate(lineModel, new Vector3(-3, 0, 3), transform.rotation);
+            lineObject = Instantiate(lineModel, new Vector3(lineX, 0, 3), transform.rotation);
             lineObject.transform.localScale = new Vector3(((image.width / phase) * scaleFloor), 0.2f, 0.2f);
             lineObject.transform.parent = Map.transform;
 
             //Generate Horizontal Line
-            lineObject = Instantiate(lineModel, new Vector3(((image.width / phase) * 3) - 3, 0, ((image.height / phase) * 3) + 3), transform.rotation);
+            lineObject = Instantiate(lineModel, new Vector3(((image.width / phase) * 3) + lineX, 0, ((image.height / phase) * 3) + 3), transform.rotation);
             lineObject.transform.localScale = new Vector3(0.2f, 0.2f, ((image.height / phase) * scaleFloor));
             lineObject.transform.parent = Map.transform;
 
@@ -101,7 +106,7 @@ public class AutoGenerateStage : MonoBehaviour
             if (!gameSystem.endGame)
             {
                 //Generate Vertical Line
-                lineObject = Instantiate(lineModel, new Vector3(-3, 0, (((x + phase) / phase) * scaleFloor) + 3), transform.rotation);
+                lineObject = Instantiate(lineModel, new Vector3(lineX, 0, (((x + phase) / phase) * scaleFloor) + 3), transform.rotation);
                 lineObject.transform.localScale = new Vector3(((image.width / phase) * scaleFloor), 0.2f, 0.2f);
                 lineObject.transform.parent = Map.transform;
                 //Generate Vertical Line
@@ -154,7 +159,7 @@ public class AutoGenerateStage : MonoBehaviour
                 //Generate Horizontal Line
                 if (horizontalLine && !gameSystem.endGame)
                 {
-                    lineObject = Instantiate(lineModel, new Vector3(((image.width / phase) * (scaleFloor / 2)) - 3 - (scaleFloor * ((y + phase) / phase)), 0, ((image.height / phase) * (scaleFloor / 2)) + 3), transform.rotation);
+                    lineObject = Instantiate(lineModel, new Vector3(((image.width / phase) * (scaleFloor / 2)) + lineX - (scaleFloor * ((y + phase) / phase)), 0, ((image.height / phase) * (scaleFloor / 2)) + 3), transform.rotation);
                     lineObject.transform.localScale = new Vector3(0.2f, 0.2f, ((image.height / phase) * scaleFloor));
                     lineObject.transform.parent = Map.transform;
                 }

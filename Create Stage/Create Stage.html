@@ -11,7 +11,7 @@
 <body>
     <div id="app">
         <div id="image">
-            <div v-for="num in 100" class="floor" :id="`floor${num}`">
+            <div v-for="num in numOfFloors" class="floor" :id="`floor${num}`">
                 <div class="sett2">
                     <div :id="`type_floor${num}`" class="wallCorner" onclick="setmap(this, 'wallCorner')"
                         ondragover="setmap(this, 'wallCorner')" ondragstart="setmap(this, 'wall')"></div>
