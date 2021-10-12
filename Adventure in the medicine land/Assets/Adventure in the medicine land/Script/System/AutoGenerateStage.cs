@@ -14,7 +14,7 @@ public class AutoGenerateStage : MonoBehaviour
     private GameSystem gameSystem;
 
     private int phase;//width of one channel
-    private int numWidth;//num of all channel in image width 
+    public int numWidth;//num of all channel in image width
     private int scaleFloor;
     private int start_x;//half of phase
     private int start_y;//half of phase
@@ -45,6 +45,7 @@ public class AutoGenerateStage : MonoBehaviour
         setColor();
         readStageImage();
         gameSystem.AGS = this;
+        GameObject.Find("Game Camera").GetComponent<PerspectivePan>().NumWidth = numWidth;
     }
 
     void Update()

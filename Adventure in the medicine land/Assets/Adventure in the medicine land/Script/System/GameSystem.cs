@@ -35,7 +35,7 @@ public class GameSystem : MonoBehaviour
     public List<Character> allMedicineInTerm;
     public List<Character> medicineFaction = new List<Character>();
     public List<Character> diseaseFaction = new List<Character>();
-    private Dictionary<String, int> allClassID = new Dictionary<string, int>();
+    private Dictionary<String, int> allClassID = new Dictionary<String, int>();
 
     public AutoGenerateStage AGS;
 
