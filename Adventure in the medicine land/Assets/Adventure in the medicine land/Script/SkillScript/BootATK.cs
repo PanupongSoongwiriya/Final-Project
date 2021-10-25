@@ -1,12 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class BootATK : Skill
 {
     void Start()
     {
-        gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
+        try
+        {
+            gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
+        }
+        catch (Exception e)
+        {
+            gameSystem = GameObject.Find("TutorialSystem").GetComponent<GameSystem>();
+        }
         skillName = "Boot ATK";
         bonusEffect = 2;
         desCripTion = "เพิ่มพลังโจมตีให้กับพันธมิตร 1 ตัวในระยะ\nการโจมตี(+spATK " + bonusEffect + ")";

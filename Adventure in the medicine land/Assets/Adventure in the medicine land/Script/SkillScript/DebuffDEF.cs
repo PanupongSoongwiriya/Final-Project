@@ -7,7 +7,14 @@ public class DebuffDEF : Skill
 {
     void Start()
     {
-        gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
+        try
+        {
+            gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
+        }
+        catch (Exception e)
+        {
+            gameSystem = GameObject.Find("TutorialSystem").GetComponent<GameSystem>();
+        }
         skillName = "Debuff DEF";
         bonusEffect = -2;
         desCripTion = "ลดพลังป้องกันศัตรู 1 ตัวในระยะการโจมตี\n(-spDEF " + Math.Abs(bonusEffect) + ")";

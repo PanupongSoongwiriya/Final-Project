@@ -12,17 +12,19 @@ public class DataCompareMedicine : MonoBehaviour
     public float damaged;
     public bool youDead;
     public float howFar;
-    public bool withinMedicineAttackRange;
+    public bool withinMedicineAtkRange;
+    public bool withinAtkRange;
     public float priority;
 
-    public DataCompareMedicine createData(Character chr, float inflictDamage, bool canKill, float damaged, bool dead, float howFar, bool inRange, float priority, float index)
+    public DataCompareMedicine createData(Character chr, float inflictDamage, bool canKill, float damaged, bool dead, float howFar, bool inRangeMedicine, bool inAtkRange, float priority, float index)
     {
         character = chr;
         this.inflictDamage = inflictDamage;
         this.damaged = damaged;
         youDead = dead;
         this.howFar = howFar;
-        withinMedicineAttackRange = inRange;
+        withinMedicineAtkRange = inRangeMedicine;
+        withinAtkRange = inAtkRange;
         Priority = priority;
         this.index = index;
         this.canKill = canKill;

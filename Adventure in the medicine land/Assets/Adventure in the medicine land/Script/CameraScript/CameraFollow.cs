@@ -17,7 +17,14 @@ public class CameraFollow : MonoBehaviour
 
     void Start()
     {
-        gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
+        try
+        {
+            gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
+        }
+        catch (Exception e)
+        {
+            gameSystem = GameObject.Find("TutorialSystem").GetComponent<GameSystem>();
+        }
     }
     void FixedUpdate()
     {

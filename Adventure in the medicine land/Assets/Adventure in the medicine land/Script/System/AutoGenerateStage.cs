@@ -40,7 +40,14 @@ public class AutoGenerateStage : MonoBehaviour
         scaleFloor = (int)floorModel.transform.localScale.x;
         start_x = phase / 2;
         start_y = phase / 2;
-        gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
+        try
+        {
+            gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
+        }
+        catch (Exception e)
+        {
+            gameSystem = GameObject.Find("TutorialSystem").GetComponent<GameSystem>();
+        }
         Map = new GameObject("Map");
         setColor();
         readStageImage();

@@ -4,10 +4,11 @@ using UnityEngine;
 using System;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class GameSystem : MonoBehaviour
 {
-    private int turn;
+    protected int turn;
     public string whoTurn;
     public bool endGame = false;
 
@@ -15,8 +16,8 @@ public class GameSystem : MonoBehaviour
     //("Choose a medicine character", "waiting for orders", "walk", "Choose a enemy character", "waiting for skill", "Use skills with enemies", "Use skills with ally", "Debuff with enemies", "round of bots")
 
     public Character nowCharecter;
-    private String skillType;
-    private int skillBonusEffect;
+    protected String skillType;
+    protected int skillBonusEffect;
 
     public GameObject controlPanel;
 
@@ -35,13 +36,13 @@ public class GameSystem : MonoBehaviour
     public List<Character> allMedicineInTerm;
     public List<Character> medicineFaction = new List<Character>();
     public List<Character> diseaseFaction = new List<Character>();
-    private Dictionary<String, int> allClassID = new Dictionary<String, int>();
+    protected Dictionary<String, int> allClassID = new Dictionary<String, int>();
 
     public AutoGenerateStage AGS;
 
     void Start()
     {
-        whoTurn = "Medicine";
+        WhoTurn = "Medicine";
         state = "Choose a medicine character";
         turn = 0;
         controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false, false, false);
@@ -52,7 +53,7 @@ public class GameSystem : MonoBehaviour
     public void checkChangeTurn()
     {
         bool statusChangeTurn = true;
-        if (whoTurn == "Medicine")
+        if (WhoTurn == "Medicine")
         {
             foreach (Character medicine in medicineFaction)
             {
@@ -78,22 +79,22 @@ public class GameSystem : MonoBehaviour
         if (statusChangeTurn)
         {
             //change whoTurn
-            if (whoTurn == "Medicine")
+            if (WhoTurn == "Medicine")
             {
-                whoTurn = "Disease";
+                WhoTurn = "Disease";
                 State = "round of bots";
                 whoTurnPanel.GetComponent<whoTurn>().Changed();
                 lockCamera = true;
             }
             else
             {
-                whoTurn = "Medicine";
+                WhoTurn = "Medicine";
                 State = "Choose a medicine character";
             }
-            Debug.Log(whoTurn + " Turn");
+            Debug.Log(WhoTurn + " Turn");
 
             //set doneItYet
-            if (whoTurn == "Medicine")
+            if (WhoTurn == "Medicine")
             {
                 foreach (Character medicine in medicineFaction)
                 {
@@ -144,7 +145,6 @@ public class GameSystem : MonoBehaviour
             whoTurnPanel.GetComponent<whoTurn>().Changed();
             lockCamera = false;
         }
-
     }
     public void chackInTerm()
     {
@@ -229,7 +229,7 @@ public class GameSystem : MonoBehaviour
         endGamePanel.GetComponent<EndGame>().checkTheWin();
     }
 
-    public void resetGame()
+    public virtual void resetGame()
     {
         anim.SetBool("FadeIn", true);
         anim.SetBool("FadeOut", false);
@@ -352,11 +352,11 @@ public class GameSystem : MonoBehaviour
                 }
             }
         }
-        foreach(GameObject floor in allFloor)
+        foreach (GameObject floor in allFloor)
         {
             int x = (int)floor.transform.position.x;
             int z = (int)floor.transform.position.z;
-            foreach(List<int> position in ans)
+            foreach (List<int> position in ans)
             {
                 if (position[0] == x && position[1] == z)
                 {
@@ -383,7 +383,7 @@ public class GameSystem : MonoBehaviour
                     {
                         areYouAlly = floor.GetComponent<Floor>().characterOnIt.Faction.Equals(NowCharecter.Faction);
                     }
-                    if (floor.GetComponent<Floor>().characterOnIt == null || (doingWhat.Equals("bad for the enemy")  && !areYouAlly) || (doingWhat.Equals("support") && areYouAlly))
+                    if (floor.GetComponent<Floor>().characterOnIt == null || (doingWhat.Equals("bad for the enemy") && !areYouAlly) || (doingWhat.Equals("support") && areYouAlly))
                     {
                         floor.GetComponent<Floor>().InTerm = true;
                     }
@@ -393,7 +393,6 @@ public class GameSystem : MonoBehaviour
             }
         }
     }
-
     public void resetInTerm()
     {
         foreach (GameObject floor in allFloor)
@@ -401,6 +400,11 @@ public class GameSystem : MonoBehaviour
             floor.GetComponent<Floor>().InTerm = false;
             floor.GetComponent<Floor>().showInTerm("");
         }
+    }
+
+    protected virtual void setBoolTurn()
+    {
+
     }
 
     public string State
@@ -432,5 +436,10 @@ public class GameSystem : MonoBehaviour
     {
         get { return turn; }
         set { turn = value; StartCoroutine(changeTurn()); }
+    }
+    public string WhoTurn
+    {
+        get { return whoTurn; }
+        set { whoTurn = value; setBoolTurn(); }
     }
 }

@@ -1,12 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Heal : Skill
 {
     void Start()
     {
-        gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
+        try
+        {
+            gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
+        }
+        catch (Exception e)
+        {
+            gameSystem = GameObject.Find("TutorialSystem").GetComponent<GameSystem>();
+        }
         skillName = "Heal";
         bonusEffect = 2;
         desCripTion = "รักษาให้กับพันธมิตร 1 ตัวในระยะการโจมตี\n(+HP " + bonusEffect + ")";

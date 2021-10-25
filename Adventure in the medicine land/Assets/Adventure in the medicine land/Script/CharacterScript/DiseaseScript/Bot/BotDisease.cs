@@ -43,27 +43,36 @@ public class BotDisease : MonoBehaviour
 
             gameSystem.NowCharecter = medicine;
             gameSystem.findDistance(medicine.attackRange, "bad for the enemy");
-            bool inRange = chr.pedalFloor.inTerm;
+            bool inRangeMedicine = chr.pedalFloor.inTerm;
             gameSystem.resetInTerm();
 
-            priorityMedicine.Add(dataMedicine.AddComponent<DataCompareMedicine>().createData(medicine, inflictDamage, canKill, damaged, dead, howFar, inRange, 0, index));
+            gameSystem.NowCharecter = chr;
+            gameSystem.findDistance(chr.attackRange, "bad for the enemy");
+            bool inAtkRange = medicine.pedalFloor.inTerm;
+            gameSystem.resetInTerm();
+
+            priorityMedicine.Add(dataMedicine.AddComponent<DataCompareMedicine>().createData(medicine, inflictDamage, canKill, damaged, dead, howFar, inRangeMedicine, inAtkRange, 0, index));
             ++index;
         }
-        gameSystem.NowCharecter = chr;
     }
     public void botWork()
     {
         foreach (DataCompareMedicine medicine in priorityMedicine)
         {
-            if (medicine.withinMedicineAttackRange && medicine.youDead)
+            if (medicine.withinAtkRange && medicine.canKill)
             {
-                target = medicine.character;
-                stage = "escape";
-                break;
-            }else if (medicine.canKill)
-            {
+                stage = "attack";
                 target = medicine.character;
                 break;
+            }
+            else if (medicine.youDead)
+            {
+                medicine.priority--;
+                if (medicine.withinMedicineAtkRange)
+                {
+                    stage = "escape";
+                    medicine.priority -= 3;
+                }
             }
         }
 
@@ -109,28 +118,15 @@ public class BotDisease : MonoBehaviour
             Vector3 floorPosition = Floor.floor.transform.position;
             Floor.distanceFromEnemy = findDistance(targetPosition, floorPosition);
             Floor.distanceFromOnself = findDistance(selfPosition, floorPosition);
-            foreach (DataCompareMedicine medicine in priorityMedicine)
-            {
-                if (medicine.howFar <= chr.walkingDistance)
-                {
-                    Floor.enemyWithinWalkDistance = true;
-                    break;
-                }
-            }
+        }
+
+        if (!stage.Equals("escape"))
+        {
+            sortPriorityFloor("Self");
         }
 
         sortPriorityFloor("Enemy");
 
-        if (!stage.Equals("escape")) { 
-            foreach (DataCompareFloor Floor in priorityFloor)
-            {
-                if (Floor.enemyWithinWalkDistance)
-                {
-                    sortPriorityFloor("Self");
-                    break;
-                }
-            }
-        }
         sortPriorityFloor("priority");
 
         chr.PedalFloor = priorityFloor[0].floor;

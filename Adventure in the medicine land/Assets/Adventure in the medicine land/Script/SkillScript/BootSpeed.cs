@@ -7,7 +7,14 @@ public class BootSpeed : Skill
 {
     void Start()
     {
-        gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
+        try
+        {
+            gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
+        }
+        catch (Exception e)
+        {
+            gameSystem = GameObject.Find("TutorialSystem").GetComponent<GameSystem>();
+        }
         skillName = "BootSpeed";
         bonusEffect = 1;
         desCripTion = "เพิ่มระยะการเดินให้กับพันธมิตร 1 ตัวในระยะการโจมตี(+ระยะเดิน " + bonusEffect + ")";

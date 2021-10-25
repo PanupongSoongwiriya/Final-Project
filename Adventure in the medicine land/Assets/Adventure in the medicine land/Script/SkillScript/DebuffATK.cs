@@ -7,7 +7,14 @@ public class DebuffATK : Skill
 {
     void Start()
     {
-        gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
+        try
+        {
+            gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
+        }
+        catch (Exception e)
+        {
+            gameSystem = GameObject.Find("TutorialSystem").GetComponent<GameSystem>();
+        }
         skillName = "Debuff ATK";
         bonusEffect = -2;
         desCripTion = "ลดพลังโจมตีศัตรู 1 ตัวในระยะการโจมตี\n(-spATK " + Math.Abs(bonusEffect) + ")";

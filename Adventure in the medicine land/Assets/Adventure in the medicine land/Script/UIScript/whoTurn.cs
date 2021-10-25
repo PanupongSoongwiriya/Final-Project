@@ -12,7 +12,14 @@ public class whoTurn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
+        try
+        {
+            gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
+        }
+        catch (Exception e)
+        {
+            gameSystem = GameObject.Find("TutorialSystem").GetComponent<GameSystem>();
+        }
         txt = GetComponentInChildren<Text>();
         img = GetComponent<Image>();
         txt.text = ThaiFontAdjuster.Adjust("เทิร์นของผู้เล่น");

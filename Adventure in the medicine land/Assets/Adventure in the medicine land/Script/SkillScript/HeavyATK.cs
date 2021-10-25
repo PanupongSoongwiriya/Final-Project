@@ -1,12 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class HeavyATK : Skill
 {
     void Start()
     {
-        gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
+        try
+        {
+            gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
+        }
+        catch (Exception e)
+        {
+            gameSystem = GameObject.Find("TutorialSystem").GetComponent<GameSystem>();
+        }
         skillName = "Heavy ATK";
         bonusEffect = 2;
         desCripTion = "เลือกศัตรูในระยะการโจมตี 1 ตัวเพื่อสร้าง\nความเสียหายแบบพิเศษ(+spATK " + bonusEffect + ")";

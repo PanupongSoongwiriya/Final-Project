@@ -13,7 +13,14 @@ public class Floor : MonoBehaviour
     public String typrFloor;
     void Start()
     {
-        gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
+        try
+        {
+            gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
+        }
+        catch (Exception e)
+        {
+            gameSystem = GameObject.Find("TutorialSystem").GetComponent<GameSystem>();
+        }
         FloorBonus = 0;
         typrFloor = "Normal";
     }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using System;
 
 public class Character : MonoBehaviour
@@ -51,7 +52,8 @@ public class Character : MonoBehaviour
     }
     protected void allAction()
     {
-        if (!gameSystem.endGame){
+        if (!gameSystem.endGame)
+        {
             showDetailDisease();
             prepare();
             attacked();
@@ -62,7 +64,14 @@ public class Character : MonoBehaviour
     protected void startSetUp()
     {
         maxHP = hp;
-        gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
+        try
+        {
+            gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
+        }
+        catch (Exception e)
+        {
+            gameSystem = GameObject.Find("TutorialSystem").GetComponent<GameSystem>();
+        }
         gameSystem.memberUpdate(this);
         dmgText = gameSystem.dmgText;
         doneItYet = true;
@@ -257,7 +266,7 @@ public class Character : MonoBehaviour
     {
         if (Faction.Equals("Disease"))
         {
-            botDisease.deleteData();
+            //botDisease.deleteData();
         }
         Destroy(this.gameObject);
     }
@@ -267,7 +276,7 @@ public class Character : MonoBehaviour
         gameSystem.checkChangeTurn();
         if (Faction.Equals("Disease"))
         {
-            botDisease.deleteData();
+            //botDisease.deleteData();
         }
     }
 
@@ -287,7 +296,7 @@ public class Character : MonoBehaviour
     {
         if (moving)
         {
-            float smoothSpeed = 0.1f;
+            float smoothSpeed = 0.6f;
             bool equalsX = 0.1 > Math.Abs(transform.position.x - pedalFloor.transform.position.x);
             bool equalsZ = 0.1 > Math.Abs(transform.position.z - pedalFloor.transform.position.z);
             if (!(equalsX && equalsZ))

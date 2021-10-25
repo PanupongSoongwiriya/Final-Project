@@ -7,7 +7,7 @@ public class PerspectivePan : MonoBehaviour
 {
     public GameSystem gameSystem;
     public CameraFollow cf;
-    public float speed = 30;
+    public float speed = 25;
     public int numWidth;//num of all channel in image width
     public float minX = 40;
     public float maxX = 34;
@@ -16,7 +16,14 @@ public class PerspectivePan : MonoBehaviour
 
     void Start()
     {
-        gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
+        try
+        {
+            gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
+        }
+        catch (Exception e)
+        {
+            gameSystem = GameObject.Find("TutorialSystem").GetComponent<GameSystem>();
+        }
         cf = gameObject.GetComponent<CameraFollow>();
     }
     void Update()
