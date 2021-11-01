@@ -1007,7 +1007,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88b18a74f9a7f5448bbeae4f0f345622, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  system: {fileID: 1389070290}
   controlPanel: {fileID: 896668366}
   optionsPanel: {fileID: 563466689}
   skillPanel: {fileID: 918762004}
@@ -1015,6 +1014,7 @@ MonoBehaviour:
   skillDetailPanel: {fileID: 843268035}
   sheatheMenu: {fileID: 0}
   sheatheData: {fileID: 0}
+  activeBotton: 0
 --- !u!114 &583151848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1486,7 +1486,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71872b8fdc8ec1a4788cc0426ab5b191, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  system: {fileID: 1389070290}
   controlPanel: {fileID: 896668366}
   optionsPanel: {fileID: 563466689}
   skillPanel: {fileID: 918762004}
@@ -1494,6 +1493,7 @@ MonoBehaviour:
   skillDetailPanel: {fileID: 843268035}
   sheatheMenu: {fileID: 0}
   sheatheData: {fileID: 0}
+  activeBotton: 0
 --- !u!114 &696475750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1991,6 +1991,7 @@ MonoBehaviour:
   yesButton: {fileID: 737133837}
   noButton: {fileID: 1556972033}
   anim: {fileID: 1392827765}
+  sm: {fileID: 8645261398325672233}
 --- !u!1 &843268035
 GameObject:
   m_ObjectHideFlags: 0
@@ -2030,7 +2031,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.65418077, y: 0.11322223}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 4.1585, y: -0.9210205}
+  m_AnchoredPosition: {x: 4.1585083, y: -0.9210205}
   m_SizeDelta: {x: 2147.1, y: -758.51}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &843268037
@@ -2088,6 +2089,7 @@ MonoBehaviour:
   skillPanel_2: {fileID: 1695438410}
   skillPanel_3: {fileID: 1304651270}
   gameSystem: {fileID: 1389070291}
+  activeBotton: 0
 --- !u!114 &843268040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2192,7 +2194,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cee80aafbac01614bbb535e8a9425687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  system: {fileID: 1389070290}
   controlPanel: {fileID: 896668366}
   optionsPanel: {fileID: 563466689}
   skillPanel: {fileID: 918762004}
@@ -2200,6 +2201,7 @@ MonoBehaviour:
   skillDetailPanel: {fileID: 843268035}
   sheatheMenu: {fileID: 617138796}
   sheatheData: {fileID: 2097609233}
+  activeBotton: 0
 --- !u!114 &896668371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2998,7 +3000,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d3f703a846e386499acbc546c68631b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  system: {fileID: 1389070290}
   controlPanel: {fileID: 896668366}
   optionsPanel: {fileID: 563466689}
   skillPanel: {fileID: 918762004}
@@ -3006,6 +3007,7 @@ MonoBehaviour:
   skillDetailPanel: {fileID: 843268035}
   sheatheMenu: {fileID: 0}
   sheatheData: {fileID: 0}
+  activeBotton: 0
 --- !u!114 &1167220923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3410,7 +3412,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a5b9d8fad239af40b4889d99815485b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  system: {fileID: 1389070290}
   controlPanel: {fileID: 896668366}
   optionsPanel: {fileID: 563466689}
   skillPanel: {fileID: 918762004}
@@ -3418,6 +3419,7 @@ MonoBehaviour:
   skillDetailPanel: {fileID: 843268035}
   sheatheMenu: {fileID: 0}
   sheatheData: {fileID: 0}
+  activeBotton: 0
   SkillPanel: {fileID: 918762004}
 --- !u!114 &1268027716
 MonoBehaviour:
@@ -3947,6 +3949,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8049314337774199886, guid: 58b86fa0e8c48c3458f0b2c2bbc13cd4,
         type: 3}
+      propertyPath: sm
+      value: 
+      objectReference: {fileID: 8645261398325672233}
+    - target: {fileID: 8049314337774199886, guid: 58b86fa0e8c48c3458f0b2c2bbc13cd4,
+        type: 3}
       propertyPath: image
       value: 
       objectReference: {fileID: 0}
@@ -4098,7 +4105,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc0c37453fde2874e8cfd10f4aab4664, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  system: {fileID: 1389070290}
   controlPanel: {fileID: 896668366}
   optionsPanel: {fileID: 563466689}
   skillPanel: {fileID: 918762004}
@@ -4106,6 +4112,7 @@ MonoBehaviour:
   skillDetailPanel: {fileID: 843268035}
   sheatheMenu: {fileID: 0}
   sheatheData: {fileID: 0}
+  activeBotton: 0
 --- !u!114 &1481522736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4741,7 +4748,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.65418077, y: 0.11322223}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 4.1607, y: -0.91503906}
+  m_AnchoredPosition: {x: 4.1607056, y: -0.91503906}
   m_SizeDelta: {x: 2147.1, y: -758.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1642383784
@@ -5738,3 +5745,84 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &8645261398325672232
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2930376486882914579, guid: 2f5bcfada18eef74b9ee88cf069eb36c,
+        type: 3}
+      propertyPath: m_Name
+      value: SaveManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7364733162393240888, guid: 2f5bcfada18eef74b9ee88cf069eb36c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7364733162393240888, guid: 2f5bcfada18eef74b9ee88cf069eb36c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 782.97675
+      objectReference: {fileID: 0}
+    - target: {fileID: 7364733162393240888, guid: 2f5bcfada18eef74b9ee88cf069eb36c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 265.5413
+      objectReference: {fileID: 0}
+    - target: {fileID: 7364733162393240888, guid: 2f5bcfada18eef74b9ee88cf069eb36c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -55.491356
+      objectReference: {fileID: 0}
+    - target: {fileID: 7364733162393240888, guid: 2f5bcfada18eef74b9ee88cf069eb36c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7364733162393240888, guid: 2f5bcfada18eef74b9ee88cf069eb36c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7364733162393240888, guid: 2f5bcfada18eef74b9ee88cf069eb36c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7364733162393240888, guid: 2f5bcfada18eef74b9ee88cf069eb36c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7364733162393240888, guid: 2f5bcfada18eef74b9ee88cf069eb36c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7364733162393240888, guid: 2f5bcfada18eef74b9ee88cf069eb36c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7364733162393240888, guid: 2f5bcfada18eef74b9ee88cf069eb36c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2f5bcfada18eef74b9ee88cf069eb36c, type: 3}
+--- !u!114 &8645261398325672233 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8639628348783976307, guid: 2f5bcfada18eef74b9ee88cf069eb36c,
+    type: 3}
+  m_PrefabInstance: {fileID: 8645261398325672232}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85f50a97be55e334795c01f45072e6ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -12,6 +12,7 @@ public class EndGame : MonoBehaviour
     public GameObject yesButton;
     public GameObject noButton;
     public Animator anim;
+    public SaveManager sm;
 
     public void checkTheWin()
     {
@@ -41,13 +42,13 @@ public class EndGame : MonoBehaviour
 
     public void backToMainScene()
     {
-        SceneManager.LoadScene(0);//Main Scene
+        SceneManager.LoadScene("Main Scene");//Main Scene
     }
 
     //Case Win
     public void goToStoryScene()
     {
-        SceneManager.LoadScene(2);//Story Scene
+        SceneManager.LoadScene("Story Scene");//Story Scene
     }
     public void fadeToBlack()
     {
@@ -56,6 +57,8 @@ public class EndGame : MonoBehaviour
     }
     public void AutoSeve()
     {
+        sm.state.storyOrder = Mathf.Min(sm.state.storyOrder+1, 3);
+        sm.Save();
         Debug.Log("AutoSeve");
     }
 }

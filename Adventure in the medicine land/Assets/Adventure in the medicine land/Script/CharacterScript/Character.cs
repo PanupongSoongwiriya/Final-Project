@@ -267,7 +267,7 @@ public class Character : MonoBehaviour
     {
         if (Faction.Equals("Disease"))
         {
-            //botDisease.deleteData();
+            botDisease.deleteData();
         }
         Destroy(this.gameObject);
     }
@@ -277,7 +277,7 @@ public class Character : MonoBehaviour
         gameSystem.checkChangeTurn();
         if (Faction.Equals("Disease"))
         {
-            //botDisease.deleteData();
+            botDisease.deleteData();
         }
     }
 

@@ -118,8 +118,15 @@ public class GameSystem : MonoBehaviour
         yield return new WaitForSeconds(0.25f);
         foreach (Character disease in diseaseFaction)
         {
-            disease.GetComponent<BotDisease>().botActive();
-            yield return new WaitForSeconds(1.25f);
+            if (endGame)
+            {
+                break;
+            }
+            else
+            {
+                disease.GetComponent<BotDisease>().botActive();
+                yield return new WaitForSeconds(1.25f);
+            }
         }
     }
 

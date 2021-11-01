@@ -47,11 +47,11 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 8a5748cd5107d6a4bbaa04c3f6082aec, type: 3}
   - {fileID: 2800000, guid: 63a3b142bc6130d4b92901f81a6f0097, type: 3}
   - {fileID: 2800000, guid: c09178b3f60aec2479d18a1e38818358, type: 3}
+  - {fileID: 2800000, guid: 55eb8546c4802d144b62cd49c1955328, type: 3}
   image: {fileID: 0}
-  tolerancea: 0.04
-  phase: 90
-  scaleFloor: 6
-  bonusFloor: 1
+  sm: {fileID: 0}
+  numWidth: 0
+  floorBonus: 1
   floorModel: {fileID: 3476153174529300596, guid: 2be9831ff0768f44c90efb07e98f5330,
     type: 3}
   lineModel: {fileID: 5885487123102947634, guid: 40ca4afc0cd077f498883ad0bdb58441,

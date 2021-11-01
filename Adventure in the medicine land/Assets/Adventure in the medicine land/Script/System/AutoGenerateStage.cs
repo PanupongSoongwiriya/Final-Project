@@ -10,6 +10,7 @@ public class AutoGenerateStage : MonoBehaviour
     public Texture2D image;
     Dictionary<string, Color> typeColor = new Dictionary<string, Color>();
     private float tolerancea = 0.04f;
+    public SaveManager sm;
 
     private GameSystem gameSystem;
 
@@ -31,9 +32,12 @@ public class AutoGenerateStage : MonoBehaviour
 
     void Start()
     {
+        sm.Load();
+        Debug.Log("SaveManager: " + sm.state.storyOrder);
         if (image == null)
         {
-            image = allStage[new System.Random().Next(allStage.Count)];
+            //image = allStage[new System.Random().Next(allStage.Count)];
+            image = allStage[sm.state.storyOrder];
         }
         numWidth = int.Parse(image.name.Split(char.Parse("x"))[1]);
         phase = image.width / numWidth;

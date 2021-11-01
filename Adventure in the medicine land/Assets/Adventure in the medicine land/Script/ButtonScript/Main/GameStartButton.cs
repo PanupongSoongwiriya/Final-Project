@@ -7,10 +7,18 @@ using UnityEngine.SceneManagement;
 public class GameStartButton : MonoBehaviour
 {
     public GameObject AreYouSure;
+    public bool firstPlay;
 
     public void AreYouSureVisible()
     {
-        AreYouSure.SetActive(true);
+        if (firstPlay)
+        {
+            changeScene();
+        }
+        else
+        {
+            AreYouSure.SetActive(true);
+        }
     }
     public void AreYouSureHidden()
     {
@@ -18,6 +26,6 @@ public class GameStartButton : MonoBehaviour
     }
     public void changeScene()
     {
-        SceneManager.LoadScene("Tutorial Scense");//Story Scene
+        SceneManager.LoadScene("Story Scene");
     }
 }
