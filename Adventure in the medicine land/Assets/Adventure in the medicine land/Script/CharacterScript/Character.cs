@@ -58,6 +58,7 @@ public class Character : MonoBehaviour
             prepare();
             attacked();
             checkBuffDebuff();
+            tutorialPlus();
         }
     }
 
@@ -325,6 +326,16 @@ public class Character : MonoBehaviour
                     moving = false;
                     gameSystem.NowCharecter.doneIt();
                 }
+            }
+        }
+    }
+    protected void tutorialPlus()
+    {
+        if (gameSystem.name.Equals("TutorialSystem"))
+        {
+            if (gameSystem.GetComponent<TutorialSystem>().TutorialStep != 5)
+            {
+                gameSystem.GetComponent<TutorialSystem>().TutorialStep++;
             }
         }
     }

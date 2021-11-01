@@ -1,12 +1,27 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TutorialSystem : GameSystem
 {
-    public GameObject tutoria;
-    public int tutorialStep = 0;
-    public bool firstDiseaseTurn = false;
+    [SerializeField]
+    private List<GameObject> buttonDescription;
+
+    [SerializeField]
+    private List<GameObject> tdUI;
+
+    [SerializeField]
+    private List<string> tutorialDescription;
+
+    [SerializeField]
+    private GameObject ForcePress;
+
+    [SerializeField]
+    private GameObject Concealed;
+
+    [SerializeField]
+    private int tutorialStep;
     void Start()
     {
         whoTurn = "Medicine";
@@ -15,32 +30,120 @@ public class TutorialSystem : GameSystem
         controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false, false, false);
         //controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
         cf = GameObject.Find("Game Camera").GetComponent<CameraFollow>();
-        tutoria = GameObject.Find("Canvas").transform.GetChild(GameObject.Find("Canvas").transform.childCount-1).gameObject;
-        Debug.Log(tutoria.transform.GetChild(0).name);
-        
+        TutorialStep = -1;
+        tutorialDescription.Add("เลือกตัวละครยา");
+        tutorialDescription.Add("พื้นที่มีสีฟ้าปรากฏขึ้นคือระยะ\nที่ตัวละครสามารถเดินไปได้");
+        tutorialDescription.Add("พื้นที่มีสีแดงปรากฏขึ้นคือระยะที่ตัวละคร\nสามารถสร้างความเสียหายให้กับศัตรูได้");
+        tutorialDescription.Add("เลือกตัวละครเชิ้อโรค");
     }
 
     private void setTutoria()
     {
-        for (int i = 0; i < tutoria.transform.childCount; i++)
+        ForcePress.SetActive(false);
+        Concealed.SetActive(false);
+        setAllButtonActive(true);
+        clearAllButtonDescription();
+        clearTutorialDescription();
+        if (tutorialStep == 0)
         {
-            tutoria.transform.GetChild(i).gameObject.SetActive(false);
+            setTutorialDescription("Bottom", 0);
+            lockCamera = true;
+            ForcePress.gameObject.SetActive(true);
+            cf.Target = medicineFaction[0].transform;
         }
-        if (tutorialStep < tutoria.transform.childCount)
+        else if (tutorialStep == 1)
         {
-            tutoria.transform.GetChild(tutorialStep).gameObject.SetActive(true);
+            Concealed.SetActive(true);
+            setAllButtonActive(false);
+            buttonDescription[0].SetActive(true);
+            controlPanel.transform.GetChild(0).transform.GetChild(0).GetComponent<controlPanelButton>().ActiveBotton = true;
+        }
+        else if (tutorialStep == 2)
+        {
+            setTutorialDescription("Right", 1);
+            setTutorialDescription("Left", 99);
+            ForcePress.gameObject.SetActive(true);
+            setAllButtonActive(false);
+            cf.Target = allFloor[37].transform;
+        }
+        else if (tutorialStep == 3)
+        {
+            setTutorialDescription("Bottom", 0);
+            ForcePress.gameObject.SetActive(true);
+            cf.Target = medicineFaction[1].transform;
+        }
+        else if (tutorialStep == 4)
+        {
+            Concealed.SetActive(true);
+            setAllButtonActive(false);
+            buttonDescription[1].SetActive(true);
+            controlPanel.transform.GetChild(0).transform.GetChild(2).GetComponent<controlPanelButton>().ActiveBotton = true;
+        }
+        else if (tutorialStep == 6)
+        {
+            setTutorialDescription("Bottom", 0);
+            lockCamera = true;
+            ForcePress.gameObject.SetActive(true);
+            cf.Target = medicineFaction[0].transform;
+        }
+        else if (tutorialStep == 7)
+        {
+            Concealed.SetActive(true);
+            setAllButtonActive(false);
+            buttonDescription[2].SetActive(true);
+            controlPanel.transform.GetChild(0).transform.GetChild(1).GetComponent<controlPanelButton>().ActiveBotton = true;
+        }
+        else if (tutorialStep == 8)
+        {
+            setTutorialDescription("Right", 2);
+            setTutorialDescription("Bottom", 3);
+            ForcePress.gameObject.SetActive(true);
+            setAllButtonActive(false);
+            cf.Target = diseaseFaction[1].transform;
+        }
+        else if (tutorialStep == 9)
+        {
+            setTutorialDescription("Bottom", 0);
+            ForcePress.gameObject.SetActive(true);
+            cf.Target = medicineFaction[1].transform;
+        }
+        else if (tutorialStep == 10)
+        {
+            Concealed.SetActive(true);
+            setAllButtonActive(false);
+            buttonDescription[3].SetActive(true);
+            controlPanel.transform.GetChild(0).transform.GetChild(3).GetComponent<controlPanelButton>().ActiveBotton = true;
+        }
+        else if (tutorialStep == 11)
+        {
+            Concealed.SetActive(true);
+            setAllButtonActive(false);
+            buttonDescription[4].SetActive(true);
+        }
+        else if (tutorialStep == 12)
+        {
+            setTutorialDescription("Bottom", 3);
+            ForcePress.gameObject.SetActive(true);
+            setAllButtonActive(false);
+            cf.Target = diseaseFaction[0].transform;
         }
     }
 
     void Update()
     {
-        for (int i = 0; i < tutoria.transform.childCount; i++)
+        /*if (Input.GetKeyDown("space"))
         {
-            tutoria.transform.GetChild(i).gameObject.SetActive(false);
-        }
-        if (tutorialStep < tutoria.transform.childCount)
+            TutorialStep++;
+        }*/
+        if (tutorialStep == -1 & medicineFaction.Count != 0)
         {
-            tutoria.transform.GetChild(tutorialStep).gameObject.SetActive(true);
+            foreach (Character medicine in medicineFaction)
+            {
+                if (medicine.name.Equals("ยาลดน้ำมูก 1"))
+                {
+                    TutorialStep = 0;
+                }
+            }
         }
     }
 
@@ -69,17 +172,54 @@ public class TutorialSystem : GameSystem
         state = "Choose a medicine character";
         AGS.readStageImage();
         endGame = false;
-        tutorialStep = 0;
-    }
-    protected override void setBoolTurn()
-    {
-        firstDiseaseTurn = WhoTurn.Equals("Disease") && Turn == 0;
+        //TutorialStep = -1;
     }
 
-    public int TutorialStep
+    private void setTutorialDescription(string where, int index)
     {
-        get { return tutorialStep; }
-        set { tutorialStep = value; setTutoria(); }
+        for (int i = 0; i < tdUI.Count; ++i)
+        {
+            if (tdUI[i].name.Equals(where))
+            {
+                tdUI[i].SetActive(true);
+                if (!where.Equals("Left"))
+                {
+                    tdUI[i].GetComponent<Text>().text = ThaiFontAdjuster.Adjust(tutorialDescription[index]);
+                }
+            }
+
+        }
     }
+    private void clearTutorialDescription()
+    {
+        for (int i = 0; i < tdUI.Count; ++i)
+        {
+            tdUI[i].SetActive(false);
+        }
+}
+
+private void clearAllButtonDescription()
+{
+    foreach (GameObject button in buttonDescription)
+    {
+        button.SetActive(false);
+    }
+
+}
+private void setAllButtonActive(bool active)
+{
+    GameObject OptionsPanel = controlPanel.transform.GetChild(0).gameObject;
+    for (int i = 0; i < OptionsPanel.transform.childCount; ++i)
+    {
+        OptionsPanel.transform.GetChild(i).GetComponent<controlPanelButton>().ActiveBotton = active;
+    }
+    controlPanel.transform.GetChild(2).GetComponent<controlPanelButton>().ActiveBotton = active;
+}
+
+public int TutorialStep
+{
+    get { return tutorialStep; }
+    set { tutorialStep = Mathf.Min(value, 14); setTutoria(); }
+}
 
 }

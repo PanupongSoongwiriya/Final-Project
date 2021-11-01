@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class yourTurn : MonoBehaviour
 {
@@ -21,6 +22,13 @@ public class yourTurn : MonoBehaviour
     }
     private void Destroy()
     {
+        try
+        {
+            GameObject.Find("TutorialSystem").GetComponent<GameSystem>().GetComponent<TutorialSystem>().TutorialStep++;
+        }
+        catch (Exception e)
+        {
+        }
         Destroy(this.gameObject);
     }
 }

@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 
 public class controlPanelButton : MonoBehaviour
 {
-
-    public GameObject system;
     protected GameSystem gameSystem;
     public GameObject controlPanel;
     public GameObject optionsPanel;
@@ -15,8 +14,10 @@ public class controlPanelButton : MonoBehaviour
     public GameObject skillDetailPanel;
     public GameObject sheatheMenu;
     public GameObject sheatheData;
+    public bool activeBotton;
     void Start()
     {
+        activeBotton = true;
         try
         {
             gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
@@ -32,6 +33,14 @@ public class controlPanelButton : MonoBehaviour
     public virtual void changeState()
     {
     }
+
+    protected void tutorialPlus()
+    {
+        if (gameSystem.name.Equals("TutorialSystem"))
+        {
+            gameSystem.GetComponent<TutorialSystem>().TutorialStep++;
+        }
+    }
     public void switchPanel(bool cp, bool op, bool sp, bool cdp, bool sdp)
     {
         sheatheMenu.gameObject.SetActive(cp);
@@ -41,6 +50,21 @@ public class controlPanelButton : MonoBehaviour
         skillPanel.gameObject.SetActive(sp);
         optionsPanel.gameObject.SetActive(op);
         controlPanel.gameObject.SetActive(cp);
+    }
 
+    protected void active()
+    {
+        float a = 0.25f;
+        if (activeBotton)
+        {
+            a = 1;
+        }
+        GetComponent<Image>().color = new Color(1, 1, 1, a);
+    }
+
+    public bool ActiveBotton
+    {
+        get { return activeBotton; }
+        set { activeBotton = value; active(); }
     }
 }

@@ -7,8 +7,9 @@ public class skillOptionsButton : controlPanelButton
     public GameObject SkillPanel;
     public override void changeState()
     {
-        if (gameSystem.State.Equals("waiting for orders"))
+        if (gameSystem.State.Equals("waiting for orders") && ActiveBotton)
         {
+            tutorialPlus();
             gameSystem.State = "waiting for skill";
             SkillPanel.GetComponent<SkillPanel>().numberOfSkill = gameSystem.NowCharecter.allSkill.Count;
             SkillPanel.GetComponent<SkillPanel>().gameSystem = gameSystem;

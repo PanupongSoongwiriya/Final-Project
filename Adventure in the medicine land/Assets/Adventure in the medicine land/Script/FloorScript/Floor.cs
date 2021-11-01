@@ -34,6 +34,7 @@ public class Floor : MonoBehaviour
     {
         if (gameSystem.State.Equals("walk") && inTerm)
         {
+            tutorialPlus();
             gameSystem.NowCharecter.PedalFloor = this;
         }
     }
@@ -69,6 +70,13 @@ public class Floor : MonoBehaviour
     private void OnCollisionExit(Collision collision)
     {
         characterOnIt = null;
+    }
+    protected void tutorialPlus()
+    {
+        if (gameSystem.name.Equals("TutorialSystem"))
+        {
+            gameSystem.GetComponent<TutorialSystem>().TutorialStep++;
+        }
     }
 
     public virtual void floorEffect()

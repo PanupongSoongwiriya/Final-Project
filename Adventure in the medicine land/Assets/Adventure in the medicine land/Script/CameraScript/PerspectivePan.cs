@@ -44,7 +44,10 @@ public class PerspectivePan : MonoBehaviour
             maxZ = numWidth * 6;
             Vector3 centerStagePoint = new Vector3(37 - (numWidth * 3), transform.position.y, 3 + (numWidth * 3));
             transform.position = centerStagePoint;
-            gameSystem.transform.position = centerStagePoint;
+            if (gameSystem != null)
+            {
+                gameSystem.transform.position = centerStagePoint;
+            }
         }
     }
 }

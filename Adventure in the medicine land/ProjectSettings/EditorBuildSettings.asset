@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Adventure in the medicine land/Scenes/Game Scene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Adventure in the medicine land/Scenes/Tutorial Scense.unity
+    guid: 581ea21190d172a4db9ef2d61136d031
   m_configObjects: {}

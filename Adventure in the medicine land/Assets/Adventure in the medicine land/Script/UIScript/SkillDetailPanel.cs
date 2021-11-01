@@ -10,6 +10,7 @@ public class SkillDetailPanel : MonoBehaviour
     public GameObject skillPanel_2;
     public GameObject skillPanel_3;
     public GameSystem gameSystem;
+    public bool activeBotton;
 
     void Update()
     {

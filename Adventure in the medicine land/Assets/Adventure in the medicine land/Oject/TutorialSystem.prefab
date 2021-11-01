@@ -45,7 +45,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whoTurn: 
   endGame: 0
-  hoverUI: 0
   state: 
   nowCharecter: {fileID: 0}
   controlPanel: {fileID: 0}
@@ -63,3 +62,12 @@ MonoBehaviour:
   medicineFaction: []
   diseaseFaction: []
   AGS: {fileID: 0}
+  tutoria: {fileID: 0}
+  ForcePress: {fileID: 4127407511333725796, guid: 36999345e86c1c0429da4544bc172f27,
+    type: 3}
+  Concealed: {fileID: 7940166582669312021, guid: 4c89775b4693a8f4dafadb6ed740da4b,
+    type: 3}
+  CPRight: {fileID: 1794681380028057376, guid: 20dc8a49d9e14974ba980a2c972e0093, type: 3}
+  CPLeft: {fileID: 1794681380028057376, guid: 20dc8a49d9e14974ba980a2c972e0093, type: 3}
+  tutorialStep: 0
+  firstDiseaseTurn: 0

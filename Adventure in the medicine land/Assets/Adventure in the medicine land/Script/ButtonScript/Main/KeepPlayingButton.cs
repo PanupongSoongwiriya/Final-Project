@@ -8,6 +8,6 @@ public class KeepPlayingButton : MonoBehaviour
 {
     public void changeScene()
     {
-        SceneManager.LoadScene(2);//Story Scene
+        SceneManager.LoadScene("Story Scene");//Story Scene
     }
 }

@@ -43,10 +43,13 @@ public class CameraFollow : MonoBehaviour
             if (equalsX && equalsZ || (Input.GetMouseButtonDown(0)) && !gameSystem.lockCamera)
             {
                 changTarget = false;
-                //When the camera arrives, Bot it works.
-                if (gameSystem.NowCharecter.botDisease != null && gameSystem.State.Equals("round of bots"))
+                if (gameSystem.NowCharecter != null)
                 {
-                    gameSystem.NowCharecter.botDisease.botWork();
+                    //When the camera arrives, Bot it works.
+                    if (gameSystem.NowCharecter.botDisease != null & gameSystem.State.Equals("round of bots"))
+                    {
+                        gameSystem.NowCharecter.botDisease.botWork();
+                    }
                 }
             }
         }

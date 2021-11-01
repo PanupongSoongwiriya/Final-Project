@@ -402,11 +402,6 @@ public class GameSystem : MonoBehaviour
         }
     }
 
-    protected virtual void setBoolTurn()
-    {
-
-    }
-
     public string State
     {
         get { return state; }
@@ -440,6 +435,6 @@ public class GameSystem : MonoBehaviour
     public string WhoTurn
     {
         get { return whoTurn; }
-        set { whoTurn = value; setBoolTurn(); }
+        set { whoTurn = value;}
     }
 }

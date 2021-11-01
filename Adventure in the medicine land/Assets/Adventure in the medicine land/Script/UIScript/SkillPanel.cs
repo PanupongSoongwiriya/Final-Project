@@ -37,5 +37,9 @@ public class SkillPanel : MonoBehaviour
     public void activeSkill(int index)
     {
         gameSystem.NowCharecter.useSkill(index);
+        if (gameSystem.name.Equals("TutorialSystem"))
+        {
+            gameSystem.GetComponent<TutorialSystem>().TutorialStep++;
+        }
     }
 }
