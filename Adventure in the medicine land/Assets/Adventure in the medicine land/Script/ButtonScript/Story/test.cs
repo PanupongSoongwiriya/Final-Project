@@ -11,7 +11,7 @@ public class test : MonoBehaviour
     void Start()
     {
         ss = GameObject.Find("StorySystem").GetComponent<StorySystem>();
-        transform.GetChild(0).GetChild(0).GetComponent<Text>().text = ThaiFontAdjuster.Adjust("กดตรงไหนก็ได้เพื่อไปหน้าเกมเพลย์ " + ss.sm.state.storyOrder);
+        //transform.GetChild(0).GetChild(0).GetComponent<Text>().text = ThaiFontAdjuster.Adjust("กดตรงไหนก็ได้เพื่อไปหน้าเกมเพลย์ " + ss.sm.state.storyOrder);
     }
     void Update()
     {
@@ -22,13 +22,13 @@ public class test : MonoBehaviour
     }
     public void changeScene()
     {
-        if (ss.sm.state.storyOrder != -1)
+        /*if (ss.sm.state.storyOrder != -1)
         {
             SceneManager.LoadScene("Game Scene");
         }
         else
         {
             SceneManager.LoadScene("Tutorial Scense");
-        }
+        }*/
     }
 }

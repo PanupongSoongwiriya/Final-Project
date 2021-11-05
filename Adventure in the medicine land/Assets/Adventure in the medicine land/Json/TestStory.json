@@ -1,0 +1,14 @@
+ {
+         "events":[{
+             "id":1,
+             "name":"EVENT_1",
+         
+             "path":"/Events/event1.json"
+             
+         },{
+             "id":2,
+             "name":"EVENT_2",
+         
+             "path":"/Events/event2.json"    
+         }]
+     }

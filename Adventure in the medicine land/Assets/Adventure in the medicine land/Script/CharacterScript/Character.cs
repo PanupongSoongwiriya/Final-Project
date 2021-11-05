@@ -64,6 +64,7 @@ public class Character : MonoBehaviour
 
     protected void startSetUp()
     {
+        moving = false;
         maxHP = hp;
         try
         {
@@ -76,7 +77,6 @@ public class Character : MonoBehaviour
         gameSystem.memberUpdate(this);
         dmgText = gameSystem.dmgText;
         doneItYet = true;
-        moving = false;
         resetRange();
         if (Faction.Equals("Disease"))
         {
@@ -324,7 +324,10 @@ public class Character : MonoBehaviour
                 {
                     transform.position = new Vector3((int)Math.Round(transform.position.x), 2, (int)Math.Round(transform.position.z));
                     moving = false;
-                    gameSystem.NowCharecter.doneIt();
+                    if (gameSystem.NowCharecter != null)
+                    {
+                        gameSystem.NowCharecter.doneIt();
+                    }
                 }
             }
         }
