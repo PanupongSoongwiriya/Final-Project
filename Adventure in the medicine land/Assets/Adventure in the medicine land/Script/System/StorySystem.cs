@@ -47,31 +47,14 @@ public class StorySystem : MonoBehaviour
             string json = stream.ReadToEnd();
             Debug.Log(json);
             data = JsonUtility.FromJson<JsonData>(json);
-            int test = Mathf.Min(sm.state.storyOrder, 1);
             for (int i = 0; i < data.story.Length; i++)
             {
-                if (data.story[i].chapter == test)
+                if (data.story[i].chapter == Mathf.Min(sm.state.storyOrder, 1))
                 {
                     chapter = data.story[i];
                     break;
                 }
             }
-            /*Debug.Log(data);
-            Debug.Log(data.story);
-            Debug.Log(data.story.Length);
-            for (int i = 0; i < data.story.Length; i++)
-            {
-                Debug.Log("chapter: " + data.story[i].chapter);
-                Debug.Log("dialog: " + data.story[i].dialog);
-                Debug.Log("dialog.Length: " + data.story[i].dialog.Length);
-                for (int j = 0; j < data.story.Length; j++)
-                {
-                    Debug.Log("id: " + data.story[i].dialog[j].id);
-                    Debug.Log("actor: " + data.story[i].dialog[j].actor);
-                    Debug.Log("val: " + data.story[i].dialog[j].val);
-                    Debug.Log("sfx: " + data.story[i].dialog[j].sfx);
-                }
-            }*/
         }
     }
     private void setDialog()

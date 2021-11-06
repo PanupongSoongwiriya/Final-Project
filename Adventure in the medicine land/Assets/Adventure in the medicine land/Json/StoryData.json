@@ -1,7 +1,7 @@
 {
     "story": [
         {
-            "chapter": 0,
+            "chapter": -1,
             "dialog": [
                 {
                     "id": 0,
@@ -17,7 +17,7 @@
                 }
             ]
         },{
-            "chapter": 1,
+            "chapter": 0,
             "dialog": [
                 {
                     "id": 0,
