@@ -10,7 +10,7 @@ public class Antibiotic : Character
         characterName = "Amox";
         faction = "Medicine";
         classCharacter = "ยาฆ่าเชื้อ";
-        genusPhase = "ระยะใกล้";
+        genusPhase = "ระยะกลาง";
 
         HP = 4;
         attackPower = 3;

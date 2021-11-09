@@ -75,7 +75,7 @@ public class StorySystem : MonoBehaviour
         else
         {
             nameText.transform.GetChild(0).GetComponent<Text>().text = ThaiFontAdjuster.Adjust(dialog.actor);
-            dialogText.transform.GetChild(0).GetComponent<Text>().text = ThaiFontAdjuster.Adjust(dialog.val);
+            dialogText.transform.GetChild(0).GetComponent<Text>().text = ThaiFontAdjuster.Adjust(dialog.val + "<color=green>" + "Hello World" + "</color>");
             Debug.Log("id: " + dialog.id);
             Debug.Log("actor: " + dialog.actor);
             Debug.Log("val: " + dialog.val);

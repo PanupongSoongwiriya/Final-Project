@@ -10,6 +10,11 @@ public class SaveManager : MonoBehaviour
         //DontDestroyOnLoad(gameObject);
         Instance = this;
         Load();
+
+        //reset
+        /*state.storyOrder = -1;
+        Save();*/
+
         Debug.Log(SaveSystem.Serialize<SaveState>(state));
     }
 

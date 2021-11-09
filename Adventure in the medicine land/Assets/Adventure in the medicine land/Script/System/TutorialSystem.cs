@@ -131,15 +131,11 @@ public class TutorialSystem : GameSystem
 
     void Update()
     {
-        /*if (Input.GetKeyDown("space"))
-        {
-            TutorialStep++;
-        }*/
         if (tutorialStep == -1 & medicineFaction.Count != 0)
         {
             foreach (Character medicine in medicineFaction)
             {
-                if (medicine.name.Equals("ยาลดน้ำมูก 1"))
+                if (medicine.name.Equals("ยาแก้ปวดกล้ามเนื้อ 1"))
                 {
                     TutorialStep = 0;
                 }

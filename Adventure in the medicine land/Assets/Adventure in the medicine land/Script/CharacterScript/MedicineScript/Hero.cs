@@ -20,6 +20,7 @@ public class Hero : Character
 
         startSetUp();
 
+        allSkill.Add(skill.GetComponent<HeavyATK>());
         /*allSkill.Add(skill.GetComponent<DebuffATK>());
         allSkill.Add(skill.GetComponent<DebuffDEF>());*/
     }

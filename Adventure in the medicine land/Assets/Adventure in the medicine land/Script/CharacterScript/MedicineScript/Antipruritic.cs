@@ -10,7 +10,7 @@ public class Antipruritic : Character
         characterName = "Kela";
         faction = "Medicine";
         classCharacter = "ยาแก้คัน";
-        genusPhase = "ระยะกลาง";
+        genusPhase = "ระยะใกล้";
 
 
         attackPower = 3;

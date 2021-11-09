@@ -10,7 +10,7 @@ public class StomachPainReliever : Character
         characterName = "Gavis";
         faction = "Medicine";
         classCharacter = "ยาแก้ปวดท้อง";
-        genusPhase = "ระยะใกล้";
+        genusPhase = "ระยะกลาง";
 
 
         HP = 3;
