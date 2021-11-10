@@ -6,6 +6,7 @@ public class cancelButton : controlPanelButton
 {
     public override void changeState()
     {
+        activeBotton = alpha == 1;
         if (ActiveBotton)
         {
             if (gameSystem.State.Equals("waiting for orders") || gameSystem.State.Equals("Choose a medicine character"))

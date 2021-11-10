@@ -45,7 +45,7 @@ public class StorySystem : MonoBehaviour
         using (StreamReader stream = new StreamReader(jsonPath))
         {
             string json = stream.ReadToEnd();
-            Debug.Log(json);
+            //Debug.Log(json);
             data = JsonUtility.FromJson<JsonData>(json);
             for (int i = 0; i < data.story.Length; i++)
             {
@@ -74,12 +74,13 @@ public class StorySystem : MonoBehaviour
         }
         else
         {
+            nameText.SetActive(!string.IsNullOrEmpty(dialog.actor));
             nameText.transform.GetChild(0).GetComponent<Text>().text = ThaiFontAdjuster.Adjust(dialog.actor);
-            dialogText.transform.GetChild(0).GetComponent<Text>().text = ThaiFontAdjuster.Adjust(dialog.val + "<color=green>" + "Hello World" + "</color>");
-            Debug.Log("id: " + dialog.id);
+            dialogText.transform.GetChild(0).GetComponent<Text>().text = ThaiFontAdjuster.Adjust(dialog.val);
+            /*Debug.Log("id: " + dialog.id);
             Debug.Log("actor: " + dialog.actor);
             Debug.Log("val: " + dialog.val);
-            Debug.Log("sfx: " + dialog.sfx);
+            Debug.Log("sfx: " + dialog.sfx);*/
         }
     }
     public void changeScene()

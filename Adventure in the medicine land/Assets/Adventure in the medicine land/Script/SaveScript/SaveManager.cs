@@ -12,9 +12,8 @@ public class SaveManager : MonoBehaviour
         Load();
 
         //reset
-        /*state.storyOrder = -1;
-        Save();*/
-
+        state.storyOrder = -1;
+        Save();
         Debug.Log(SaveSystem.Serialize<SaveState>(state));
     }
 

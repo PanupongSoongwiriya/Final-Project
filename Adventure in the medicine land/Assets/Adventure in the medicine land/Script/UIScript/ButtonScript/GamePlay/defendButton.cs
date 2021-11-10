@@ -6,6 +6,7 @@ public class defendButton : controlPanelButton
 {
     public override void changeState()
     {
+        activeBotton = alpha == 1;
         if (gameSystem.State.Equals("waiting for orders") && ActiveBotton)
         {
             tutorialPlus();

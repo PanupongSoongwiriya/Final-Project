@@ -19,7 +19,9 @@ public class TutorialSystem : GameSystem
 
     [SerializeField]
     private GameObject Concealed;
-
+    [SerializeField]
+    private GameObject Overlay;
+    
     [SerializeField]
     private int tutorialStep;
     void Start()
@@ -41,6 +43,7 @@ public class TutorialSystem : GameSystem
     {
         ForcePress.SetActive(false);
         Concealed.SetActive(false);
+        Overlay.SetActive(false); 
         setAllButtonActive(true);
         clearAllButtonDescription();
         clearTutorialDescription();
@@ -78,6 +81,11 @@ public class TutorialSystem : GameSystem
             setAllButtonActive(false);
             buttonDescription[1].SetActive(true);
             controlPanel.transform.GetChild(0).transform.GetChild(2).GetComponent<controlPanelButton>().ActiveBotton = true;
+        }
+        else if (tutorialStep == 5)
+        {
+            lockCamera = true;
+            Overlay.SetActive(true);
         }
         else if (tutorialStep == 6)
         {
@@ -140,6 +148,10 @@ public class TutorialSystem : GameSystem
                     TutorialStep = 0;
                 }
             }
+        }
+        if (tutorialStep <= 12)
+        {
+            lockCamera = true;
         }
     }
 

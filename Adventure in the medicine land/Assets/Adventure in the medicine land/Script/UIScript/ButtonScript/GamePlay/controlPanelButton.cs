@@ -15,6 +15,7 @@ public class controlPanelButton : MonoBehaviour
     public GameObject sheatheMenu;
     public GameObject sheatheData;
     public bool activeBotton;
+    public float alpha = 1;
     void Start()
     {
         activeBotton = true;
@@ -54,12 +55,12 @@ public class controlPanelButton : MonoBehaviour
 
     protected void active()
     {
-        float a = 0.25f;
+        alpha = 0.25f;
         if (activeBotton)
         {
-            a = 1;
+            alpha = 1;
         }
-        GetComponent<Image>().color = new Color(1, 1, 1, a);
+        GetComponent<Image>().color = new Color(1, 1, 1, alpha);        
     }
 
     public bool ActiveBotton

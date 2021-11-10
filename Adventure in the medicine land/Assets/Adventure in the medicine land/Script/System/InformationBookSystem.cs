@@ -19,10 +19,11 @@ public class InformationBookSystem : MonoBehaviour
     [SerializeField]
     private GameObject scrollHeader;
     [SerializeField]
-    private float nowData = 1;
+    private float nowData;
     // Start is called before the first frame update
     void Start()
     {
+        nowData = 1;
         loadJson();
     }
 
@@ -36,7 +37,7 @@ public class InformationBookSystem : MonoBehaviour
         using (StreamReader stream = new StreamReader(jsonPath))
         {
             string json = stream.ReadToEnd();
-            Debug.Log(json);
+            //Debug.Log(json);
             data = JsonUtility.FromJson<BookData>(json);
 
             //distance between 2 buttons
