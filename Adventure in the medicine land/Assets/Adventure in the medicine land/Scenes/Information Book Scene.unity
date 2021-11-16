@@ -158,10 +158,10 @@ RectTransform:
   m_Father: {fileID: 1796142358}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.9614348}
-  m_AnchorMax: {x: 1, y: 0.9614348}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -20, y: 75}
+  m_AnchorMin: {x: 0, y: 0.97428983}
+  m_AnchorMax: {x: 0.98365825, y: 0.97428983}
+  m_AnchoredPosition: {x: 4, y: 0}
+  m_SizeDelta: {x: -12, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &65434913
 MonoBehaviour:
@@ -305,8 +305,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 679.8198, y: 179.7188}
+  m_AnchoredPosition: {x: 0.000015258789, y: -0.000022888184}
+  m_SizeDelta: {x: 1239.098, y: 685.3746}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &318864800
 MonoBehaviour:
@@ -330,11 +330,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 673976873f7ccf946b7a36125644fe54, type: 3}
-    m_FontSize: 100
-    m_FontStyle: 0
+    m_FontSize: 200
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
-    m_MaxSize: 150
+    m_MaxSize: 200
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -598,8 +598,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -40}
-  m_SizeDelta: {x: 2722, y: 292}
+  m_AnchoredPosition: {x: -0.0004272461, y: -118}
+  m_SizeDelta: {x: 4561.8496, y: 1084.681}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &707308215
 MonoBehaviour:
@@ -623,11 +623,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 673976873f7ccf946b7a36125644fe54, type: 3}
-    m_FontSize: 150
+    m_FontSize: 275
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
-    m_MaxSize: 200
+    m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -670,15 +670,15 @@ RectTransform:
   m_GameObject: {fileID: 782664466}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 1180209771}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00076293945, y: -0.000061035156}
-  m_SizeDelta: {x: 2375.5, y: 445.42}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1131.0221, y: 378.1321}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &782664468
 MonoBehaviour:
@@ -756,8 +756,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.8723658}
   m_AnchorMax: {x: 1, y: 0.8723658}
-  m_AnchoredPosition: {x: 0, y: -207.8}
-  m_SizeDelta: {x: 2853, y: 2065}
+  m_AnchoredPosition: {x: -0.00018310547, y: -316}
+  m_SizeDelta: {x: 4561.85, y: 2065}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &858410695
 MonoBehaviour:
@@ -781,11 +781,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 673976873f7ccf946b7a36125644fe54, type: 3}
-    m_FontSize: 115
+    m_FontSize: 225
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
-    m_MaxSize: 125
+    m_MaxSize: 250
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -828,15 +828,15 @@ RectTransform:
   m_GameObject: {fileID: 1001397644}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.2}
   m_Children: []
   m_Father: {fileID: 1699992622}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.36856493, y: 0.80300003}
   m_AnchorMax: {x: 0.625, y: 0.9423899}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1943.7495, y: 840.4213}
+  m_AnchoredPosition: {x: 0.000061035156, y: 0}
+  m_SizeDelta: {x: 2433.6594, y: 588.6657}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1001397646
 MonoBehaviour:
@@ -860,11 +860,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 673976873f7ccf946b7a36125644fe54, type: 3}
-    m_FontSize: 250
-    m_FontStyle: 0
+    m_FontSize: 300
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 2
-    m_MaxSize: 250
+    m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -1159,13 +1159,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jsonPath: Assets/Adventure in the medicine land/Json/BookData.json
+  jsonData: {fileID: 4900000, guid: 803f592a752e330439420e55e81c02fa, type: 3}
   data:
     Book: []
   head: {fileID: 707308213}
   info: {fileID: 858410693}
   button: {fileID: 65434911}
   scrollHeader: {fileID: 1796142357}
-  nowData: 14.1
+  nowData: 1
 --- !u!4 &1184248989
 Transform:
   m_ObjectHideFlags: 0
@@ -1426,12 +1427,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96

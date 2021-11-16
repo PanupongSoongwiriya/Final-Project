@@ -309,6 +309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sm: {fileID: 1006407509}
   jsonPath: Assets/Adventure in the medicine land/Json/StoryData.json
+  jsonData: {fileID: 4900000, guid: fd531aeef5942844db8a4b9823b9373a, type: 3}
   data:
     story: []
   chapter:
