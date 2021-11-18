@@ -37,6 +37,7 @@ public class MusclePainMedication : Character
     void Update()
     {
         moveSmoothly();
+        spinToTarget();
     }
     public override float checkAdvantage(Character actor)
     {

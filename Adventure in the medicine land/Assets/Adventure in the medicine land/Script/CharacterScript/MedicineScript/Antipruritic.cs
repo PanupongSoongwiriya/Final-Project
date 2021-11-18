@@ -26,6 +26,7 @@ public class Antipruritic : Character
     void Update()
     {
         moveSmoothly();
+        spinToTarget();
     }
     void OnMouseDown()
     {

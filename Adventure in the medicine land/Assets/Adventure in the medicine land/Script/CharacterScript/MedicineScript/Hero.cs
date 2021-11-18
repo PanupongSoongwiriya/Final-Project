@@ -28,6 +28,7 @@ public class Hero : Character
     void Update()
     {
         moveSmoothly();
+        spinToTarget();
     }
     void OnMouseDown()
     {

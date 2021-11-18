@@ -22,6 +22,7 @@ public class DemonLord : Character
     void Update()
     {
         moveSmoothly();
+        spinToTarget();
     }
 
     void OnMouseDown()

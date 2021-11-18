@@ -22,6 +22,7 @@ public class Itching : Character
     void Update()
     {
         moveSmoothly();
+        spinToTarget();
     }
 
     void OnMouseDown()

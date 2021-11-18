@@ -26,6 +26,7 @@ public class Fungicide : Character
     void Update()
     {
         moveSmoothly();
+        spinToTarget();
     }
     void OnMouseDown()
     {

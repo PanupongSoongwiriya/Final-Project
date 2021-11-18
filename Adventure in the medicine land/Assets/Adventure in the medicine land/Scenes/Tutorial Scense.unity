@@ -7292,6 +7292,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9015736955355823172, guid: 3517263a6f0256c4090c598832cd7743,
         type: 3}
+      propertyPath: prefab
+      value: 
+      objectReference: {fileID: 2066896392038628118, guid: 45288819fde2143449a96207b14db0bb,
+        type: 3}
+    - target: {fileID: 9015736955355823172, guid: 3517263a6f0256c4090c598832cd7743,
+        type: 3}
       propertyPath: CPRight
       value: 
       objectReference: {fileID: 0}

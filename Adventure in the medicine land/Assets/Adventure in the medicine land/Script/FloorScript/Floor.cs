@@ -25,6 +25,7 @@ public class Floor : MonoBehaviour
         typrFloor = "Normal";
     }
 
+
     protected virtual void setTypeFloor()
     {
         floorColor = Color.white;

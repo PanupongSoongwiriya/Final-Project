@@ -22,6 +22,7 @@ public class RunnyNose : Character
     void Update()
     {
         moveSmoothly();
+        spinToTarget();
     }
 
     void OnMouseDown()

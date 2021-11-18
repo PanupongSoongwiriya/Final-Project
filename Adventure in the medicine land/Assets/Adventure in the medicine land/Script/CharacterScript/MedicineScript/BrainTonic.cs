@@ -23,6 +23,7 @@ public class BrainTonic : Character
     void Update()
     {
         moveSmoothly();
+        spinToTarget();
     }
 
     void OnMouseDown()

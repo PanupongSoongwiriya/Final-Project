@@ -10,8 +10,6 @@ public class StorySystem : MonoBehaviour
     [SerializeField]
     private SaveManager sm;
     [SerializeField]
-    private string jsonPath;
-    [SerializeField]
     private TextAsset jsonData;
     [SerializeField]
     private JsonData data;
@@ -53,20 +51,6 @@ public class StorySystem : MonoBehaviour
                 break;
             }
         }
-        /*using (StreamReader stream = new StreamReader(jsonPath))
-        {
-            string json = stream.ReadToEnd();
-            //Debug.Log(json);
-            data = JsonUtility.FromJson<JsonData>(json);
-            for (int i = 0; i < data.story.Length; i++)
-            {
-                if (data.story[i].chapter == Mathf.Min(sm.state.storyOrder, 1))
-                {
-                    chapter = data.story[i];
-                    break;
-                }
-            }
-        }*/
     }
     private void setDialog()
     {

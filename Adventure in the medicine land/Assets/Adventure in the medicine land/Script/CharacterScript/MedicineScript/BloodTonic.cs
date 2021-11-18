@@ -24,6 +24,7 @@ public class BloodTonic : Character
     void Update()
     {
         moveSmoothly();
+        spinToTarget();
     }
     void OnMouseDown()
     {

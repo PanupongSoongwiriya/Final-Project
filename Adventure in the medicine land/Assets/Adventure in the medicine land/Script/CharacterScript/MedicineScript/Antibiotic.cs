@@ -24,6 +24,7 @@ public class Antibiotic : Character
     void Update()
     {
         moveSmoothly();
+        spinToTarget();
     }
 
     void OnMouseDown()

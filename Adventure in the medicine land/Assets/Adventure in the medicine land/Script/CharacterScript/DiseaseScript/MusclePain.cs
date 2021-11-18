@@ -22,6 +22,7 @@ public class MusclePain : Character
     void Update()
     {
         moveSmoothly();
+        spinToTarget();
     }
 
     void OnMouseDown()

@@ -22,6 +22,7 @@ public class SkinFungus : Character
     void Update()
     {
         moveSmoothly();
+        spinToTarget();
     }
 
     void OnMouseDown()

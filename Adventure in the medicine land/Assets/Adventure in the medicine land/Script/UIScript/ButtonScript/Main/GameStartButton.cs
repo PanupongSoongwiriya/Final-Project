@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class GameStartButton : MonoBehaviour
 {
-    public GameObject AreYouSure;
+    public SaveManager sm;
+    [SerializeField]
+    private GameObject AreYouSure;
     public bool firstPlay;
 
     public void AreYouSureVisible()
@@ -26,6 +28,7 @@ public class GameStartButton : MonoBehaviour
     }
     public void changeScene()
     {
+        sm.resetState();
         SceneManager.LoadScene("Story Scene");
     }
 }

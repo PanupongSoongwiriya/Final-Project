@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -13,6 +13,16 @@ public class Character : MonoBehaviour
     public String genusPhase;
     public bool doneItYet;
     public bool moving;
+
+    public bool spinning;
+    public GameObject targetSpin;
+    public int spinDirection;
+
+    [SerializeField]
+    protected float newRotateY;
+
+    [SerializeField]
+    protected GameObject chrNearest;
 
     public int hp;
     public int maxHP;
@@ -44,6 +54,7 @@ public class Character : MonoBehaviour
     void Update()
     {
         moveSmoothly();
+        spinToTarget();
     }
 
     void OnMouseDown()
@@ -88,6 +99,55 @@ public class Character : MonoBehaviour
         name = classCharacter + " " + id;
         skill = GameObject.Find("SkillList");
         allSkill = new List<Skill>();
+    }
+
+    public void setDegree()
+    {
+        if (faction.Equals("Medicine"))
+        {
+            foreach (Character disease in gameSystem.diseaseFaction)
+            {
+                if (chrNearest != null)
+                {
+                    Vector3 position1 = transform.position;
+                    Vector3 position2 = chrNearest.transform.position;
+                    double Old = Math.Sqrt(Math.Pow((position1.x - position2.x), 2) + Math.Pow((position1.z - position2.z), 2));
+                    position2 = disease.transform.position;
+                    double New = Math.Sqrt(Math.Pow((position1.x - position2.x), 2) + Math.Pow((position1.z - position2.z), 2));
+                    if (New < Old)
+                    {
+                        chrNearest = disease.gameObject;
+                    }
+                }
+                else
+                {
+                    chrNearest = disease.gameObject;
+                }
+            }
+        }
+        else
+        {
+            foreach (Character medicine in gameSystem.medicineFaction)
+            {
+                if (chrNearest != null)
+                {
+                    Vector3 position1 = transform.position;
+                    Vector3 position2 = chrNearest.transform.position;
+                    double Old = Math.Sqrt(Math.Pow((position1.x - position2.x), 2) + Math.Pow((position1.z - position2.z), 2));
+                    position2 = medicine.transform.position;
+                    double New = Math.Sqrt(Math.Pow((position1.x - position2.x), 2) + Math.Pow((position1.z - position2.z), 2));
+                    if (New < Old)
+                    {
+                        chrNearest = medicine.gameObject;
+                    }
+                }
+                else
+                {
+                    chrNearest = medicine.gameObject;
+                }
+            }
+        }
+        TargetSpin = chrNearest;
     }
     public void useSkill(int index)
     {
@@ -203,6 +263,7 @@ public class Character : MonoBehaviour
         {
             gameSystem.State = "Choose a medicine character";
             gameSystem.NowCharecter.doneIt();
+            gameSystem.NowCharecter.TargetSpin = gameObject;
             gameSystem.resetInTerm();
             gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false, false, false);
             //controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
@@ -214,6 +275,7 @@ public class Character : MonoBehaviour
         else if (gameSystem.State.Equals("round of bots") && !gameSystem.NowCharecter.Faction.Equals(faction) && pedalFloor.InTerm)
         {
             gameSystem.NowCharecter.doneIt();
+            gameSystem.NowCharecter.TargetSpin = gameObject;
             gameSystem.resetInTerm();
             int dmg = calculateDMG(gameSystem.NowCharecter, this); 
             showDMG(-dmg, "attack");
@@ -292,7 +354,29 @@ public class Character : MonoBehaviour
         walkingDistance = 0;
         attackRange = 0;
     }
+    protected void spinToTarget()
+    {
+        if (targetSpin != null)
+        {
+            float speedSpin = 1*spinDirection;
+            if ((newRotateY >= 0 & transform.eulerAngles.y <= 180))
+            {
+                if (1 > Math.Abs(transform.eulerAngles.y - newRotateY))
+                {
+                    targetSpin = null;
+                }
+            }else if ((newRotateY < 0 & transform.eulerAngles.y > 180))
+            {
+                if (1 > Math.Abs(Math.Abs(transform.eulerAngles.y-360) - Math.Abs(newRotateY)))
+                {
+                    targetSpin = null;
+                }
+            }
+            float newY = transform.eulerAngles.y + speedSpin;
+            transform.rotation = Quaternion.Euler(transform.eulerAngles.x, newY, transform.eulerAngles.z);
 
+        }
+    }
     protected void moveSmoothly()
     {
         if (moving)
@@ -316,13 +400,14 @@ public class Character : MonoBehaviour
             }
             if (equalsX && equalsZ)
             {
-                if (transform.position.y != 2)
+                float y = 0;
+                if (transform.position.y != y)
                 {
-                    transform.position = new Vector3(transform.position.x, Math.Max(transform.position.y - smoothSpeed, 2), transform.position.z);
+                    transform.position = new Vector3(transform.position.x, Math.Max(transform.position.y - smoothSpeed, y), transform.position.z);
                 }
                 else
                 {
-                    transform.position = new Vector3((int)Math.Round(transform.position.x), 2, (int)Math.Round(transform.position.z));
+                    transform.position = new Vector3((int)Math.Round(transform.position.x), y, (int)Math.Round(transform.position.z));
                     moving = false;
                     if (gameSystem.NowCharecter != null)
                     {
@@ -361,8 +446,51 @@ public class Character : MonoBehaviour
     public Floor PedalFloor
     {
         get { return pedalFloor; }
-        set { pedalFloor = value; moving = true; pedalFloor.characterOnIt = this; }
+        set { 
+            pedalFloor = value; 
+            moving = true; 
+            pedalFloor.characterOnIt = this;
+            TargetSpin = pedalFloor.gameObject;
+        }
     }
+
+    public GameObject TargetSpin
+    {
+        get { return targetSpin; }
+        set
+        {
+            targetSpin = value;
+            Vector3 posSelf = transform.position;
+            Vector3 posTarget = value.transform.position;
+
+            float adj = posTarget.z - posSelf.z;
+            float opp = posTarget.x - posSelf.x;
+
+            float inverse = 0;
+            if (posSelf.z > posTarget.z)
+            {
+                inverse = 180;
+            }
+
+            newRotateY = ((Mathf.Atan(opp / adj) * Mathf.Rad2Deg) + inverse);
+            if (newRotateY > 180)
+            {
+                newRotateY -= 360;
+            }
+            Debug.Log(name + "------------------------------------------------------");
+            Debug.Log("Atan: " + newRotateY);
+            Debug.Log("eulerAngles.y: " + transform.eulerAngles.y);
+            //Debug.Log("if +: " + (((newRotateY + 360) % 360 + transform.eulerAngles.y) % 360));
+            //Debug.Log("if -: " + (((newRotateY + 360) % 360 - transform.eulerAngles.y) % 360));
+            Debug.Log("if: " + (newRotateY > 90));
+            spinDirection = 1;
+            if (newRotateY > 90)
+            {
+                spinDirection = -1;
+            }
+        }
+    }
+
     public int ID
     {
         get { return id; }

@@ -22,6 +22,7 @@ public class Acne : Character
     void Update()
     {
         moveSmoothly();
+        spinToTarget();
     }
 
     void OnMouseDown()

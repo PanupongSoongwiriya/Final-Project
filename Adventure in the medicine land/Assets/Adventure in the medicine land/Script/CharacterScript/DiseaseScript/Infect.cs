@@ -22,6 +22,7 @@ public class Infect : Character
     void Update()
     {
         moveSmoothly();
+        spinToTarget();
     }
 
     void OnMouseDown()

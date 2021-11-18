@@ -31,6 +31,7 @@ public class StomachPainReliever : Character
     void Update()
     {
         moveSmoothly();
+        spinToTarget();
     }
     protected override void resetRange()
     {

@@ -25,6 +25,7 @@ public class AcneDisinfectant : Character
     void Update()
     {
         moveSmoothly();
+        spinToTarget();
     }
 
     void OnMouseDown()

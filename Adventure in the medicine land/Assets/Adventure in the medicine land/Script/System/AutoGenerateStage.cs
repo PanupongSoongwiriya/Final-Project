@@ -12,6 +12,7 @@ public class AutoGenerateStage : MonoBehaviour
     private float tolerancea = 0.04f;
     public SaveManager sm;
 
+    [SerializeField]
     private GameSystem gameSystem;
 
     private int phase;//width of one channel
@@ -30,10 +31,21 @@ public class AutoGenerateStage : MonoBehaviour
 
     private GameObject Map;
 
+    [SerializeField]
+    private GameObject CharacterStoragePrefab;
+
+    [SerializeField]
+    private Component[] CharacterPrefab;
+    [SerializeField]
+    private float prefabSize;
+
+    public int ChrCount;
+
     void Start()
     {
         sm.Load();
         Debug.Log("SaveManager: " + sm.state.storyOrder);
+        CharacterPrefab = CharacterStoragePrefab.GetComponents(typeof(CharacterPrefab));
         if (image == null)
         {
             //image = allStage[new System.Random().Next(allStage.Count)];
@@ -57,12 +69,26 @@ public class AutoGenerateStage : MonoBehaviour
         readStageImage();
         gameSystem.AGS = this;
         GameObject.Find("Game Camera").GetComponent<PerspectivePan>().NumWidth = numWidth;
+
+        
     }
 
     void Update()
     {
-
+        if (gameSystem.diseaseFaction.Count + gameSystem.medicineFaction.Count == ChrCount)
+        {
+            foreach (Character disease in gameSystem.diseaseFaction)
+            {
+                disease.setDegree();
+            }
+            foreach (Character medicine in gameSystem.medicineFaction)
+            {
+                medicine.setDegree();
+            }
+            ++ChrCount;
+        }
     }
+
     private void setColor()
     {
         typeColor.Add("black", Color.black);//Free Space
@@ -96,9 +122,10 @@ public class AutoGenerateStage : MonoBehaviour
     }
     public void readStageImage()
     {
+        ChrCount = 0;
         bool horizontalLine = true;
         int count_id = 1;
-        int lineX = (((((10 - numWidth)*10) / 2) * 6)/10) - 3;
+        int lineX = (((((10 - numWidth) * 10) / 2) * 6) / 10) - 3;
 
         if (!gameSystem.endGame)
         {
@@ -221,133 +248,194 @@ public class AutoGenerateStage : MonoBehaviour
         }
         floorObject.transform.parent = Map.transform;
     }
+
+    private void setCharacterModel(string classCharacter, int x_Coordinate, int z_Coordinate, Color pix)
+    {
+        bool find = false;
+        foreach (CharacterPrefab cp in CharacterPrefab)
+        {
+            if (cp.classCharacter.Equals(classCharacter))
+            {
+                find = true;
+                characterObject = Instantiate(cp.prefab, new Vector3(x_Coordinate, 0, z_Coordinate), transform.rotation);
+                characterObject.transform.localScale = new Vector3(prefabSize, prefabSize, prefabSize);
+                break;
+            }
+        }
+        if (!find)
+        {
+            characterObject = Instantiate(characterModel, new Vector3(x_Coordinate, 2, z_Coordinate), transform.rotation);
+            characterObject.GetComponent<Renderer>().material.SetColor("_Color", pix);
+        }
+    }
+
     private void generateCharacter(int x_Coordinate, int z_Coordinate, Color pix)
     {
-        characterObject = Instantiate(characterModel, new Vector3(x_Coordinate, 2, z_Coordinate), transform.rotation);
-        characterObject.GetComponent<Renderer>().material.SetColor("_Color", pix);
+        ++ChrCount;
         if (((((typeColor["chartreuse"].r - tolerancea) < pix.r) && (pix.r < (typeColor["chartreuse"].r + tolerancea))) && (((typeColor["chartreuse"].g - tolerancea) < pix.g) && (pix.g < (typeColor["chartreuse"].g + tolerancea))) && (((typeColor["chartreuse"].b - tolerancea) < pix.b) && (pix.b < (typeColor["chartreuse"].b + tolerancea)))))
         {
             //ยาแก้ปวดท้อง
+            setCharacterModel("StomachPainReliever", x_Coordinate, z_Coordinate, pix);
             characterObject.AddComponent<StomachPainReliever>();
         }
 
         else if (((((typeColor["pink"].r - tolerancea) < pix.r) && (pix.r < (typeColor["pink"].r + tolerancea))) && (((typeColor["pink"].g - tolerancea) < pix.g) && (pix.g < (typeColor["pink"].g + tolerancea))) && (((typeColor["pink"].b - tolerancea) < pix.b) && (pix.b < (typeColor["pink"].b + tolerancea)))))
         {
             //ยาแก้ปวดหัว
+
+            setCharacterModel("HeadacheMedicine", x_Coordinate, z_Coordinate, pix);
             characterObject.AddComponent<HeadacheMedicine>();
         }
 
         else if (((((typeColor["yellow"].r - tolerancea) < pix.r) && (pix.r < (typeColor["yellow"].r + tolerancea))) && (((typeColor["yellow"].g - tolerancea) < pix.g) && (pix.g < (typeColor["yellow"].g + tolerancea))) && (((typeColor["yellow"].b - tolerancea) < pix.b) && (pix.b < (typeColor["yellow"].b + tolerancea)))))
         {
             //ยาลดน้ำมูก
+
+            setCharacterModel("Decongestant", x_Coordinate, z_Coordinate, pix);
             characterObject.AddComponent<Decongestant>();
         }
 
         else if (((((typeColor["hotpink"].r - tolerancea) < pix.r) && (pix.r < (typeColor["hotpink"].r + tolerancea))) && (((typeColor["hotpink"].g - tolerancea) < pix.g) && (pix.g < (typeColor["hotpink"].g + tolerancea))) && (((typeColor["hotpink"].b - tolerancea) < pix.b) && (pix.b < (typeColor["hotpink"].b + tolerancea)))))
         {
             //ยาฆ่าเชื้อ
+
+            setCharacterModel("Antibiotic", x_Coordinate, z_Coordinate, pix);
             characterObject.AddComponent<Antibiotic>();
         }
 
         else if (((((typeColor["turquoise"].r - tolerancea) < pix.r) && (pix.r < (typeColor["turquoise"].r + tolerancea))) && (((typeColor["turquoise"].g - tolerancea) < pix.g) && (pix.g < (typeColor["turquoise"].g + tolerancea))) && (((typeColor["turquoise"].b - tolerancea) < pix.b) && (pix.b < (typeColor["turquoise"].b + tolerancea)))))
         {
             //ยาแก้คัน
+
+            setCharacterModel("Antipruritic", x_Coordinate, z_Coordinate, pix);
             characterObject.AddComponent<Antipruritic>();
         }
 
         else if (((((typeColor["violet"].r - tolerancea) < pix.r) && (pix.r < (typeColor["violet"].r + tolerancea))) && (((typeColor["violet"].g - tolerancea) < pix.g) && (pix.g < (typeColor["violet"].g + tolerancea))) && (((typeColor["violet"].b - tolerancea) < pix.b) && (pix.b < (typeColor["violet"].b + tolerancea)))))
         {
             //ยาฆ่าเชื้อสิว
+
+            setCharacterModel("AcneDisinfectant", x_Coordinate, z_Coordinate, pix);
             characterObject.AddComponent<AcneDisinfectant>();
         }
 
         else if (((((typeColor["coral"].r - tolerancea) < pix.r) && (pix.r < (typeColor["coral"].r + tolerancea))) && (((typeColor["coral"].g - tolerancea) < pix.g) && (pix.g < (typeColor["coral"].g + tolerancea))) && (((typeColor["coral"].b - tolerancea) < pix.b) && (pix.b < (typeColor["coral"].b + tolerancea)))))
         {
             //ยาแก้ปวดกล้ามเนื้อ
+
+            setCharacterModel("MusclePainMedication", x_Coordinate, z_Coordinate, pix);
             characterObject.AddComponent<MusclePainMedication>();
         }
 
         else if (((((typeColor["indianred"].r - tolerancea) < pix.r) && (pix.r < (typeColor["indianred"].r + tolerancea))) && (((typeColor["indianred"].g - tolerancea) < pix.g) && (pix.g < (typeColor["indianred"].g + tolerancea))) && (((typeColor["indianred"].b - tolerancea) < pix.b) && (pix.b < (typeColor["indianred"].b + tolerancea)))))
         {
             //ยาฆ่าเชื้อรา
+
+            setCharacterModel("Fungicide", x_Coordinate, z_Coordinate, pix);
             characterObject.AddComponent<Fungicide>();
         }
 
         else if (((((typeColor["darkblue"].r - tolerancea) < pix.r) && (pix.r < (typeColor["darkblue"].r + tolerancea))) && (((typeColor["darkblue"].g - tolerancea) < pix.g) && (pix.g < (typeColor["darkblue"].g + tolerancea))) && (((typeColor["darkblue"].b - tolerancea) < pix.b) && (pix.b < (typeColor["darkblue"].b + tolerancea)))))
         {
             //ยาบำรุงสมอง
+
+            setCharacterModel("BrainTonic", x_Coordinate, z_Coordinate, pix);
             characterObject.AddComponent<BrainTonic>();
         }
 
         else if (((((typeColor["crimson"].r - tolerancea) < pix.r) && (pix.r < (typeColor["crimson"].r + tolerancea))) && (((typeColor["crimson"].g - tolerancea) < pix.g) && (pix.g < (typeColor["crimson"].g + tolerancea))) && (((typeColor["crimson"].b - tolerancea) < pix.b) && (pix.b < (typeColor["crimson"].b + tolerancea)))))
         {
             //ยาบำรุงเลือด
+
+            setCharacterModel("BloodTonic", x_Coordinate, z_Coordinate, pix);
             characterObject.AddComponent<BloodTonic>();
         }
 
         else if (((((typeColor["chocolate"].r - tolerancea) < pix.r) && (pix.r < (typeColor["chocolate"].r + tolerancea))) && (((typeColor["chocolate"].g - tolerancea) < pix.g) && (pix.g < (typeColor["chocolate"].g + tolerancea))) && (((typeColor["chocolate"].b - tolerancea) < pix.b) && (pix.b < (typeColor["chocolate"].b + tolerancea)))))
         {
             //ยาบำรุงกระดูก
+
+            setCharacterModel("BoneTonic", x_Coordinate, z_Coordinate, pix);
             characterObject.AddComponent<BoneTonic>();
         }
 
         else if (((((typeColor["gold"].r - tolerancea) < pix.r) && (pix.r < (typeColor["gold"].r + tolerancea))) && (((typeColor["gold"].g - tolerancea) < pix.g) && (pix.g < (typeColor["gold"].g + tolerancea))) && (((typeColor["gold"].b - tolerancea) < pix.b) && (pix.b < (typeColor["gold"].b + tolerancea)))))
         {
             //ฮีโร่
+
+            setCharacterModel("Hero", x_Coordinate, z_Coordinate, pix);
             characterObject.AddComponent<Hero>();
         }
 
         else if (((((typeColor["olivedrab"].r - tolerancea) < pix.r) && (pix.r < (typeColor["olivedrab"].r + tolerancea))) && (((typeColor["olivedrab"].g - tolerancea) < pix.g) && (pix.g < (typeColor["olivedrab"].g + tolerancea))) && (((typeColor["olivedrab"].b - tolerancea) < pix.b) && (pix.b < (typeColor["olivedrab"].b + tolerancea)))))
         {
             //ปวดท้อง
+
+            setCharacterModel("Stomachache", x_Coordinate, z_Coordinate, pix);
             characterObject.AddComponent<Stomachache>();
         }
 
         else if (((((typeColor["darkcyan"].r - tolerancea) < pix.r) && (pix.r < (typeColor["darkcyan"].r + tolerancea))) && (((typeColor["darkcyan"].g - tolerancea) < pix.g) && (pix.g < (typeColor["darkcyan"].g + tolerancea))) && (((typeColor["darkcyan"].b - tolerancea) < pix.b) && (pix.b < (typeColor["darkcyan"].b + tolerancea)))))
         {
             //ปวดหัว
+
+            setCharacterModel("Headache", x_Coordinate, z_Coordinate, pix);
             characterObject.AddComponent<Headache>();
         }
 
         else if (((((typeColor["green"].r - tolerancea) < pix.r) && (pix.r < (typeColor["green"].r + tolerancea))) && (((typeColor["green"].g - tolerancea) < pix.g) && (pix.g < (typeColor["green"].g + tolerancea))) && (((typeColor["green"].b - tolerancea) < pix.b) && (pix.b < (typeColor["green"].b + tolerancea)))))
         {
             //น้ำมูกไหล
+
+            setCharacterModel("RunnyNose", x_Coordinate, z_Coordinate, pix);
             characterObject.AddComponent<RunnyNose>();
         }
 
         else if (((((typeColor["lightsteelblue"].r - tolerancea) < pix.r) && (pix.r < (typeColor["lightsteelblue"].r + tolerancea))) && (((typeColor["lightsteelblue"].g - tolerancea) < pix.g) && (pix.g < (typeColor["lightsteelblue"].g + tolerancea))) && (((typeColor["lightsteelblue"].b - tolerancea) < pix.b) && (pix.b < (typeColor["lightsteelblue"].b + tolerancea)))))
         {
             //ติดเชื้อ
+
+            setCharacterModel("Infect", x_Coordinate, z_Coordinate, pix);
             characterObject.AddComponent<Infect>();
         }
 
         else if (((((typeColor["peru"].r - tolerancea) < pix.r) && (pix.r < (typeColor["peru"].r + tolerancea))) && (((typeColor["peru"].g - tolerancea) < pix.g) && (pix.g < (typeColor["peru"].g + tolerancea))) && (((typeColor["peru"].b - tolerancea) < pix.b) && (pix.b < (typeColor["peru"].b + tolerancea)))))
         {
             //อาการคัน
+
+            setCharacterModel("Itching", x_Coordinate, z_Coordinate, pix);
             characterObject.AddComponent<Itching>();
         }
 
         else if (((((typeColor["navajowhite"].r - tolerancea) < pix.r) && (pix.r < (typeColor["navajowhite"].r + tolerancea))) && (((typeColor["navajowhite"].g - tolerancea) < pix.g) && (pix.g < (typeColor["navajowhite"].g + tolerancea))) && (((typeColor["navajowhite"].b - tolerancea) < pix.b) && (pix.b < (typeColor["navajowhite"].b + tolerancea)))))
         {
             //สิว
+
+            setCharacterModel("Acne", x_Coordinate, z_Coordinate, pix);
             characterObject.AddComponent<Acne>();
         }
 
         else if (((((typeColor["palevioletred"].r - tolerancea) < pix.r) && (pix.r < (typeColor["palevioletred"].r + tolerancea))) && (((typeColor["palevioletred"].g - tolerancea) < pix.g) && (pix.g < (typeColor["palevioletred"].g + tolerancea))) && (((typeColor["palevioletred"].b - tolerancea) < pix.b) && (pix.b < (typeColor["palevioletred"].b + tolerancea)))))
         {
             //ปวดกล้ามเนื้อ
+
+            setCharacterModel("MusclePain", x_Coordinate, z_Coordinate, pix);
             characterObject.AddComponent<MusclePain>();
         }
 
         else if (((((typeColor["lightyellow"].r - tolerancea) < pix.r) && (pix.r < (typeColor["lightyellow"].r + tolerancea))) && (((typeColor["lightyellow"].g - tolerancea) < pix.g) && (pix.g < (typeColor["lightyellow"].g + tolerancea))) && (((typeColor["lightyellow"].b - tolerancea) < pix.b) && (pix.b < (typeColor["lightyellow"].b + tolerancea)))))
         {
             //เชื้อราที่ผิวหนัง
+
+            setCharacterModel("SkinFungus", x_Coordinate, z_Coordinate, pix);
             characterObject.AddComponent<SkinFungus>();
         }
 
         else if (((((typeColor["mediumslateblue"].r - tolerancea) < pix.r) && (pix.r < (typeColor["mediumslateblue"].r + tolerancea))) && (((typeColor["mediumslateblue"].g - tolerancea) < pix.g) && (pix.g < (typeColor["mediumslateblue"].g + tolerancea))) && (((typeColor["mediumslateblue"].b - tolerancea) < pix.b) && (pix.b < (typeColor["mediumslateblue"].b + tolerancea)))))
         {
             //จอมมาร
+
+            setCharacterModel("DemonLord", x_Coordinate, z_Coordinate, pix);
             characterObject.AddComponent<DemonLord>();
         }
     }

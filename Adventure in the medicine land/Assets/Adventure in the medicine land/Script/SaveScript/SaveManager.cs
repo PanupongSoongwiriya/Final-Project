@@ -11,10 +11,9 @@ public class SaveManager : MonoBehaviour
         Instance = this;
         Load();
 
-        //reset
-        //state.storyOrder = -1;
-        //Save();
-        Debug.Log(SaveSystem.Serialize<SaveState>(state));
+        //resetState();
+
+        //Debug.Log(SaveSystem.Serialize<SaveState>(state));
     }
 
     public void Save()
@@ -34,6 +33,11 @@ public class SaveManager : MonoBehaviour
             Save();
             Debug.Log("No save flie found");
         }
+    }
+    public void resetState()
+    {
+        state.storyOrder = -1;
+        Save();
     }
 }
 

@@ -58,3 +58,7 @@ MonoBehaviour:
     type: 3}
   characterModel: {fileID: 4480988042649022374, guid: 4ffecb7fe46d9e34590a5679d616bd9c,
     type: 3}
+  CharacterStoragePrefab: {fileID: 3436439629088487304, guid: 89eb525330a40bc4c9170e0ab28eb6b9,
+    type: 3}
+  CharacterPrefab: []
+  prefabSize: 3.5
