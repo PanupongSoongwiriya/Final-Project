@@ -258,7 +258,7 @@ public class AutoGenerateStage : MonoBehaviour
             {
                 find = true;
                 characterObject = Instantiate(cp.prefab, new Vector3(x_Coordinate, 0, z_Coordinate), transform.rotation);
-                characterObject.transform.localScale = new Vector3(prefabSize, prefabSize, prefabSize);
+                //characterObject.transform.localScale = new Vector3(prefabSize, prefabSize, prefabSize);
                 break;
             }
         }

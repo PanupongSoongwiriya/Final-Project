@@ -32,9 +32,12 @@ public class floorPoison : Floor
                 characterOnIt = collision.gameObject.GetComponent<Character>();
                 characterOnIt.PedalFloor = this;
             }
-            if (characterOnIt.Equals(collision.gameObject.GetComponent<Character>()))
+            if (characterOnIt != null)
             {
-                floorEffect();
+                if (characterOnIt.Equals(collision.gameObject.GetComponent<Character>()))
+                {
+                    floorEffect();
+                }
             }
         }
     }

@@ -477,12 +477,12 @@ public class Character : MonoBehaviour
             {
                 newRotateY -= 360;
             }
-            Debug.Log(name + "------------------------------------------------------");
+            /*Debug.Log(name + "------------------------------------------------------");
             Debug.Log("Atan: " + newRotateY);
             Debug.Log("eulerAngles.y: " + transform.eulerAngles.y);
             //Debug.Log("if +: " + (((newRotateY + 360) % 360 + transform.eulerAngles.y) % 360));
             //Debug.Log("if -: " + (((newRotateY + 360) % 360 - transform.eulerAngles.y) % 360));
-            Debug.Log("if: " + (newRotateY > 90));
+            Debug.Log("if: " + (newRotateY > 90));*/
             spinDirection = 1;
             if (newRotateY > 90)
             {

@@ -39,19 +39,25 @@ public class floorDEF : Floor
                 characterOnIt = collision.gameObject.GetComponent<Character>();
                 characterOnIt.PedalFloor = this;
             }
-            if (characterOnIt.Equals(collision.gameObject.GetComponent<Character>()))
+            if (characterOnIt != null)
             {
-                characterOnIt.specialDefense += floorBonus;
-                characterOnIt.showDMG(floorBonus, typrFloor);
+                if (characterOnIt.Equals(collision.gameObject.GetComponent<Character>()))
+                {
+                    characterOnIt.specialDefense += floorBonus;
+                    characterOnIt.showDMG(floorBonus, typrFloor);
+                }
             }
         }
     }
     private void OnCollisionExit(Collision collision)
     {
-        if (characterOnIt.Equals(collision.gameObject.GetComponent<Character>()))
+        if (characterOnIt != null)
         {
-            characterOnIt.specialDefense -= floorBonus;
-            characterOnIt = null;
+            if (characterOnIt.Equals(collision.gameObject.GetComponent<Character>()))
+            {
+                characterOnIt.specialDefense -= floorBonus;
+                characterOnIt = null;
+            }
         }
     }
     public override void floorEffect()

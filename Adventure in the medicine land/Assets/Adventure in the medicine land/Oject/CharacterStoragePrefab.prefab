@@ -13,6 +13,11 @@ GameObject:
   - component: {fileID: 3436439629088487306}
   - component: {fileID: 3436439629088487307}
   - component: {fileID: 3436439629088487303}
+  - component: {fileID: -7475339465485212622}
+  - component: {fileID: 3502220053652098164}
+  - component: {fileID: 2886374159557606133}
+  - component: {fileID: -5956626467198927050}
+  - component: {fileID: 8980652532628814407}
   m_Layer: 0
   m_Name: CharacterStoragePrefab
   m_TagString: Untagged
@@ -90,3 +95,73 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   classCharacter: MusclePain
   prefab: {fileID: 1839304754744059133, guid: cc2904f8420d54e45b80616562ff859c, type: 3}
+--- !u!114 &-7475339465485212622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3436439629088487304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 338743a974634934ea1a9f2fc582a0aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  classCharacter: Headache
+  prefab: {fileID: 1077356408, guid: c6cfc32748fb5004aa11a1be074b5c58, type: 3}
+--- !u!114 &3502220053652098164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3436439629088487304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 338743a974634934ea1a9f2fc582a0aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  classCharacter: StomachPainReliever
+  prefab: {fileID: 1762018173025169312, guid: d94b6c3adedb282409fcb59cb49d45bb, type: 3}
+--- !u!114 &2886374159557606133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3436439629088487304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 338743a974634934ea1a9f2fc582a0aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  classCharacter: AcneDisinfectant
+  prefab: {fileID: 2066896392038628118, guid: 45288819fde2143449a96207b14db0bb, type: 3}
+--- !u!114 &-5956626467198927050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3436439629088487304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 338743a974634934ea1a9f2fc582a0aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  classCharacter: Acne
+  prefab: {fileID: 1090219386143568, guid: a817c29ea6847604bb2c6c51d9a74bf1, type: 3}
+--- !u!114 &8980652532628814407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3436439629088487304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 338743a974634934ea1a9f2fc582a0aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  classCharacter: Stomachache
+  prefab: {fileID: 5762902411667481585, guid: 1235f6fdfe904874cab3c83e4a67727c, type: 3}

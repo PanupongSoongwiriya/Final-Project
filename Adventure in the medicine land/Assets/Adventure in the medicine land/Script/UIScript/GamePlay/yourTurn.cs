@@ -5,10 +5,12 @@ using System;
 
 public class yourTurn : MonoBehaviour
 {
-    public float speed = 1.003f;
+    [SerializeField]
     private float y = 10;
+    [SerializeField]
     private Vector3 gameCamera;
-    public float differenceX = 3;
+    [SerializeField]
+    private float differenceX = 3;
     void Start()
     {
         Invoke("Destroy", 1.5f);
@@ -18,7 +20,6 @@ public class yourTurn : MonoBehaviour
     {
         gameCamera = GameObject.Find("Game Camera").transform.position;
         transform.position = new Vector3(gameCamera.x - differenceX, gameCamera.y-y, gameCamera.z);
-        transform.localScale *= speed;
     }
     private void Destroy()
     {
