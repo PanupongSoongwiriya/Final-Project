@@ -33,9 +33,13 @@ public class AutoGenerateStage : MonoBehaviour
 
     [SerializeField]
     private GameObject CharacterStoragePrefab;
+    [SerializeField]
+    private GameObject FloorStoragePrefab;
 
     [SerializeField]
     private Component[] CharacterPrefab;
+    [SerializeField]
+    private Component[] FloorPrefab;
     [SerializeField]
     private float prefabSize;
 
@@ -46,6 +50,7 @@ public class AutoGenerateStage : MonoBehaviour
         sm.Load();
         Debug.Log("SaveManager: " + sm.state.storyOrder);
         CharacterPrefab = CharacterStoragePrefab.GetComponents(typeof(CharacterPrefab));
+        FloorPrefab = FloorStoragePrefab.GetComponents(typeof(FloorPrefab));
         if (image == null)
         {
             //image = allStage[new System.Random().Next(allStage.Count)];
@@ -98,6 +103,7 @@ public class AutoGenerateStage : MonoBehaviour
         typeColor.Add("gray", new Color(0.5019608f, 0.5019608f, 0.5019608f, 1f));//+DEF
         typeColor.Add("brown", new Color(0.6470588f, 0.1647059f, 0.1647059f, 1f));//-DEF
         typeColor.Add("purple", new Color(0.5019608f, 0f, 0.5019608f, 1f));//Poison
+        typeColor.Add("snow", new Color(0.8509804f, 0.8196079f, 0.8078431f, 1f));//ภูเขา
         typeColor.Add("chartreuse", new Color(0.4980392f, 1, 0, 1f));//ยาแก้ปวดท้อง
         typeColor.Add("pink", new Color(1f, 0.7529412f, 0.7960784f, 1f));//ยาแก้ปวดหัว
         typeColor.Add("yellow", new Color(1f, 1f, 0f, 1f));//ยาลดน้ำมูก
@@ -131,12 +137,12 @@ public class AutoGenerateStage : MonoBehaviour
         {
             //Generate Vertical Line
             lineObject = Instantiate(lineModel, new Vector3(lineX, 0, 3), transform.rotation);
-            lineObject.transform.localScale = new Vector3(((image.width / phase) * scaleFloor), 0.2f, 0.2f);
+            lineObject.transform.localScale = new Vector3(((image.width / phase) * scaleFloor), 0.1f, 0.1f);
             lineObject.transform.parent = Map.transform;
 
             //Generate Horizontal Line
             lineObject = Instantiate(lineModel, new Vector3(((image.width / phase) * 3) + lineX, 0, ((image.height / phase) * 3) + 3), transform.rotation);
-            lineObject.transform.localScale = new Vector3(0.2f, 0.2f, ((image.height / phase) * scaleFloor));
+            lineObject.transform.localScale = new Vector3(0.1f, 0.1f, ((image.height / phase) * scaleFloor));
             lineObject.transform.parent = Map.transform;
 
         }
@@ -146,13 +152,14 @@ public class AutoGenerateStage : MonoBehaviour
             {
                 //Generate Vertical Line
                 lineObject = Instantiate(lineModel, new Vector3(lineX, 0, (((x + phase) / phase) * scaleFloor) + 3), transform.rotation);
-                lineObject.transform.localScale = new Vector3(((image.width / phase) * scaleFloor), 0.2f, 0.2f);
+                lineObject.transform.localScale = new Vector3(((image.width / phase) * scaleFloor), 0.1f, 0.1f);
                 lineObject.transform.parent = Map.transform;
                 //Generate Vertical Line
             }
             for (int y = 0; y < image.height; y += phase)
             {
                 Color pix = image.GetPixel((start_x + x), (start_y + y));
+                //Debug.Log("pix: " + pix.r + ", " + pix.g + ", " + pix.b);
                 Color pixFloor = image.GetPixel((start_x + x), (int)((start_y * 0.2f) + y));
                 if ((!((((typeColor["black"].r - tolerancea) < pixFloor.r) && (pixFloor.r < (typeColor["black"].r + tolerancea)))
                    && (((typeColor["black"].g - tolerancea) < pixFloor.g) && (pixFloor.g < (typeColor["black"].g + tolerancea)))
@@ -199,52 +206,81 @@ public class AutoGenerateStage : MonoBehaviour
                 if (horizontalLine && !gameSystem.endGame)
                 {
                     lineObject = Instantiate(lineModel, new Vector3(((image.width / phase) * (scaleFloor / 2)) + lineX - (scaleFloor * ((y + phase) / phase)), 0, ((image.height / phase) * (scaleFloor / 2)) + 3), transform.rotation);
-                    lineObject.transform.localScale = new Vector3(0.2f, 0.2f, ((image.height / phase) * scaleFloor));
+                    lineObject.transform.localScale = new Vector3(0.1f, 0.1f, ((image.height / phase) * scaleFloor));
                     lineObject.transform.parent = Map.transform;
                 }
             }
             horizontalLine = false;
         }
     }
+    private void setFloorModel(string whatKindFloor, int x_Coordinate, int z_Coordinate)
+    {
+        foreach (FloorPrefab fp in FloorPrefab)
+        {
+            if (fp.whatKindFloor.Equals(whatKindFloor))
+            {
+                floorObject = Instantiate(fp.prefab, new Vector3(x_Coordinate, 0, z_Coordinate), transform.rotation);
+                break;
+            }
+        }
+    }
     private void generateFloor(int x_Coordinate, int z_Coordinate, Color pixFloor, int id)
     {
-        floorObject = Instantiate(floorModel, new Vector3(x_Coordinate, 0, z_Coordinate), transform.rotation);
-        floorObject.name = "floor " + id;
-        gameSystem.allFloor.Add(floorObject);
+        bool add = true;
         if ((((typeColor["white"].r - tolerancea) < pixFloor.r) && (pixFloor.r < (typeColor["white"].r + tolerancea))) && (((typeColor["white"].g - tolerancea) < pixFloor.g) && (pixFloor.g < (typeColor["white"].g + tolerancea))) && (((typeColor["white"].b - tolerancea) < pixFloor.b) && (pixFloor.b < (typeColor["white"].b + tolerancea))))
         {
-            //Norma
+            //Normal
+            setFloorModel("Normal", x_Coordinate, z_Coordinate);
             floorObject.AddComponent<Floor>();
         }
 
         else if (((((typeColor["red"].r - tolerancea) < pixFloor.r) && (pixFloor.r < (typeColor["red"].r + tolerancea))) && (((typeColor["red"].g - tolerancea) < pixFloor.g) && (pixFloor.g < (typeColor["red"].g + tolerancea))) && (((typeColor["red"].b - tolerancea) < pixFloor.b) && (pixFloor.b < (typeColor["red"].b + tolerancea)))))
         {
             //+ATK
+            setFloorModel("+ATK", x_Coordinate, z_Coordinate);
             floorObject.AddComponent<floorATK>().FloorBonus = floorBonus;
         }
 
         else if (((((typeColor["cyan"].r - tolerancea) < pixFloor.r) && (pixFloor.r < (typeColor["cyan"].r + tolerancea))) && (((typeColor["cyan"].g - tolerancea) < pixFloor.g) && (pixFloor.g < (typeColor["cyan"].g + tolerancea))) && (((typeColor["cyan"].b - tolerancea) < pixFloor.b) && (pixFloor.b < (typeColor["cyan"].b + tolerancea)))))
         {
             //-ATK
+            setFloorModel("-ATK", x_Coordinate, z_Coordinate);
             floorObject.AddComponent<floorATK>().FloorBonus = -floorBonus;
+            floorObject.transform.rotation = Quaternion.Euler(floorObject.transform.rotation.x, 90 * UnityEngine.Random.Range(0, 3), floorObject.transform.rotation.z);
         }
 
         else if (((((typeColor["gray"].r - tolerancea) < pixFloor.r) && (pixFloor.r < (typeColor["gray"].r + tolerancea))) && (((typeColor["gray"].g - tolerancea) < pixFloor.g) && (pixFloor.g < (typeColor["gray"].g + tolerancea))) && (((typeColor["gray"].b - tolerancea) < pixFloor.b) && (pixFloor.b < (typeColor["gray"].b + tolerancea)))))
         {
             //+DEF
+            setFloorModel("+DEF", x_Coordinate, z_Coordinate);
             floorObject.AddComponent<floorDEF>().FloorBonus = floorBonus;
         }
 
         else if (((((typeColor["brown"].r - tolerancea) < pixFloor.r) && (pixFloor.r < (typeColor["brown"].r + tolerancea))) && (((typeColor["brown"].g - tolerancea) < pixFloor.g) && (pixFloor.g < (typeColor["brown"].g + tolerancea))) && (((typeColor["brown"].b - tolerancea) < pixFloor.b) && (pixFloor.b < (typeColor["brown"].b + tolerancea)))))
         {
             //-DEF
+            setFloorModel("-DEF", x_Coordinate, z_Coordinate);
             floorObject.AddComponent<floorDEF>().FloorBonus = -floorBonus;
         }
 
         else if (((((typeColor["purple"].r - tolerancea) < pixFloor.r) && (pixFloor.r < (typeColor["purple"].r + tolerancea))) && (((typeColor["purple"].g - tolerancea) < pixFloor.g) && (pixFloor.g < (typeColor["purple"].g + tolerancea))) && (((typeColor["purple"].b - tolerancea) < pixFloor.b) && (pixFloor.b < (typeColor["purple"].b + tolerancea)))))
         {
             //Poison
+            setFloorModel("Poison", x_Coordinate, z_Coordinate);
             floorObject.AddComponent<floorPoison>().FloorBonus = floorBonus;
+        }
+        else if (((((typeColor["snow"].r - tolerancea) < pixFloor.r) && (pixFloor.r < (typeColor["snow"].r + tolerancea))) && (((typeColor["snow"].g - tolerancea) < pixFloor.g) && (pixFloor.g < (typeColor["snow"].g + tolerancea))) && (((typeColor["snow"].b - tolerancea) < pixFloor.b) && (pixFloor.b < (typeColor["snow"].b + tolerancea)))))
+        {
+            //Mountain
+            add = false;
+            setFloorModel("Mountain", x_Coordinate, z_Coordinate);
+            floorObject.transform.rotation = Quaternion.Euler(floorObject.transform.rotation.x, 90 * UnityEngine.Random.Range(0, 3), floorObject.transform.rotation.z);
+            
+        }
+        floorObject.name = "floor " + id;
+        if (add)
+        {
+            gameSystem.allFloor.Add(floorObject);
         }
         floorObject.transform.parent = Map.transform;
     }

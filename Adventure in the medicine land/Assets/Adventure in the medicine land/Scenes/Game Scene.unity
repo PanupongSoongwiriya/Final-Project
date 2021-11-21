@@ -2006,7 +2006,6 @@ GameObject:
   - component: {fileID: 843268038}
   - component: {fileID: 843268037}
   - component: {fileID: 843268039}
-  - component: {fileID: 843268040}
   m_Layer: 5
   m_Name: skillDetailPanel
   m_TagString: Untagged
@@ -2092,18 +2091,6 @@ MonoBehaviour:
   skillPanel_3: {fileID: 1304651270}
   gameSystem: {fileID: 1389070291}
   activeBotton: 0
---- !u!114 &843268040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 843268035}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba4f7fadaad2e89438c2bd87b133dfd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &896668366
 GameObject:
   m_ObjectHideFlags: 0
@@ -2116,7 +2103,6 @@ GameObject:
   - component: {fileID: 896668369}
   - component: {fileID: 896668368}
   - component: {fileID: 896668370}
-  - component: {fileID: 896668371}
   m_Layer: 5
   m_Name: ControlPanel
   m_TagString: Untagged
@@ -2205,18 +2191,6 @@ MonoBehaviour:
   sheatheData: {fileID: 2097609233}
   activeBotton: 0
   alpha: 1
---- !u!114 &896668371
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 896668366}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba4f7fadaad2e89438c2bd87b133dfd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &918762004
 GameObject:
   m_ObjectHideFlags: 0
@@ -3970,13 +3944,13 @@ PrefabInstance:
     - target: {fileID: 8049314337774199886, guid: 58b86fa0e8c48c3458f0b2c2bbc13cd4,
         type: 3}
       propertyPath: allStage.Array.size
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8049314337774199886, guid: 58b86fa0e8c48c3458f0b2c2bbc13cd4,
         type: 3}
       propertyPath: allStage.Array.data[0]
       value: 
-      objectReference: {fileID: 2800000, guid: 8a5748cd5107d6a4bbaa04c3f6082aec, type: 3}
+      objectReference: {fileID: 2800000, guid: 153d013c44450a84fba553aff4b26463, type: 3}
     - target: {fileID: 8049314337774199886, guid: 58b86fa0e8c48c3458f0b2c2bbc13cd4,
         type: 3}
       propertyPath: allStage.Array.data[1]
@@ -3996,7 +3970,7 @@ PrefabInstance:
         type: 3}
       propertyPath: allStage.Array.data[4]
       value: 
-      objectReference: {fileID: 2800000, guid: 648eec6612783d14db417e9d8ed74d7a, type: 3}
+      objectReference: {fileID: 2800000, guid: 55eb8546c4802d144b62cd49c1955328, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58b86fa0e8c48c3458f0b2c2bbc13cd4, type: 3}
 --- !u!1 &1476684404
@@ -4754,7 +4728,6 @@ GameObject:
   - component: {fileID: 1642383785}
   - component: {fileID: 1642383784}
   - component: {fileID: 1642383786}
-  - component: {fileID: 1642383787}
   m_Layer: 5
   m_Name: characterDetailPanel
   m_TagString: Untagged
@@ -4843,18 +4816,6 @@ MonoBehaviour:
   atkText: {fileID: 2000002996}
   defText: {fileID: 2014976515}
   system: {fileID: 1389070290}
---- !u!114 &1642383787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1642383782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba4f7fadaad2e89438c2bd87b133dfd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1695438410
 GameObject:
   m_ObjectHideFlags: 0

@@ -57,7 +57,7 @@ public class GameSystem : MonoBehaviour
         {
             foreach (Character medicine in medicineFaction)
             {
-                if (medicine.doneItYet)
+                if (medicine.DoneItYet)
                 {
                     statusChangeTurn = false;
                     State = "Choose a medicine character";
@@ -69,7 +69,7 @@ public class GameSystem : MonoBehaviour
         {
             foreach (Character disease in diseaseFaction)
             {
-                if (disease.doneItYet)
+                if (disease.DoneItYet)
                 {
                     statusChangeTurn = false;
                     break;
@@ -91,14 +91,14 @@ public class GameSystem : MonoBehaviour
                 WhoTurn = "Medicine";
                 State = "Choose a medicine character";
             }
-            Debug.Log(WhoTurn + " Turn");
+            //Debug.Log(WhoTurn + " Turn");
 
             //set doneItYet
             if (WhoTurn == "Medicine")
             {
                 foreach (Character medicine in medicineFaction)
                 {
-                    medicine.doneItYet = true;
+                    medicine.DoneItYet = true;
                 }
                 ++Turn;
             }
@@ -106,7 +106,7 @@ public class GameSystem : MonoBehaviour
             {
                 foreach (Character disease in diseaseFaction)
                 {
-                    disease.doneItYet = true;
+                    disease.DoneItYet = true;
                 }
                 StartCoroutine(diseaseActive());
             }

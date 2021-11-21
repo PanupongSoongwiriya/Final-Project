@@ -34,6 +34,9 @@ function setcolor(obj) {
     } else if (obj.classList[1] == 'poison') {
         app.color = "purple";
         app.status = true;
+    } else if (obj.classList[1] == 'snow') {
+        app.color = "#d9d1ce";
+        app.status = true;
     }
     // medicine -----------------------------------------------------------------
     else if (obj.classList[1] == 'spr') {

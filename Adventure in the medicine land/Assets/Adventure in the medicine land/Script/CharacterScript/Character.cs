@@ -11,7 +11,8 @@ public class Character : MonoBehaviour
     public String faction;
     public String classCharacter;
     public String genusPhase;
-    public bool doneItYet;
+    [SerializeField]
+    protected bool doneItYet;
     public bool moving;
 
     public bool spinning;
@@ -87,7 +88,7 @@ public class Character : MonoBehaviour
         }
         gameSystem.memberUpdate(this);
         dmgText = gameSystem.dmgText;
-        doneItYet = true;
+        DoneItYet = true;
         resetRange();
         if (Faction.Equals("Disease"))
         {
@@ -147,7 +148,24 @@ public class Character : MonoBehaviour
                 }
             }
         }
-        TargetSpin = chrNearest;
+        Vector3 posSelf = transform.position;
+        Vector3 posTarget = chrNearest.transform.position;
+
+        float adj = posTarget.z - posSelf.z;
+        float opp = posTarget.x - posSelf.x;
+
+        float inverse = 0;
+        if (posSelf.z > posTarget.z)
+        {
+            inverse = 180;
+        }
+
+        newRotateY = ((Mathf.Atan(opp / adj) * Mathf.Rad2Deg) + inverse);
+        if (newRotateY > 180)
+        {
+            newRotateY -= 360;
+        }
+        transform.rotation = Quaternion.Euler(transform.eulerAngles.x, newRotateY, transform.eulerAngles.z);
     }
     public void useSkill(int index)
     {
@@ -168,7 +186,7 @@ public class Character : MonoBehaviour
         {
             setPositionCamera();
             gameSystem.NowCharecter = this;
-            if (doneItYet)
+            if (DoneItYet)
             {
                 gameSystem.State = "waiting for orders";
                 gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(true, true, false, true, false);//controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
@@ -335,7 +353,7 @@ public class Character : MonoBehaviour
     }
     public void doneIt()
     {
-        doneItYet = false;
+        DoneItYet = false;
         gameSystem.checkChangeTurn();
         if (Faction.Equals("Disease"))
         {
@@ -479,14 +497,41 @@ public class Character : MonoBehaviour
             }
             /*Debug.Log(name + "------------------------------------------------------");
             Debug.Log("Atan: " + newRotateY);
-            Debug.Log("eulerAngles.y: " + transform.eulerAngles.y);
-            //Debug.Log("if +: " + (((newRotateY + 360) % 360 + transform.eulerAngles.y) % 360));
-            //Debug.Log("if -: " + (((newRotateY + 360) % 360 - transform.eulerAngles.y) % 360));
-            Debug.Log("if: " + (newRotateY > 90));*/
+            Debug.Log("eulerAngles.y: " + transform.eulerAngles.y);*/
             spinDirection = 1;
-            if (newRotateY > 90)
+            float targetRotate = newRotateY;
+            if (targetRotate < 0)
+            {
+                targetRotate += 360;
+            }
+            if (targetRotate == 0)
+            {
+                targetRotate = 360;
+            }
+            /*Debug.Log("targetRotate: " + targetRotate);
+            Debug.Log("If ตามเข็ม: " + ((Math.Abs(transform.eulerAngles.y - 360) + targetRotate) % 360));
+            Debug.Log("If ทวนเข็ม: " + ((Math.Abs(targetRotate - 360) + transform.eulerAngles.y) % 360));*/
+            if ((Math.Abs(targetRotate-360)+ transform.eulerAngles.y)%360 < (Math.Abs(transform.eulerAngles.y - 360) + targetRotate) % 360)
             {
                 spinDirection = -1;
+            }
+        }
+    }
+
+    protected void setColorActive()
+    {
+        if (Faction.Equals("Medicine"))
+        {
+            for (int c = 0; c < transform.childCount; c++)
+            {
+                foreach (Renderer r in transform.GetChild(c).GetComponents(typeof(Renderer)))
+                {
+                    r.material.SetColor("_Color", new Color(1, 1, 1, 1));
+                    if (!DoneItYet)
+                    {
+                        r.material.SetColor("_Color", new Color(0.4f, 0.4f, 0.4f, 1));
+                    }
+                }
             }
         }
     }
@@ -500,5 +545,10 @@ public class Character : MonoBehaviour
     {
         get { return maxHP; }
         set { maxHP = value; }
+    }
+    public bool DoneItYet
+    {
+        get { return doneItYet; }
+        set { doneItYet = value; setColorActive(); }
     }
 }

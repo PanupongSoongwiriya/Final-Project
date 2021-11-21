@@ -1831,6 +1831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeba85e44a5f45840bb8849711c8cdf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sm: {fileID: 0}
   AreYouSure: {fileID: 1973958878}
   firstPlay: 0
 --- !u!1 &1816852061

@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7121855769792144269
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5773071746659525565}
+  - component: {fileID: 8049314337774199886}
+  m_Layer: 0
+  m_Name: AutoGenerateStage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5773071746659525565
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7121855769792144269}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8049314337774199886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7121855769792144269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3466bcab66cfc0946b67d4810eca7e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allStage:
+  - {fileID: 2800000, guid: 8a5748cd5107d6a4bbaa04c3f6082aec, type: 3}
+  - {fileID: 2800000, guid: 63a3b142bc6130d4b92901f81a6f0097, type: 3}
+  - {fileID: 2800000, guid: c09178b3f60aec2479d18a1e38818358, type: 3}
+  - {fileID: 2800000, guid: 55eb8546c4802d144b62cd49c1955328, type: 3}
+  image: {fileID: 0}
+  sm: {fileID: 0}
+  gameSystem: {fileID: 0}
+  numWidth: 0
+  floorBonus: 1
+  floorModel: {fileID: 3476153174529300596, guid: 2be9831ff0768f44c90efb07e98f5330,
+    type: 3}
+  lineModel: {fileID: 5885487123102947634, guid: 40ca4afc0cd077f498883ad0bdb58441,
+    type: 3}
+  characterModel: {fileID: 4480988042649022374, guid: 4ffecb7fe46d9e34590a5679d616bd9c,
+    type: 3}
+  CharacterStoragePrefab: {fileID: 3436439629088487304, guid: 89eb525330a40bc4c9170e0ab28eb6b9,
+    type: 3}
+  FloorStoragePrefab: {fileID: 2814835686413464789, guid: adc8098a4b1f25442a3b89319b3bfb70,
+    type: 3}
+  CharacterPrefab: []
+  FloorPrefab: []
+  prefabSize: 3.5
+  ChrCount: 0

@@ -91,7 +91,8 @@ public class Floor : MonoBehaviour
     public int FloorBonus
     {
         get { return floorBonus; }
-        set { floorBonus = value; setTypeFloor(); }
+        set { floorBonus = value; //setTypeFloor(); 
+        }
     }
 
 
