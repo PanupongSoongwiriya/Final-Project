@@ -47,6 +47,9 @@ public class Character : MonoBehaviour
     public GameObject dmgText;
     public BotDisease botDisease;
 
+    [SerializeField]
+    protected List<Renderer> allRenderer = new List<Renderer>();
+
     void Start()
     {
         startSetUp();
@@ -100,6 +103,7 @@ public class Character : MonoBehaviour
         name = classCharacter + " " + id;
         skill = GameObject.Find("SkillList");
         allSkill = new List<Skill>();
+        findAllMaterial(transform);
     }
 
     public void setDegree()
@@ -517,12 +521,39 @@ public class Character : MonoBehaviour
             }
         }
     }
+    
+    protected void findAllMaterial(Transform t)
+    {
+        int childCount = t.childCount;
+        if (Faction.Equals("Medicine"))
+        {
+            for (int c = 0; c < childCount; c++)
+            {
+                foreach (Renderer r in t.GetChild(c).GetComponents(typeof(Renderer)))
+                {
+                    allRenderer.Add(r);
+                }
+                if (t.GetChild(c).transform.childCount != 0 & t.GetChild(c).GetComponents(typeof(Renderer)).Length == 0)
+                {
+                    findAllMaterial(t.GetChild(c).transform);
+                }
+            }
+        }
+    }
 
     protected void setColorActive()
     {
         if (Faction.Equals("Medicine"))
         {
-            for (int c = 0; c < transform.childCount; c++)
+            foreach (Renderer r in allRenderer)
+            {
+                r.material.SetColor("_Color", new Color(1, 1, 1, 1));
+                if (!DoneItYet)
+                {
+                    r.material.SetColor("_Color", new Color(0.4f, 0.4f, 0.4f, 1));
+                }
+            }
+            /*for (int c = 0; c < transform.childCount; c++)
             {
                 foreach (Renderer r in transform.GetChild(c).GetComponents(typeof(Renderer)))
                 {
@@ -532,7 +563,7 @@ public class Character : MonoBehaviour
                         r.material.SetColor("_Color", new Color(0.4f, 0.4f, 0.4f, 1));
                     }
                 }
-            }
+            }*/
         }
     }
 
