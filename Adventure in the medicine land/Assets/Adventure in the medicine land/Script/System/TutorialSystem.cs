@@ -41,6 +41,7 @@ public class TutorialSystem : GameSystem
 
     private void setTutoria()
     {
+        Debug.Log("tutorialStep: " + tutorialStep + "------------------------------");
         ForcePress.SetActive(false);
         Concealed.SetActive(false);
         Overlay.SetActive(false); 
@@ -77,10 +78,16 @@ public class TutorialSystem : GameSystem
         }
         else if (tutorialStep == 4)
         {
+            Debug.Log("buttonDescription[1] 1: " + buttonDescription[1].gameObject.active + " 44444444444444444");
             Concealed.SetActive(true);
             setAllButtonActive(false);
             buttonDescription[1].SetActive(true);
             controlPanel.transform.GetChild(0).transform.GetChild(2).GetComponent<controlPanelButton>().ActiveBotton = true;
+
+            Debug.Log("Concealed: " + Concealed.gameObject.active + " 44444444444444444");
+            Debug.Log("buttonDescription[1] 2: " + buttonDescription[1].gameObject.active + " 44444444444444444");
+            Debug.Log("controlPanel: " + controlPanel.transform.GetChild(0).transform.GetChild(2).GetComponent<controlPanelButton>().ActiveBotton + " 44444444444444444");
+
         }
         else if (tutorialStep == 5)
         {
@@ -216,6 +223,7 @@ private void clearAllButtonDescription()
 }
 private void setAllButtonActive(bool active)
 {
+    Debug.Log("setAllButtonActive");
     GameObject OptionsPanel = controlPanel.transform.GetChild(0).gameObject;
     for (int i = 0; i < OptionsPanel.transform.childCount; ++i)
     {

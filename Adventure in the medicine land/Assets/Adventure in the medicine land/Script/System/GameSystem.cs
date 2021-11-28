@@ -76,6 +76,9 @@ public class GameSystem : MonoBehaviour
                 }
             }
         }
+        /*Debug.Log("statusChangeTurn: " + statusChangeTurn);
+        Debug.Log("diseaseFaction: " + diseaseFaction.Count);
+        Debug.Log("medicineFaction: " + medicineFaction.Count);*/
         if (statusChangeTurn)
         {
             //change whoTurn

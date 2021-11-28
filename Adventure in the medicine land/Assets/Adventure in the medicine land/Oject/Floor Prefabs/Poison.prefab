@@ -96,8 +96,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 420.00006, y: 964.60785, z: 420.00006}
-  m_Center: {x: 0, y: -372.69598, z: 0}
+  m_Size: {x: 420.00006, y: 1021.8469, z: 420.00006}
+  m_Center: {x: 0, y: -344.0763, z: 0}
 --- !u!1 &6205157824316872458
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,7 +191,6 @@ GameObject:
   - component: {fileID: 6030981216809342224}
   - component: {fileID: 2631034103340162243}
   - component: {fileID: 17966485334282414}
-  - component: {fileID: 7419526371206847157}
   m_Layer: 0
   m_Name: water
   m_TagString: Untagged
@@ -263,16 +262,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7419526371206847157
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6263385684632946230}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}

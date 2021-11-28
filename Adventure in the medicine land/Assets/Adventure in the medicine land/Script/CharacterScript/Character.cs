@@ -104,6 +104,7 @@ public class Character : MonoBehaviour
         skill = GameObject.Find("SkillList");
         allSkill = new List<Skill>();
         findAllMaterial(transform);
+        targetSpin = null;
     }
 
     public void setDegree()
@@ -164,12 +165,12 @@ public class Character : MonoBehaviour
             inverse = 180;
         }
 
-        newRotateY = ((Mathf.Atan(opp / adj) * Mathf.Rad2Deg) + inverse);
-        if (newRotateY > 180)
+        float y = ((Mathf.Atan(opp / adj) * Mathf.Rad2Deg) + inverse);
+        if (y > 180)
         {
-            newRotateY -= 360;
+            y -= 360;
         }
-        transform.rotation = Quaternion.Euler(transform.eulerAngles.x, newRotateY, transform.eulerAngles.z);
+        transform.rotation = Quaternion.Euler(transform.eulerAngles.x, y, transform.eulerAngles.z);
     }
     public void useSkill(int index)
     {
@@ -378,23 +379,29 @@ public class Character : MonoBehaviour
     }
     protected void spinToTarget()
     {
-        if (targetSpin != null)
+        if (spinning)
         {
-            float speedSpin = 1*spinDirection;
-            if ((newRotateY >= 0 & transform.eulerAngles.y <= 180))
+            float speedSpin = 15*spinDirection;
+            float targetRotate = newRotateY;
+            if (targetRotate < 0)
             {
-                if (1 > Math.Abs(transform.eulerAngles.y - newRotateY))
-                {
-                    targetSpin = null;
-                }
-            }else if ((newRotateY < 0 & transform.eulerAngles.y > 180))
-            {
-                if (1 > Math.Abs(Math.Abs(transform.eulerAngles.y-360) - Math.Abs(newRotateY)))
-                {
-                    targetSpin = null;
-                }
+                targetRotate += 360;
             }
-            float newY = transform.eulerAngles.y + speedSpin;
+            if (targetRotate == 0 & transform.eulerAngles.y > 180)
+            {
+                targetRotate = 360;
+            }
+            float slowDownSpin = 1;
+            if (Math.Abs(speedSpin * 2) > Math.Abs(transform.eulerAngles.y - targetRotate))
+            {
+                slowDownSpin = 0.1f;
+            }
+            if (Math.Abs(speedSpin*1.5f) > Math.Abs(transform.eulerAngles.y - targetRotate))
+            {
+                spinning = false;
+            }
+
+            float newY = transform.eulerAngles.y + (speedSpin* slowDownSpin);
             transform.rotation = Quaternion.Euler(transform.eulerAngles.x, newY, transform.eulerAngles.z);
 
         }
@@ -403,17 +410,18 @@ public class Character : MonoBehaviour
     {
         if (moving)
         {
+            float topPos = 4;
             float smoothSpeed = 0.6f;
             bool equalsX = 0.1 > Math.Abs(transform.position.x - pedalFloor.transform.position.x);
             bool equalsZ = 0.1 > Math.Abs(transform.position.z - pedalFloor.transform.position.z);
             if (!(equalsX && equalsZ))
             {
-                transform.position = new Vector3(transform.position.x, Math.Min(transform.position.y + smoothSpeed, 3.3f), transform.position.z);
+                transform.position = new Vector3(transform.position.x, Math.Min(transform.position.y + smoothSpeed, topPos), transform.position.z);
             }
             gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false, false, false);
             //controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
             gameSystem.resetInTerm();
-            if (transform.position.y == 3.3f)
+            if (transform.position.y == topPos)
             {
                 Vector3 desiredPosition = pedalFloor.transform.position;
                 Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
@@ -423,7 +431,7 @@ public class Character : MonoBehaviour
             if (equalsX && equalsZ)
             {
                 float y = 0;
-                if (transform.position.y != y)
+                if (transform.position.y > y)
                 {
                     transform.position = new Vector3(transform.position.x, Math.Max(transform.position.y - smoothSpeed, y), transform.position.z);
                 }
@@ -472,7 +480,11 @@ public class Character : MonoBehaviour
             pedalFloor = value; 
             moving = true; 
             pedalFloor.characterOnIt = this;
-            TargetSpin = pedalFloor.gameObject;
+            
+            if (!(value.transform.position.x == transform.position.x && value.transform.position.z == transform.position.z))
+            {
+                TargetSpin = pedalFloor.gameObject;
+            }
         }
     }
 
@@ -499,9 +511,6 @@ public class Character : MonoBehaviour
             {
                 newRotateY -= 360;
             }
-            /*Debug.Log(name + "------------------------------------------------------");
-            Debug.Log("Atan: " + newRotateY);
-            Debug.Log("eulerAngles.y: " + transform.eulerAngles.y);*/
             spinDirection = 1;
             float targetRotate = newRotateY;
             if (targetRotate < 0)
@@ -512,13 +521,11 @@ public class Character : MonoBehaviour
             {
                 targetRotate = 360;
             }
-            /*Debug.Log("targetRotate: " + targetRotate);
-            Debug.Log("If ตามเข็ม: " + ((Math.Abs(transform.eulerAngles.y - 360) + targetRotate) % 360));
-            Debug.Log("If ทวนเข็ม: " + ((Math.Abs(targetRotate - 360) + transform.eulerAngles.y) % 360));*/
             if ((Math.Abs(targetRotate-360)+ transform.eulerAngles.y)%360 < (Math.Abs(transform.eulerAngles.y - 360) + targetRotate) % 360)
             {
                 spinDirection = -1;
             }
+            spinning = true;
         }
     }
     
@@ -553,16 +560,9 @@ public class Character : MonoBehaviour
                     r.material.SetColor("_Color", new Color(0.4f, 0.4f, 0.4f, 1));
                 }
             }
-            /*for (int c = 0; c < transform.childCount; c++)
+            /*if (!DoneItYet)
             {
-                foreach (Renderer r in transform.GetChild(c).GetComponents(typeof(Renderer)))
-                {
-                    r.material.SetColor("_Color", new Color(1, 1, 1, 1));
-                    if (!DoneItYet)
-                    {
-                        r.material.SetColor("_Color", new Color(0.4f, 0.4f, 0.4f, 1));
-                    }
-                }
+                Debug.Log("setColorActive: " + name + " mmmmmmmmmmmmmmmmmmmmmmmmmmmm");
             }*/
         }
     }

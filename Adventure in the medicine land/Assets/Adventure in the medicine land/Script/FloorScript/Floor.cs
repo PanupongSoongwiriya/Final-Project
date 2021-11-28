@@ -11,6 +11,8 @@ public class Floor : MonoBehaviour
     public int floorBonus = 0;
     protected Color floorColor;
     public String typrFloor;
+
+    public Character test;
     void Start()
     {
         try
@@ -23,6 +25,15 @@ public class Floor : MonoBehaviour
         }
         FloorBonus = 0;
         typrFloor = "Normal";
+    }
+    protected void Update()
+    {
+        if (test != characterOnIt)
+        {
+            /*Debug.Log(name + " old: " + test);
+            Debug.Log(name + " new: " + characterOnIt);*/
+            test = characterOnIt;
+        }
     }
 
 
@@ -59,8 +70,14 @@ public class Floor : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
+        /*Debug.Log("typeof: " + collision.gameObject.GetComponent(typeof(Character)));
+        if (collision.gameObject.GetComponent(typeof(Character)))
+        {
+            Debug.Log("Hello World");
+        }*/
         if (collision.gameObject.tag == "Medicine" || collision.gameObject.tag == "Disease")
         {
+            //Debug.Log("typeof: " + collision.gameObject.GetComponent(typeof(Character)));
             if (collision.gameObject.GetComponent<Character>().PedalFloor == null)
             {
                 characterOnIt = collision.gameObject.GetComponent<Character>();
