@@ -28,6 +28,7 @@ public class GameSystem : MonoBehaviour
     public GameObject yourTurnText;
     public GameObject whoTurnPanel;
     public GameObject endGamePanel;
+    public GameObject walkBoutton;
 
     public Animator anim;
 
@@ -57,7 +58,7 @@ public class GameSystem : MonoBehaviour
         {
             foreach (Character medicine in medicineFaction)
             {
-                if (medicine.DoneItYet)
+                if (medicine.ActionPoint > 0)
                 {
                     statusChangeTurn = false;
                     State = "Choose a medicine character";
@@ -69,16 +70,13 @@ public class GameSystem : MonoBehaviour
         {
             foreach (Character disease in diseaseFaction)
             {
-                if (disease.DoneItYet)
+                if (disease.ActionPoint > 0)
                 {
                     statusChangeTurn = false;
                     break;
                 }
             }
         }
-        /*Debug.Log("statusChangeTurn: " + statusChangeTurn);
-        Debug.Log("diseaseFaction: " + diseaseFaction.Count);
-        Debug.Log("medicineFaction: " + medicineFaction.Count);*/
         if (statusChangeTurn)
         {
             //change whoTurn
@@ -101,7 +99,7 @@ public class GameSystem : MonoBehaviour
             {
                 foreach (Character medicine in medicineFaction)
                 {
-                    medicine.DoneItYet = true;
+                    medicine.ActionPoint = 2;
                 }
                 ++Turn;
             }
@@ -109,7 +107,7 @@ public class GameSystem : MonoBehaviour
             {
                 foreach (Character disease in diseaseFaction)
                 {
-                    disease.DoneItYet = true;
+                    disease.ActionPoint = 2;
                 }
                 StartCoroutine(diseaseActive());
             }

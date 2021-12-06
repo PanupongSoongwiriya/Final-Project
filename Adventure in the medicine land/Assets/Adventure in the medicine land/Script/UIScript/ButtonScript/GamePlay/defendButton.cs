@@ -13,7 +13,7 @@ public class defendButton : controlPanelButton
             gameSystem.NowCharecter.specialDefense += 1;
             gameSystem.State = "Choose a medicine character";
             switchPanel(false, true, false, false, false);//controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
-            gameSystem.NowCharecter.doneIt();
+            gameSystem.NowCharecter.doneIt(2);
         }
     }
 }

@@ -26,7 +26,7 @@ public class H_Guard : Skill
             gameSystem.NowCharecter.specialDefense += bonusEffect;
             gameSystem.State = "Choose a medicine character";
             gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false, false, false);//controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
-            gameSystem.NowCharecter.doneIt();
+            gameSystem.NowCharecter.doneIt(2);
         }
     }
 }

@@ -17,14 +17,6 @@ public class bot : MonoBehaviour
     public void botWork()
     {
         gameSystem.botChackInTerm(gameSystem.NowCharecter.attackRange, "bad for the enemy");
-        if (gameSystem.allMedicineInTerm.Count != 0)
-        {
-            //botAttack();
-        }
-        else
-        {
-            //botWalk();
-        }
     }
 
     private void botWalk()
@@ -43,7 +35,7 @@ public class bot : MonoBehaviour
         }
         else
         {
-            gameSystem.NowCharecter.doneIt();
+            gameSystem.NowCharecter.doneIt(2);
             gameSystem.resetInTerm();
         }
     }

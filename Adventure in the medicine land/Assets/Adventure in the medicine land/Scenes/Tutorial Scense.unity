@@ -7387,6 +7387,11 @@ PrefabInstance:
       objectReference: {fileID: 742623151}
     - target: {fileID: 9015736955355823172, guid: 3517263a6f0256c4090c598832cd7743,
         type: 3}
+      propertyPath: walkBoutton
+      value: 
+      objectReference: {fileID: 395112276}
+    - target: {fileID: 9015736955355823172, guid: 3517263a6f0256c4090c598832cd7743,
+        type: 3}
       propertyPath: controlPanel
       value: 
       objectReference: {fileID: 1561175536}

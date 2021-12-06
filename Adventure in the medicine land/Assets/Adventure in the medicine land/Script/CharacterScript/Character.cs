@@ -12,7 +12,7 @@ public class Character : MonoBehaviour
     public String classCharacter;
     public String genusPhase;
     [SerializeField]
-    protected bool doneItYet;
+    protected int actionPoint;
     public bool moving;
 
     public bool spinning;
@@ -91,7 +91,7 @@ public class Character : MonoBehaviour
         }
         gameSystem.memberUpdate(this);
         dmgText = gameSystem.dmgText;
-        DoneItYet = true;
+        ActionPoint = 2;
         resetRange();
         if (Faction.Equals("Disease"))
         {
@@ -191,7 +191,8 @@ public class Character : MonoBehaviour
         {
             setPositionCamera();
             gameSystem.NowCharecter = this;
-            if (DoneItYet)
+            gameSystem.walkBoutton.GetComponent<walkButton>().ActiveBotton = actionPoint == 2;
+            if (actionPoint > 0)
             {
                 gameSystem.State = "waiting for orders";
                 gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(true, true, false, true, false);//controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
@@ -267,7 +268,7 @@ public class Character : MonoBehaviour
                 specialDefense += bonusEffect;
             }
             gameSystem.State = "Choose a medicine character";
-            gameSystem.NowCharecter.doneIt();
+            gameSystem.NowCharecter.doneIt(2);
             gameSystem.resetInTerm();
             if (!(type.Equals("ATK/DEF")))
             {
@@ -285,7 +286,7 @@ public class Character : MonoBehaviour
         if ((gameSystem.State.Equals("Choose a enemy character") || gameSystem.State.Equals("Use skills with enemies")) && !gameSystem.NowCharecter.Faction.Equals(faction) && pedalFloor.InTerm)
         {
             gameSystem.State = "Choose a medicine character";
-            gameSystem.NowCharecter.doneIt();
+            gameSystem.NowCharecter.doneIt(2);
             gameSystem.NowCharecter.TargetSpin = gameObject;
             gameSystem.resetInTerm();
             gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false, false, false);
@@ -297,7 +298,7 @@ public class Character : MonoBehaviour
         //Bot Attack
         else if (gameSystem.State.Equals("round of bots") && !gameSystem.NowCharecter.Faction.Equals(faction) && pedalFloor.InTerm)
         {
-            gameSystem.NowCharecter.doneIt();
+            gameSystem.NowCharecter.doneIt(2);
             gameSystem.NowCharecter.TargetSpin = gameObject;
             gameSystem.resetInTerm();
             int dmg = calculateDMG(gameSystem.NowCharecter, this); 
@@ -356,9 +357,9 @@ public class Character : MonoBehaviour
         }
         Destroy(this.gameObject);
     }
-    public void doneIt()
+    public void doneIt(int apUse)
     {
-        DoneItYet = false;
+        ActionPoint = Math.Max(ActionPoint - apUse, 0);
         gameSystem.checkChangeTurn();
         if (Faction.Equals("Disease"))
         {
@@ -441,7 +442,11 @@ public class Character : MonoBehaviour
                     moving = false;
                     if (gameSystem.NowCharecter != null)
                     {
-                        gameSystem.NowCharecter.doneIt();
+                        gameSystem.NowCharecter.doneIt(1);
+                        if (gameSystem.NowCharecter.Faction.Equals("Disease"))
+                        {
+                            gameSystem.NowCharecter.gameObject.GetComponent<BotDisease>().afterWolk();
+                        }
                     }
                 }
             }
@@ -555,15 +560,11 @@ public class Character : MonoBehaviour
             foreach (Renderer r in allRenderer)
             {
                 r.material.SetColor("_Color", new Color(1, 1, 1, 1));
-                if (!DoneItYet)
+                if (actionPoint == 0)
                 {
                     r.material.SetColor("_Color", new Color(0.4f, 0.4f, 0.4f, 1));
                 }
             }
-            /*if (!DoneItYet)
-            {
-                Debug.Log("setColorActive: " + name + " mmmmmmmmmmmmmmmmmmmmmmmmmmmm");
-            }*/
         }
     }
 
@@ -577,9 +578,9 @@ public class Character : MonoBehaviour
         get { return maxHP; }
         set { maxHP = value; }
     }
-    public bool DoneItYet
+    public int ActionPoint
     {
-        get { return doneItYet; }
-        set { doneItYet = value; setColorActive(); }
+        get { return actionPoint; }
+        set { actionPoint = value; setColorActive(); }
     }
 }

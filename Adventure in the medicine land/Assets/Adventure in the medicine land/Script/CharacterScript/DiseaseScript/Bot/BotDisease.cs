@@ -144,6 +144,32 @@ public class BotDisease : MonoBehaviour
         }
     }
 
+    public void afterWolk()
+    {
+        gameSystem.botChackInTerm(gameSystem.NowCharecter.attackRange, "bad for the enemy");
+        if (gameSystem.allMedicineInTerm.Count != 0)
+        {
+            Character atked = gameSystem.allMedicineInTerm[0];
+            for (int i = 1; i < gameSystem.allMedicineInTerm.Count; i++)
+            {
+                if (atked.HP > gameSystem.allMedicineInTerm[i].HP)
+                {
+                    atked = gameSystem.allMedicineInTerm[i];
+                }
+            }
+            stage = "attack";
+            atked.attacked();
+        }
+        else
+        {
+            //Defense
+            stage = "defense";
+            chr.specialDefense += 1;
+            chr.doneIt(2);
+        }
+        gameSystem.resetInTerm();
+    }
+
     private float findDistance(Vector3 position1, Vector3 position2)
     {
         return (float)Math.Sqrt(Math.Pow((position1.x - position2.x), 2) + Math.Pow((position1.z - position2.z), 2)) / 6;
