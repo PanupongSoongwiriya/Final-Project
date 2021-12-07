@@ -456,7 +456,7 @@ public class Character : MonoBehaviour
     {
         if (gameSystem.name.Equals("TutorialSystem"))
         {
-            if (gameSystem.GetComponent<TutorialSystem>().TutorialStep != 5)
+            if (gameSystem.GetComponent<TutorialSystem>().TutorialStep != 7)
             {
                 gameSystem.GetComponent<TutorialSystem>().TutorialStep++;
             }

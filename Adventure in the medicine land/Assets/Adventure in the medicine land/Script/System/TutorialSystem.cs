@@ -37,6 +37,7 @@ public class TutorialSystem : GameSystem
         tutorialDescription.Add("พื้นที่มีสีฟ้าปรากฏขึ้นคือระยะ\nที่ตัวละครสามารถเดินไปได้");
         tutorialDescription.Add("พื้นที่มีสีแดงปรากฏขึ้นคือระยะที่ตัวละคร\nสามารถสร้างความเสียหายให้กับศัตรูได้");
         tutorialDescription.Add("เลือกตัวละครเชิ้อโรค");
+        tutorialDescription.Add("หลังจากที่เดินแล้วตัวละครยังกระทำอย่างอื่นได้อีก 1 อย่างที่ไม่ใช่เดิน");
     }
 
     private void setTutoria()
@@ -44,7 +45,7 @@ public class TutorialSystem : GameSystem
         Debug.Log("tutorialStep: " + tutorialStep + "------------------------------");
         ForcePress.SetActive(false);
         Concealed.SetActive(false);
-        Overlay.SetActive(false); 
+        Overlay.SetActive(false);
         setAllButtonActive(true);
         clearAllButtonDescription();
         clearTutorialDescription();
@@ -72,43 +73,51 @@ public class TutorialSystem : GameSystem
         }
         else if (tutorialStep == 3)
         {
+            setTutorialDescription("Right", 4);
             setTutorialDescription("Bottom", 0);
             ForcePress.gameObject.SetActive(true);
-            cf.Target = medicineFaction[1].transform;
+            cf.Target = medicineFaction[0].transform;
         }
         else if (tutorialStep == 4)
         {
-            Debug.Log("buttonDescription[1] 1: " + buttonDescription[1].gameObject.active + " 44444444444444444");
             Concealed.SetActive(true);
             setAllButtonActive(false);
             buttonDescription[1].SetActive(true);
             controlPanel.transform.GetChild(0).transform.GetChild(2).GetComponent<controlPanelButton>().ActiveBotton = true;
-
-            Debug.Log("Concealed: " + Concealed.gameObject.active + " 44444444444444444");
-            Debug.Log("buttonDescription[1] 2: " + buttonDescription[1].gameObject.active + " 44444444444444444");
-            Debug.Log("controlPanel: " + controlPanel.transform.GetChild(0).transform.GetChild(2).GetComponent<controlPanelButton>().ActiveBotton + " 44444444444444444");
-
         }
         else if (tutorialStep == 5)
+        {
+            setTutorialDescription("Bottom", 0);
+            ForcePress.gameObject.SetActive(true);
+            cf.Target = medicineFaction[1].transform;
+        }
+        else if (tutorialStep == 6)
+        {
+            Concealed.SetActive(true);
+            setAllButtonActive(false);
+            buttonDescription[1].SetActive(true);
+            controlPanel.transform.GetChild(0).transform.GetChild(2).GetComponent<controlPanelButton>().ActiveBotton = true;
+        }
+        else if (tutorialStep == 7)
         {
             lockCamera = true;
             Overlay.SetActive(true);
         }
-        else if (tutorialStep == 6)
+        else if (tutorialStep == 8)
         {
             setTutorialDescription("Bottom", 0);
             lockCamera = true;
             ForcePress.gameObject.SetActive(true);
             cf.Target = medicineFaction[0].transform;
         }
-        else if (tutorialStep == 7)
+        else if (tutorialStep == 9)
         {
             Concealed.SetActive(true);
             setAllButtonActive(false);
             buttonDescription[2].SetActive(true);
             controlPanel.transform.GetChild(0).transform.GetChild(1).GetComponent<controlPanelButton>().ActiveBotton = true;
         }
-        else if (tutorialStep == 8)
+        else if (tutorialStep == 10)
         {
             setTutorialDescription("Right", 2);
             setTutorialDescription("Bottom", 3);
@@ -116,26 +125,26 @@ public class TutorialSystem : GameSystem
             setAllButtonActive(false);
             cf.Target = diseaseFaction[1].transform;
         }
-        else if (tutorialStep == 9)
+        else if (tutorialStep == 11)
         {
             setTutorialDescription("Bottom", 0);
             ForcePress.gameObject.SetActive(true);
             cf.Target = medicineFaction[1].transform;
         }
-        else if (tutorialStep == 10)
+        else if (tutorialStep == 12)
         {
             Concealed.SetActive(true);
             setAllButtonActive(false);
             buttonDescription[3].SetActive(true);
             controlPanel.transform.GetChild(0).transform.GetChild(3).GetComponent<controlPanelButton>().ActiveBotton = true;
         }
-        else if (tutorialStep == 11)
+        else if (tutorialStep == 13)
         {
             Concealed.SetActive(true);
             setAllButtonActive(false);
             buttonDescription[4].SetActive(true);
         }
-        else if (tutorialStep == 12)
+        else if (tutorialStep == 14)
         {
             setTutorialDescription("Bottom", 3);
             ForcePress.gameObject.SetActive(true);
@@ -156,7 +165,7 @@ public class TutorialSystem : GameSystem
                 }
             }
         }
-        if (tutorialStep <= 12)
+        if (tutorialStep <= 14)
         {
             lockCamera = true;
         }
@@ -223,7 +232,6 @@ private void clearAllButtonDescription()
 }
 private void setAllButtonActive(bool active)
 {
-    Debug.Log("setAllButtonActive");
     GameObject OptionsPanel = controlPanel.transform.GetChild(0).gameObject;
     for (int i = 0; i < OptionsPanel.transform.childCount; ++i)
     {
@@ -235,7 +243,7 @@ private void setAllButtonActive(bool active)
 public int TutorialStep
 {
     get { return tutorialStep; }
-    set { tutorialStep = Mathf.Min(value, 14); setTutoria(); }
+    set { tutorialStep = Mathf.Min(value, 15); setTutoria(); }
 }
 
 }
