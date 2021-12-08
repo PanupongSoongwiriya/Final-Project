@@ -36,6 +36,7 @@ public class InformationBookSystem : MonoBehaviour
 
         //distance between 2 buttons
         float distance = buttonHeight / 2 + (buttonHeight * 0.3f);
+        distance = buttonHeight*(((Screen.width)*100)/1920)/100;
 
         float scrollHeaderHeight;
         float scrollHeaderX = scrollHeader.transform.position.x;
@@ -46,7 +47,7 @@ public class InformationBookSystem : MonoBehaviour
         for (int i = 0; i < data.Book.Length; i++)
         {
             float buttonX = button.transform.position.x;
-            float buttonY = button.transform.position.y + (i * -distance);
+            float buttonY = button.transform.position.y + (i * -distance) - (buttonHeight / 4);
             float buttonZ = button.transform.position.z;
             GameObject newButton = Instantiate(button, new Vector3(buttonX, buttonY, buttonZ), transform.rotation);
 
