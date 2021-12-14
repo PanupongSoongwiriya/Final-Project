@@ -28,17 +28,17 @@ public class StorySystem : MonoBehaviour
     {
         sm.Load();
         loadJson();
-        index = -1;
+        index = 0;
         setDialog();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        /*if (Input.GetMouseButtonDown(0))
         {
             setDialog();
-        }
+        }*/
     }
     private void loadJson()
     {
@@ -54,7 +54,6 @@ public class StorySystem : MonoBehaviour
     }
     private void setDialog()
     {
-        ++index;
         for (int i = 0; i < chapter.dialog.Length; i++)
         {
             if (chapter.dialog[i].id == index)
@@ -88,5 +87,10 @@ public class StorySystem : MonoBehaviour
         {
             SceneManager.LoadScene("Tutorial Scense");
         }
+    }
+    public int Index
+    {
+        get { return index; }
+        set { index = value; setDialog(); }
     }
 }

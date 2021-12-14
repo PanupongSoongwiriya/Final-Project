@@ -9,8 +9,9 @@ public class EndGame : MonoBehaviour
     public GameSystem gameSystem;
     public GameObject win;
     public GameObject lose;
-    public GameObject yesButton;
-    public GameObject noButton;
+    public GameObject againButton;
+    public GameObject back2HomeButton;
+    public GameObject continuousButton;
     public Animator anim;
     public SaveManager sm;
 
@@ -18,16 +19,16 @@ public class EndGame : MonoBehaviour
     {
         bool checkWin = gameSystem.diseaseFaction.Count == 0;
         bool checkLose = gameSystem.medicineFaction.Count == 0;
-        win.SetActive(checkWin);
-        lose.SetActive(checkLose);
-        yesButton.SetActive(checkLose);
-        noButton.SetActive(checkLose);
-        fadeToBlack();
         if (checkWin)
         {
             AutoSeve();
-            Invoke("goToStoryScene", 3f);
         }
+        win.SetActive(checkWin);
+        lose.SetActive(checkLose);
+        againButton.SetActive(checkLose);
+        continuousButton.SetActive(checkWin);
+        back2HomeButton.SetActive(true);
+        fadeToBlack();
     }
 
     //Case Lose
@@ -35,8 +36,8 @@ public class EndGame : MonoBehaviour
     {
         gameObject.SetActive(false);
         lose.SetActive(false);
-        yesButton.SetActive(false);
-        noButton.SetActive(false);
+        againButton.SetActive(false);
+        back2HomeButton.SetActive(false);
         gameSystem.resetGame();
     }
 
@@ -57,7 +58,7 @@ public class EndGame : MonoBehaviour
     }
     public void AutoSeve()
     {
-        sm.state.storyOrder = Mathf.Min(sm.state.storyOrder+1, 3);
+        sm.state.storyOrder = Mathf.Min(sm.state.storyOrder + 1, 3);
         sm.Save();
         Debug.Log("AutoSeve");
     }
