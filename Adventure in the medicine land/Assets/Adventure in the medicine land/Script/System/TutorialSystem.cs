@@ -34,7 +34,7 @@ public class TutorialSystem : GameSystem
         cf = GameObject.Find("Game Camera").GetComponent<CameraFollow>();
         TutorialStep = -1;
         tutorialDescription.Add("เลือกตัวละครยา");
-        tutorialDescription.Add("พื้นที่มีสีฟ้าปรากฏขึ้นคือระยะ\nที่ตัวละครสามารถเดินไปได้");
+        tutorialDescription.Add("พื้นที่มีสีขาวปรากฏขึ้นคือระยะ\nที่ตัวละครสามารถเดินไปได้");
         tutorialDescription.Add("พื้นที่มีสีแดงปรากฏขึ้นคือระยะที่ตัวละคร\nสามารถสร้างความเสียหายให้กับศัตรูได้");
         tutorialDescription.Add("เลือกตัวละครเชิ้อโรค");
         tutorialDescription.Add("หลังจากที่เดินแล้วตัวละครยังกระทำอย่างอื่นได้อีก 1 อย่างที่ไม่ใช่เดิน");

@@ -56,20 +56,22 @@ public class Floor : MonoBehaviour
         GameObject show = transform.GetChild(0).gameObject;
         show.SetActive(inTerm);
         Animator anim = show.GetComponent<Animator>();
+        GameObject frame = show.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject;
+        Debug.Log("name: " + frame.name);
         if (doingWhat.Equals("walk"))
         {
             anim.SetInteger("Color", 0);
-            show.GetComponent<Renderer>().material.SetColor("_Color", new Color(0, 0, 1, 0.25f));
+            frame.GetComponent<Renderer>().material.SetColor("_Color", new Color(1, 1, 1, 1));
         }
         else if(doingWhat.Equals("support"))
         {
             anim.SetInteger("Color", 1);
-            show.GetComponent<Renderer>().material.SetColor("_Color", new Color(0, 1, 0, 0.25f));
+            frame.GetComponent<Renderer>().material.SetColor("_Color", new Color(0, 1, 0, 1));
         }
         else if (doingWhat.Equals("bad for the enemy"))
         {
             anim.SetInteger("Color", 2);
-            show.GetComponent<Renderer>().material.SetColor("_Color", new Color(1, 0, 0, 0.5f));
+            frame.GetComponent<Renderer>().material.SetColor("_Color", new Color(1, 0, 0, 1));
         }
     }
     private void OnCollisionEnter(Collision collision)
