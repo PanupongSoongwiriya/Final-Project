@@ -36,6 +36,9 @@ public class SkillPanel : MonoBehaviour
 
     public void activeSkill(int index)
     {
+        skillButton_1.gameObject.SetActive(false);
+        skillButton_2.gameObject.SetActive(false);
+        skillButton_3.gameObject.SetActive(false);
         gameSystem.NowCharecter.useSkill(index);
         if (gameSystem.name.Equals("TutorialSystem"))
         {
