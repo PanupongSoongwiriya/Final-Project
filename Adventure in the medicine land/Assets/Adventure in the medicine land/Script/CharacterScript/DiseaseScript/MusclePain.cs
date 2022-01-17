@@ -16,8 +16,9 @@ public class MusclePain : Character
         attackPower = 1;
         defensePower = 1;
 
-
         startSetUp();
+
+        characterStatus = status.GetComponent<TestStatus>();
     }
     void Update()
     {

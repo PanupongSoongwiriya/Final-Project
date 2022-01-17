@@ -12,6 +12,7 @@ public class controlPanelButton : MonoBehaviour
     public GameObject skillPanel;
     public GameObject characterDetailPanel;
     public GameObject skillDetailPanel;
+    public GameObject bagDetailPanel;
     public GameObject sheatheMenu;
     public GameObject sheatheData;
     public bool activeBotton;

@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +8,7 @@ public class characterDetailPanel : MonoBehaviour
 {
     public Text nameText;
     public Text classText;
+    public Text statusText;
     public Text hpText;
     public Text atkText;
     public Text defText;
@@ -28,15 +29,32 @@ public class characterDetailPanel : MonoBehaviour
     {
         String spATK = " (";
         String spDEF = " (";
-        nameText.text = "Name: " + gameSystem.NowCharecter.characterName;
+        nameText.text = "ชื่อ: " + gameSystem.NowCharecter.characterName;
 
         if (gameSystem.NowCharecter.Faction.Equals("Disease"))
         {
             nameText.text += " " + gameSystem.NowCharecter.ID;
         }
 
-        classText.text = "Class: " + gameSystem.NowCharecter.classCharacter;
-        hpText.text = "Hp: " + gameSystem.NowCharecter.hp + "/" + gameSystem.NowCharecter.MAXHP;
+        classText.text = "คลาส: " + gameSystem.NowCharecter.classCharacter;
+
+        if (gameSystem.NowCharecter.Faction.Equals("Disease"))
+        {
+            statusText.text = "";
+        }
+        else
+        {
+            if (gameSystem.NowCharecter.CharacterStatus == null)
+            {
+                statusText.text = "สถานะ: ปกติ";
+            }
+            else
+            {
+                statusText.text = "สถานะ: " + gameSystem.NowCharecter.CharacterStatus.statusName;
+            }
+        }
+
+        hpText.text = "พลังชีวิต: " + gameSystem.NowCharecter.hp + "/" + gameSystem.NowCharecter.MAXHP;
 
         if (gameSystem.NowCharecter.specialAttack > 0)
         {
@@ -56,7 +74,7 @@ public class characterDetailPanel : MonoBehaviour
             spDEF += gameSystem.NowCharecter.specialDefense + ")";
         }
 
-        atkText.text = "Atk: " + gameSystem.NowCharecter.attackPower + spATK;
-        defText.text = "Def: " + gameSystem.NowCharecter.defensePower + spDEF;
+        atkText.text = "พลังโจมตี: " + gameSystem.NowCharecter.attackPower + spATK;
+        defText.text = "พลังป้องกัน: " + gameSystem.NowCharecter.defensePower + spDEF;
     }
 }

@@ -21,6 +21,7 @@ public class Hero : Character
         startSetUp();
 
         allSkill.Add(skill.GetComponent<HeavyATK>());
+        bag.Add(status.GetComponent<MedicineTest>());
         /*allSkill.Add(skill.GetComponent<DebuffATK>());
         allSkill.Add(skill.GetComponent<DebuffDEF>());*/
     }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Random = UnityEngine.Random;
 
 public class BotDisease : MonoBehaviour
 {
@@ -51,7 +52,7 @@ public class BotDisease : MonoBehaviour
             bool inAtkRange = medicine.pedalFloor.inTerm;
             gameSystem.resetInTerm();
 
-            priorityMedicine.Add(dataMedicine.AddComponent<DataCompareMedicine>().createData(medicine, inflictDamage, canKill, damaged, dead, howFar, inRangeMedicine, inAtkRange, 0, index));
+            priorityMedicine.Add(dataMedicine.AddComponent<DataCompareMedicine>().createData(medicine, inflictDamage, canKill, damaged, dead, howFar, inRangeMedicine, inAtkRange, medicine.taunts, 0, index));
             ++index;
         }
     }
@@ -73,6 +74,10 @@ public class BotDisease : MonoBehaviour
                     stage = "escape";
                     medicine.priority -= 3;
                 }
+            }
+            else if (medicine.taunts)
+            {
+                medicine.priority -= 3;
             }
         }
 
@@ -139,6 +144,11 @@ public class BotDisease : MonoBehaviour
             {
                 stage = "attack";
                 target.attacked();
+                if (chr.characterStatus != null & target.characterStatus == null & Random.Range(0, 2) == 1)
+                {
+                    target.CharacterStatus = chr.characterStatus;
+                    target.CharacterStatus.statusEffect();
+                }
                 break;
             }
         }
@@ -159,6 +169,11 @@ public class BotDisease : MonoBehaviour
             }
             stage = "attack";
             atked.attacked();
+            if (chr.characterStatus != null & target.characterStatus == null & Random.Range(0, 2) == 1)
+            {
+                target.CharacterStatus = chr.characterStatus;
+                target.CharacterStatus.statusEffect();
+            }
         }
         else
         {

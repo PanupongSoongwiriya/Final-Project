@@ -57,7 +57,7 @@ public class Floor : MonoBehaviour
         show.SetActive(inTerm);
         Animator anim = show.GetComponent<Animator>();
         GameObject frame = show.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject;
-        Debug.Log("name: " + frame.name);
+        //Debug.Log("name: " + frame.name);
         if (doingWhat.Equals("walk"))
         {
             anim.SetInteger("Color", 0);

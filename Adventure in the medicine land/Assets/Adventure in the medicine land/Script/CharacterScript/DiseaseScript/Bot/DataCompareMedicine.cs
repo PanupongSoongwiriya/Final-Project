@@ -14,9 +14,10 @@ public class DataCompareMedicine : MonoBehaviour
     public float howFar;
     public bool withinMedicineAtkRange;
     public bool withinAtkRange;
+    public bool taunts;
     public float priority;
 
-    public DataCompareMedicine createData(Character chr, float inflictDamage, bool canKill, float damaged, bool dead, float howFar, bool inRangeMedicine, bool inAtkRange, float priority, float index)
+    public DataCompareMedicine createData(Character chr, float inflictDamage, bool canKill, float damaged, bool dead, float howFar, bool inRangeMedicine, bool inAtkRange, bool taunts, float priority, float index)
     {
         character = chr;
         this.inflictDamage = inflictDamage;
@@ -27,7 +28,8 @@ public class DataCompareMedicine : MonoBehaviour
         withinAtkRange = inAtkRange;
         Priority = priority;
         this.index = index;
-        this.canKill = canKill;
+        this.canKill = canKill; 
+        this.taunts = taunts; 
 
         return this;
     }

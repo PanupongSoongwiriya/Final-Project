@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using System;
 
 public class Character : MonoBehaviour
@@ -25,6 +24,8 @@ public class Character : MonoBehaviour
     [SerializeField]
     protected GameObject chrNearest;
 
+    public Status characterStatus;
+
     public int hp;
     public int maxHP;
 
@@ -39,10 +40,13 @@ public class Character : MonoBehaviour
 
     public GameSystem gameSystem;
     public int indexSkill;
+    public bool taunts;
 
 
     public List<Skill> allSkill;
     public GameObject skill;
+    public List<Status> bag;
+    public GameObject status;
     public Floor pedalFloor;
     public GameObject dmgText;
     public BotDisease botDisease;
@@ -102,7 +106,9 @@ public class Character : MonoBehaviour
 
         name = classCharacter + " " + id;
         skill = GameObject.Find("SkillList");
+        status = GameObject.Find("StatusList");
         allSkill = new List<Skill>();
+        bag = new List<Status>();
         findAllMaterial(transform);
         targetSpin = null;
     }
@@ -372,6 +378,12 @@ public class Character : MonoBehaviour
         specialDefense = 0;
         specialAttack = 0;
         resetRange();
+        if (faction.Equals("Medicine") & characterStatus != null)
+        {
+            Debug.Log(name + " fffffffffffffffffffffffffffffffffffffffffff");
+            Debug.Log(characterStatus);
+            characterStatus.statusEffect();
+        }
     }
     protected virtual void resetRange()
     {
@@ -553,17 +565,13 @@ public class Character : MonoBehaviour
         }
     }
 
-    protected void setColorActive()
+    protected void setColorCharacter(Color c)
     {
         if (Faction.Equals("Medicine"))
         {
             foreach (Renderer r in allRenderer)
             {
-                r.material.SetColor("_Color", new Color(1, 1, 1, 1));
-                if (actionPoint == 0)
-                {
-                    r.material.SetColor("_Color", new Color(0.4f, 0.4f, 0.4f, 1));
-                }
+                r.material.SetColor("_Color", c);
             }
         }
     }
@@ -581,6 +589,35 @@ public class Character : MonoBehaviour
     public int ActionPoint
     {
         get { return actionPoint; }
-        set { actionPoint = value; setColorActive(); }
+        set
+        {
+            actionPoint = value;
+            float newC = 1;
+            if (value == 0)
+            {
+                newC = 0.4f;
+            }
+            if (CharacterStatus != null)
+            {
+                setColorCharacter(new Color(CharacterStatus.color.r * newC, CharacterStatus.color.g * newC, CharacterStatus.color.b * newC, 1));
+            }
+            else
+            {
+                setColorCharacter(new Color(1* newC, 1* newC, 1* newC, 1));
+            }
+        }
+    }
+
+    public Status CharacterStatus
+    {
+        get { return characterStatus; }
+        set {
+                characterStatus = value;
+                if (value != null)
+                {
+                    setColorCharacter(value.color);
+                    value.chr = this;
+                }
+        }
     }
 }

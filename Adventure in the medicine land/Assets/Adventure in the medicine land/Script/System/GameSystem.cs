@@ -2,9 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-using UnityEngine.EventSystems;
 
 public class GameSystem : MonoBehaviour
 {
@@ -50,6 +47,7 @@ public class GameSystem : MonoBehaviour
         //controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
         cf = GameObject.Find("Game Camera").GetComponent<CameraFollow>();
     }
+
 
     public void checkChangeTurn()
     {
