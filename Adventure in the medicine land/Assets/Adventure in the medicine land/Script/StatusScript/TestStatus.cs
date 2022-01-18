@@ -18,4 +18,23 @@ public class TestStatus : Status
             chr.attackRange = Mathf.Max(chr.attackRange - numEffect, 1);
         }
     }
+    public override bool IsStatusEffective(Status s)
+    {
+        /*if (s.Type.Equals(""))
+        {
+            return true;
+        }*/
+
+        /**************************************************/
+        if (s == null)
+        {
+            return true;
+        }
+        else if (s.Type.Equals("cure all disease"))
+        {
+            return false;
+        }
+        /**************************************************/
+        return true;
+    }
 }

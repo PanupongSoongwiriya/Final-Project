@@ -10,11 +10,12 @@ public class GameSystem : MonoBehaviour
     public bool endGame = false;
 
     public string state;
-    //("Choose a medicine character", "waiting for orders", "walk", "Choose a enemy character", "waiting for skill", "Use skills with enemies", "Use skills with ally", "Debuff with enemies", "round of bots")
+    //("Choose a medicine character", "waiting for orders", "walk", "Choose a enemy character", "waiting for choose medicine", "Use medicine with ally", "round of bots")
 
     public Character nowCharecter;
     protected String skillType;
     protected int skillBonusEffect;
+    public Status selectedMedicine;
 
     public GameObject controlPanel;
 
@@ -157,7 +158,7 @@ public class GameSystem : MonoBehaviour
         int checkTerm = -1;
         String doingWhat = "";
 
-        if (State.Equals("waiting for orders") || State.Equals("waiting for skill"))
+        if (State.Equals("waiting for orders") || State.Equals("waiting for choose medicine"))
         {
             resetInTerm();
         }
@@ -168,12 +169,12 @@ public class GameSystem : MonoBehaviour
                 checkTerm = nowCharecter.walkingDistance;
                 doingWhat = "walk";
             }
-            else if (State.Equals("Choose a enemy character") || State.Equals("Use skills with enemies") || State.Equals("Debuff with enemies"))
+            else if (State.Equals("Choose a enemy character"))
             {
                 checkTerm = nowCharecter.attackRange;
                 doingWhat = "bad for the enemy";
             }
-            else if (State.Equals("Use skills with ally"))
+            else if (State.Equals("Use medicine with ally"))
             {
                 checkTerm = nowCharecter.attackRange;
                 doingWhat = "support";
@@ -414,7 +415,7 @@ public class GameSystem : MonoBehaviour
         set
         {
             state = value;
-            //Debug.Log(state);
+            Debug.Log(state);
             chackInTerm();
         }
     }

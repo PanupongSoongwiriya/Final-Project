@@ -48,6 +48,10 @@ public class characterDetailPanel : MonoBehaviour
             {
                 statusText.text = "สถานะ: ปกติ";
             }
+            else if(gameSystem.NowCharecter.CharacterStatus.statusType.Equals("heal"))
+            {
+                statusText.text = "สถานะ: ปกติ(" + gameSystem.NowCharecter.CharacterStatus.statusName + ")";
+            }
             else
             {
                 statusText.text = "สถานะ: " + gameSystem.NowCharecter.CharacterStatus.statusName;

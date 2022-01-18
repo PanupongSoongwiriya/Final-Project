@@ -12,7 +12,7 @@ public class bagOptionsButton : controlPanelButton
         {
             tutorialPlus();
             gameSystem.State = "waiting for choose medicine";
-            bagDetailPanel.GetComponent<BagDetailPanel>().numberOfMedicine = gameSystem.NowCharecter.allSkill.Count;
+            useButton.SetActive(true);
             bagDetailPanel.GetComponent<BagDetailPanel>().gameSystem = gameSystem;
             switchPanel(true, false, true, false, true);//controlPanel, optionsPanel, skillPanel, characterDetailPanel, bagDetailPanel
         }

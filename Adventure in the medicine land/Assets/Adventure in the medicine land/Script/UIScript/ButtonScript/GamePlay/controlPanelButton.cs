@@ -47,9 +47,10 @@ public class controlPanelButton : MonoBehaviour
     {
         sheatheMenu.gameObject.SetActive(cp);
         sheatheData.gameObject.SetActive(cdp || sdp);
-        skillDetailPanel.gameObject.SetActive(sdp);
+        //skillDetailPanel.gameObject.SetActive(sdp);
         characterDetailPanel.gameObject.SetActive(cdp);
-        skillPanel.gameObject.SetActive(sp);
+        //skillPanel.gameObject.SetActive(sp);
+        bagDetailPanel.gameObject.SetActive(sp);
         optionsPanel.gameObject.SetActive(op);
         controlPanel.gameObject.SetActive(cp);
     }

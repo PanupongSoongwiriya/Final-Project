@@ -76,7 +76,8 @@ public class Character : MonoBehaviour
             showDetailDisease();
             prepare();
             attacked();
-            checkBuffDebuff();
+            //checkBuffDebuff();
+            canCureDisease();
             tutorialPlus();
         }
     }
@@ -286,6 +287,24 @@ public class Character : MonoBehaviour
         }
     }
 
+    protected void canCureDisease()
+    {
+        if (gameSystem.State.Equals("Use medicine with ally") && !gameSystem.NowCharecter.Equals(this) && faction.Equals("Medicine") && pedalFloor.InTerm)
+        {
+            if (gameSystem.selectedMedicine.IsStatusEffective(characterStatus))
+            {
+                CharacterStatus = gameSystem.selectedMedicine;
+                resetSP();
+            }
+            gameSystem.selectedMedicine = null;
+            gameSystem.State = "Choose a medicine character";
+            gameSystem.NowCharecter.doneIt(2);
+            gameSystem.resetInTerm();
+            gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false, false, false);
+            //controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
+        }
+    }
+
     public void attacked()
     {
         //Player Attack
@@ -378,7 +397,7 @@ public class Character : MonoBehaviour
         specialDefense = 0;
         specialAttack = 0;
         resetRange();
-        if (faction.Equals("Medicine") & characterStatus != null)
+        if (!gameSystem.State.Equals("Use medicine with ally") & faction.Equals("Medicine") & characterStatus != null)
         {
             Debug.Log(name + " fffffffffffffffffffffffffffffffffffffffffff");
             Debug.Log(characterStatus);
@@ -611,13 +630,19 @@ public class Character : MonoBehaviour
     public Status CharacterStatus
     {
         get { return characterStatus; }
-        set {
-                characterStatus = value;
-                if (value != null)
+        set 
+        {
+            characterStatus = value;
+            if (value != null)
+            {
+                float newC = 1;
+                if (ActionPoint == 0)
                 {
-                    setColorCharacter(value.color);
-                    value.chr = this;
+                    newC = 0.4f;
                 }
+                setColorCharacter(new Color(value.color.r * newC, value.color.g * newC, value.color.b * newC, 1));
+                value.chr = this;
+            }
         }
     }
 }

@@ -5,41 +5,93 @@ using UnityEngine.UI;
 
 public class BagDetailPanel : MonoBehaviour
 {
-    public int numberOfMedicine;
-    public GameObject bagPanel_1;
-    public GameObject bagPanel_2;
-    public GameObject bagPanel_3;
+    public GameObject bag;
+    public GameObject description_Box;
+    public GameObject useButton;
+    public ChannelMedicine cm;
     public GameSystem gameSystem;
+    public controlPanelButton cpb;
     public bool activeBotton;
+
+    void Start()
+    {
+        ActiveBotton = false;
+    }
 
     void Update()
     {
+        setBag();
         showDetail();
     }
     private void showDetail()
     {
-        bagPanel_1.gameObject.SetActive(numberOfMedicine > 0);
-        bagPanel_2.gameObject.SetActive(numberOfMedicine > 1);
-        bagPanel_3.gameObject.SetActive(numberOfMedicine > 2);
-        if (numberOfMedicine > 0)
+        if (cm != null)
         {
-            GameObject.Find("Bag_1").GetComponentsInChildren<Text>()[0].text = gameSystem.NowCharecter.bag[0].statusName;
-            GameObject.Find("Bag_1").GetComponentsInChildren<Text>()[1].text = ThaiFontAdjuster.Adjust(gameSystem.NowCharecter.bag[0].desCripTion);
+            description_Box.GetComponentsInChildren<Text>()[0].text = cm.medicine.statusName;
+            description_Box.GetComponentsInChildren<Text>()[1].text = cm.medicine.desCripTion;
         }
-        if (numberOfMedicine > 1)
+        else
         {
-            GameObject.Find("Bag_2").GetComponentsInChildren<Text>()[0].text = gameSystem.NowCharecter.bag[1].statusName;
-            GameObject.Find("Bag_2").GetComponentsInChildren<Text>()[1].text = ThaiFontAdjuster.Adjust(gameSystem.NowCharecter.bag[1].desCripTion);
+            description_Box.GetComponentsInChildren<Text>()[0].text = "";
+            description_Box.GetComponentsInChildren<Text>()[1].text = "";
         }
-        if (numberOfMedicine > 2)
+    }
+    private void setBag()
+    {
+        for (int i = 0; i < bag.transform.childCount; i++)
         {
-            GameObject.Find("Bag_3").GetComponentsInChildren<Text>()[0].text = gameSystem.NowCharecter.bag[2].statusName;
-            GameObject.Find("Bag_3").GetComponentsInChildren<Text>()[1].text = ThaiFontAdjuster.Adjust(gameSystem.NowCharecter.bag[2].desCripTion);
+            bag.transform.GetChild(i).GetComponent<ChannelMedicine>().bdp = this;
+            bag.transform.GetChild(i).GetComponent<ChannelMedicine>().medicine = null;
+        }
+        for (int i = 0; i < gameSystem.NowCharecter.bag.Count; i++)
+        {
+            bag.transform.GetChild(i).GetComponent<ChannelMedicine>().medicine = gameSystem.NowCharecter.bag[i];
         }
     }
 
     public void useMedicine()
     {
-        Debug.Log("Use Medicine !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        if (ActiveBotton)
+        {
+            ActiveBotton = false;
+            Debug.Log("Use Medicine !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            gameSystem.selectedMedicine = CM.medicine;
+            gameSystem.State = "Use medicine with ally";
+            useButton.SetActive(false);
+            cm = null;
+            for (int i = 0; i < bag.transform.childCount; i++)
+            {
+                bag.transform.GetChild(i).GetComponent<ChannelMedicine>().Select = false;
+            }
+            cpb.switchPanel(true, false, false, false, false);//controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
+        }
+    }
+    public ChannelMedicine CM
+    {
+        get { return cm; }
+        set
+        {
+            cm = value;
+            ActiveBotton = true;
+            for (int i = 0; i < bag.transform.childCount; i++)
+            {
+                bag.transform.GetChild(i).GetComponent<ChannelMedicine>().Select = false;
+            }
+            value.Select = true;
+        }
+    }
+    public bool ActiveBotton
+    {
+        get { return activeBotton; }
+        set
+        {
+            activeBotton = value;
+            float a = 0.5f;
+            if (value)
+            {
+                a = 1;
+            }
+            useButton.GetComponent<Image>().color = new Color(1, 1, 1, a);
+        }
     }
 }

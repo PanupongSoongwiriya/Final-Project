@@ -7,11 +7,11 @@ public class Status : MonoBehaviour
 {
     public String statusName;
     public String desCripTion;
+    public String statusType;
+    public String Type;
     protected int numEffect;
     protected int numEffect_2;
     public Color color;
-    protected String effectType;
-    protected String statusType;
     public GameSystem gameSystem;
     public Character chr;
 
@@ -24,8 +24,12 @@ public class Status : MonoBehaviour
     public virtual void statusEffect()
     {
     }
+    public virtual bool IsStatusEffective(Status s)
+    {
+        return false;
+    }
 
-    protected void startSet(String sn, String dct, String st, String et, int ne, int ne2, Color c)
+    protected void startSet(String sn, String dct, String st, String t, int ne, int ne2, Color c)
     {
         try
         {
@@ -39,7 +43,7 @@ public class Status : MonoBehaviour
         statusName = sn;
         desCripTion = dct;
         statusType = st;
-        effectType = et;
+        Type = t;
         numEffect = ne;
         numEffect_2 = ne2;
         color = c;

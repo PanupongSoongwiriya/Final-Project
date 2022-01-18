@@ -144,11 +144,7 @@ public class BotDisease : MonoBehaviour
             {
                 stage = "attack";
                 target.attacked();
-                if (chr.characterStatus != null & target.characterStatus == null & Random.Range(0, 2) == 1)
-                {
-                    target.CharacterStatus = chr.characterStatus;
-                    target.CharacterStatus.statusEffect();
-                }
+                spreadGerms();
                 break;
             }
         }
@@ -169,11 +165,7 @@ public class BotDisease : MonoBehaviour
             }
             stage = "attack";
             atked.attacked();
-            if (chr.characterStatus != null & target.characterStatus == null & Random.Range(0, 2) == 1)
-            {
-                target.CharacterStatus = chr.characterStatus;
-                target.CharacterStatus.statusEffect();
-            }
+            spreadGerms();
         }
         else
         {
@@ -183,6 +175,30 @@ public class BotDisease : MonoBehaviour
             chr.doneIt(2);
         }
         gameSystem.resetInTerm();
+    }
+
+    private void spreadGerms()
+    {
+        if (chr.characterStatus != null)
+        {
+            if (Random.Range(0, 2) == 1)
+            {
+                bool change = false;
+                if (target.characterStatus == null)
+                {
+                    change = true;
+                }
+                else if (chr.characterStatus.IsStatusEffective(target.CharacterStatus))
+                {
+                    change = true;
+                }
+                if (change)
+                {
+                    target.CharacterStatus = chr.characterStatus;
+                    target.CharacterStatus.statusEffect();
+                }
+            }
+        }
     }
 
     private float findDistance(Vector3 position1, Vector3 position2)
