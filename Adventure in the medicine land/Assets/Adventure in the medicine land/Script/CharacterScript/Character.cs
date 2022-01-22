@@ -30,10 +30,12 @@ public class Character : MonoBehaviour
     public int maxHP;
 
     public int attackPower;
-    public int specialAttack;
+    [SerializeField]
+    protected int specialAttack;
 
     public int defensePower;
-    public int specialDefense;
+    [SerializeField]
+    protected int specialDefense;
 
     public int walkingDistance;
     public int attackRange;
@@ -399,9 +401,7 @@ public class Character : MonoBehaviour
         resetRange();
         if (!gameSystem.State.Equals("Use medicine with ally") & faction.Equals("Medicine") & characterStatus != null)
         {
-            Debug.Log(name + " fffffffffffffffffffffffffffffffffffffffffff");
-            Debug.Log(characterStatus);
-            characterStatus.statusEffect();
+            characterStatus.statusEffect(this);
         }
     }
     protected virtual void resetRange()
@@ -605,6 +605,16 @@ public class Character : MonoBehaviour
         get { return maxHP; }
         set { maxHP = value; }
     }
+    public int SP_Atk
+    {
+        get { return specialAttack; }
+        set { specialAttack = value; }
+    }
+    public int SP_Def
+    {
+        get { return specialDefense; }
+        set { specialDefense = value; }
+    }
     public int ActionPoint
     {
         get { return actionPoint; }
@@ -641,7 +651,6 @@ public class Character : MonoBehaviour
                     newC = 0.4f;
                 }
                 setColorCharacter(new Color(value.color.r * newC, value.color.g * newC, value.color.b * newC, 1));
-                value.chr = this;
             }
         }
     }

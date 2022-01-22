@@ -24,7 +24,7 @@ public class BrokenArmor : Skill
     {
         if (gameSystem.State.Equals("waiting for skill"))
         {
-            gameSystem.NowCharecter.specialAttack += bonusEffect;
+            gameSystem.NowCharecter.SP_Atk += bonusEffect;
             gameSystem.State = "Debuff with enemies";
             gameSystem.SkillType = "ATK/DEF";
             gameSystem.SkillBonusEffect = bonusEffect_2;
@@ -33,6 +33,6 @@ public class BrokenArmor : Skill
     }
     public override void cancelSkill()
     {
-        gameSystem.NowCharecter.specialAttack -= bonusEffect;
+        gameSystem.NowCharecter.SP_Atk -= bonusEffect;
     }
 }

@@ -43,7 +43,7 @@ public class floorDEF : Floor
             {
                 if (characterOnIt.Equals(collision.gameObject.GetComponent<Character>()))
                 {
-                    characterOnIt.specialDefense += floorBonus;
+                    characterOnIt.SP_Def += floorBonus;
                     characterOnIt.showDMG(floorBonus, typrFloor);
                 }
             }
@@ -55,7 +55,7 @@ public class floorDEF : Floor
         {
             if (characterOnIt.Equals(collision.gameObject.GetComponent<Character>()))
             {
-                characterOnIt.specialDefense -= floorBonus;
+                characterOnIt.SP_Def -= floorBonus;
                 characterOnIt = null;
             }
         }
@@ -64,7 +64,11 @@ public class floorDEF : Floor
     {
         if (characterOnIt != null)
         {
-            characterOnIt.specialDefense = floorBonus;
+            characterOnIt.SP_Def = floorBonus;
+            /*if (characterOnIt.faction.Equals("Medicine") & characterOnIt.characterStatus != null)
+            {
+                characterOnIt.characterStatus.statusEffect(characterOnIt);
+            }*/
         }
     }
 }

@@ -25,11 +25,11 @@ public class MedicineTest : Status
         /**************************************************/
         return false;
     }
-    public override void statusEffect()
+    public override void statusEffect(Character c)
     {
-        if (chr != null & chr.Faction.Equals("Medicine"))
+        if (c.Faction.Equals("Medicine"))
         {
-            chr.characterStatus = null;
+            c.characterStatus = null;
         }
     }
 }

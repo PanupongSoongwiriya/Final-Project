@@ -12,7 +12,6 @@ public class Floor : MonoBehaviour
     protected Color floorColor;
     public String typrFloor;
 
-    public Character test;
     void Start()
     {
         try
@@ -28,12 +27,6 @@ public class Floor : MonoBehaviour
     }
     protected void Update()
     {
-        if (test != characterOnIt)
-        {
-            /*Debug.Log(name + " old: " + test);
-            Debug.Log(name + " new: " + characterOnIt);*/
-            test = characterOnIt;
-        }
     }
 
 
@@ -57,7 +50,6 @@ public class Floor : MonoBehaviour
         show.SetActive(inTerm);
         Animator anim = show.GetComponent<Animator>();
         GameObject frame = show.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject;
-        //Debug.Log("name: " + frame.name);
         if (doingWhat.Equals("walk"))
         {
             anim.SetInteger("Color", 0);
@@ -76,14 +68,8 @@ public class Floor : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        /*Debug.Log("typeof: " + collision.gameObject.GetComponent(typeof(Character)));
-        if (collision.gameObject.GetComponent(typeof(Character)))
-        {
-            Debug.Log("Hello World");
-        }*/
         if (collision.gameObject.tag == "Medicine" || collision.gameObject.tag == "Disease")
         {
-            //Debug.Log("typeof: " + collision.gameObject.GetComponent(typeof(Character)));
             if (collision.gameObject.GetComponent<Character>().PedalFloor == null)
             {
                 characterOnIt = collision.gameObject.GetComponent<Character>();
@@ -105,11 +91,15 @@ public class Floor : MonoBehaviour
 
     public virtual void floorEffect()
     {
-        if (characterOnIt != null)
+        /*if (characterOnIt != null)
         {
-            characterOnIt.specialDefense = 0;
-            characterOnIt.specialAttack = 0;
-        }
+            characterOnIt.SP_Def = 0;
+            characterOnIt.SP_Atk = 0;
+            if (characterOnIt.faction.Equals("Medicine") & characterOnIt.characterStatus != null)
+            {
+                characterOnIt.characterStatus.statusEffect(characterOnIt);
+            }
+        }*/
     }
     public int FloorBonus
     {

@@ -10,7 +10,7 @@ public class defendButton : controlPanelButton
         if (gameSystem.State.Equals("waiting for orders") && ActiveBotton)
         {
             tutorialPlus();
-            gameSystem.NowCharecter.specialDefense += 1;
+            gameSystem.NowCharecter.SP_Def += 1;
             gameSystem.State = "Choose a medicine character";
             switchPanel(false, true, false, false, false);//controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
             gameSystem.NowCharecter.doneIt(2);

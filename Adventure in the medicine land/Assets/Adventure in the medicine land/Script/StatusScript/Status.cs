@@ -13,7 +13,6 @@ public class Status : MonoBehaviour
     protected int numEffect_2;
     public Color color;
     public GameSystem gameSystem;
-    public Character chr;
 
     public virtual void changeState()
     {
@@ -21,7 +20,7 @@ public class Status : MonoBehaviour
     public virtual void cancelStatus()
     {
     }
-    public virtual void statusEffect()
+    public virtual void statusEffect(Character c)
     {
     }
     public virtual bool IsStatusEffective(Status s)
@@ -49,9 +48,4 @@ public class Status : MonoBehaviour
         color = c;
     }
 
-    public Character Chr
-    {
-        get { return chr; }
-        set { chr = value; }
-    }
 }

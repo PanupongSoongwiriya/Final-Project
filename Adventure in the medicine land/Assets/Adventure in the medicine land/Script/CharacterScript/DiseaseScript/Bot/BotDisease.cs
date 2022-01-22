@@ -164,14 +164,15 @@ public class BotDisease : MonoBehaviour
                 }
             }
             stage = "attack";
-            atked.attacked();
+            target = atked;
+            target.attacked();
             spreadGerms();
         }
         else
         {
             //Defense
             stage = "defense";
-            chr.specialDefense += 1;
+            chr.SP_Def += 1;
             chr.doneIt(2);
         }
         gameSystem.resetInTerm();
@@ -181,7 +182,8 @@ public class BotDisease : MonoBehaviour
     {
         if (chr.characterStatus != null)
         {
-            if (Random.Range(0, 2) == 1)
+            //if (Random.Range(0, 2) == 1) 
+            if (1 == 1)
             {
                 bool change = false;
                 if (target.characterStatus == null)
@@ -194,8 +196,9 @@ public class BotDisease : MonoBehaviour
                 }
                 if (change)
                 {
+                    Debug.Log(target.name);
                     target.CharacterStatus = chr.characterStatus;
-                    target.CharacterStatus.statusEffect();
+                    //target.CharacterStatus.statusEffect(target);
                 }
             }
         }

@@ -415,7 +415,7 @@ public class GameSystem : MonoBehaviour
         set
         {
             state = value;
-            Debug.Log(state);
+            //Debug.Log(state);
             chackInTerm();
         }
     }

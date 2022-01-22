@@ -54,7 +54,6 @@ public class BagDetailPanel : MonoBehaviour
         if (ActiveBotton)
         {
             ActiveBotton = false;
-            Debug.Log("Use Medicine !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             gameSystem.selectedMedicine = CM.medicine;
             gameSystem.State = "Use medicine with ally";
             useButton.SetActive(false);

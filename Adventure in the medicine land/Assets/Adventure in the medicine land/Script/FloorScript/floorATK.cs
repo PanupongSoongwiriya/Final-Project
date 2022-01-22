@@ -43,7 +43,7 @@ public class floorATK : Floor
             {
                 if (characterOnIt.Equals(collision.gameObject.GetComponent<Character>()))
                 {
-                    characterOnIt.specialAttack += floorBonus;
+                    characterOnIt.SP_Atk += floorBonus;
                     characterOnIt.showDMG(floorBonus, typrFloor);
                 }
             }
@@ -55,7 +55,7 @@ public class floorATK : Floor
         {
             if (characterOnIt.Equals(collision.gameObject.GetComponent<Character>()))
             {
-                characterOnIt.specialAttack -= floorBonus;
+                characterOnIt.SP_Atk -= floorBonus;
                 characterOnIt = null;
             }
         }
@@ -65,7 +65,11 @@ public class floorATK : Floor
     {
         if (characterOnIt != null)
         {
-            characterOnIt.specialAttack = floorBonus;
+            characterOnIt.SP_Atk = floorBonus;
+            /*if (characterOnIt.faction.Equals("Medicine") & characterOnIt.characterStatus != null)
+            {
+                characterOnIt.characterStatus.statusEffect(characterOnIt);
+            }*/
         }
     }
 

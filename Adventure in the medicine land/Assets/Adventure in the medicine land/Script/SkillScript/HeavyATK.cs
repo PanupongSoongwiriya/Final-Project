@@ -23,13 +23,13 @@ public class HeavyATK : Skill
     {
         if (gameSystem.State.Equals("waiting for skill"))
         {
-            gameSystem.NowCharecter.specialAttack += bonusEffect;
+            gameSystem.NowCharecter.SP_Atk += bonusEffect;
             gameSystem.State = "Use skills with enemies";
             gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(true, false, false, false, false);//controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
         }
     }
     public override void cancelSkill()
     {
-        gameSystem.NowCharecter.specialAttack -= bonusEffect;
+        gameSystem.NowCharecter.SP_Atk -= bonusEffect;
     }
 }

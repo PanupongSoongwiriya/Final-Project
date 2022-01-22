@@ -11,11 +11,15 @@ public class TestStatus : Status
         //name, Description, status type, effect type, numEffect, numEffect_2, color
     }
 
-    public override void statusEffect()
+    public override void statusEffect(Character c)
     {
-        if (chr != null & chr.Faction.Equals("Medicine"))
+        if (c.Faction.Equals("Medicine"))
         {
-            chr.attackRange = Mathf.Max(chr.attackRange - numEffect, 1);
+            //c.HP -= numEffect; c.showDMG(-numEffect, "poison");
+            //c.SP_Atk -= numEffect;
+            c.SP_Def -= numEffect;
+            //c.walkingDistance -= numEffect;
+            //c.attackRange -= numEffect;
         }
     }
     public override bool IsStatusEffective(Status s)

@@ -15,7 +15,7 @@ public class AcneDisinfectant : Character
 
         attackPower = 2;
         defensePower = 2;
-        HP = 2;
+        HP = 10;
 
 
         startSetUp();
@@ -34,6 +34,7 @@ public class AcneDisinfectant : Character
     }
     protected override void resetRange()
     {
+        Debug.Log(name + ": resetRange()");
         attackRange = 2;
         walkingDistance = 2;
     }

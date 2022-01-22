@@ -60,22 +60,22 @@ public class characterDetailPanel : MonoBehaviour
 
         hpText.text = "พลังชีวิต: " + gameSystem.NowCharecter.hp + "/" + gameSystem.NowCharecter.MAXHP;
 
-        if (gameSystem.NowCharecter.specialAttack > 0)
+        if (gameSystem.NowCharecter.SP_Atk > 0)
         {
-            spATK += "+" + gameSystem.NowCharecter.specialAttack + ")";
+            spATK += "+" + gameSystem.NowCharecter.SP_Atk + ")";
         }
         else
         {
-            spATK += gameSystem.NowCharecter.specialAttack + ")";
+            spATK += gameSystem.NowCharecter.SP_Atk + ")";
         }
 
-        if (gameSystem.NowCharecter.specialDefense > 0)
+        if (gameSystem.NowCharecter.SP_Def > 0)
         {
-            spDEF += "+" + gameSystem.NowCharecter.specialDefense + ")";
+            spDEF += "+" + gameSystem.NowCharecter.SP_Def + ")";
         }
         else
         {
-            spDEF += gameSystem.NowCharecter.specialDefense + ")";
+            spDEF += gameSystem.NowCharecter.SP_Def + ")";
         }
 
         atkText.text = "พลังโจมตี: " + gameSystem.NowCharecter.attackPower + spATK;

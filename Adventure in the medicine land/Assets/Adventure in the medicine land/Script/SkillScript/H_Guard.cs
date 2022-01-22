@@ -23,7 +23,7 @@ public class H_Guard : Skill
     {
         if (gameSystem.State.Equals("waiting for skill"))
         {
-            gameSystem.NowCharecter.specialDefense += bonusEffect;
+            gameSystem.NowCharecter.SP_Def += bonusEffect;
             gameSystem.State = "Choose a medicine character";
             gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false, false, false);//controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
             gameSystem.NowCharecter.doneIt(2);
