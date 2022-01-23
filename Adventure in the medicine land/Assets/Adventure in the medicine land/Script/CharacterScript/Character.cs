@@ -297,8 +297,8 @@ public class Character : MonoBehaviour
         {
             if (gameSystem.selectedMedicine.IsStatusEffective(characterStatus))
             {
+                CharacterStatus.retrospectiveStatus(this);
                 CharacterStatus = gameSystem.selectedMedicine;
-                resetSP();
             }
             gameSystem.selectedMedicine = null;
             gameSystem.State = "Choose a medicine character";

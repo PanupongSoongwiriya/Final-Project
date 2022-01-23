@@ -22,6 +22,15 @@ public class TestStatus : Status
             //c.attackRange += numEffect;
         }
     }
+
+    public override void retrospectiveStatus(Character c)
+    {
+        //c.SP_Atk -= numEffect;
+        c.SP_Def -= numEffect;
+        //c.walkingDistance -= numEffect;
+        //c.attackRange -= numEffect;
+    }
+
     public override bool IsStatusEffective(Status s)
     {
         /*if (s.Type.Equals(""))

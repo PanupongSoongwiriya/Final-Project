@@ -20,6 +20,11 @@ public class Status : MonoBehaviour
     public virtual void cancelStatus()
     {
     }
+
+    public virtual void retrospectiveStatus(Character c)
+    {
+    }
+    
     public virtual void statusEffect(Character c)
     {
     }
