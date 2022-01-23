@@ -9,6 +9,8 @@ public class Character : MonoBehaviour
     public int id;
     public String faction;
     public String classCharacter;
+    [SerializeField]
+    protected String classType;
     public String genusPhase;
     [SerializeField]
     protected int actionPoint;
@@ -398,6 +400,7 @@ public class Character : MonoBehaviour
     {
         specialDefense = 0;
         specialAttack = 0;
+        taunts = false;
         resetRange();
         if (!gameSystem.State.Equals("Use medicine with ally") & faction.Equals("Medicine") & characterStatus != null)
         {
@@ -497,6 +500,11 @@ public class Character : MonoBehaviour
     {
         get { return faction; }
         set { faction = value; }
+    }
+    public String ClassType
+    {
+        get { return classType; }
+        set { classType = value; }
     }
     public int HP
     {

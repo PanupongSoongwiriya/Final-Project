@@ -11,6 +11,7 @@ public class MusclePainMedication : Character
         faction = "Medicine";
         classCharacter = "ยาแก้ปวดกล้ามเนื้อ";
         genusPhase = "ระยะใกล้";
+        ClassType = "";
 
 
         attackPower = 2;

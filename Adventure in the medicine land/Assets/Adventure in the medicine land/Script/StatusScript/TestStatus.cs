@@ -7,7 +7,7 @@ public class TestStatus : Status
     // Start is called before the first frame update
     void Start()
     {
-        startSet("โรคสิว", "", "disease", "acne", 1, 0, new Color(1, 0, 0, 1));
+        startSet("โรคสิว", "", "disease", "acne", -1, 0, new Color(1, 0, 0, 1));
         //name, Description, status type, effect type, numEffect, numEffect_2, color
     }
 
@@ -15,11 +15,11 @@ public class TestStatus : Status
     {
         if (c.Faction.Equals("Medicine"))
         {
-            //c.HP -= numEffect; c.showDMG(-numEffect, "poison");
-            //c.SP_Atk -= numEffect;
-            c.SP_Def -= numEffect;
-            //c.walkingDistance -= numEffect;
-            //c.attackRange -= numEffect;
+            //c.HP += numEffect; c.showDMG(-numEffect, "poison");
+            //c.SP_Atk += numEffect;
+            c.SP_Def += numEffect;
+            //c.walkingDistance += numEffect;
+            //c.attackRange += numEffect;
         }
     }
     public override bool IsStatusEffective(Status s)

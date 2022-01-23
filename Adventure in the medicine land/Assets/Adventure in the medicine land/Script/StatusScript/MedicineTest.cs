@@ -12,17 +12,21 @@ public class MedicineTest : Status
     }
     public override bool IsStatusEffective(Status s)
     {
-        /*if (s.Type.Equals(""))
-        {
-            return true;
-        }*/
 
         /**************************************************/
-        if (s == null  || s.statusType.Equals("heal") || s.statusType.Equals("disease"))
+        if (s == null || s.statusType.Equals("heal"))
         {
             return true;
         }
         /**************************************************/
+        /*if (s.Type.Equals("acne"))
+        {
+            return true;
+        }*/
+        if (s.statusType.Equals("disease"))
+        {
+            return true;
+        }
         return false;
     }
     public override void statusEffect(Character c)

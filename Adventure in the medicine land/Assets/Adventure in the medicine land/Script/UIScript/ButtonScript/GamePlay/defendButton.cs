@@ -11,6 +11,11 @@ public class defendButton : controlPanelButton
         {
             tutorialPlus();
             gameSystem.NowCharecter.SP_Def += 1;
+            /*if (gameSystem.NowCharecter.ClassType.Equals("Tank"))
+            {
+                gameSystem.NowCharecter.SP_Def += 1;
+                gameSystem.NowCharecter.taunts = true;
+            }*/
             gameSystem.State = "Choose a medicine character";
             switchPanel(false, true, false, false, false);//controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
             gameSystem.NowCharecter.doneIt(2);

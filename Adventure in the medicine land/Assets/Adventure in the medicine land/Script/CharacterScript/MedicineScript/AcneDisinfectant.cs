@@ -11,6 +11,7 @@ public class AcneDisinfectant : Character
         faction = "Medicine";
         classCharacter = "ยาฆ่าเชื้อสิว";
         genusPhase = "ระยะใกล้";
+        ClassType = "Tank";
 
 
         attackPower = 2;
