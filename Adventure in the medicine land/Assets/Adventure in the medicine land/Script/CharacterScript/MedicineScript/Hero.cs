@@ -12,17 +12,24 @@ public class Hero : Character
         classCharacter = "ฮีโร่";
         genusPhase = "";
 
-
         attackPower = 3;
         defensePower = 3;
         HP = 3;
 
-
         startSetUp();
 
-        allSkill.Add(skill.GetComponent<HeavyATK>());
+        bag.Add(status.GetComponent<Acne_Medicine>());
+        bag.Add(status.GetComponent<Headache_Medicine>());
+        bag.Add(status.GetComponent<Infect_Medicine>());
+        bag.Add(status.GetComponent<Itching_Medicine>());
+        bag.Add(status.GetComponent<MusclePain_Medicine>());
+        bag.Add(status.GetComponent<RunnyNose_Medicine>());
+        bag.Add(status.GetComponent<SkinFungus_Medicine>());
+        bag.Add(status.GetComponent<Stomachache_Medicine>());
         bag.Add(status.GetComponent<MedicineTest>());
-        /*allSkill.Add(skill.GetComponent<DebuffATK>());
+
+        /*allSkill.Add(skill.GetComponent<HeavyATK>());
+         allSkill.Add(skill.GetComponent<DebuffATK>());
         allSkill.Add(skill.GetComponent<DebuffDEF>());*/
     }
 

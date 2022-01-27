@@ -18,7 +18,10 @@ public class Headache : Character
 
 
         startSetUp();
+
+        characterStatus = status.GetComponent<HeadacheStatus>();
     }
+
     void Update()
     {
         moveSmoothly();

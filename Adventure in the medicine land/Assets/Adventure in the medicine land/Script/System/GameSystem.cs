@@ -27,6 +27,7 @@ public class GameSystem : MonoBehaviour
     public GameObject whoTurnPanel;
     public GameObject endGamePanel;
     public GameObject walkBoutton;
+    public attackButton attackButton;
 
     public Animator anim;
 
@@ -290,6 +291,10 @@ public class GameSystem : MonoBehaviour
             {
                 if (charPosition[0] == x && charPosition[1] == z)
                 {
+                    if (State.Equals("Use medicine with ally"))
+                    {
+                        lis.Add(new List<int> { x, z });
+                    }
                 }
                 else
                 {

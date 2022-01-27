@@ -30,6 +30,7 @@ public class Character : MonoBehaviour
 
     public int hp;
     public int maxHP;
+    public int THE_REAL_MAX_HP;
 
     public int attackPower;
     [SerializeField]
@@ -45,6 +46,8 @@ public class Character : MonoBehaviour
     public GameSystem gameSystem;
     public int indexSkill;
     public bool taunts;
+    public bool disableMove;
+    public bool disableAttack;
 
 
     public List<Skill> allSkill;
@@ -90,6 +93,7 @@ public class Character : MonoBehaviour
     {
         moving = false;
         maxHP = hp;
+        THE_REAL_MAX_HP = hp;
         try
         {
             gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
@@ -203,6 +207,8 @@ public class Character : MonoBehaviour
             setPositionCamera();
             gameSystem.NowCharecter = this;
             gameSystem.walkBoutton.GetComponent<walkButton>().ActiveBotton = actionPoint == 2;
+            gameSystem.walkBoutton.GetComponent<walkButton>().ActiveBotton = !disableMove;
+            gameSystem.attackButton.ActiveBotton = !disableAttack;
             if (actionPoint > 0)
             {
                 gameSystem.State = "waiting for orders";
@@ -293,7 +299,7 @@ public class Character : MonoBehaviour
 
     protected void canCureDisease()
     {
-        if (gameSystem.State.Equals("Use medicine with ally") && !gameSystem.NowCharecter.Equals(this) && faction.Equals("Medicine") && pedalFloor.InTerm)
+        if (gameSystem.State.Equals("Use medicine with ally") && faction.Equals("Medicine") && pedalFloor.InTerm)
         {
             if (gameSystem.selectedMedicine.IsStatusEffective(characterStatus))
             {
@@ -622,6 +628,16 @@ public class Character : MonoBehaviour
     {
         get { return specialDefense; }
         set { specialDefense = value; }
+    }
+    public bool DisableMove
+    {
+        get { return disableMove; }
+        set { disableMove = value; }
+    }
+    public bool DisableAttack
+    {
+        get { return disableAttack; }
+        set { disableAttack = value; }
     }
     public int ActionPoint
     {

@@ -14,6 +14,7 @@ public class bagOptionsButton : controlPanelButton
             gameSystem.State = "waiting for choose medicine";
             useButton.SetActive(true);
             bagDetailPanel.GetComponent<BagDetailPanel>().gameSystem = gameSystem;
+            bagDetailPanel.GetComponent<BagDetailPanel>().showPanel();
             switchPanel(true, false, true, false, true);//controlPanel, optionsPanel, skillPanel, characterDetailPanel, bagDetailPanel
         }
     }

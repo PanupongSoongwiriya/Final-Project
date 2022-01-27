@@ -15,7 +15,6 @@ public class BagDetailPanel : MonoBehaviour
 
     void Start()
     {
-        ActiveBotton = false;
     }
 
     void Update()
@@ -27,8 +26,8 @@ public class BagDetailPanel : MonoBehaviour
     {
         if (cm != null)
         {
-            description_Box.GetComponentsInChildren<Text>()[0].text = cm.medicine.statusName;
-            description_Box.GetComponentsInChildren<Text>()[1].text = cm.medicine.desCripTion;
+            description_Box.GetComponentsInChildren<Text>()[0].text = cm.Medicine.statusName;
+            description_Box.GetComponentsInChildren<Text>()[1].text = cm.Medicine.desCripTion;
         }
         else
         {
@@ -41,11 +40,21 @@ public class BagDetailPanel : MonoBehaviour
         for (int i = 0; i < bag.transform.childCount; i++)
         {
             bag.transform.GetChild(i).GetComponent<ChannelMedicine>().bdp = this;
-            bag.transform.GetChild(i).GetComponent<ChannelMedicine>().medicine = null;
+            bag.transform.GetChild(i).GetComponent<ChannelMedicine>().Medicine = null;
         }
         for (int i = 0; i < gameSystem.NowCharecter.bag.Count; i++)
         {
-            bag.transform.GetChild(i).GetComponent<ChannelMedicine>().medicine = gameSystem.NowCharecter.bag[i];
+            bag.transform.GetChild(i).GetComponent<ChannelMedicine>().Medicine = gameSystem.NowCharecter.bag[i];
+        }
+    }
+
+    public void showPanel()
+    {
+        cm = null;
+        ActiveBotton = false;
+        for (int i = 0; i < bag.transform.childCount; i++)
+        {
+            bag.transform.GetChild(i).GetComponent<ChannelMedicine>().Select = false;
         }
     }
 
@@ -54,7 +63,7 @@ public class BagDetailPanel : MonoBehaviour
         if (ActiveBotton)
         {
             ActiveBotton = false;
-            gameSystem.selectedMedicine = CM.medicine;
+            gameSystem.selectedMedicine = CM.Medicine;
             gameSystem.State = "Use medicine with ally";
             useButton.SetActive(false);
             cm = null;
@@ -71,12 +80,15 @@ public class BagDetailPanel : MonoBehaviour
         set
         {
             cm = value;
-            ActiveBotton = true;
             for (int i = 0; i < bag.transform.childCount; i++)
             {
                 bag.transform.GetChild(i).GetComponent<ChannelMedicine>().Select = false;
             }
-            value.Select = true;
+            if (value != null)
+            {
+                ActiveBotton = true;
+                value.Select = true;
+            }
         }
     }
     public bool ActiveBotton

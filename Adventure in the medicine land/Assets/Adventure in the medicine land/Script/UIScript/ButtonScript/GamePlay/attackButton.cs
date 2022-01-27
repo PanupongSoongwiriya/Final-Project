@@ -7,7 +7,7 @@ public class attackButton : controlPanelButton
     public override void changeState()
     {
         activeBotton = alpha == 1;
-        if (gameSystem.State.Equals("waiting for orders") && ActiveBotton)
+        if (gameSystem.State.Equals("waiting for orders") & ActiveBotton & !gameSystem.NowCharecter.disableAttack)
         {
             tutorialPlus();
             gameSystem.State = "Choose a enemy character";

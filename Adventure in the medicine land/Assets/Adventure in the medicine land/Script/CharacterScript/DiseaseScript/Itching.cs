@@ -18,6 +18,8 @@ public class Itching : Character
 
 
         startSetUp();
+
+        characterStatus = status.GetComponent<ItchingStatus>();
     }
     void Update()
     {

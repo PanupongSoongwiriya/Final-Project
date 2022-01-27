@@ -4254,6 +4254,11 @@ PrefabInstance:
       objectReference: {fileID: 1481522733}
     - target: {fileID: 7077443505708588831, guid: 3b7410473bda60b499801773470e8aba,
         type: 3}
+      propertyPath: attackButton
+      value: 
+      objectReference: {fileID: 1167220922}
+    - target: {fileID: 7077443505708588831, guid: 3b7410473bda60b499801773470e8aba,
+        type: 3}
       propertyPath: controlPanel
       value: 
       objectReference: {fileID: 896668366}
@@ -7088,8 +7093,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.064, y: 0.045}
   m_AnchorMax: {x: 0.291, y: 0.32}
-  m_AnchoredPosition: {x: 0.99993896, y: 0}
-  m_SizeDelta: {x: 0, y: -1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1711422409
 MonoBehaviour:
@@ -8495,7 +8500,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: StatusList
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 6a8df82cbcc25394492851cfedb1fc93, type: 3}
 --- !u!1001 &8645261398325672232
 PrefabInstance:

@@ -11,6 +11,7 @@ public class Status : MonoBehaviour
     public String Type;
     protected int numEffect;
     protected int numEffect_2;
+    protected int odDmg;
     public Color color;
     public GameSystem gameSystem;
 
@@ -33,6 +34,15 @@ public class Status : MonoBehaviour
         return false;
     }
 
+    public void overDosage(Character c)
+    {
+        if (c.characterStatus.Equals(this))
+        {
+            c.hp += odDmg;
+            c.showDMG(odDmg, "attack");
+        }
+    }
+
     protected void startSet(String sn, String dct, String st, String t, int ne, int ne2, Color c)
     {
         try
@@ -51,6 +61,7 @@ public class Status : MonoBehaviour
         numEffect = ne;
         numEffect_2 = ne2;
         color = c;
+        odDmg = -1;
     }
 
 }

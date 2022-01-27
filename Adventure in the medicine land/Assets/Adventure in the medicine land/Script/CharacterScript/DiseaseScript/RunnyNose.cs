@@ -18,6 +18,8 @@ public class RunnyNose : Character
 
 
         startSetUp();
+
+        characterStatus = status.GetComponent<RunnyNoseStatus>();
     }
     void Update()
     {

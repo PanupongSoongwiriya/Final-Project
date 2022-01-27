@@ -36,4 +36,8 @@ public class MedicineTest : Status
             c.characterStatus = null;
         }
     }
+    public override void retrospectiveStatus(Character c)
+    {
+        overDosage(c);
+    }
 }

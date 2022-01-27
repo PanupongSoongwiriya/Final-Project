@@ -18,6 +18,8 @@ public class Acne : Character
 
 
         startSetUp();
+
+        characterStatus = status.GetComponent<AcneStatus>();
     }
     void Update()
     {

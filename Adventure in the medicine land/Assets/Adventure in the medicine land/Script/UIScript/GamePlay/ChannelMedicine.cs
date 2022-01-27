@@ -7,7 +7,8 @@ using UnityEngine.UI;
 public class ChannelMedicine : MonoBehaviour, IPointerClickHandler
 {
     public BagDetailPanel bdp;
-    public Status medicine;
+    [SerializeField]
+    private Status medicine;
     public bool select;
 
     // Start is called before the first frame update
@@ -27,6 +28,33 @@ public class ChannelMedicine : MonoBehaviour, IPointerClickHandler
             Debug.Log("Clicked: " + eventData.pointerCurrentRaycast.gameObject.name);
         }
     }
+
+    private void setColor(Color c)
+    {
+        GetComponent<Image>().color = c;
+    }
+
+    public Status Medicine
+    {
+        get { return medicine; }
+        set
+        {
+            medicine = value;
+            //set color here
+            GetComponent<Image>().color = Color.black;
+            if (value != null)
+            {
+                if (!select)
+                {
+                    setColor(Color.white);
+                }
+                else
+                {
+                    setColor(Color.yellow);
+                }
+            }
+        }
+    }
     public bool Select
     {
         get { return select; }
@@ -34,10 +62,10 @@ public class ChannelMedicine : MonoBehaviour, IPointerClickHandler
         {
             select = value;
             //set color here
-            GetComponent<Image>().color = Color.black;
+            setColor(Color.black);
             if (value)
             {
-                GetComponent<Image>().color = Color.yellow;
+                setColor(Color.yellow);
             }
         }
     }

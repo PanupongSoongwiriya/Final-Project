@@ -17,6 +17,8 @@ public class Stomachache : Character
         defensePower = 1;
 
         startSetUp();
+
+        characterStatus = status.GetComponent<StomachacheStatus>();
     }
 
     void Update()

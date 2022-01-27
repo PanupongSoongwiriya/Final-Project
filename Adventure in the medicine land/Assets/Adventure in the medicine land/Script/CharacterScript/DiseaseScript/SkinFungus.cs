@@ -18,6 +18,8 @@ public class SkinFungus : Character
 
 
         startSetUp();
+
+        characterStatus = status.GetComponent<SkinFungusStatus>();
     }
     void Update()
     {

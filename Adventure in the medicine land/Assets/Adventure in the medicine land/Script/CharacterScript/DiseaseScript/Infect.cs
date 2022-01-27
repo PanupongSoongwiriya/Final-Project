@@ -18,6 +18,8 @@ public class Infect : Character
 
 
         startSetUp();
+
+        characterStatus = status.GetComponent<InfectStatus>();
     }
     void Update()
     {

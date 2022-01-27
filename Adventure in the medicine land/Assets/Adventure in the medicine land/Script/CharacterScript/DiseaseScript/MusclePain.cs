@@ -18,7 +18,7 @@ public class MusclePain : Character
 
         startSetUp();
 
-        characterStatus = status.GetComponent<TestStatus>();
+        characterStatus = status.GetComponent<MusclePainStatus>();
     }
     void Update()
     {
