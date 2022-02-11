@@ -36,7 +36,7 @@ public class MusclePain : Character
         attackRange = 1;
     }
 
-    public override float checkAdvantage(Character actor)
+    /*public override float checkAdvantage(Character actor)
     {
         if (actor.classCharacter.Equals("ยาแก้ปวดกล้ามเนื้อ"))
         {
@@ -51,5 +51,5 @@ public class MusclePain : Character
             return 0.5f;
         }
         return 1;
-    }
+    }*/
 }

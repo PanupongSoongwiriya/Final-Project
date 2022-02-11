@@ -26,7 +26,7 @@ public class Hero : Character
         bag.Add(status.GetComponent<RunnyNose_Medicine>());
         bag.Add(status.GetComponent<SkinFungus_Medicine>());
         bag.Add(status.GetComponent<Stomachache_Medicine>());
-        bag.Add(status.GetComponent<MedicineTest>());
+        //bag.Add(status.GetComponent<MedicineTest>());
 
         /*allSkill.Add(skill.GetComponent<HeavyATK>());
          allSkill.Add(skill.GetComponent<DebuffATK>());
@@ -48,6 +48,7 @@ public class Hero : Character
         walkingDistance = 3;
     }
 
+    /*
     public override float checkAdvantage(Character actor)
     {
         if (actor.classCharacter.Equals("จอมมาร"))
@@ -55,6 +56,6 @@ public class Hero : Character
             return 1.0f;
         }
         return 0.75f;
-    }
+    }*/
 
 }

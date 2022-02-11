@@ -97,12 +97,12 @@ public class BagDetailPanel : MonoBehaviour
         set
         {
             activeBotton = value;
-            float a = 0.5f;
+            float c = 0.5f;
             if (value)
             {
-                a = 1;
+                c = 1;
             }
-            useButton.GetComponent<Image>().color = new Color(1, 1, 1, a);
+            useButton.GetComponent<Image>().color = new Color(c, c, c, 1);
         }
     }
 }

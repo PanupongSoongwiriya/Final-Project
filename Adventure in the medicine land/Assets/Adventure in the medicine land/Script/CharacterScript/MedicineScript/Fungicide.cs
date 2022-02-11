@@ -38,6 +38,7 @@ public class Fungicide : Character
         walkingDistance = 0;
     }
 
+    /*
     public override float checkAdvantage(Character actor)
     {
         if (actor.classCharacter.Equals("เชื้อราที่ผิวหนัง"))
@@ -49,6 +50,6 @@ public class Fungicide : Character
             return 0.75f;
         }
         return 1;
-    }
+    }*/
 
 }

@@ -37,7 +37,7 @@ public class SkinFungus : Character
         attackRange = 1;
     }
 
-    public override float checkAdvantage(Character actor)
+    /*public override float checkAdvantage(Character actor)
     {
         if (actor.classCharacter.Equals("ยาฆ่าเชื้อรา"))
         {
@@ -52,5 +52,5 @@ public class SkinFungus : Character
             return 0.5f;
         }
         return 1;
-    }
+    }*/
 }

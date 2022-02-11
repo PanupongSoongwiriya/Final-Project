@@ -38,6 +38,7 @@ public class Decongestant : Character
         walkingDistance = 1;
     }
 
+    /*
     public override float checkAdvantage(Character actor)
     {
         if (actor.classCharacter.Equals("น้ำมูกไหล"))
@@ -49,6 +50,6 @@ public class Decongestant : Character
             return 0.75f;
         }
         return 1;
-    }
+    }*/
 
 }

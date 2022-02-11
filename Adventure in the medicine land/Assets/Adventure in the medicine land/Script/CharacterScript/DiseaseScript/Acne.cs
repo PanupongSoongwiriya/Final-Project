@@ -36,6 +36,7 @@ public class Acne : Character
         walkingDistance = 3;
         attackRange = 1;
     }
+    /*
     public override float checkAdvantage(Character actor)
     {
         if (actor.classCharacter.Equals("ยาฆ่าเชื้อสิว"))
@@ -51,7 +52,7 @@ public class Acne : Character
             return 0.5f;
         }
         return 1;
-    }
+    }*/
 
 
 }

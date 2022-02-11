@@ -182,8 +182,8 @@ public class BotDisease : MonoBehaviour
     {
         if (chr.characterStatus != null)
         {
-            //if (Random.Range(0, 2) == 1) 
-            if (1 == 1)
+            if (Random.Range(0, 2) == 1) 
+            //if (1 == 1)
             {
                 bool change = false;
                 if (target.characterStatus == null)

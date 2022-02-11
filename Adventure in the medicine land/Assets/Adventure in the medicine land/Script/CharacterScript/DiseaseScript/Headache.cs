@@ -37,6 +37,7 @@ public class Headache : Character
         walkingDistance = 3;
         attackRange = 1;
     }
+    /*
     public override float checkAdvantage(Character actor)
     {
         if (actor.classCharacter.Equals("ยาแก้ปวดหัว"))
@@ -52,7 +53,7 @@ public class Headache : Character
             return 0.5f;
         }
         return 1;
-    }
+    }*/
 
 
 }

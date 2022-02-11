@@ -37,6 +37,7 @@ public class Infect : Character
         walkingDistance = 3;
         attackRange = 1;
     }
+    /*
     public override float checkAdvantage(Character actor)
     {
         if (actor.classCharacter.Equals("ยาฆ่าเชื้อ"))
@@ -52,7 +53,7 @@ public class Infect : Character
             return 0.5f;
         }
         return 1;
-    }
+    }*/
 
     
 }

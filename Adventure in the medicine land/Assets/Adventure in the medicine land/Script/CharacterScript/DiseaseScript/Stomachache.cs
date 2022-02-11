@@ -35,7 +35,7 @@ public class Stomachache : Character
         walkingDistance = 3;
         attackRange = 1;
     }
-    public override float checkAdvantage(Character actor)
+    /*public override float checkAdvantage(Character actor)
     {
         if (actor.classCharacter.Equals("ยาแก้ปวดท้อง"))
         {
@@ -50,7 +50,7 @@ public class Stomachache : Character
             return 0.5f;
         }
         return 1;
-    }
+    }*/
 
 
 }

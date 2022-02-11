@@ -39,6 +39,7 @@ public class StomachPainReliever : Character
         walkingDistance = 2;
     }
 
+    /*
     public override float checkAdvantage(Character actor)
     {
         if (actor.classCharacter.Equals("ปวดท้อง"))
@@ -50,6 +51,6 @@ public class StomachPainReliever : Character
             return 0.75f;
         }
         return 1;
-    }
+    }*/
 
 }

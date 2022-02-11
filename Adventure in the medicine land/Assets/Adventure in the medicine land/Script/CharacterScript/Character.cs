@@ -368,13 +368,14 @@ public class Character : MonoBehaviour
     }
     public int calculateDMG(Character attacker, Character victim)
     {
-        return Math.Max(1, (int)(((attacker.attackPower + attacker.specialAttack) * victim.checkAdvantage(attacker)) - (victim.defensePower + victim.specialDefense)));
+        //return Math.Max(1, (int)(((attacker.attackPower + attacker.specialAttack) * victim.checkAdvantage(attacker)) - (victim.defensePower + victim.specialDefense)));
+        return Math.Max(1, (int)((attacker.attackPower + attacker.specialAttack) - (victim.defensePower + victim.specialDefense)));
     }
 
-    public virtual float checkAdvantage(Character actor)
+    /*public virtual float checkAdvantage(Character actor)
     {
         return 1;
-    }
+    }*/
     public void checkHP()
     {
         if (hp <= 0)

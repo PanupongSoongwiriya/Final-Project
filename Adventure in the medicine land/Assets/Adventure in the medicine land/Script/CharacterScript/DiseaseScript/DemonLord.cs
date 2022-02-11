@@ -35,6 +35,7 @@ public class DemonLord : Character
         walkingDistance = 3;
         attackRange = 3;
     }
+    /*
     public override float checkAdvantage(Character actor)
     {
         if (actor.classCharacter.Equals("ฮีโร่"))
@@ -42,5 +43,5 @@ public class DemonLord : Character
             return 1.25f;
         }
         return 1;
-    }
+    }*/
 }

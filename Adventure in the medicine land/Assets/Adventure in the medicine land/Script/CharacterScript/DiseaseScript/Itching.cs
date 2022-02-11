@@ -36,6 +36,7 @@ public class Itching : Character
         walkingDistance = 3;
         attackRange = 1;
     }
+    /*
     public override float checkAdvantage(Character actor)
     {
         if (actor.classCharacter.Equals("ยาแก้คัน"))
@@ -51,7 +52,5 @@ public class Itching : Character
             return 0.5f;
         }
         return 1;
-    }
-
-
+    }*/
 }

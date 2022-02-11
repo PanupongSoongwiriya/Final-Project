@@ -36,7 +36,7 @@ public class RunnyNose : Character
         walkingDistance = 3;
         attackRange = 1;
     }
-    public override float checkAdvantage(Character actor)
+    /*public override float checkAdvantage(Character actor)
     {
         if (actor.classCharacter.Equals("ยาลดน้ำมูก"))
         {
@@ -51,7 +51,5 @@ public class RunnyNose : Character
             return 0.5f;
         }
         return 1;
-    }
-
-
+    }*/
 }

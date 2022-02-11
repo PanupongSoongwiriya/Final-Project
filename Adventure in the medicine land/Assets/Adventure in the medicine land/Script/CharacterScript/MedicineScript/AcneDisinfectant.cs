@@ -40,6 +40,7 @@ public class AcneDisinfectant : Character
         walkingDistance = 2;
     }
 
+    /*
     public override float checkAdvantage(Character actor)
     {
         if (actor.classCharacter.Equals("สิว"))
@@ -51,6 +52,6 @@ public class AcneDisinfectant : Character
             return 0.75f;
         }
         return 1;
-    }
+    }*/
 
 }

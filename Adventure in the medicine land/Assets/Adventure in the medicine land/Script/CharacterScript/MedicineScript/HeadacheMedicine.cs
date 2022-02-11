@@ -41,6 +41,7 @@ public class HeadacheMedicine : Character
         walkingDistance = 1;
     }
 
+    /*
     public override float checkAdvantage(Character actor)
     {
         if (actor.classCharacter.Equals("ปวดหัว"))
@@ -52,6 +53,6 @@ public class HeadacheMedicine : Character
             return 0.75f;
         }
         return 1;
-    }
+    }*/
 
 }

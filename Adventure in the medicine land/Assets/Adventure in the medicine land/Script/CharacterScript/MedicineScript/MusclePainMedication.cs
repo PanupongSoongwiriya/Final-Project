@@ -40,6 +40,7 @@ public class MusclePainMedication : Character
         moveSmoothly();
         spinToTarget();
     }
+    /*
     public override float checkAdvantage(Character actor)
     {
         if (actor.classCharacter.Equals("ปวดกล้ามเนื้อ"))
@@ -52,5 +53,5 @@ public class MusclePainMedication : Character
         }
         return 1;
     }
-
+*/
 }

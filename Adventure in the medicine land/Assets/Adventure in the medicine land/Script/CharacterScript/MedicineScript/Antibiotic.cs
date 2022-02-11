@@ -36,6 +36,7 @@ public class Antibiotic : Character
         walkingDistance = 3;
         attackRange = 1;
     }
+    /*
     public override float checkAdvantage(Character actor)
     {
         if (actor.classCharacter.Equals("ติดเชื้อ"))
@@ -47,6 +48,6 @@ public class Antibiotic : Character
             return 0.75f;
         }
         return 1;
-    }
+    }*/
 
 }

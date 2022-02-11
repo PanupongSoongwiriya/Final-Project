@@ -38,6 +38,7 @@ public class Antipruritic : Character
         attackRange = 2;
         walkingDistance = 2;
     }
+    /*
     public override float checkAdvantage(Character actor)
     {
         if (actor.classCharacter.Equals("อาการคัน"))
@@ -49,6 +50,6 @@ public class Antipruritic : Character
             return 0.75f;
         }
         return 1;
-    }
+    }*/
 
 }
