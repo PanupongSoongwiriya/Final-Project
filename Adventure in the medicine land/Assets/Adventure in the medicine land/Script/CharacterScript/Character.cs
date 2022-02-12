@@ -58,6 +58,8 @@ public class Character : MonoBehaviour
     public GameObject dmgText;
     public BotDisease botDisease;
 
+    public AudioSource pressCharacter;
+
     [SerializeField]
     protected List<Renderer> allRenderer = new List<Renderer>();
 
@@ -197,6 +199,7 @@ public class Character : MonoBehaviour
         if (!gameSystem.State.Equals("round of bots") || !gameSystem.State.Equals("walk") || !gameSystem.State.Equals("Choose a enemy character"))
         {
             gameSystem.cf.Target = transform;
+            pressCharacter.Play();
         }
     }
 

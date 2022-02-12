@@ -40,6 +40,9 @@ public class GameSystem : MonoBehaviour
 
     public AutoGenerateStage AGS;
 
+    [SerializeField]
+    private AudioSource clickAudio;
+
     void Start()
     {
         WhoTurn = "Medicine";
@@ -190,6 +193,7 @@ public class GameSystem : MonoBehaviour
     public void memberUpdate(Character chr)
     {
         bool without = true;
+        chr.pressCharacter = clickAudio;
         if (chr.Faction.Equals("Medicine"))
         {
             medicineFaction.Add(chr);

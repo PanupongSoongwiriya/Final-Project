@@ -45,6 +45,7 @@ public class AutoGenerateStage : MonoBehaviour
 
     public int ChrCount;
 
+
     void Start()
     {
         sm.Load();
