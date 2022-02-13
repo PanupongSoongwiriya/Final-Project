@@ -13,6 +13,7 @@ public class Status : MonoBehaviour
     protected int numEffect_2;
     protected int odDmg;
     public Color color;
+    public Sprite icon_Medicine;
     public GameSystem gameSystem;
 
     public virtual void changeState()

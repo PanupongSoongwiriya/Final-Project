@@ -12,6 +12,8 @@ public class BagDetailPanel : MonoBehaviour
     public GameSystem gameSystem;
     public controlPanelButton cpb;
     public bool activeBotton;
+    [SerializeField]
+    private AudioSource ConfirmAudio;
 
     void Start()
     {
@@ -39,8 +41,9 @@ public class BagDetailPanel : MonoBehaviour
     {
         for (int i = 0; i < bag.transform.childCount; i++)
         {
-            bag.transform.GetChild(i).GetComponent<ChannelMedicine>().bdp = this;
-            bag.transform.GetChild(i).GetComponent<ChannelMedicine>().Medicine = null;
+            ChannelMedicine cm = bag.transform.GetChild(i).GetComponent<ChannelMedicine>();
+            cm.bdp = this;
+            cm.Medicine = null;
         }
         for (int i = 0; i < gameSystem.NowCharecter.bag.Count; i++)
         {
@@ -62,6 +65,7 @@ public class BagDetailPanel : MonoBehaviour
     {
         if (ActiveBotton)
         {
+            ConfirmAudio.Play();
             ActiveBotton = false;
             gameSystem.selectedMedicine = CM.Medicine;
             gameSystem.State = "Use medicine with ally";

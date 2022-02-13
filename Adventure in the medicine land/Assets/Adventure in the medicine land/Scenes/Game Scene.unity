@@ -173,14 +173,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: cf94d8b6c7d2e6845965ea3f12722a5b, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -295,7 +295,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &142946384
 RectTransform:
   m_ObjectHideFlags: 0
@@ -374,6 +374,7 @@ MonoBehaviour:
   gameSystem: {fileID: 1389070291}
   cpb: {fileID: 896668370}
   activeBotton: 0
+  ConfirmAudio: {fileID: 496960319}
 --- !u!1 &190081682
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,14 +497,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 56cdbd59fd296324cacddfe62e757d47, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -648,14 +649,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: cf94d8b6c7d2e6845965ea3f12722a5b, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -723,14 +724,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 56cdbd59fd296324cacddfe62e757d47, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1484,14 +1485,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d859e72a0d9e8544cb30366868b65089, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1682,6 +1683,7 @@ MonoBehaviour:
   bdp: {fileID: 0}
   medicine: {fileID: 0}
   select: 0
+  clickAudio: {fileID: 496960319}
 --- !u!114 &556059020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1699,9 +1701,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 496960319}
-          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-          m_MethodName: Play
+        - m_Target: {fileID: 556059019}
+          m_TargetAssemblyTypeName: ChannelMedicine, Assembly-CSharp
+          m_MethodName: OnClickThis
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1728,7 +1730,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &563466690
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1983,7 +1985,9 @@ MonoBehaviour:
   sheatheMenu: {fileID: 0}
   sheatheData: {fileID: 0}
   activeBotton: 0
-  alpha: 1
+  c: 1
+  ConfirmAudio: {fileID: 496960319}
+  CancelAudio: {fileID: 1546688570}
 --- !u!114 &583151848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2031,18 +2035,6 @@ MonoBehaviour:
       - m_Target: {fileID: 583151847}
         m_TargetAssemblyTypeName: defendButton, Assembly-CSharp
         m_MethodName: changeState
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 496960319}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2508,6 +2500,7 @@ MonoBehaviour:
   bdp: {fileID: 0}
   medicine: {fileID: 0}
   select: 0
+  clickAudio: {fileID: 496960319}
 --- !u!114 &649459278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2525,9 +2518,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 496960319}
-          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-          m_MethodName: Play
+        - m_Target: {fileID: 649459277}
+          m_TargetAssemblyTypeName: ChannelMedicine, Assembly-CSharp
+          m_MethodName: OnClickThis
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2731,7 +2724,9 @@ MonoBehaviour:
   sheatheMenu: {fileID: 617138796}
   sheatheData: {fileID: 2097609233}
   activeBotton: 0
-  alpha: 1
+  c: 1
+  ConfirmAudio: {fileID: 496960319}
+  CancelAudio: {fileID: 1546688570}
   useButton: {fileID: 1083029983}
 --- !u!114 &696475750
 MonoBehaviour:
@@ -2780,18 +2775,6 @@ MonoBehaviour:
       - m_Target: {fileID: 696475749}
         m_TargetAssemblyTypeName: cancelButton, Assembly-CSharp
         m_MethodName: changeState
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1546688570}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3447,6 +3430,7 @@ MonoBehaviour:
   bdp: {fileID: 0}
   medicine: {fileID: 0}
   select: 0
+  clickAudio: {fileID: 496960319}
 --- !u!114 &889384153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3464,9 +3448,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 496960319}
-          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-          m_MethodName: Play
+        - m_Target: {fileID: 889384152}
+          m_TargetAssemblyTypeName: ChannelMedicine, Assembly-CSharp
+          m_MethodName: OnClickThis
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3494,7 +3478,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &896668367
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3577,7 +3561,9 @@ MonoBehaviour:
   sheatheMenu: {fileID: 617138796}
   sheatheData: {fileID: 2097609233}
   activeBotton: 0
-  alpha: 1
+  c: 1
+  ConfirmAudio: {fileID: 496960319}
+  CancelAudio: {fileID: 1546688570}
 --- !u!1 &918762004
 GameObject:
   m_ObjectHideFlags: 0
@@ -4328,18 +4314,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 496960319}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1083029987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4518,7 +4492,9 @@ MonoBehaviour:
   sheatheMenu: {fileID: 0}
   sheatheData: {fileID: 0}
   activeBotton: 0
-  alpha: 1
+  c: 1
+  ConfirmAudio: {fileID: 496960319}
+  CancelAudio: {fileID: 1546688570}
 --- !u!114 &1167220923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4566,18 +4542,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1167220922}
         m_TargetAssemblyTypeName: attackButton, Assembly-CSharp
         m_MethodName: changeState
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 496960319}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5039,7 +5003,9 @@ MonoBehaviour:
   sheatheMenu: {fileID: 0}
   sheatheData: {fileID: 0}
   activeBotton: 0
-  alpha: 1
+  c: 1
+  ConfirmAudio: {fileID: 0}
+  CancelAudio: {fileID: 0}
   SkillPanel: {fileID: 918762004}
 --- !u!114 &1268027716
 MonoBehaviour:
@@ -5088,18 +5054,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1268027719}
         m_TargetAssemblyTypeName: bagOptionsButton, Assembly-CSharp
         m_MethodName: changeState
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 496960319}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5168,7 +5122,9 @@ MonoBehaviour:
   sheatheMenu: {fileID: 0}
   sheatheData: {fileID: 0}
   activeBotton: 0
-  alpha: 1
+  c: 1
+  ConfirmAudio: {fileID: 496960319}
+  CancelAudio: {fileID: 1546688570}
   useButton: {fileID: 1083029983}
 --- !u!1 &1277159710
 GameObject:
@@ -5487,6 +5443,7 @@ MonoBehaviour:
   bdp: {fileID: 0}
   medicine: {fileID: 0}
   select: 0
+  clickAudio: {fileID: 496960319}
 --- !u!114 &1288388078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5504,9 +5461,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 496960319}
-          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-          m_MethodName: Play
+        - m_Target: {fileID: 1288388077}
+          m_TargetAssemblyTypeName: ChannelMedicine, Assembly-CSharp
+          m_MethodName: OnClickThis
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -5861,6 +5818,7 @@ MonoBehaviour:
   bdp: {fileID: 0}
   medicine: {fileID: 0}
   select: 0
+  clickAudio: {fileID: 496960319}
 --- !u!114 &1359870785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5878,9 +5836,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 496960319}
-          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-          m_MethodName: Play
+        - m_Target: {fileID: 1359870784}
+          m_TargetAssemblyTypeName: ChannelMedicine, Assembly-CSharp
+          m_MethodName: OnClickThis
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -6053,14 +6011,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d859e72a0d9e8544cb30366868b65089, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6128,14 +6086,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: cf94d8b6c7d2e6845965ea3f12722a5b, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6203,14 +6161,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d859e72a0d9e8544cb30366868b65089, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6630,7 +6588,9 @@ MonoBehaviour:
   sheatheMenu: {fileID: 0}
   sheatheData: {fileID: 0}
   activeBotton: 0
-  alpha: 1
+  c: 1
+  ConfirmAudio: {fileID: 496960319}
+  CancelAudio: {fileID: 1546688570}
 --- !u!114 &1481522736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6678,18 +6638,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1481522735}
         m_TargetAssemblyTypeName: walkButton, Assembly-CSharp
         m_MethodName: changeState
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 496960319}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7868,6 +7816,7 @@ MonoBehaviour:
   bdp: {fileID: 0}
   medicine: {fileID: 0}
   select: 0
+  clickAudio: {fileID: 496960319}
 --- !u!114 &1661250668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7885,9 +7834,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 496960319}
-          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-          m_MethodName: Play
+        - m_Target: {fileID: 1661250667}
+          m_TargetAssemblyTypeName: ChannelMedicine, Assembly-CSharp
+          m_MethodName: OnClickThis
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -8067,6 +8016,7 @@ MonoBehaviour:
   bdp: {fileID: 0}
   medicine: {fileID: 0}
   select: 0
+  clickAudio: {fileID: 496960319}
 --- !u!114 &1711422412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8084,9 +8034,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 496960319}
-          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-          m_MethodName: Play
+        - m_Target: {fileID: 1711422411}
+          m_TargetAssemblyTypeName: ChannelMedicine, Assembly-CSharp
+          m_MethodName: OnClickThis
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -8532,6 +8482,7 @@ MonoBehaviour:
   bdp: {fileID: 0}
   medicine: {fileID: 0}
   select: 0
+  clickAudio: {fileID: 496960319}
 --- !u!114 &1828738631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8549,9 +8500,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 496960319}
-          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-          m_MethodName: Play
+        - m_Target: {fileID: 1828738630}
+          m_TargetAssemblyTypeName: ChannelMedicine, Assembly-CSharp
+          m_MethodName: OnClickThis
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -8783,14 +8734,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 56cdbd59fd296324cacddfe62e757d47, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9138,6 +9089,7 @@ MonoBehaviour:
   bdp: {fileID: 0}
   medicine: {fileID: 0}
   select: 0
+  clickAudio: {fileID: 496960319}
 --- !u!114 &2013500445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9155,9 +9107,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 496960319}
-          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-          m_MethodName: Play
+        - m_Target: {fileID: 2013500444}
+          m_TargetAssemblyTypeName: ChannelMedicine, Assembly-CSharp
+          m_MethodName: OnClickThis
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -9524,6 +9476,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8997161890757498446, guid: 6a8df82cbcc25394492851cfedb1fc93,
+        type: 3}
+      propertyPath: icon_Medicine
+      value: 
+      objectReference: {fileID: 21300000, guid: 82eb1fd7f2a9391458bb1e36f9475bd0,
+        type: 3}
+    - target: {fileID: -6437433224131168950, guid: 6a8df82cbcc25394492851cfedb1fc93,
+        type: 3}
+      propertyPath: icon_Medicine
+      value: 
+      objectReference: {fileID: 21300000, guid: 9e51710f5f2964146ae0f3d0007a35d4,
+        type: 3}
+    - target: {fileID: -6027779213922678185, guid: 6a8df82cbcc25394492851cfedb1fc93,
+        type: 3}
+      propertyPath: icon_Medicine
+      value: 
+      objectReference: {fileID: 21300000, guid: cf94d8b6c7d2e6845965ea3f12722a5b,
+        type: 3}
+    - target: {fileID: -3028157596608177981, guid: 6a8df82cbcc25394492851cfedb1fc93,
+        type: 3}
+      propertyPath: icon_Medicine
+      value: 
+      objectReference: {fileID: 21300000, guid: 56cdbd59fd296324cacddfe62e757d47,
+        type: 3}
+    - target: {fileID: 1515406332765429076, guid: 6a8df82cbcc25394492851cfedb1fc93,
+        type: 3}
+      propertyPath: icon_Medicine
+      value: 
+      objectReference: {fileID: 21300000, guid: 0150c801b5166424291dd4c16ed89c8f,
+        type: 3}
     - target: {fileID: 1754273035333511742, guid: 6a8df82cbcc25394492851cfedb1fc93,
         type: 3}
       propertyPath: m_RootOrder
@@ -9579,6 +9561,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2822396501616056411, guid: 6a8df82cbcc25394492851cfedb1fc93,
+        type: 3}
+      propertyPath: icon_Medicine
+      value: 
+      objectReference: {fileID: 21300000, guid: d859e72a0d9e8544cb30366868b65089,
+        type: 3}
+    - target: {fileID: 3704880241616011003, guid: 6a8df82cbcc25394492851cfedb1fc93,
+        type: 3}
+      propertyPath: icon_Medicine
+      value: 
+      objectReference: {fileID: 21300000, guid: 0150c801b5166424291dd4c16ed89c8f,
+        type: 3}
+    - target: {fileID: 4168044531985062311, guid: 6a8df82cbcc25394492851cfedb1fc93,
+        type: 3}
+      propertyPath: icon_Medicine
+      value: 
+      objectReference: {fileID: 21300000, guid: 37efffcee94285941b51c9bd55b36e0d,
+        type: 3}
     - target: {fileID: 7595923998789941104, guid: 6a8df82cbcc25394492851cfedb1fc93,
         type: 3}
       propertyPath: m_Name
@@ -9598,7 +9598,7 @@ PrefabInstance:
     - target: {fileID: 417006230919325244, guid: 89768ed6c13ca534c952e8471a8f0025,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 417006230919325244, guid: 89768ed6c13ca534c952e8471a8f0025,
         type: 3}
@@ -9672,7 +9672,7 @@ PrefabInstance:
     - target: {fileID: 6543252631945545407, guid: bda292a1d8bb7a7449bb5d2ac915bf1b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6543252631945545407, guid: bda292a1d8bb7a7449bb5d2ac915bf1b,
         type: 3}

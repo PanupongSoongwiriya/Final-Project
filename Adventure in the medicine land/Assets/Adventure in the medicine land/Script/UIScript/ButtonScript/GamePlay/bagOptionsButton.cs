@@ -7,9 +7,10 @@ public class bagOptionsButton : controlPanelButton
     public GameObject useButton;
     public override void changeState()
     {
-        activeBotton = alpha == 1;
+        activeBotton = c == 1;
         if (gameSystem.State.Equals("waiting for orders") && ActiveBotton)
         {
+            ConfirmAudio.Play();
             tutorialPlus();
             gameSystem.State = "waiting for choose medicine";
             useButton.SetActive(true);

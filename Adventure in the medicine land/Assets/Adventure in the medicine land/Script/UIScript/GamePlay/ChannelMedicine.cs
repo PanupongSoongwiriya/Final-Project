@@ -4,28 +4,21 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ChannelMedicine : MonoBehaviour, IPointerClickHandler
+public class ChannelMedicine : MonoBehaviour
 {
     public BagDetailPanel bdp;
     [SerializeField]
     private Status medicine;
     public bool select;
+    [SerializeField]
+    private AudioSource clickAudio;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-    }
-    public void OnPointerClick(PointerEventData eventData)
+    public void OnClickThis()
     {
         if (medicine != null)
         {
             bdp.CM = this;
-            Debug.Log("Clicked: " + eventData.pointerCurrentRaycast.gameObject.name);
+            clickAudio.Play();
         }
     }
 
@@ -41,9 +34,13 @@ public class ChannelMedicine : MonoBehaviour, IPointerClickHandler
         {
             medicine = value;
             //set color here
-            GetComponent<Image>().color = Color.black;
+            Image icon = transform.GetChild(0).GetComponent<Image>();
+            icon.sprite = null;
+            icon.color = new Color(1, 1, 1, 0);
             if (value != null)
             {
+                icon.color = new Color(1, 1, 1, 1);
+                icon.sprite = value.icon_Medicine;
                 if (!select)
                 {
                     setColor(Color.white);
@@ -62,7 +59,7 @@ public class ChannelMedicine : MonoBehaviour, IPointerClickHandler
         {
             select = value;
             //set color here
-            setColor(Color.black);
+            //setColor(Color.black);
             if (value)
             {
                 setColor(Color.yellow);

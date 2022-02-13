@@ -16,7 +16,11 @@ public class controlPanelButton : MonoBehaviour
     public GameObject sheatheMenu;
     public GameObject sheatheData;
     public bool activeBotton;
-    public float alpha = 1;
+    public float c = 1;
+    [SerializeField]
+    protected AudioSource ConfirmAudio;
+    [SerializeField]
+    protected AudioSource CancelAudio;
     void Start()
     {
         activeBotton = true;
@@ -57,12 +61,12 @@ public class controlPanelButton : MonoBehaviour
 
     protected void active()
     {
-        alpha = 0.25f;
+        c = 0.5f;
         if (activeBotton)
         {
-            alpha = 1;
+            c = 1;
         }
-        GetComponent<Image>().color = new Color(1, 1, 1, alpha);        
+        GetComponent<Image>().color = new Color(c, c, c, 1);        
     }
 
     public bool ActiveBotton

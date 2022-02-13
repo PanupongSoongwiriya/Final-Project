@@ -6,9 +6,10 @@ public class defendButton : controlPanelButton
 {
     public override void changeState()
     {
-        activeBotton = alpha == 1;
+        activeBotton = c == 1;
         if (gameSystem.State.Equals("waiting for orders") && ActiveBotton)
         {
+            ConfirmAudio.Play();
             tutorialPlus();
             gameSystem.NowCharecter.SP_Def += 1;
             /*if (gameSystem.NowCharecter.ClassType.Equals("Tank"))
