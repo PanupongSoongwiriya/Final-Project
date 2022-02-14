@@ -4,6 +4,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class StorySystem : MonoBehaviour
 {
@@ -23,6 +24,24 @@ public class StorySystem : MonoBehaviour
     private GameObject nameText;
     [SerializeField]
     private GameObject dialogText;
+    [SerializeField]
+    private Image Background;
+    [SerializeField]
+    private Image Character_Left;
+    [SerializeField]
+    private Image Character_Right;
+
+    [Serializable]
+    public struct MyDictionary
+    {
+        public string name;
+        public Sprite image;
+    }
+    [SerializeField]
+    private MyDictionary[] CharacterSprite;
+    [SerializeField]
+    private MyDictionary[] BackgroundSprite;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +70,7 @@ public class StorySystem : MonoBehaviour
                 break;
             }
         }
+        /*chapter = data.story[0];*/
     }
     private void setDialog()
     {
@@ -71,12 +91,54 @@ public class StorySystem : MonoBehaviour
             nameText.SetActive(!string.IsNullOrEmpty(dialog.actor));
             nameText.transform.GetChild(0).GetComponent<Text>().text = ThaiFontAdjuster.Adjust(dialog.actor);
             dialogText.transform.GetChild(0).GetComponent<Text>().text = ThaiFontAdjuster.Adjust(dialog.val);
+
+            setCharacterImg(dialog.img_Left, Character_Left);
+            setCharacterImg(dialog.img_Right, Character_Right);
+
+            foreach (MyDictionary md in BackgroundSprite)
+            {
+                if (md.name.Equals(dialog.bg))
+                {
+                    Background.sprite = md.image;
+                    break;
+                }
+            }
+
             /*Debug.Log("id: " + dialog.id);
             Debug.Log("actor: " + dialog.actor);
+            Debug.Log("img_Left: " + dialog.img_Left);
+            Debug.Log("img_Right: " + dialog.img_Right);
             Debug.Log("val: " + dialog.val);
-            Debug.Log("sfx: " + dialog.sfx);*/
+            Debug.Log("sfx: " + dialog.sfx);
+            Debug.Log("bg: " + dialog.bg);*/
         }
     }
+
+    public void setCharacterImg(string imgText, Image img)
+    {
+        img.color = new Color(1, 1, 1, 1);
+        img.sprite = null;
+        //Debug.Log("imgText: " + imgText);
+        if (imgText == "")
+        {
+            //Debug.Log("if");
+            img.color = new Color(1, 1, 1, 0);
+        }
+        else if (!imgText.Equals(dialog.actor))
+        {
+            //Debug.Log("else");
+            img.color = new Color(0.5f, 0.5f, 0.5f, 1);
+        }
+        foreach (MyDictionary md in CharacterSprite)
+        {
+            if (md.name.Equals(imgText))
+            {
+                img.sprite = md.image;
+                break;
+            }
+        }
+    }
+
     public void changeScene()
     {
         if (sm.state.storyOrder != -1)

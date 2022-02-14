@@ -6,140 +6,209 @@
                 {
                     "id": 0,
                     "actor": null,
+                    "img_Left": null,
+                    "img_Right": null,
                     "val": "ดินแดนแห่งยา",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "Castle"
                 },
                 {
                     "id": 1,
                     "actor": null,
+                    "img_Left": null,
+                    "img_Right": null,
                     "val": "ดินแดนที่เต็มไปด้วยชีวิตชีวา และความสงบสุขของผู้คน",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "Castle"
                 },
                 {
                     "id": 2,
                     "actor": null,
+                    "img_Left": null,
+                    "img_Right": null,
                     "val": "และมีประวิติศาสตร์ที่แสนจะยาวนาน",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "Castle"
                 },
                 {
                     "id": 3,
                     "actor": null,
+                    "img_Left": null,
+                    "img_Right": null,
                     "val": "แต่บัดนี้ประวัติศาสตร์ที่ไม่น่าจดจำกำลังจะกลับมาเกิดขึ้นอีกครั้ง",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "Castle"
                 },
                 {
                     "id": 4,
                     "actor": null,
+                    "img_Left": null,
+                    "img_Right": null,
                     "val": "ณ ห้องโถงบัลลังก์",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "Gates"
                 },
                 {
                     "id": 5,
                     "actor": "ราชา",
+                    "img_Left": "ราชา",
+                    "img_Right": null,
                     "val": "ท่านผู้กล้า ตอนนี้ เหตุการณ์ที่แถบชายแดนนั้นไม่ค่อยสู้ดีนัก ข้าจึงอยากให้ท่านเดินทางไปช่วยเหลือทหารที่แถบชายแดนหน่อย",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "Gates"
                 },
                 {
                     "id": 6,
                     "actor": "ผู้กล้า",
+                    "img_Left": "ราชา",
+                    "img_Right": "ผู้กล้า",
                     "val": "ผมก็ได้ยินข่าวมาบ้างเรื่องที่เกิดขึ้น ได้สิครับท่านราชา",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "Gates"
                 },
                 {
                     "id": 7,
                     "actor": "ราชา",
+                    "img_Left": "ราชา",
+                    "img_Right": "ผู้กล้า",
                     "val": "ก่อนที่ท่านจะเดินทางไปเขตชายแดนข้าจะข้อให้ท่านเดินทางไปช่วยเหลือหมู่บ้านระหว่างทางหน่อย",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "Gates"
                 },
                 {
                     "id": 8,
                     "actor": "ผู้กล้า",
+                    "img_Left": "ราชา",
+                    "img_Right": "ผู้กล้า",
                     "val": "ได้ครับท่านราชา ผมจะรีบเดินทางอย่างไวเลยครับ",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "Gates"
                 },
                 {
                     "id": 9,
                     "actor": "ราชา",
+                    "img_Left": "ราชา",
+                    "img_Right": "ผู้กล้า",
                     "val": "ข้าจะให้ทหารประจำข้าเดินทางไปกับเจ้าด้วย และให้เค้าฝึกเจ้าไปด้วยระหว่างการเดินทาง",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "Gates"
                 },
                 {
                     "id": 10,
                     "actor": "???",
+                    "img_Left": null,
+                    "img_Right": "ผู้กล้า",
                     "val": "สวัสดีครับท่านผู้กล้าผมมีนามว่า “Party_Member_1”",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "Gates"
                 },
                 {
                     "id": 11,
                     "actor": "Party_Member_1",
+                    "img_Left": "Party_Member_1",
+                    "img_Right": "ผู้กล้า",
                     "val": "ผมคลาส “แก้ปวดกล้ามเนื้อ” ครับ มีหน้าที่ดูแลผู้คนที่ถูก “ปีศาจปวดกล้ามเนื้อ” ทำร้าย ",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "Gates"
                 },
                 {
                     "id": 12,
                     "actor": "Party_Member_1",
+                    "img_Left": "Party_Member_1",
+                    "img_Right": "ผู้กล้า",
                     "val": "คลาสผมนั้นจะแข็งแกร่งเป็นอย่างมากกับปีศาจกล้ามปวดเนื้อ",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "Gates"
                 },
                 {
                     "id": 13,
                     "actor": null,
+                    "img_Left": null,
+                    "img_Right": null,
                     "val": "*ยาทาแก้ปวดกล้ามเนื้อ ใช้สำหรับแก้อาการปวดบริเวณต่างๆ ที่เกิดจากออกกำลังกาย หรือการนั่งทำงานเป็นเวลานาน มีทั้งแบบ ชนิดประคบร้อน และชนิดประคบเย็น การใช้งานขึ้นอยู่กับอาการปวดที่เกิดขึ้น",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "Gates"
                 },
                 {
                     "id": 14,
                     "actor": "ผู้กล้า",
+                    "img_Left": "ผู้กล้า",
+                    "img_Right": null,
                     "val": "ยินดีที่ได้รู้จักครับ",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "Gates"
                 },
                 {
                     "id": 15,
                     "actor": "ราชา",
+                    "img_Left": "ผู้กล้า",
+                    "img_Right": "ราชา",
                     "val": "ทำความรู้จักกันเสร็จแล้ว ข้ามีข่าวมาแจ้งพวกท่านพอดี ในป่าใกล้ๆนี้มีปีศาจหลุดเข้ามาอยู่ จำนวนไม่มาก",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "Gates"
                 },
                 {
                     "id": 16,
                     "actor": "ราชา",
+                    "img_Left": "ผู้กล้า",
+                    "img_Right": "ราชา",
                     "val": "ข้าอยากให้ ท่านผู้กล้าถือโอกาสในการฝึกฝนไปเลยในตัว",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "Gates"
                 },
                 {
                     "id": 17,
                     "actor": "Party_Member_1",
+                    "img_Left": "ผู้กล้า",
+                    "img_Right": "Party_Member_1",
                     "val": "ถ้ายังงั้นผมจะขอเริ่มทำการฝึกท่านผู้กล้าเลยนะครับ",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "Gates"
                 },
                 {
                     "id": 18,
                     "actor": "ผู้กล้า",
+                    "img_Left": "ผู้กล้า",
+                    "img_Right": null,
                     "val": "ผมขอตัวลาไปก่อนนะครับท่านราชา",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "Gates"
                 },
                 {
                     "id": 19,
                     "actor": null,
+                    "img_Left": null,
+                    "img_Right": null,
                     "val": "ผู้กล้าเริ่มออกเดินทางไปยังป่าที่เป็นเป้าหมาย",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "Gates"
                 },
                 {
                     "id": 20,
                     "actor": null,
+                    "img_Left": null,
+                    "img_Right": null,
                     "val": "ณ ป่าใกล้เมืองหลวง",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "Island"
                 },
                 {
                     "id": 21,
                     "actor": "Party_Member_1",
+                    "img_Left": "Party_Member_1",
+                    "img_Right": null,
                     "val": "ข้างหน้านี้จะเจอกับปีศาจแล้ว ขอให้ท่านผู้กล้าเตรียมตัว",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "Island"
                 },
                 {
                     "id": 22,
                     "actor": null,
+                    "img_Left": null,
+                    "img_Right": null,
                     "val": "ผู้กล้าเดินหน้าเข้าไปเผชิญหน้ากับปีศาจ!",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "Island"
                 }
             ]
         },{
@@ -148,122 +217,182 @@
                 {
                     "id": 0,
                     "actor": "Party_Member_1",
+                    "img_Left": "Party_Member_1",
+                    "img_Right": null,
                     "val": "เป็นอย่างไรบ้างท่านผู้กล้า",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "Island"
                 },
                 {
                     "id": 1,
                     "actor": "ผู้กล้า",
+                    "img_Left": "Party_Member_1",
+                    "img_Right": "ผู้กล้า",
                     "val": "เข้าใจแล้ว! การใช้ประเภทคลาส(ยา) ให้ตรงกับปีศาจ(อาการ) จะสร้างความเสียหายได้มากกว่าปกติสินะ",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "Island"
                 },
                 {
                     "id": 2,
                     "actor": "Party_Member_1",
+                    "img_Left": "Party_Member_1",
+                    "img_Right": "ผู้กล้า",
                     "val": "ใช่แล้วครับการใช้งานที่ถูกต้องจะให้ผลลัพธ์ที่ดีกว่า",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "Island"
                 },
                 {
                     "id": 3,
                     "actor": "ผู้กล้า",
+                    "img_Left": "Party_Member_1",
+                    "img_Right": "ผู้กล้า",
                     "val": "งั้นเราก็เดินทางกันต่อเลย",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "Island"
                 },
                 {
                     "id": 4,
                     "actor": null,
+                    "img_Left": null,
+                    "img_Right": null,
                     "val": "ผู้กล้าเดินทางออกจากป่าเพื่อไปยังหมู่บ้านที่อยู่ใกล้ๆ",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "Island"
                 },
                 {
                     "id": 5,
                     "actor": null,
+                    "img_Left": null,
+                    "img_Right": null,
                     "val": "ระหว่างการเดินทาง",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "Island"
                 },
                 {
                     "id": 6,
                     "actor": "Party_Member_1",
+                    "img_Left": "Party_Member_1",
+                    "img_Right": null,
                     "val": "ท่านผู้กล้าครับ ตามรายงานที่ผมทราบมา",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "Island"
                 },
                 {
                     "id": 7,
                     "actor": "Party_Member_1",
+                    "img_Left": "Party_Member_1",
+                    "img_Right": null,
                     "val": "หมู่บ้านข้างหน้านี้ตามปกติจะพบปีศาจอยู่บ่อยครั้ง แต่จำนวนไม่มากนัก พวกนักรบที่อยู่ตามหมู่บ้านเลยช่วยกันจัดการได้",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "Island"
                 },
                 {
                     "id": 8,
                     "actor": "Party_Member_1",
+                    "img_Left": "Party_Member_1",
+                    "img_Right": null,
                     "val": "แต่ความผิดปกติตามเขตชายแดนทำให้พบเจอปีศาจมากกว่าปกติท่านราชาจึงให้เราไปช่วยเหลือหน่อย",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "Island"
                 },
                 {
                     "id": 9,
                     "actor": "ผู้กล้า",
+                    "img_Left": "Party_Member_1",
+                    "img_Right": "ผู้กล้า",
                     "val": "มีนักรบประจำหมู่บ้านด้วยหรอ",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "Island"
                 },
                 {
                     "id": 10,
                     "actor": "Party_Member_1",
+                    "img_Left": "Party_Member_1",
+                    "img_Right": "ผู้กล้า",
                     "val": "มีครับ เพราะหมู่บ้านข้างหน้านี้ประสบกับปัญหาแม่น้ำที่ใช้กันไม่สะอาด แถมน้ำในแม่น้ำนี้ใช้ทั้งอุปโภค บริโภค พอน้ำไม่สะอาดเลยเกิดโรคขึ้น",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "Island"
                 },
                 {
                     "id": 11,
                     "actor": "Party_Member_1",
+                    "img_Left": "Party_Member_1",
+                    "img_Right": "ผู้กล้า",
                     "val": "ปีศาจก็เลยมาในบริเวณหมู่บ้านมากขึ้น ก็เลยมีนักรบอาสามาดูแลที่หมู่บ้านข้างหน้านี้ครับ",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "Island"
                 },
                 {
                     "id": 12,
                     "actor": "ผู้กล้า",
+                    "img_Left": "Party_Member_1",
+                    "img_Right": "ผู้กล้า",
                     "val": "เป็นอย่างนี้นี้เอง แม่น้ำสายนี้ใช่ไหม",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "Island"
                 },
                 {
                     "id": 13,
                     "actor": "Party_Member_1",
+                    "img_Left": "Party_Member_1",
+                    "img_Right": "ผู้กล้า",
                     "val": "ใช่แล้วครับ",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "Island"
                 },
                 {
                     "id": 14,
                     "actor": "ผู้กล้า",
+                    "img_Left": "Party_Member_1",
+                    "img_Right": "ผู้กล้า",
                     "val": "ถ้างั้นเดินทางอีกนิดเดียวก็จะถึงหมู่บ้านแล้ว",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "Island"
                 },
                 {
                     "id": 15,
                     "actor": null,
+                    "img_Left": null,
+                    "img_Right": null,
                     "val": "ตู้มมมมม….",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "Island"
                 },
                 {
                     "id": 16,
                     "actor": "ผู้กล้า",
+                    "img_Left": "ผู้กล้า",
+                    "img_Right": null,
                     "val": "!! เสียงดังมาจากข้านหน้าเรารีบไปกันเถอะ",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "Island"
                 },
                 {
                     "id": 17,
                     "actor": null,
+                    "img_Left": null,
+                    "img_Right": null,
                     "val": "ผู้กล้ารีบวิ่งไปยังตำแหน่งที่เกิดเสียงขึ้น",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "Island"
                 },
                 {
                     "id": 18,
                     "actor": "ผู้กล้า",
+                    "img_Left": "ผู้กล้า",
+                    "img_Right": null,
                     "val": "นั้น! มีคนกำลังต่อสู้กับปีศาจอยู่ ไปพวกเรารีบช่วยเค้าเร็ว",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "DemonCastle"
                 },
                 {
                     "id": 19,
                     "actor": null,
+                    "img_Left": null,
+                    "img_Right": null,
                     "val": "ผู้กล้าเข้าไปช่วยคนที่กำลังสู่กับปีศาจจำนวนมาก",
-                    "sfx": null
+                    "sfx": null,
+                    "bg": "DemonCastle"
                 }
             ]
         }
