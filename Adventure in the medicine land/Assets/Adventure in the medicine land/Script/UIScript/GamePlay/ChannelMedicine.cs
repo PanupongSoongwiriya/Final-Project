@@ -11,6 +11,8 @@ public class ChannelMedicine : MonoBehaviour
     private Status medicine;
     public bool select;
     [SerializeField]
+    private GameObject select_This;
+    [SerializeField]
     private AudioSource clickAudio;
 
     public void OnClickThis()
@@ -57,6 +59,7 @@ public class ChannelMedicine : MonoBehaviour
         get { return select; }
         set
         {
+            select_This.SetActive(value);
             select = value;
             //set color here
             //setColor(Color.black);

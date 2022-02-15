@@ -14,6 +14,8 @@ public class BagDetailPanel : MonoBehaviour
     public bool activeBotton;
     [SerializeField]
     private AudioSource ConfirmAudio;
+    [SerializeField]
+    private List<ChannelMedicine> CM_List;
 
     void Start()
     {
@@ -39,15 +41,21 @@ public class BagDetailPanel : MonoBehaviour
     }
     private void setBag()
     {
-        for (int i = 0; i < bag.transform.childCount; i++)
+        foreach (ChannelMedicine cm in CM_List)
+        {
+            cm.bdp = this;
+            cm.Medicine = null;
+        }
+        /*for (int i = 9; i < bag.transform.childCount; i++)
         {
             ChannelMedicine cm = bag.transform.GetChild(i).GetComponent<ChannelMedicine>();
             cm.bdp = this;
             cm.Medicine = null;
-        }
+        }*/
         for (int i = 0; i < gameSystem.NowCharecter.bag.Count; i++)
         {
-            bag.transform.GetChild(i).GetComponent<ChannelMedicine>().Medicine = gameSystem.NowCharecter.bag[i];
+            CM_List[i].Medicine = gameSystem.NowCharecter.bag[i];
+            //bag.transform.GetChild(i+9).GetComponent<ChannelMedicine>().Medicine = gameSystem.NowCharecter.bag[i];
         }
     }
 
@@ -55,10 +63,7 @@ public class BagDetailPanel : MonoBehaviour
     {
         cm = null;
         ActiveBotton = false;
-        for (int i = 0; i < bag.transform.childCount; i++)
-        {
-            bag.transform.GetChild(i).GetComponent<ChannelMedicine>().Select = false;
-        }
+        setSelectFalse();
     }
 
     public void useMedicine()
@@ -71,11 +76,16 @@ public class BagDetailPanel : MonoBehaviour
             gameSystem.State = "Use medicine with ally";
             useButton.SetActive(false);
             cm = null;
-            for (int i = 0; i < bag.transform.childCount; i++)
-            {
-                bag.transform.GetChild(i).GetComponent<ChannelMedicine>().Select = false;
-            }
+            setSelectFalse();
             cpb.switchPanel(true, false, false, false, false);//controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
+        }
+    }
+
+    public void setSelectFalse()
+    {
+        foreach (ChannelMedicine cm in CM_List)
+        {
+            cm.Select = false;
         }
     }
     public ChannelMedicine CM
@@ -84,10 +94,7 @@ public class BagDetailPanel : MonoBehaviour
         set
         {
             cm = value;
-            for (int i = 0; i < bag.transform.childCount; i++)
-            {
-                bag.transform.GetChild(i).GetComponent<ChannelMedicine>().Select = false;
-            }
+            setSelectFalse();
             if (value != null)
             {
                 ActiveBotton = true;
