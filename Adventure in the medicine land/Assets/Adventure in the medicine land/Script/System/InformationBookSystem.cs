@@ -19,7 +19,10 @@ public class InformationBookSystem : MonoBehaviour
     [SerializeField]
     private GameObject scrollHeader;
     [SerializeField]
-    private float nowData; 
+    private float nowData;
+
+    [SerializeField]
+    private Sprite[] buttonSprite;
     //[SerializeField]
     //private float distance;
     // Start is called before the first frame update
@@ -53,12 +56,35 @@ public class InformationBookSystem : MonoBehaviour
 
             newButton.GetComponent<RectTransform>().sizeDelta = new Vector2(button.GetComponent<RectTransform>().rect.width, buttonHeight);
 
+            foreach (Sprite b in buttonSprite)
+            {
+                if (b.name.Split(char.Parse("_")).Length == 2)
+                {
+                    if (float.Parse(b.name.Split(char.Parse("_"))[1]) - data.Book[i].id < 0.01)
+                    {
+                        newButton.GetComponent<Image>().sprite = b;
+                    }
+                }
+                else if (b.name.Split(char.Parse("_")).Length == 3)
+                {
+                    if (float.Parse(b.name.Split(char.Parse("_"))[2]) - data.Book[i].id < 0.01)
+                    {
+                        SpriteState ss = newButton.GetComponent<Button>().spriteState;
+                        ss.pressedSprite = b;
+                        newButton.GetComponent<Button>().spriteState = ss;
+                    }
+                }
+                
+            }
+
+            /*
             string subID = "";
             if (data.Book[i].id.ToString().Split(char.Parse(".")).Length == 2)
             {
                 subID = " (" + data.Book[i].id.ToString().Split(char.Parse("."))[1] + ")";
             }
             newButton.transform.GetChild(0).GetComponent<Text>().text = data.Book[i].header + subID;
+            */
             newButton.SetActive(true);
             newButton.transform.parent = scrollHeader.transform;
             newButton.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
