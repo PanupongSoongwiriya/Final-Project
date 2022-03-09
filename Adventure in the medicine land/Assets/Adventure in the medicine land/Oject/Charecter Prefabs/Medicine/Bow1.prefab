@@ -2921,7 +2921,7 @@ GameObject:
   - component: {fileID: 4481452573360082}
   - component: {fileID: 95344166002024556}
   m_Layer: 0
-  m_Name: BowMarksman
+  m_Name: Bow1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
