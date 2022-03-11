@@ -14,6 +14,7 @@ public class Status : MonoBehaviour
     protected int odDmg;
     public Color color;
     public Sprite icon_Medicine;
+    public Sprite icon_Medicine_Select;
     public GameSystem gameSystem;
 
     public virtual void changeState()

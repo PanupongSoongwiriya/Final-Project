@@ -16,9 +16,6 @@ public class BrainTonic : Character
         defensePower = 1;
 
         startSetUp();
-
-        allSkill.Add(skill.GetComponent<BootATK>());
-        allSkill.Add(skill.GetComponent<BootDEF>());
     }
     void Update()
     {

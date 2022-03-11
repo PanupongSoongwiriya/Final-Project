@@ -8,7 +8,8 @@ public class whoTurn : MonoBehaviour
 {
     Text txt;
     protected GameSystem gameSystem;
-    Image img;
+    public Sprite turnPlayer;
+    public Sprite turnEnemy;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,22 +22,18 @@ public class whoTurn : MonoBehaviour
             gameSystem = GameObject.Find("TutorialSystem").GetComponent<GameSystem>();
         }
         txt = GetComponentInChildren<Text>();
-        img = GetComponent<Image>();
-        txt.text = ThaiFontAdjuster.Adjust("เทิร์นของผู้เล่น");
-        img.color = new Color(0, 255, 0, 1);
+        GetComponent<Image>().sprite = turnPlayer;
     }
 
     public void Changed()
     {
         if (gameSystem.whoTurn.Equals("Medicine"))
         {
-            txt.text = ThaiFontAdjuster.Adjust("เทิร์นของผู้เล่น");
-            img.color = new Color(0, 255, 0, 1);
+            GetComponent<Image>().sprite = turnPlayer;
         }
         else
         {
-            txt.text = ThaiFontAdjuster.Adjust("เทิร์นของฝ่ายตรงข้าม");
-            img.color = new Color(255, 0, 0, 1);
+            GetComponent<Image>().sprite = turnEnemy;
         }
     }
 }

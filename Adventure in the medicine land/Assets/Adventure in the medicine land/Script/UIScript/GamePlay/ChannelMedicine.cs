@@ -11,8 +11,6 @@ public class ChannelMedicine : MonoBehaviour
     private Status medicine;
     public bool select;
     [SerializeField]
-    private GameObject select_This;
-    [SerializeField]
     private AudioSource clickAudio;
 
     public void OnClickThis()
@@ -45,11 +43,12 @@ public class ChannelMedicine : MonoBehaviour
                 icon.sprite = value.icon_Medicine;
                 if (!select)
                 {
-                    setColor(Color.white);
+                    //setColor(Color.white);
                 }
                 else
                 {
-                    setColor(Color.yellow);
+                    icon.sprite = value.icon_Medicine_Select;
+                    //setColor(Color.yellow);
                 }
             }
         }
@@ -59,13 +58,14 @@ public class ChannelMedicine : MonoBehaviour
         get { return select; }
         set
         {
-            select_This.SetActive(value);
             select = value;
             //set color here
             //setColor(Color.black);
             if (value)
             {
-                setColor(Color.yellow);
+                Image icon = transform.GetChild(0).GetComponent<Image>();
+                icon.sprite = medicine.icon_Medicine_Select;
+                //setColor(Color.yellow);
             }
         }
     }

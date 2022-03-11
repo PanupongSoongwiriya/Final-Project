@@ -20,9 +20,6 @@ public class MusclePainMedication : Character
 
 
         startSetUp();
-
-        allSkill.Add(skill.GetComponent<DebuffATK>());
-        allSkill.Add(skill.GetComponent<DebuffDEF>());
     }
 
     void OnMouseDown()

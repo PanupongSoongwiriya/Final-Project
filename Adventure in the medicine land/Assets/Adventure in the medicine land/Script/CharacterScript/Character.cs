@@ -49,9 +49,6 @@ public class Character : MonoBehaviour
     public bool disableMove;
     public bool disableAttack;
 
-
-    public List<Skill> allSkill;
-    public GameObject skill;
     public List<Status> bag;
     public GameObject status;
     public Floor pedalFloor;
@@ -116,9 +113,7 @@ public class Character : MonoBehaviour
         }
 
         name = classCharacter + " " + id;
-        skill = GameObject.Find("SkillList");
         status = GameObject.Find("StatusList");
-        allSkill = new List<Skill>();
         bag = new List<Status>();
         findAllMaterial(transform);
         targetSpin = null;
@@ -188,11 +183,6 @@ public class Character : MonoBehaviour
             y -= 360;
         }
         transform.rotation = Quaternion.Euler(transform.eulerAngles.x, y, transform.eulerAngles.z);
-    }
-    public void useSkill(int index)
-    {
-        indexSkill = index;
-        allSkill[indexSkill].changeState();
     }
     protected void setPositionCamera()
     {

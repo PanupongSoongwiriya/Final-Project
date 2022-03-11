@@ -17,8 +17,6 @@ public class BloodTonic : Character
         HP = 2;
 
         startSetUp();
-
-        allSkill.Add(skill.GetComponent<Heal>());
     }
 
     void Update()

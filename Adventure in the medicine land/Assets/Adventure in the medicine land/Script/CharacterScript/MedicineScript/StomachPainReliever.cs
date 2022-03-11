@@ -19,8 +19,6 @@ public class StomachPainReliever : Character
 
 
         startSetUp();
-
-        allSkill.Add(skill.GetComponent<HeavyATK>());
     }
 
     void OnMouseDown()
