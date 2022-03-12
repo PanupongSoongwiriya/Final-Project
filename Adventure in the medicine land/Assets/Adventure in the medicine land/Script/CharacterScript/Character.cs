@@ -199,8 +199,7 @@ public class Character : MonoBehaviour
         {
             setPositionCamera();
             gameSystem.NowCharecter = this;
-            gameSystem.walkBoutton.GetComponent<walkButton>().ActiveBotton = actionPoint == 2;
-            gameSystem.walkBoutton.GetComponent<walkButton>().ActiveBotton = !disableMove;
+            gameSystem.walkBoutton.GetComponent<walkButton>().ActiveBotton = actionPoint == 2 && !disableMove;
             gameSystem.attackButton.ActiveBotton = !disableAttack;
             if (actionPoint > 0)
             {

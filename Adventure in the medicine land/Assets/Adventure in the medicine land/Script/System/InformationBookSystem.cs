@@ -95,7 +95,7 @@ public class InformationBookSystem : MonoBehaviour
                 scrollHeaderHeight = -newButton.GetComponent<RectTransform>().anchoredPosition.y + buttonHeight + buttonHeight * 0.3f;
                 scrollHeaderY = -scrollHeaderHeight / 2;
                 scrollHeader.transform.position = new Vector3(scrollHeaderX, scrollHeaderY, scrollHeaderZ);
-                scrollHeader.GetComponent<RectTransform>().sizeDelta = new Vector2(0, scrollHeaderHeight);
+                scrollHeader.GetComponent<RectTransform>().sizeDelta = new Vector2(0, 2345);
             }
         }
         setBookData();

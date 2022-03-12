@@ -2812,7 +2812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameSystem: {fileID: 1389070291}
-  win: {fileID: 0}
+  win: {fileID: 1483225428}
   lose: {fileID: 359192626}
   againButton: {fileID: 737133837}
   back2HomeButton: {fileID: 1556972033}
@@ -4363,20 +4363,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a5b9d8fad239af40b4889d99815485b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameSystem: {fileID: 0}
-  controlPanel: {fileID: 896668366}
-  optionsPanel: {fileID: 563466689}
-  skillPanel: {fileID: 0}
-  characterDetailPanel: {fileID: 1642383782}
-  skillDetailPanel: {fileID: 0}
-  bagDetailPanel: {fileID: 142946383}
-  sheatheMenu: {fileID: 0}
-  sheatheData: {fileID: 0}
-  activeBotton: 0
-  c: 1
-  ConfirmAudio: {fileID: 0}
-  CancelAudio: {fileID: 0}
-  SkillPanel: {fileID: 0}
 --- !u!114 &1268027716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4877,7 +4863,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.43215156, y: 0.80700004}
   m_AnchorMax: {x: 0.5711516, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1326700956
@@ -8158,7 +8144,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.43687883, y: 0.832}
   m_AnchorMax: {x: 0.568, y: 0.92100006}
-  m_AnchoredPosition: {x: -4.8906097, y: -34.399994}
+  m_AnchoredPosition: {x: -5.7504, y: 13.9}
   m_SizeDelta: {x: 5691, y: 654}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2040234989
