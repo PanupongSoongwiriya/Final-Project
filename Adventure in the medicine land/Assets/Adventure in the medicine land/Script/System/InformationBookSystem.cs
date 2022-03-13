@@ -38,8 +38,7 @@ public class InformationBookSystem : MonoBehaviour
         float buttonHeight = button.GetComponent<RectTransform>().rect.height;
 
         //distance between 2 buttons
-        float distance = buttonHeight / 2 + (buttonHeight * 0.3f);
-        distance = buttonHeight*(((Screen.width)*100)/1920)/100;
+        float distance = (buttonHeight*(((Screen.width)*100)/1920)/100) * 1.3f;
 
         float scrollHeaderHeight;
         float scrollHeaderX = scrollHeader.transform.position.x;
@@ -50,7 +49,7 @@ public class InformationBookSystem : MonoBehaviour
         for (int i = 0; i < data.Book.Length; i++)
         {
             float buttonX = button.transform.position.x;
-            float buttonY = button.transform.position.y + (i * -distance) - (buttonHeight / 4);
+            float buttonY = button.transform.position.y + (i * -distance) ;
             float buttonZ = button.transform.position.z;
             GameObject newButton = Instantiate(button, new Vector3(buttonX, buttonY, buttonZ), transform.rotation);
 
@@ -76,15 +75,6 @@ public class InformationBookSystem : MonoBehaviour
                 }
                 
             }
-
-            /*
-            string subID = "";
-            if (data.Book[i].id.ToString().Split(char.Parse(".")).Length == 2)
-            {
-                subID = " (" + data.Book[i].id.ToString().Split(char.Parse("."))[1] + ")";
-            }
-            newButton.transform.GetChild(0).GetComponent<Text>().text = data.Book[i].header + subID;
-            */
             newButton.SetActive(true);
             newButton.transform.parent = scrollHeader.transform;
             newButton.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
@@ -95,7 +85,7 @@ public class InformationBookSystem : MonoBehaviour
                 scrollHeaderHeight = -newButton.GetComponent<RectTransform>().anchoredPosition.y + buttonHeight + buttonHeight * 0.3f;
                 scrollHeaderY = -scrollHeaderHeight / 2;
                 scrollHeader.transform.position = new Vector3(scrollHeaderX, scrollHeaderY, scrollHeaderZ);
-                scrollHeader.GetComponent<RectTransform>().sizeDelta = new Vector2(0, 2345);
+                scrollHeader.GetComponent<RectTransform>().sizeDelta = new Vector2(0, scrollHeaderHeight);
             }
         }
         setBookData();
