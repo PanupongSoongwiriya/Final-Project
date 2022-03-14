@@ -5767,6 +5767,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8049314337774199886, guid: 58b86fa0e8c48c3458f0b2c2bbc13cd4,
         type: 3}
+      propertyPath: CharacterStoragePrefab
+      value: 
+      objectReference: {fileID: 8622719676264630958, guid: 89eb525330a40bc4c9170e0ab28eb6b9,
+        type: 3}
+    - target: {fileID: 8049314337774199886, guid: 58b86fa0e8c48c3458f0b2c2bbc13cd4,
+        type: 3}
       propertyPath: allStage.Array.data[0]
       value: 
       objectReference: {fileID: 2800000, guid: 153d013c44450a84fba553aff4b26463, type: 3}

@@ -7,9 +7,9 @@ public class Hero : Character
 {
     void Start()
     {
-        characterName = "Hero";
+        characterName = "ฮีโร่";
         faction = "Medicine";
-        classCharacter = "ฮีโร่";
+        classCharacter = "Sup/Hero";
         genusPhase = "";
 
         attackPower = 3;
@@ -27,10 +27,6 @@ public class Hero : Character
         bag.Add(status.GetComponent<SkinFungus_Medicine>());
         bag.Add(status.GetComponent<Stomachache_Medicine>());
         //bag.Add(status.GetComponent<MedicineTest>());
-
-        /*allSkill.Add(skill.GetComponent<HeavyATK>());
-         allSkill.Add(skill.GetComponent<DebuffATK>());
-        allSkill.Add(skill.GetComponent<DebuffDEF>());*/
     }
 
     void Update()
@@ -47,15 +43,4 @@ public class Hero : Character
         attackRange = 2;
         walkingDistance = 3;
     }
-
-    /*
-    public override float checkAdvantage(Character actor)
-    {
-        if (actor.classCharacter.Equals("จอมมาร"))
-        {
-            return 1.0f;
-        }
-        return 0.75f;
-    }*/
-
 }

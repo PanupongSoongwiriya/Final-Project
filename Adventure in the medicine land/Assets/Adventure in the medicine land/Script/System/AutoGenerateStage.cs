@@ -311,89 +311,65 @@ public class AutoGenerateStage : MonoBehaviour
         ++ChrCount;
         if (((((typeColor["chartreuse"].r - tolerancea) < pix.r) && (pix.r < (typeColor["chartreuse"].r + tolerancea))) && (((typeColor["chartreuse"].g - tolerancea) < pix.g) && (pix.g < (typeColor["chartreuse"].g + tolerancea))) && (((typeColor["chartreuse"].b - tolerancea) < pix.b) && (pix.b < (typeColor["chartreuse"].b + tolerancea)))))
         {
-            //ยาแก้ปวดท้อง
-            setCharacterModel("StomachPainReliever", x_Coordinate, z_Coordinate, pix);
-            characterObject.AddComponent<StomachPainReliever>();
+            //พลธนู 1
+            setCharacterModel("Archer_1", x_Coordinate, z_Coordinate, pix);
+            characterObject.AddComponent<Archer_1>();
         }
 
         else if (((((typeColor["pink"].r - tolerancea) < pix.r) && (pix.r < (typeColor["pink"].r + tolerancea))) && (((typeColor["pink"].g - tolerancea) < pix.g) && (pix.g < (typeColor["pink"].g + tolerancea))) && (((typeColor["pink"].b - tolerancea) < pix.b) && (pix.b < (typeColor["pink"].b + tolerancea)))))
         {
-            //ยาแก้ปวดหัว
-
-            setCharacterModel("HeadacheMedicine", x_Coordinate, z_Coordinate, pix);
-            characterObject.AddComponent<HeadacheMedicine>();
+            //พลธนู 2
+            setCharacterModel("Archer_2", x_Coordinate, z_Coordinate, pix);
+            characterObject.AddComponent<Archer_2>();
         }
 
         else if (((((typeColor["yellow"].r - tolerancea) < pix.r) && (pix.r < (typeColor["yellow"].r + tolerancea))) && (((typeColor["yellow"].g - tolerancea) < pix.g) && (pix.g < (typeColor["yellow"].g + tolerancea))) && (((typeColor["yellow"].b - tolerancea) < pix.b) && (pix.b < (typeColor["yellow"].b + tolerancea)))))
         {
-            //ยาลดน้ำมูก
-
-            setCharacterModel("Decongestant", x_Coordinate, z_Coordinate, pix);
-            characterObject.AddComponent<Decongestant>();
-        }
-
-        else if (((((typeColor["hotpink"].r - tolerancea) < pix.r) && (pix.r < (typeColor["hotpink"].r + tolerancea))) && (((typeColor["hotpink"].g - tolerancea) < pix.g) && (pix.g < (typeColor["hotpink"].g + tolerancea))) && (((typeColor["hotpink"].b - tolerancea) < pix.b) && (pix.b < (typeColor["hotpink"].b + tolerancea)))))
-        {
-            //ยาฆ่าเชื้อ
-
-            setCharacterModel("Antibiotic", x_Coordinate, z_Coordinate, pix);
-            characterObject.AddComponent<Antibiotic>();
+            //พลขวาน
+            setCharacterModel("Ax", x_Coordinate, z_Coordinate, pix);
+            characterObject.AddComponent<Ax>();
         }
 
         else if (((((typeColor["turquoise"].r - tolerancea) < pix.r) && (pix.r < (typeColor["turquoise"].r + tolerancea))) && (((typeColor["turquoise"].g - tolerancea) < pix.g) && (pix.g < (typeColor["turquoise"].g + tolerancea))) && (((typeColor["turquoise"].b - tolerancea) < pix.b) && (pix.b < (typeColor["turquoise"].b + tolerancea)))))
         {
-            //ยาแก้คัน
-
-            setCharacterModel("Antipruritic", x_Coordinate, z_Coordinate, pix);
-            characterObject.AddComponent<Antipruritic>();
+            //พลดาบโล่
+            setCharacterModel("Shield_Swords_Man", x_Coordinate, z_Coordinate, pix);
+            characterObject.AddComponent<Shield_Swords_Man>();
         }
 
         else if (((((typeColor["violet"].r - tolerancea) < pix.r) && (pix.r < (typeColor["violet"].r + tolerancea))) && (((typeColor["violet"].g - tolerancea) < pix.g) && (pix.g < (typeColor["violet"].g + tolerancea))) && (((typeColor["violet"].b - tolerancea) < pix.b) && (pix.b < (typeColor["violet"].b + tolerancea)))))
         {
-            //ยาฆ่าเชื้อสิว
-
-            setCharacterModel("AcneDisinfectant", x_Coordinate, z_Coordinate, pix);
-            characterObject.AddComponent<AcneDisinfectant>();
+            //พลขวานโล่
+            setCharacterModel("Shield_Ax_Man", x_Coordinate, z_Coordinate, pix);
+            characterObject.AddComponent<Shield_Ax_Man>();
         }
 
         else if (((((typeColor["coral"].r - tolerancea) < pix.r) && (pix.r < (typeColor["coral"].r + tolerancea))) && (((typeColor["coral"].g - tolerancea) < pix.g) && (pix.g < (typeColor["coral"].g + tolerancea))) && (((typeColor["coral"].b - tolerancea) < pix.b) && (pix.b < (typeColor["coral"].b + tolerancea)))))
         {
-            //ยาแก้ปวดกล้ามเนื้อ
-
-            setCharacterModel("MusclePainMedication", x_Coordinate, z_Coordinate, pix);
-            characterObject.AddComponent<MusclePainMedication>();
+            //พลค้อน
+            setCharacterModel("Hammer", x_Coordinate, z_Coordinate, pix);
+            characterObject.AddComponent<Hammer>();
         }
 
         else if (((((typeColor["indianred"].r - tolerancea) < pix.r) && (pix.r < (typeColor["indianred"].r + tolerancea))) && (((typeColor["indianred"].g - tolerancea) < pix.g) && (pix.g < (typeColor["indianred"].g + tolerancea))) && (((typeColor["indianred"].b - tolerancea) < pix.b) && (pix.b < (typeColor["indianred"].b + tolerancea)))))
         {
-            //ยาฆ่าเชื้อรา
-
-            setCharacterModel("Fungicide", x_Coordinate, z_Coordinate, pix);
-            characterObject.AddComponent<Fungicide>();
+            //นายพล
+            setCharacterModel("General", x_Coordinate, z_Coordinate, pix);
+            characterObject.AddComponent<General>();
         }
 
         else if (((((typeColor["darkblue"].r - tolerancea) < pix.r) && (pix.r < (typeColor["darkblue"].r + tolerancea))) && (((typeColor["darkblue"].g - tolerancea) < pix.g) && (pix.g < (typeColor["darkblue"].g + tolerancea))) && (((typeColor["darkblue"].b - tolerancea) < pix.b) && (pix.b < (typeColor["darkblue"].b + tolerancea)))))
         {
-            //ยาบำรุงสมอง
-
-            setCharacterModel("BrainTonic", x_Coordinate, z_Coordinate, pix);
-            characterObject.AddComponent<BrainTonic>();
+            //หน่วยสนับสนุน
+            setCharacterModel("Support_Unit", x_Coordinate, z_Coordinate, pix);
+            characterObject.AddComponent<Support_Unit>();
         }
 
         else if (((((typeColor["crimson"].r - tolerancea) < pix.r) && (pix.r < (typeColor["crimson"].r + tolerancea))) && (((typeColor["crimson"].g - tolerancea) < pix.g) && (pix.g < (typeColor["crimson"].g + tolerancea))) && (((typeColor["crimson"].b - tolerancea) < pix.b) && (pix.b < (typeColor["crimson"].b + tolerancea)))))
         {
-            //ยาบำรุงเลือด
-
-            setCharacterModel("BloodTonic", x_Coordinate, z_Coordinate, pix);
-            characterObject.AddComponent<BloodTonic>();
-        }
-
-        else if (((((typeColor["chocolate"].r - tolerancea) < pix.r) && (pix.r < (typeColor["chocolate"].r + tolerancea))) && (((typeColor["chocolate"].g - tolerancea) < pix.g) && (pix.g < (typeColor["chocolate"].g + tolerancea))) && (((typeColor["chocolate"].b - tolerancea) < pix.b) && (pix.b < (typeColor["chocolate"].b + tolerancea)))))
-        {
-            //ยาบำรุงกระดูก
-
-            setCharacterModel("BoneTonic", x_Coordinate, z_Coordinate, pix);
-            characterObject.AddComponent<BoneTonic>();
+            //หมอ
+            setCharacterModel("Doctor", x_Coordinate, z_Coordinate, pix);
+            characterObject.AddComponent<Doctor>();
         }
 
         else if (((((typeColor["gold"].r - tolerancea) < pix.r) && (pix.r < (typeColor["gold"].r + tolerancea))) && (((typeColor["gold"].g - tolerancea) < pix.g) && (pix.g < (typeColor["gold"].g + tolerancea))) && (((typeColor["gold"].b - tolerancea) < pix.b) && (pix.b < (typeColor["gold"].b + tolerancea)))))
