@@ -7,10 +7,9 @@ public class MusclePain : Character
 {
     void Start()
     {
-        characterName = "MusclePain";
+        characterName = "ปูกล้ามโต";
         faction = "Disease";
         classCharacter = "ปวดกล้ามเนื้อ";
-        genusPhase = "ระยะกลาง";
 
         HP = 6;
         attackPower = 1;

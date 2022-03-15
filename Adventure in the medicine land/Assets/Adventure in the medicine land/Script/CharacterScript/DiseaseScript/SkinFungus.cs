@@ -7,10 +7,9 @@ public class SkinFungus : Character
 {
     void Start()
     {
-        characterName = "SkinFungus";
+        characterName = "แมงมุมยักษ์";
         faction = "Disease";
         classCharacter = "เชื้อราที่ผิวหนัง";
-        genusPhase = "ระยะกลาง";
 
         HP = 6;
         attackPower = 1;

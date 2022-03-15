@@ -10,7 +10,6 @@ public class Decongestant : Character
         characterName = "Zyrtec";
         faction = "Medicine";
         classCharacter = "ยาลดน้ำมูก";
-        genusPhase = "ระยะกลาง";
 
 
         HP = 3;

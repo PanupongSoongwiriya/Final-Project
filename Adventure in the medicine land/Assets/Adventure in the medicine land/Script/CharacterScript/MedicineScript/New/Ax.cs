@@ -9,8 +9,7 @@ public class Ax : Character
     {
         characterName = "พลขวาน";
         faction = "Medicine";
-        classCharacter = "Atk";
-        genusPhase = "ระยะใกล้";
+        classCharacter = "จู่โจม";
 
 
         HP = 3;

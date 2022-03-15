@@ -7,10 +7,9 @@ public class Acne : Character
 {
     void Start()
     {
-        characterName = "Acne";
+        characterName = "สไลม์";
         faction = "Disease";
         classCharacter = "สิว";
-        genusPhase = "ระยะกลาง";
 
         HP = 6;
         attackPower = 1;

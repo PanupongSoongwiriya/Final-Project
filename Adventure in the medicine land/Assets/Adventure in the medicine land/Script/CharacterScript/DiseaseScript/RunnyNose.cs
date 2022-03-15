@@ -7,10 +7,9 @@ public class RunnyNose : Character
 {
     void Start()
     {
-        characterName = "RunnyNose";
+        characterName = "พืชกินคน";
         faction = "Disease";
         classCharacter = "น้ำมูกไหล";
-        genusPhase = "ระยะใกล้";
 
         HP = 6;
         attackPower = 1;

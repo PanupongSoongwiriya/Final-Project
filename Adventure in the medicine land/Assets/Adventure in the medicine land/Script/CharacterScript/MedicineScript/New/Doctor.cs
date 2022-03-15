@@ -7,10 +7,9 @@ public class Doctor : Character
 {
     void Start()
     {
-        characterName = "หมอ";
+        characterName = "โฮพ";
         faction = "Medicine";
-        classCharacter = "Sup";
-        genusPhase = "ระยะไกล";
+        classCharacter = "หมอ";
 
         attackPower = 2;
         defensePower = 1;

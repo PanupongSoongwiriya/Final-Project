@@ -11,7 +11,6 @@ public class Character : MonoBehaviour
     public String classCharacter;
     [SerializeField]
     protected String classType;
-    public String genusPhase;
     [SerializeField]
     protected int actionPoint;
     public bool moving;
@@ -117,6 +116,7 @@ public class Character : MonoBehaviour
         bag = new List<Status>();
         findAllMaterial(transform);
         targetSpin = null;
+        setColorCharacter(new Color(1, 1, 1, 1));
     }
 
     public void setDegree()
@@ -597,7 +597,7 @@ public class Character : MonoBehaviour
         {
             foreach (Renderer r in allRenderer)
             {
-                r.material.SetColor("_Color", c);
+                r.material.SetColor("_EmissionColor", c);
             }
         }
     }

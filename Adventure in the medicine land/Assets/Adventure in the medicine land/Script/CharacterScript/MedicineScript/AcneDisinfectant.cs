@@ -10,7 +10,6 @@ public class AcneDisinfectant : Character
         characterName = "Benzac";
         faction = "Medicine";
         classCharacter = "ยาฆ่าเชื้อสิว";
-        genusPhase = "ระยะใกล้";
         ClassType = "Tank";
 
 

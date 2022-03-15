@@ -7,10 +7,9 @@ public class Itching : Character
 {
     void Start()
     {
-        characterName = "Itching";
+        characterName = "เต่าสไลม์";
         faction = "Disease";
         classCharacter = "อาการคัน";
-        genusPhase = "ระยะกลาง";
 
         HP = 6;
         attackPower = 1;

@@ -10,7 +10,6 @@ public class HeadacheMedicine : Character
         characterName = "Voltaren";
         faction = "Medicine";
         classCharacter = "ยาแก้ปวดหัว";
-        genusPhase = "ระยะกลาง";
 
 
         HP = 3;

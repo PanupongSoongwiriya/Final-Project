@@ -9,8 +9,7 @@ public class General : Character
     {
         characterName = "นายพล";
         faction = "Medicine";
-        classCharacter = "Atk";
-        genusPhase = "ระยะใกล้";
+        classCharacter = "จู่โจม";
 
         attackPower = 2;
         defensePower = 1;

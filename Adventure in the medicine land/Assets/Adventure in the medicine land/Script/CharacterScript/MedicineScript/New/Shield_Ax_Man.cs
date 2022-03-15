@@ -9,15 +9,12 @@ public class Shield_Ax_Man : Character
     {
         characterName = "พลขวานโล่";
         faction = "Medicine";
-        classCharacter = "Def";
-        genusPhase = "ระยะใกล้";
+        classCharacter = "แทงค์";
         ClassType = "Tank";
-
 
         attackPower = 3;
         defensePower = 1;
         HP = 1;
-
 
         startSetUp();
     }

@@ -7,10 +7,9 @@ public class Infect : Character
 {
     void Start()
     {
-        characterName = "Infect";
+        characterName = "ปีศาจไวรัส";
         faction = "Disease";
         classCharacter = "ติดเชื้อ";
-        genusPhase = "ระยะใกล้";
 
         HP = 6;
         attackPower = 1;

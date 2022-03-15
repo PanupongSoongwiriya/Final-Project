@@ -7,10 +7,9 @@ public class Headache : Character
 {
     void Start()
     {
-        characterName = "Headache";
+        characterName = "ค้างคาวปีศาจ";
         faction = "Disease";
         classCharacter = "ปวดหัว";
-        genusPhase = "ระยะใกล้";
 
         HP = 6;
         attackPower = 1;

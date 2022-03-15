@@ -9,8 +9,7 @@ public class Hammer : Character
     {
         characterName = "พลค้อน";
         faction = "Medicine";
-        classCharacter = "Atk";
-        genusPhase = "ระยะใกล้";
+        classCharacter = "จู่โจม";
 
         HP = 4;
         attackPower = 3;

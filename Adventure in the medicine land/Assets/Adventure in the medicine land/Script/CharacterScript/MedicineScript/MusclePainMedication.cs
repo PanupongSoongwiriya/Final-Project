@@ -10,7 +10,6 @@ public class MusclePainMedication : Character
         characterName = "Uniren";
         faction = "Medicine";
         classCharacter = "ยาแก้ปวดกล้ามเนื้อ";
-        genusPhase = "ระยะใกล้";
         ClassType = "";
 
 

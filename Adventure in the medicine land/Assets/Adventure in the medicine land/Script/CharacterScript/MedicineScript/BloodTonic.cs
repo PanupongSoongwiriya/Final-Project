@@ -10,7 +10,6 @@ public class BloodTonic : Character
         characterName = "Folic";
         faction = "Medicine";
         classCharacter = "ยาบำรุงเลือด";
-        genusPhase = "ระยะไกล";
 
         attackPower = 2;
         defensePower = 1;

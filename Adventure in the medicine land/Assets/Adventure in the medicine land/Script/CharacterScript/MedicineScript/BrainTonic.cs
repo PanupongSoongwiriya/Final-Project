@@ -9,7 +9,6 @@ public class BrainTonic : Character
         characterName = "Ginkgo";
         faction = "Medicine";
         classCharacter = "บำรุงสมอง";
-        genusPhase = "ระยะไกล";
 
         HP = 10;
         attackPower = 2;

@@ -9,15 +9,12 @@ public class Shield_Swords_Man : Character
     {
         characterName = "พลดาบโล่";
         faction = "Medicine";
-        classCharacter = "Def";
-        genusPhase = "ระยะใกล้";
+        classCharacter = "แทงค์";
         ClassType = "Tank";
-
 
         attackPower = 2;
         defensePower = 2;
         HP = 10;
-
 
         startSetUp();
     }

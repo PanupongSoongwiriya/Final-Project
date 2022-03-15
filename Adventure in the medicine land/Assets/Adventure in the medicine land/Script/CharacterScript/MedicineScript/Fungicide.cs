@@ -10,7 +10,6 @@ public class Fungicide : Character
         characterName = "Tonaf";
         faction = "Medicine";
         classCharacter = "ยาฆ่าเชื้อรา";
-        genusPhase = "ระยะใกล้";
 
 
         attackPower = 0;

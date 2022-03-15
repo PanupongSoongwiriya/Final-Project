@@ -7,10 +7,9 @@ public class DemonLord : Character
 {
     void Start()
     {
-        characterName = "จอมมารโควิด";
+        characterName = "จอมมาร";
         faction = "Disease";
         classCharacter = "จอมมาร";
-        genusPhase = "";
 
         HP = 500;
         attackPower = 3;

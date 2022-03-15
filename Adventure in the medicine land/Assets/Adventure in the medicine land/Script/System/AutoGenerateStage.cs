@@ -312,15 +312,15 @@ public class AutoGenerateStage : MonoBehaviour
         if (((((typeColor["chartreuse"].r - tolerancea) < pix.r) && (pix.r < (typeColor["chartreuse"].r + tolerancea))) && (((typeColor["chartreuse"].g - tolerancea) < pix.g) && (pix.g < (typeColor["chartreuse"].g + tolerancea))) && (((typeColor["chartreuse"].b - tolerancea) < pix.b) && (pix.b < (typeColor["chartreuse"].b + tolerancea)))))
         {
             //พลธนู 1
-            setCharacterModel("Archer_1", x_Coordinate, z_Coordinate, pix);
-            characterObject.AddComponent<Archer_1>();
+            setCharacterModel("Archer", x_Coordinate, z_Coordinate, pix);
+            characterObject.AddComponent<Archer>();
         }
 
         else if (((((typeColor["pink"].r - tolerancea) < pix.r) && (pix.r < (typeColor["pink"].r + tolerancea))) && (((typeColor["pink"].g - tolerancea) < pix.g) && (pix.g < (typeColor["pink"].g + tolerancea))) && (((typeColor["pink"].b - tolerancea) < pix.b) && (pix.b < (typeColor["pink"].b + tolerancea)))))
         {
             //พลธนู 2
-            setCharacterModel("Archer_2", x_Coordinate, z_Coordinate, pix);
-            characterObject.AddComponent<Archer_2>();
+            setCharacterModel("Sniper", x_Coordinate, z_Coordinate, pix);
+            characterObject.AddComponent<Sniper>();
         }
 
         else if (((((typeColor["yellow"].r - tolerancea) < pix.r) && (pix.r < (typeColor["yellow"].r + tolerancea))) && (((typeColor["yellow"].g - tolerancea) < pix.g) && (pix.g < (typeColor["yellow"].g + tolerancea))) && (((typeColor["yellow"].b - tolerancea) < pix.b) && (pix.b < (typeColor["yellow"].b + tolerancea)))))
@@ -361,8 +361,8 @@ public class AutoGenerateStage : MonoBehaviour
         else if (((((typeColor["darkblue"].r - tolerancea) < pix.r) && (pix.r < (typeColor["darkblue"].r + tolerancea))) && (((typeColor["darkblue"].g - tolerancea) < pix.g) && (pix.g < (typeColor["darkblue"].g + tolerancea))) && (((typeColor["darkblue"].b - tolerancea) < pix.b) && (pix.b < (typeColor["darkblue"].b + tolerancea)))))
         {
             //หน่วยสนับสนุน
-            setCharacterModel("Support_Unit", x_Coordinate, z_Coordinate, pix);
-            characterObject.AddComponent<Support_Unit>();
+            setCharacterModel("Nurse", x_Coordinate, z_Coordinate, pix);
+            characterObject.AddComponent<Nurse>();
         }
 
         else if (((((typeColor["crimson"].r - tolerancea) < pix.r) && (pix.r < (typeColor["crimson"].r + tolerancea))) && (((typeColor["crimson"].g - tolerancea) < pix.g) && (pix.g < (typeColor["crimson"].g + tolerancea))) && (((typeColor["crimson"].b - tolerancea) < pix.b) && (pix.b < (typeColor["crimson"].b + tolerancea)))))

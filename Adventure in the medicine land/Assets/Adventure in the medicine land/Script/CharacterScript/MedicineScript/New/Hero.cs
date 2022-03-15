@@ -7,10 +7,9 @@ public class Hero : Character
 {
     void Start()
     {
-        characterName = "ฮีโร่";
+        characterName = "โฮพ";
         faction = "Medicine";
-        classCharacter = "Sup/Hero";
-        genusPhase = "";
+        classCharacter = "ผู้หล้า";
 
         attackPower = 3;
         defensePower = 3;
@@ -26,7 +25,6 @@ public class Hero : Character
         bag.Add(status.GetComponent<RunnyNose_Medicine>());
         bag.Add(status.GetComponent<SkinFungus_Medicine>());
         bag.Add(status.GetComponent<Stomachache_Medicine>());
-        //bag.Add(status.GetComponent<MedicineTest>());
     }
 
     void Update()
