@@ -59,6 +59,10 @@ public class Character : MonoBehaviour
     [SerializeField]
     protected List<Renderer> allRenderer = new List<Renderer>();
 
+    [SerializeField]
+    protected Animator animator;
+
+
     void Start()
     {
         startSetUp();
@@ -117,6 +121,7 @@ public class Character : MonoBehaviour
         findAllMaterial(transform);
         targetSpin = null;
         setColorCharacter(new Color(1, 1, 1, 1));
+        animator = GetComponent<Animator>();
     }
 
     public void setDegree()
@@ -310,7 +315,7 @@ public class Character : MonoBehaviour
     public void attacked()
     {
         //Player Attack
-        if ((gameSystem.State.Equals("Choose a enemy character") || gameSystem.State.Equals("Use skills with enemies")) && !gameSystem.NowCharecter.Faction.Equals(faction) && pedalFloor.InTerm)
+        if (gameSystem.State.Equals("Choose a enemy character") && !gameSystem.NowCharecter.Faction.Equals(faction) && pedalFloor.InTerm)
         {
             gameSystem.State = "Choose a medicine character";
             gameSystem.NowCharecter.doneIt(2);
@@ -321,6 +326,7 @@ public class Character : MonoBehaviour
             int dmg = calculateDMG(gameSystem.NowCharecter, this);
             showDMG(-dmg, "attack");
             HP -= dmg;
+            gameSystem.NowCharecter.SetAnimBool("Attack");
         }
         //Bot Attack
         else if (gameSystem.State.Equals("round of bots") && !gameSystem.NowCharecter.Faction.Equals(faction) && pedalFloor.InTerm)
@@ -331,11 +337,15 @@ public class Character : MonoBehaviour
             int dmg = calculateDMG(gameSystem.NowCharecter, this); 
             showDMG(-dmg, "attack");
             HP -= dmg;
+            gameSystem.NowCharecter.SetAnimBool("Attack");
         }
     }
 
     public void showDMG(int dmg, String typeDMG)
     {
+        if (dmg < 0)
+        {
+        }
         if (dmgText != null)
         {
             dmgText.GetComponent<DamageText>().num = dmg;
@@ -364,16 +374,18 @@ public class Character : MonoBehaviour
         return Math.Max(1, (int)((attacker.attackPower + attacker.specialAttack) - (victim.defensePower + victim.specialDefense)));
     }
 
-    /*public virtual float checkAdvantage(Character actor)
-    {
-        return 1;
-    }*/
-    public void checkHP()
+    IEnumerator checkHP()
     {
         if (hp <= 0)
         {
+            SetAnimBool("Die");
             gameSystem.memberRemove(this);
+            yield return new WaitForSeconds(3);
             selfDestruct();
+        }
+        else
+        {
+            SetAnimBool("GetHit");
         }
     }
 
@@ -444,6 +456,7 @@ public class Character : MonoBehaviour
     {
         if (moving)
         {
+            animator.SetBool("Walk", true);
             float topPos = 4;
             float smoothSpeed = 0.6f;
             bool equalsX = 0.1 > Math.Abs(transform.position.x - pedalFloor.transform.position.x);
@@ -473,6 +486,7 @@ public class Character : MonoBehaviour
                 {
                     transform.position = new Vector3((int)Math.Round(transform.position.x), y, (int)Math.Round(transform.position.z));
                     moving = false;
+                    animator.SetBool("Walk", false);
                     if (gameSystem.NowCharecter != null)
                     {
                         gameSystem.NowCharecter.doneIt(1);
@@ -508,7 +522,7 @@ public class Character : MonoBehaviour
     public int HP
     {
         get { return hp; }
-        set { hp = value; checkHP(); }
+        set { hp = value; StartCoroutine(checkHP()); }
     }
     public GameSystem GS
     {
@@ -521,7 +535,7 @@ public class Character : MonoBehaviour
         get { return pedalFloor; }
         set { 
             pedalFloor = value; 
-            moving = true; 
+            moving = true;
             pedalFloor.characterOnIt = this;
             
             if (!(value.transform.position.x == transform.position.x && value.transform.position.z == transform.position.z))
@@ -602,6 +616,24 @@ public class Character : MonoBehaviour
         }
     }
 
+    public void SetAnimBool(string var)
+    {
+        if (animator != null)
+        {
+            animator.SetBool(var, true);
+            if (var.Equals("GetHit") || var.Equals("Attack"))
+            {
+                StartCoroutine(SwitchSetAnimBool(var));
+            }
+        }
+    }
+
+    IEnumerator SwitchSetAnimBool(string var)
+    {
+        yield return new WaitForSeconds(0.25f);
+        animator.SetBool(var, false);
+    }
+
     public int ID
     {
         get { return id; }
@@ -662,6 +694,7 @@ public class Character : MonoBehaviour
             characterStatus = value;
             if (value != null)
             {
+                animator.SetBool("Infect", value.statusType.Equals("disease"));
                 float newC = 1;
                 if (ActionPoint == 0)
                 {
