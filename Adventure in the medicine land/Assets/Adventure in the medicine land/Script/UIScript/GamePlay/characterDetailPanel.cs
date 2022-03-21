@@ -6,6 +6,7 @@ using System;
 
 public class characterDetailPanel : MonoBehaviour
 {
+    public Image image;
     public Text nameText;
     public Text classText;
     public Text statusText;
@@ -27,6 +28,7 @@ public class characterDetailPanel : MonoBehaviour
 
     private void setText()
     {
+        image.sprite = gameSystem.NowCharecter.image;
         String spATK = " (";
         String spDEF = " (";
         nameText.text = "ชื่อ: " + gameSystem.NowCharecter.characterName;

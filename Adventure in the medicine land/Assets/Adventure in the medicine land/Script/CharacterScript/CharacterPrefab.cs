@@ -6,4 +6,5 @@ public class CharacterPrefab : MonoBehaviour
 {
     public string classCharacter;
     public GameObject prefab;
+    public Sprite image;
 }

@@ -295,7 +295,6 @@ public class AutoGenerateStage : MonoBehaviour
             {
                 find = true;
                 characterObject = Instantiate(cp.prefab, new Vector3(x_Coordinate, 0, z_Coordinate), transform.rotation);
-                //characterObject.transform.localScale = new Vector3(prefabSize, prefabSize, prefabSize);
                 break;
             }
         }
@@ -303,6 +302,17 @@ public class AutoGenerateStage : MonoBehaviour
         {
             characterObject = Instantiate(characterModel, new Vector3(x_Coordinate, 2, z_Coordinate), transform.rotation);
             characterObject.GetComponent<Renderer>().material.SetColor("_Color", pix);
+        }
+    }
+    private void setCharacterSprite(string classCharacter)
+    {
+        foreach (CharacterPrefab cp in CharacterPrefab)
+        {
+            if (cp.classCharacter.Equals(classCharacter))
+            {
+                characterObject.GetComponent<Character>().image = cp.image;
+                break;
+            }
         }
     }
 
@@ -314,6 +324,7 @@ public class AutoGenerateStage : MonoBehaviour
             //พลธนู 1
             setCharacterModel("Archer", x_Coordinate, z_Coordinate, pix);
             characterObject.AddComponent<Archer>();
+            setCharacterSprite("Archer");
         }
 
         else if (((((typeColor["pink"].r - tolerancea) < pix.r) && (pix.r < (typeColor["pink"].r + tolerancea))) && (((typeColor["pink"].g - tolerancea) < pix.g) && (pix.g < (typeColor["pink"].g + tolerancea))) && (((typeColor["pink"].b - tolerancea) < pix.b) && (pix.b < (typeColor["pink"].b + tolerancea)))))
@@ -321,6 +332,7 @@ public class AutoGenerateStage : MonoBehaviour
             //พลธนู 2
             setCharacterModel("Sniper", x_Coordinate, z_Coordinate, pix);
             characterObject.AddComponent<Sniper>();
+            setCharacterSprite("Sniper");
         }
 
         else if (((((typeColor["yellow"].r - tolerancea) < pix.r) && (pix.r < (typeColor["yellow"].r + tolerancea))) && (((typeColor["yellow"].g - tolerancea) < pix.g) && (pix.g < (typeColor["yellow"].g + tolerancea))) && (((typeColor["yellow"].b - tolerancea) < pix.b) && (pix.b < (typeColor["yellow"].b + tolerancea)))))
@@ -328,6 +340,7 @@ public class AutoGenerateStage : MonoBehaviour
             //พลขวาน
             setCharacterModel("Ax", x_Coordinate, z_Coordinate, pix);
             characterObject.AddComponent<Ax>();
+            setCharacterSprite("Ax");
         }
 
         else if (((((typeColor["turquoise"].r - tolerancea) < pix.r) && (pix.r < (typeColor["turquoise"].r + tolerancea))) && (((typeColor["turquoise"].g - tolerancea) < pix.g) && (pix.g < (typeColor["turquoise"].g + tolerancea))) && (((typeColor["turquoise"].b - tolerancea) < pix.b) && (pix.b < (typeColor["turquoise"].b + tolerancea)))))
@@ -335,6 +348,7 @@ public class AutoGenerateStage : MonoBehaviour
             //พลดาบโล่
             setCharacterModel("Shield_Swords_Man", x_Coordinate, z_Coordinate, pix);
             characterObject.AddComponent<Shield_Swords_Man>();
+            setCharacterSprite("Shield_Swords_Man");
         }
 
         else if (((((typeColor["violet"].r - tolerancea) < pix.r) && (pix.r < (typeColor["violet"].r + tolerancea))) && (((typeColor["violet"].g - tolerancea) < pix.g) && (pix.g < (typeColor["violet"].g + tolerancea))) && (((typeColor["violet"].b - tolerancea) < pix.b) && (pix.b < (typeColor["violet"].b + tolerancea)))))
@@ -342,6 +356,7 @@ public class AutoGenerateStage : MonoBehaviour
             //พลขวานโล่
             setCharacterModel("Shield_Ax_Man", x_Coordinate, z_Coordinate, pix);
             characterObject.AddComponent<Shield_Ax_Man>();
+            setCharacterSprite("Shield_Ax_Man");
         }
 
         else if (((((typeColor["coral"].r - tolerancea) < pix.r) && (pix.r < (typeColor["coral"].r + tolerancea))) && (((typeColor["coral"].g - tolerancea) < pix.g) && (pix.g < (typeColor["coral"].g + tolerancea))) && (((typeColor["coral"].b - tolerancea) < pix.b) && (pix.b < (typeColor["coral"].b + tolerancea)))))
@@ -349,6 +364,7 @@ public class AutoGenerateStage : MonoBehaviour
             //พลค้อน
             setCharacterModel("Hammer", x_Coordinate, z_Coordinate, pix);
             characterObject.AddComponent<Hammer>();
+            setCharacterSprite("Hammer");
         }
 
         else if (((((typeColor["indianred"].r - tolerancea) < pix.r) && (pix.r < (typeColor["indianred"].r + tolerancea))) && (((typeColor["indianred"].g - tolerancea) < pix.g) && (pix.g < (typeColor["indianred"].g + tolerancea))) && (((typeColor["indianred"].b - tolerancea) < pix.b) && (pix.b < (typeColor["indianred"].b + tolerancea)))))
@@ -356,6 +372,7 @@ public class AutoGenerateStage : MonoBehaviour
             //นายพล
             setCharacterModel("General", x_Coordinate, z_Coordinate, pix);
             characterObject.AddComponent<General>();
+            setCharacterSprite("General");
         }
 
         else if (((((typeColor["darkblue"].r - tolerancea) < pix.r) && (pix.r < (typeColor["darkblue"].r + tolerancea))) && (((typeColor["darkblue"].g - tolerancea) < pix.g) && (pix.g < (typeColor["darkblue"].g + tolerancea))) && (((typeColor["darkblue"].b - tolerancea) < pix.b) && (pix.b < (typeColor["darkblue"].b + tolerancea)))))
@@ -363,6 +380,7 @@ public class AutoGenerateStage : MonoBehaviour
             //หน่วยสนับสนุน
             setCharacterModel("Nurse", x_Coordinate, z_Coordinate, pix);
             characterObject.AddComponent<Nurse>();
+            setCharacterSprite("Nurse");
         }
 
         else if (((((typeColor["crimson"].r - tolerancea) < pix.r) && (pix.r < (typeColor["crimson"].r + tolerancea))) && (((typeColor["crimson"].g - tolerancea) < pix.g) && (pix.g < (typeColor["crimson"].g + tolerancea))) && (((typeColor["crimson"].b - tolerancea) < pix.b) && (pix.b < (typeColor["crimson"].b + tolerancea)))))
@@ -370,86 +388,87 @@ public class AutoGenerateStage : MonoBehaviour
             //หมอ
             setCharacterModel("Doctor", x_Coordinate, z_Coordinate, pix);
             characterObject.AddComponent<Doctor>();
+            setCharacterSprite("Doctor");
         }
 
         else if (((((typeColor["gold"].r - tolerancea) < pix.r) && (pix.r < (typeColor["gold"].r + tolerancea))) && (((typeColor["gold"].g - tolerancea) < pix.g) && (pix.g < (typeColor["gold"].g + tolerancea))) && (((typeColor["gold"].b - tolerancea) < pix.b) && (pix.b < (typeColor["gold"].b + tolerancea)))))
         {
             //ฮีโร่
-
             setCharacterModel("Hero", x_Coordinate, z_Coordinate, pix);
             characterObject.AddComponent<Hero>();
+            setCharacterSprite("Hero");
         }
 
         else if (((((typeColor["olivedrab"].r - tolerancea) < pix.r) && (pix.r < (typeColor["olivedrab"].r + tolerancea))) && (((typeColor["olivedrab"].g - tolerancea) < pix.g) && (pix.g < (typeColor["olivedrab"].g + tolerancea))) && (((typeColor["olivedrab"].b - tolerancea) < pix.b) && (pix.b < (typeColor["olivedrab"].b + tolerancea)))))
         {
             //ปวดท้อง
-
             setCharacterModel("Stomachache", x_Coordinate, z_Coordinate, pix);
             characterObject.AddComponent<Stomachache>();
+            setCharacterSprite("Stomachache");
         }
 
         else if (((((typeColor["darkcyan"].r - tolerancea) < pix.r) && (pix.r < (typeColor["darkcyan"].r + tolerancea))) && (((typeColor["darkcyan"].g - tolerancea) < pix.g) && (pix.g < (typeColor["darkcyan"].g + tolerancea))) && (((typeColor["darkcyan"].b - tolerancea) < pix.b) && (pix.b < (typeColor["darkcyan"].b + tolerancea)))))
         {
             //ปวดหัว
-
             setCharacterModel("Headache", x_Coordinate, z_Coordinate, pix);
             characterObject.AddComponent<Headache>();
+            setCharacterSprite("Headache");
         }
 
         else if (((((typeColor["green"].r - tolerancea) < pix.r) && (pix.r < (typeColor["green"].r + tolerancea))) && (((typeColor["green"].g - tolerancea) < pix.g) && (pix.g < (typeColor["green"].g + tolerancea))) && (((typeColor["green"].b - tolerancea) < pix.b) && (pix.b < (typeColor["green"].b + tolerancea)))))
         {
             //น้ำมูกไหล
-
             setCharacterModel("RunnyNose", x_Coordinate, z_Coordinate, pix);
             characterObject.AddComponent<RunnyNose>();
+            setCharacterSprite("RunnyNose");
         }
 
         else if (((((typeColor["lightsteelblue"].r - tolerancea) < pix.r) && (pix.r < (typeColor["lightsteelblue"].r + tolerancea))) && (((typeColor["lightsteelblue"].g - tolerancea) < pix.g) && (pix.g < (typeColor["lightsteelblue"].g + tolerancea))) && (((typeColor["lightsteelblue"].b - tolerancea) < pix.b) && (pix.b < (typeColor["lightsteelblue"].b + tolerancea)))))
         {
             //ติดเชื้อ
-
             setCharacterModel("Infect", x_Coordinate, z_Coordinate, pix);
             characterObject.AddComponent<Infect>();
+            setCharacterSprite("Infect");
         }
 
         else if (((((typeColor["peru"].r - tolerancea) < pix.r) && (pix.r < (typeColor["peru"].r + tolerancea))) && (((typeColor["peru"].g - tolerancea) < pix.g) && (pix.g < (typeColor["peru"].g + tolerancea))) && (((typeColor["peru"].b - tolerancea) < pix.b) && (pix.b < (typeColor["peru"].b + tolerancea)))))
         {
             //อาการคัน
-
             setCharacterModel("Itching", x_Coordinate, z_Coordinate, pix);
             characterObject.AddComponent<Itching>();
+            setCharacterSprite("Itching");
         }
 
         else if (((((typeColor["navajowhite"].r - tolerancea) < pix.r) && (pix.r < (typeColor["navajowhite"].r + tolerancea))) && (((typeColor["navajowhite"].g - tolerancea) < pix.g) && (pix.g < (typeColor["navajowhite"].g + tolerancea))) && (((typeColor["navajowhite"].b - tolerancea) < pix.b) && (pix.b < (typeColor["navajowhite"].b + tolerancea)))))
         {
             //สิว
-
             setCharacterModel("Acne", x_Coordinate, z_Coordinate, pix);
             characterObject.AddComponent<Acne>();
+            setCharacterSprite("Acne");
         }
 
         else if (((((typeColor["palevioletred"].r - tolerancea) < pix.r) && (pix.r < (typeColor["palevioletred"].r + tolerancea))) && (((typeColor["palevioletred"].g - tolerancea) < pix.g) && (pix.g < (typeColor["palevioletred"].g + tolerancea))) && (((typeColor["palevioletred"].b - tolerancea) < pix.b) && (pix.b < (typeColor["palevioletred"].b + tolerancea)))))
         {
             //ปวดกล้ามเนื้อ
-
             setCharacterModel("MusclePain", x_Coordinate, z_Coordinate, pix);
             characterObject.AddComponent<MusclePain>();
+            setCharacterSprite("MusclePain");
         }
 
         else if (((((typeColor["lightyellow"].r - tolerancea) < pix.r) && (pix.r < (typeColor["lightyellow"].r + tolerancea))) && (((typeColor["lightyellow"].g - tolerancea) < pix.g) && (pix.g < (typeColor["lightyellow"].g + tolerancea))) && (((typeColor["lightyellow"].b - tolerancea) < pix.b) && (pix.b < (typeColor["lightyellow"].b + tolerancea)))))
         {
             //เชื้อราที่ผิวหนัง
-
             setCharacterModel("SkinFungus", x_Coordinate, z_Coordinate, pix);
             characterObject.AddComponent<SkinFungus>();
+            setCharacterSprite("SkinFungus");
         }
 
         else if (((((typeColor["mediumslateblue"].r - tolerancea) < pix.r) && (pix.r < (typeColor["mediumslateblue"].r + tolerancea))) && (((typeColor["mediumslateblue"].g - tolerancea) < pix.g) && (pix.g < (typeColor["mediumslateblue"].g + tolerancea))) && (((typeColor["mediumslateblue"].b - tolerancea) < pix.b) && (pix.b < (typeColor["mediumslateblue"].b + tolerancea)))))
         {
             //จอมมาร
-
             setCharacterModel("DemonLord", x_Coordinate, z_Coordinate, pix);
             characterObject.AddComponent<DemonLord>();
+            setCharacterSprite("DemonLord");
         }
     }
 }

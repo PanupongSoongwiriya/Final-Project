@@ -62,6 +62,8 @@ public class Character : MonoBehaviour
     [SerializeField]
     protected Animator animator;
 
+    public Sprite image;
+
 
     void Start()
     {
