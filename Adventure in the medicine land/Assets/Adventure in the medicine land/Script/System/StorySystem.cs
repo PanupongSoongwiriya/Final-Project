@@ -36,6 +36,8 @@ public class StorySystem : MonoBehaviour
     {
         public string name;
         public Sprite image;
+        public Sprite image_Left;
+        public Sprite image_Right;
     }
     [SerializeField]
     private MyDictionary[] CharacterSprite;
@@ -92,8 +94,8 @@ public class StorySystem : MonoBehaviour
             nameText.transform.GetChild(0).GetComponent<Text>().text = ThaiFontAdjuster.Adjust(dialog.actor);
             dialogText.transform.GetChild(0).GetComponent<Text>().text = ThaiFontAdjuster.Adjust(dialog.val);
 
-            setCharacterImg(dialog.img_Left, Character_Left);
-            setCharacterImg(dialog.img_Right, Character_Right);
+            setCharacterImg(dialog.img_Left, Character_Left, "Left");
+            setCharacterImg(dialog.img_Right, Character_Right, "Right");
 
             foreach (MyDictionary md in BackgroundSprite)
             {
@@ -114,26 +116,29 @@ public class StorySystem : MonoBehaviour
         }
     }
 
-    public void setCharacterImg(string imgText, Image img)
+    public void setCharacterImg(string imgText, Image img, string side)
     {
         img.color = new Color(1, 1, 1, 1);
         img.sprite = null;
-        //Debug.Log("imgText: " + imgText);
         if (imgText == "")
         {
-            //Debug.Log("if");
             img.color = new Color(1, 1, 1, 0);
         }
         else if (!imgText.Equals(dialog.actor))
         {
-            //Debug.Log("else");
             img.color = new Color(0.5f, 0.5f, 0.5f, 1);
         }
         foreach (MyDictionary md in CharacterSprite)
         {
             if (md.name.Equals(imgText))
             {
-                img.sprite = md.image;
+                if (side.Equals("Right"))
+                {
+                    img.sprite = md.image_Right;
+                }else if (side.Equals("Left"))
+                {
+                    img.sprite = md.image_Left;
+                }
                 break;
             }
         }

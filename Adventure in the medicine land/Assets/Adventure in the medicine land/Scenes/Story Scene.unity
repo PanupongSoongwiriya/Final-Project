@@ -481,22 +481,38 @@ MonoBehaviour:
   Character_Right: {fileID: 222874618}
   CharacterSprite:
   - name: "\u0E23\u0E32\u0E0A\u0E32"
-    image: {fileID: 21300000, guid: f0cc76cecb0a5a542b5f0726cde09708, type: 3}
+    image: {fileID: 21300000, guid: b773656f0b8160e48ac883d0cf080830, type: 3}
+    image_Left: {fileID: 21300000, guid: 36ea52999d07f0443be1cbd1ea0b285b, type: 3}
+    image_Right: {fileID: 21300000, guid: 94be7d3f280e0de41baeaa58c3fd43c2, type: 3}
   - name: "\u0E1C\u0E39\u0E49\u0E01\u0E25\u0E49\u0E32"
-    image: {fileID: 21300000, guid: fee1c463797605747955a4278daf26ac, type: 3}
+    image: {fileID: 21300000, guid: a1cb29ddfabe50d4183feaaa2cc041b9, type: 3}
+    image_Left: {fileID: 21300000, guid: 1c84af953ba6436408d71b42fa881b85, type: 3}
+    image_Right: {fileID: 21300000, guid: 837207d67c663544784913cc8604d322, type: 3}
   - name: Party_Member_1
-    image: {fileID: 21300000, guid: 43c412872b541b54ead7afd01b16762d, type: 3}
+    image: {fileID: 21300000, guid: 86029e4a29baad24b98a1db2ad1d0335, type: 3}
+    image_Left: {fileID: 21300000, guid: e42b541dc036abf408cc505820e12780, type: 3}
+    image_Right: {fileID: 21300000, guid: 16238f7c7f472a5488d110590fdc14c4, type: 3}
   - name: girl2
-    image: {fileID: 21300000, guid: 9d613a2518206f94b95564885a90274c, type: 3}
+    image: {fileID: 21300000, guid: f9d6dcd8b065d41468d5af670772d54e, type: 3}
+    image_Left: {fileID: 21300000, guid: bcb4cc6557ab2ee4cb7f4c30706635c6, type: 3}
+    image_Right: {fileID: 21300000, guid: 498b669939a678744a2acaf19d776c48, type: 3}
   BackgroundSprite:
   - name: Castle
     image: {fileID: 21300000, guid: c57ff1cc07898e94188d04cf01667f00, type: 3}
+    image_Left: {fileID: 0}
+    image_Right: {fileID: 0}
   - name: DemonCastle
     image: {fileID: 21300000, guid: 0874c062471e82141ab3d986eed21122, type: 3}
+    image_Left: {fileID: 0}
+    image_Right: {fileID: 0}
   - name: Island
     image: {fileID: 21300000, guid: 1c778054ad6344c48b4a901090dca8ed, type: 3}
+    image_Left: {fileID: 0}
+    image_Right: {fileID: 0}
   - name: Gates
     image: {fileID: 21300000, guid: efba49f888dc2b7419c2aaac60ff75e6, type: 3}
+    image_Left: {fileID: 0}
+    image_Right: {fileID: 0}
 --- !u!4 &109790464
 Transform:
   m_ObjectHideFlags: 0

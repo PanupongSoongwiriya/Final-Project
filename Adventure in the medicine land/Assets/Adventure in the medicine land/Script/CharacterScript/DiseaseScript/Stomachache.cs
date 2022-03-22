@@ -7,7 +7,7 @@ public class Stomachache : Character
 {
     void Start()
     {
-        characterName = "มังกรแห่งการปวดท้อง";
+        characterName = "มังกรพิษ";
         faction = "Disease";
         classCharacter = "ปวดท้อง";
 
