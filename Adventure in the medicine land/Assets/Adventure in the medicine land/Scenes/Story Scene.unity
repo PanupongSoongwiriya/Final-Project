@@ -484,18 +484,50 @@ MonoBehaviour:
     image: {fileID: 21300000, guid: b773656f0b8160e48ac883d0cf080830, type: 3}
     image_Left: {fileID: 21300000, guid: 36ea52999d07f0443be1cbd1ea0b285b, type: 3}
     image_Right: {fileID: 21300000, guid: 94be7d3f280e0de41baeaa58c3fd43c2, type: 3}
-  - name: "\u0E1C\u0E39\u0E49\u0E01\u0E25\u0E49\u0E32"
+  - name: "\u0E1C\u0E39\u0E49\u0E01\u0E25\u0E49\u0E32\u0E42\u0E2E\u0E1E"
     image: {fileID: 21300000, guid: a1cb29ddfabe50d4183feaaa2cc041b9, type: 3}
     image_Left: {fileID: 21300000, guid: 1c84af953ba6436408d71b42fa881b85, type: 3}
     image_Right: {fileID: 21300000, guid: 837207d67c663544784913cc8604d322, type: 3}
-  - name: Party_Member_1
+  - name: "\u0E1E\u0E25\u0E02\u0E27\u0E32\u0E19"
     image: {fileID: 21300000, guid: 86029e4a29baad24b98a1db2ad1d0335, type: 3}
     image_Left: {fileID: 21300000, guid: e42b541dc036abf408cc505820e12780, type: 3}
     image_Right: {fileID: 21300000, guid: 16238f7c7f472a5488d110590fdc14c4, type: 3}
-  - name: girl2
+  - name: "\u0E1E\u0E22\u0E32\u0E1A\u0E32\u0E25"
     image: {fileID: 21300000, guid: f9d6dcd8b065d41468d5af670772d54e, type: 3}
     image_Left: {fileID: 21300000, guid: bcb4cc6557ab2ee4cb7f4c30706635c6, type: 3}
     image_Right: {fileID: 21300000, guid: 498b669939a678744a2acaf19d776c48, type: 3}
+  - name: "\u0E42\u0E2E\u0E1E"
+    image: {fileID: 21300000, guid: 27062a0cd3daae4448280db0a1c65fbc, type: 3}
+    image_Left: {fileID: 21300000, guid: a7b7cf163d6bc2b41a551fead39d0cc8, type: 3}
+    image_Right: {fileID: 21300000, guid: 2e7867a816fe1614cbb8f934ae1196d2, type: 3}
+  - name: "\u0E19\u0E32\u0E22\u0E1E\u0E25"
+    image: {fileID: 21300000, guid: e270a8c030a19cb4f81e3d7506849d6a, type: 3}
+    image_Left: {fileID: 21300000, guid: 5f48160929725cd4cb1ef1ee513f2133, type: 3}
+    image_Right: {fileID: 21300000, guid: 01e56a5b0cdbafb4da7b328bcdbeb040, type: 3}
+  - name: "\u0E1E\u0E25\u0E18\u0E19\u0E39"
+    image: {fileID: 21300000, guid: 9a54723c63512cd4aa9fd4beaee1380e, type: 3}
+    image_Left: {fileID: 21300000, guid: 8501f44d02f722e4a864a92f8e7c2c34, type: 3}
+    image_Right: {fileID: 21300000, guid: bb08b5ba8d15bfc41b365d76a70c8ca1, type: 3}
+  - name: "\u0E1E\u0E25\u0E0B\u0E38\u0E48\u0E21\u0E22\u0E34\u0E07"
+    image: {fileID: 21300000, guid: 3e4b7c602cd6a7b47b312880eca01eb3, type: 3}
+    image_Left: {fileID: 21300000, guid: c62cc62c29df79e42876a4fdbfbe6671, type: 3}
+    image_Right: {fileID: 21300000, guid: a54e2c28acd7e4745a7cde3b4da93bf0, type: 3}
+  - name: "\u0E1E\u0E25\u0E04\u0E49\u0E2D\u0E19"
+    image: {fileID: 21300000, guid: cc1a79c97aff8bb408a09defe10ddc7a, type: 3}
+    image_Left: {fileID: 21300000, guid: 5237fe738cdb4cc4a8d83ccf2189a3af, type: 3}
+    image_Right: {fileID: 21300000, guid: 7bf0b5ce5c75de34c86a21c8ce58212a, type: 3}
+  - name: "\u0E1E\u0E25\u0E14\u0E32\u0E1A\u0E42\u0E25\u0E48"
+    image: {fileID: 21300000, guid: b59a424c0fd0b364a94398849f24081c, type: 3}
+    image_Left: {fileID: 21300000, guid: e967f333150bc7145ae2b0745fe7ffe3, type: 3}
+    image_Right: {fileID: 21300000, guid: 508c148b46db4294385dec877199ad81, type: 3}
+  - name: "\u0E1E\u0E25\u0E02\u0E27\u0E32\u0E19\u0E42\u0E25\u0E48"
+    image: {fileID: 21300000, guid: 3ddf97735ed2ca842b2d4ddedcbe7296, type: 3}
+    image_Left: {fileID: 21300000, guid: 00669faafd21d2740b10d256bcb0de8c, type: 3}
+    image_Right: {fileID: 21300000, guid: f653ec34bee3bed429a536050c0b6523, type: 3}
+  - name: "\u0E08\u0E2D\u0E21\u0E21\u0E32\u0E23"
+    image: {fileID: 21300000, guid: 7ce1a16477900b241a71d46309d12d8e, type: 3}
+    image_Left: {fileID: 21300000, guid: 0619a9f0e533f3741af150648b759efa, type: 3}
+    image_Right: {fileID: 21300000, guid: 0fe0bb1105351eb46b08ed47ebad21e1, type: 3}
   BackgroundSprite:
   - name: Castle
     image: {fileID: 21300000, guid: c57ff1cc07898e94188d04cf01667f00, type: 3}

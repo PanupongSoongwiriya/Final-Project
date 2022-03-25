@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7595923998789941104
+--- !u!1 &323482859454940182
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,25 +8,25 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1754273035333511742}
-  - component: {fileID: -1677014804427888279}
-  - component: {fileID: 5188324880104473474}
-  - component: {fileID: 2944998609219573369}
-  - component: {fileID: -5508695985216174619}
-  - component: {fileID: -7036592649790757462}
-  - component: {fileID: -5013925121906867204}
-  - component: {fileID: 715003202822807025}
-  - component: {fileID: -70379768346489842}
-  - component: {fileID: -5633215908473231793}
-  - component: {fileID: -8997161890757498446}
-  - component: {fileID: -3028157596608177981}
-  - component: {fileID: 3704880241616011003}
-  - component: {fileID: -6437433224131168950}
-  - component: {fileID: 1515406332765429076}
-  - component: {fileID: 2822396501616056411}
-  - component: {fileID: 4168044531985062311}
-  - component: {fileID: -6027779213922678185}
-  - component: {fileID: 7955326957540876011}
+  - component: {fileID: 323482859454940411}
+  - component: {fileID: 323482859454940388}
+  - component: {fileID: 323482859454940389}
+  - component: {fileID: 323482859454940390}
+  - component: {fileID: 323482859454940391}
+  - component: {fileID: 323482859454940384}
+  - component: {fileID: 323482859454940385}
+  - component: {fileID: 323482859454940386}
+  - component: {fileID: 323482859454940387}
+  - component: {fileID: 323482859454940396}
+  - component: {fileID: 323482859454940397}
+  - component: {fileID: 323482859454940398}
+  - component: {fileID: 323482859454940399}
+  - component: {fileID: 323482859454940392}
+  - component: {fileID: 323482859454940393}
+  - component: {fileID: 323482859454940394}
+  - component: {fileID: 323482859454940395}
+  - component: {fileID: 323482859454940180}
+  - component: {fileID: 7915551969697666644}
   m_Layer: 0
   m_Name: StatusList
   m_TagString: Untagged
@@ -34,51 +34,67 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1754273035333511742
+--- !u!4 &323482859454940411
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7595923998789941104}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 323482859454940182}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-1677014804427888279
+--- !u!114 &323482859454940388
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7595923998789941104}
+  m_GameObject: {fileID: 323482859454940182}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e4083566d849ef43822a9f1a2d79f3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5188324880104473474
+  statusName: 
+  desCripTion: 
+  statusType: 
+  Type: 
+  color: {r: 0, g: 0, b: 0, a: 0}
+  icon_Medicine: {fileID: 0}
+  icon_Medicine_Select: {fileID: 0}
+  gameSystem: {fileID: 0}
+--- !u!114 &323482859454940389
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7595923998789941104}
+  m_GameObject: {fileID: 323482859454940182}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 311b2b054959aed478a6b0a119f8500d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2944998609219573369
+  statusName: 
+  desCripTion: 
+  statusType: 
+  Type: 
+  color: {r: 0, g: 0, b: 0, a: 0}
+  icon_Medicine: {fileID: 0}
+  icon_Medicine_Select: {fileID: 0}
+  gameSystem: {fileID: 0}
+--- !u!114 &323482859454940390
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7595923998789941104}
+  m_GameObject: {fileID: 323482859454940182}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6958090b5cdc02d45bdffa9f649a2271, type: 3}
@@ -89,26 +105,36 @@ MonoBehaviour:
   statusType: 
   Type: 
   color: {r: 0, g: 0, b: 0, a: 0}
+  icon_Medicine: {fileID: 0}
+  icon_Medicine_Select: {fileID: 0}
   gameSystem: {fileID: 0}
---- !u!114 &-5508695985216174619
+--- !u!114 &323482859454940391
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7595923998789941104}
+  m_GameObject: {fileID: 323482859454940182}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f64b8825bd7feba4dacc7935198541ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-7036592649790757462
+  statusName: 
+  desCripTion: 
+  statusType: 
+  Type: 
+  color: {r: 0, g: 0, b: 0, a: 0}
+  icon_Medicine: {fileID: 0}
+  icon_Medicine_Select: {fileID: 0}
+  gameSystem: {fileID: 0}
+--- !u!114 &323482859454940384
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7595923998789941104}
+  m_GameObject: {fileID: 323482859454940182}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f709a52ac4954d749b9fb7fd623960a3, type: 3}
@@ -119,14 +145,16 @@ MonoBehaviour:
   statusType: 
   Type: 
   color: {r: 0, g: 0, b: 0, a: 0}
+  icon_Medicine: {fileID: 0}
+  icon_Medicine_Select: {fileID: 0}
   gameSystem: {fileID: 0}
---- !u!114 &-5013925121906867204
+--- !u!114 &323482859454940385
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7595923998789941104}
+  m_GameObject: {fileID: 323482859454940182}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ebcc6c3ee4e303640812fdc67d3c61c9, type: 3}
@@ -137,14 +165,16 @@ MonoBehaviour:
   statusType: 
   Type: 
   color: {r: 0, g: 0, b: 0, a: 0}
+  icon_Medicine: {fileID: 0}
+  icon_Medicine_Select: {fileID: 0}
   gameSystem: {fileID: 0}
---- !u!114 &715003202822807025
+--- !u!114 &323482859454940386
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7595923998789941104}
+  m_GameObject: {fileID: 323482859454940182}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1badd201f4ad0b14b818836f98dccad5, type: 3}
@@ -155,14 +185,16 @@ MonoBehaviour:
   statusType: 
   Type: 
   color: {r: 0, g: 0, b: 0, a: 0}
+  icon_Medicine: {fileID: 0}
+  icon_Medicine_Select: {fileID: 0}
   gameSystem: {fileID: 0}
---- !u!114 &-70379768346489842
+--- !u!114 &323482859454940387
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7595923998789941104}
+  m_GameObject: {fileID: 323482859454940182}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6b13a5f41ca88148ad559ee23494e1e, type: 3}
@@ -173,14 +205,16 @@ MonoBehaviour:
   statusType: 
   Type: 
   color: {r: 0, g: 0, b: 0, a: 0}
+  icon_Medicine: {fileID: 0}
+  icon_Medicine_Select: {fileID: 0}
   gameSystem: {fileID: 0}
---- !u!114 &-5633215908473231793
+--- !u!114 &323482859454940396
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7595923998789941104}
+  m_GameObject: {fileID: 323482859454940182}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56b3624dcdf80724db88aed10809ed9c, type: 3}
@@ -191,38 +225,58 @@ MonoBehaviour:
   statusType: 
   Type: 
   color: {r: 0, g: 0, b: 0, a: 0}
+  icon_Medicine: {fileID: 0}
+  icon_Medicine_Select: {fileID: 0}
   gameSystem: {fileID: 0}
---- !u!114 &-8997161890757498446
+--- !u!114 &323482859454940397
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7595923998789941104}
+  m_GameObject: {fileID: 323482859454940182}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 15c6fe777debd7344b594f7bfd83b09d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-3028157596608177981
+  statusName: 
+  desCripTion: 
+  statusType: 
+  Type: 
+  color: {r: 0, g: 0, b: 0, a: 0}
+  icon_Medicine: {fileID: 21300000, guid: c11b4b980ea932f49b5c66c80b839c96, type: 3}
+  icon_Medicine_Select: {fileID: 21300000, guid: c6aec33ee09db5940a7e8159cf6ea6d9,
+    type: 3}
+  gameSystem: {fileID: 0}
+--- !u!114 &323482859454940398
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7595923998789941104}
+  m_GameObject: {fileID: 323482859454940182}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 010f4b5babfba4f43b237b5dc180f0a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3704880241616011003
+  statusName: 
+  desCripTion: 
+  statusType: 
+  Type: 
+  color: {r: 0, g: 0, b: 0, a: 0}
+  icon_Medicine: {fileID: 21300000, guid: eb11fd1503cc3c3408f32e5752b3a366, type: 3}
+  icon_Medicine_Select: {fileID: 21300000, guid: 37f7a6cd68e251646b4d2bf30e118fc2,
+    type: 3}
+  gameSystem: {fileID: 0}
+--- !u!114 &323482859454940399
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7595923998789941104}
+  m_GameObject: {fileID: 323482859454940182}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9095e09879de93d47862d11d3a719c50, type: 3}
@@ -233,26 +287,38 @@ MonoBehaviour:
   statusType: 
   Type: 
   color: {r: 0, g: 0, b: 0, a: 0}
+  icon_Medicine: {fileID: 21300000, guid: 44a600d571c58504a8eba387a7d10b16, type: 3}
+  icon_Medicine_Select: {fileID: 21300000, guid: 8899c726ac591bf4da53cd7498998f3f,
+    type: 3}
   gameSystem: {fileID: 0}
---- !u!114 &-6437433224131168950
+--- !u!114 &323482859454940392
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7595923998789941104}
+  m_GameObject: {fileID: 323482859454940182}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 252479f49da7c614a913076a370d6f7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1515406332765429076
+  statusName: 
+  desCripTion: 
+  statusType: 
+  Type: 
+  color: {r: 0, g: 0, b: 0, a: 0}
+  icon_Medicine: {fileID: 21300000, guid: 4a602d707c0f24144a2eba805f2bcf1e, type: 3}
+  icon_Medicine_Select: {fileID: 21300000, guid: f3396e3596f82364492186301e5ea273,
+    type: 3}
+  gameSystem: {fileID: 0}
+--- !u!114 &323482859454940393
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7595923998789941104}
+  m_GameObject: {fileID: 323482859454940182}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6304341f65b767d4dbd917f300fdd48e, type: 3}
@@ -263,14 +329,17 @@ MonoBehaviour:
   statusType: 
   Type: 
   color: {r: 0, g: 0, b: 0, a: 0}
+  icon_Medicine: {fileID: 21300000, guid: 1c6fcc885ae865040986df9e01ccd874, type: 3}
+  icon_Medicine_Select: {fileID: 21300000, guid: 5872d55b465f00e46935775d7234d0ed,
+    type: 3}
   gameSystem: {fileID: 0}
---- !u!114 &2822396501616056411
+--- !u!114 &323482859454940394
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7595923998789941104}
+  m_GameObject: {fileID: 323482859454940182}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4d5819b35b37be4cbff148f60a80898, type: 3}
@@ -281,14 +350,17 @@ MonoBehaviour:
   statusType: 
   Type: 
   color: {r: 0, g: 0, b: 0, a: 0}
+  icon_Medicine: {fileID: 21300000, guid: 7b7078c4a860c314391205fa6edc377e, type: 3}
+  icon_Medicine_Select: {fileID: 21300000, guid: 7b79d4345d11fe24d85505e8b8e55f51,
+    type: 3}
   gameSystem: {fileID: 0}
---- !u!114 &4168044531985062311
+--- !u!114 &323482859454940395
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7595923998789941104}
+  m_GameObject: {fileID: 323482859454940182}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac4974f024836104a88d5dd621cd4c25, type: 3}
@@ -299,14 +371,17 @@ MonoBehaviour:
   statusType: 
   Type: 
   color: {r: 0, g: 0, b: 0, a: 0}
+  icon_Medicine: {fileID: 21300000, guid: 2429cd64aa68ee84eae231f4e3472ff5, type: 3}
+  icon_Medicine_Select: {fileID: 21300000, guid: bed7b1219776884448d2543df24fd3e9,
+    type: 3}
   gameSystem: {fileID: 0}
---- !u!114 &-6027779213922678185
+--- !u!114 &323482859454940180
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7595923998789941104}
+  m_GameObject: {fileID: 323482859454940182}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b62099957ed5e614382e40eb805b3320, type: 3}
@@ -317,17 +392,20 @@ MonoBehaviour:
   statusType: 
   Type: 
   color: {r: 0, g: 0, b: 0, a: 0}
+  icon_Medicine: {fileID: 21300000, guid: 45f60e628c67d5f41b7a11418c431dd6, type: 3}
+  icon_Medicine_Select: {fileID: 21300000, guid: f0e3a5cb4c46f7244906d3c968977940,
+    type: 3}
   gameSystem: {fileID: 0}
---- !u!114 &7955326957540876011
+--- !u!114 &7915551969697666644
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7595923998789941104}
+  m_GameObject: {fileID: 323482859454940182}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3656241c3d038b84d97567b1ead49804, type: 3}
+  m_Script: {fileID: 11500000, guid: 852d577df712d3f4f8231e93d3af0928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   statusName: 
@@ -335,4 +413,7 @@ MonoBehaviour:
   statusType: 
   Type: 
   color: {r: 0, g: 0, b: 0, a: 0}
+  icon_Medicine: {fileID: 21300000, guid: c8077f51047a4dd49b5396a4d01f8c82, type: 3}
+  icon_Medicine_Select: {fileID: 21300000, guid: 1e4a98744303c5948b5cbff9a1e34889,
+    type: 3}
   gameSystem: {fileID: 0}

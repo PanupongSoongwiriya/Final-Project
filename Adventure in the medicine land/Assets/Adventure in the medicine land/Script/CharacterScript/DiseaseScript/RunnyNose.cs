@@ -11,10 +11,9 @@ public class RunnyNose : Character
         faction = "Disease";
         classCharacter = "น้ำมูกไหล";
 
-        HP = 6;
-        attackPower = 1;
-        defensePower = 1;
-
+        hp = 65;
+        attackPower = 35;
+        defensePower = 20;
 
         startSetUp();
 
@@ -32,7 +31,7 @@ public class RunnyNose : Character
     }
     protected override void resetRange()
     {
-        walkingDistance = 3;
+        walkingDistance = 2;
         attackRange = 1;
     }
     /*public override float checkAdvantage(Character actor)

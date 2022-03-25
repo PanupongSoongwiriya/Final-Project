@@ -11,9 +11,9 @@ public class Stomachache : Character
         faction = "Disease";
         classCharacter = "ปวดท้อง";
 
-        HP = 6;
-        attackPower = 1;
-        defensePower = 1;
+        hp = 60;
+        attackPower = 40;
+        defensePower = 20;
 
         startSetUp();
 
@@ -31,7 +31,7 @@ public class Stomachache : Character
     }
     protected override void resetRange()
     {
-        walkingDistance = 3;
+        walkingDistance = 2;
         attackRange = 1;
     }
     /*public override float checkAdvantage(Character actor)

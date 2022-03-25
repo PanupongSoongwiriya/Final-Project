@@ -11,10 +11,9 @@ public class SkinFungus : Character
         faction = "Disease";
         classCharacter = "เชื้อราที่ผิวหนัง";
 
-        HP = 6;
-        attackPower = 1;
-        defensePower = 1;
-
+        hp = 45;
+        attackPower = 55;
+        defensePower = 10;
 
         startSetUp();
 

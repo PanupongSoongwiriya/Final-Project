@@ -30,12 +30,12 @@ public class BotDisease : MonoBehaviour
             int dmg = medicine.calculateDMG(chr, medicine);
             int inflictDamage = dmg;
 
-            bool canKill = (medicine.HP - inflictDamage) <= 0;
+            bool canKill = (medicine.hp - inflictDamage) <= 0;
 
             dmg = medicine.calculateDMG(medicine, chr); 
             int damaged = dmg;
 
-            bool dead = (chr.HP - damaged) <= 0;
+            bool dead = (chr.hp - damaged) <= 0;
 
             Vector3 medicinePosition = medicine.transform.position;
             Vector3 chrPosition = chr.transform.position;
@@ -158,7 +158,7 @@ public class BotDisease : MonoBehaviour
             Character atked = gameSystem.allMedicineInTerm[0];
             for (int i = 1; i < gameSystem.allMedicineInTerm.Count; i++)
             {
-                if (atked.HP > gameSystem.allMedicineInTerm[i].HP)
+                if (atked.hp > gameSystem.allMedicineInTerm[i].hp)
                 {
                     atked = gameSystem.allMedicineInTerm[i];
                 }

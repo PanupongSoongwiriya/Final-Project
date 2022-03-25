@@ -41,6 +41,7 @@ public class Character : MonoBehaviour
 
     public int walkingDistance;
     public int attackRange;
+    public int cureRange;
 
     public GameSystem gameSystem;
     public int indexSkill;
@@ -87,7 +88,6 @@ public class Character : MonoBehaviour
             showDetailDisease();
             prepare();
             attacked();
-            //checkBuffDebuff();
             canCureDisease();
             tutorialPlus();
         }
@@ -229,72 +229,6 @@ public class Character : MonoBehaviour
             gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(true, false, false, true, false);//controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
         }
     }
-    protected void checkBuffDebuff()
-    {
-        bool status = false;
-        //Buff
-        if (gameSystem.State.Equals("Use skills with ally") && !gameSystem.NowCharecter.Equals(this) && faction.Equals("Medicine") && pedalFloor.InTerm)
-        {
-            status = true;
-        }
-        //Debuff
-        else if (gameSystem.State.Equals("Debuff with enemies") && faction.Equals("Disease") && pedalFloor.InTerm)
-        {
-            status = true;
-        }
-        if (status)
-        {
-            String type = gameSystem.SkillType;
-            int bonusEffect = gameSystem.SkillBonusEffect;
-
-            if (type.Equals("ATK"))
-            {
-                showDMG(bonusEffect, "ATK");
-                specialAttack += bonusEffect;
-            }
-            else if (type.Equals("DEF"))
-            {
-                showDMG(bonusEffect, "DEF");
-                specialDefense += bonusEffect;
-            }
-            else if (type.Equals("HP"))
-            {
-                if (bonusEffect > 0)
-                {
-                    showDMG(Math.Min(MAXHP - HP, bonusEffect), "heal");
-                }
-                HP = Math.Min(HP + bonusEffect, MAXHP);
-            }
-            else if (type.Equals("WD"))
-            {
-                showDMG(bonusEffect, "MOVE");
-                walkingDistance += bonusEffect;
-            }
-            else if (type.Equals("AR"))
-            {
-                showDMG(bonusEffect, "RANGE");
-                attackRange += bonusEffect;
-            }
-            else if (type.Equals("ATK/DEF"))
-            {
-                int dmg = calculateDMG(gameSystem.NowCharecter, this);
-                showDMG(-dmg, "attack");
-                HP -= dmg;
-                Invoke("showBuff", 1f);
-                specialDefense += bonusEffect;
-            }
-            gameSystem.State = "Choose a medicine character";
-            gameSystem.NowCharecter.doneIt(2);
-            gameSystem.resetInTerm();
-            if (!(type.Equals("ATK/DEF")))
-            {
-                gameSystem.SkillType = "";
-                gameSystem.SkillBonusEffect = 0;
-            }
-            gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false, false, false);
-            //controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
-        }
-    }
 
     protected void canCureDisease()
     {
@@ -304,6 +238,11 @@ public class Character : MonoBehaviour
             {
                 CharacterStatus.retrospectiveStatus(this);
                 CharacterStatus = gameSystem.selectedMedicine;
+            }
+            else if(gameSystem.selectedMedicine.statusName.Equals("ผ้าพันแผล"))
+            {
+                Debug.Log("11111111111111111111111111111111111111111111");
+                gameSystem.selectedMedicine.statusEffect(this);
             }
             gameSystem.selectedMedicine = null;
             gameSystem.State = "Choose a medicine character";
@@ -327,7 +266,7 @@ public class Character : MonoBehaviour
             //controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
             int dmg = calculateDMG(gameSystem.NowCharecter, this);
             showDMG(-dmg, "attack");
-            HP -= dmg;
+            HP(-dmg);
             gameSystem.NowCharecter.SetAnimBool("Attack");
         }
         //Bot Attack
@@ -338,7 +277,7 @@ public class Character : MonoBehaviour
             gameSystem.resetInTerm();
             int dmg = calculateDMG(gameSystem.NowCharecter, this); 
             showDMG(-dmg, "attack");
-            HP -= dmg;
+            HP(-dmg);
             gameSystem.NowCharecter.SetAnimBool("Attack");
         }
     }
@@ -521,10 +460,13 @@ public class Character : MonoBehaviour
         get { return classType; }
         set { classType = value; }
     }
-    public int HP
+    public void HP(int value)
     {
-        get { return hp; }
-        set { hp = value; StartCoroutine(checkHP()); }
+        hp = Math.Min(MAXHP, hp + value);
+        if (value < 0)
+        {
+            StartCoroutine(checkHP());
+        }
     }
     public GameSystem GS
     {

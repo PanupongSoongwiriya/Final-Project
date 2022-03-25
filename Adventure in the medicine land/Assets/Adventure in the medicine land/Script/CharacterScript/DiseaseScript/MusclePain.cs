@@ -11,9 +11,9 @@ public class MusclePain : Character
         faction = "Disease";
         classCharacter = "ปวดกล้ามเนื้อ";
 
-        HP = 6;
-        attackPower = 1;
-        defensePower = 1;
+        hp = 50;
+        attackPower = 50;
+        defensePower = 10;
 
         startSetUp();
 

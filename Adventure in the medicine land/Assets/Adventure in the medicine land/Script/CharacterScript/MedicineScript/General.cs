@@ -3,19 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Ax : Character
+public class General : Character
 {
     void Start()
     {
-        characterName = "พลขวาน";
+        characterName = "นายพล";
         faction = "Medicine";
         classCharacter = "จู่โจม";
 
-
-        HP = 3;
-        attackPower = 2;
-        defensePower = 2;
-
+        hp = 50;
+        attackPower = 40;
+        defensePower = 20;
 
         startSetUp();
     }
@@ -24,16 +22,15 @@ public class Ax : Character
     {
         allAction();
     }
+    protected override void resetRange()
+    {
+        walkingDistance = 3;
+        attackRange = 1;
+    }
 
     void Update()
     {
         moveSmoothly();
         spinToTarget();
     }
-    protected override void resetRange()
-    {
-        attackRange = 1;
-        walkingDistance = 2;
-    }
-
 }

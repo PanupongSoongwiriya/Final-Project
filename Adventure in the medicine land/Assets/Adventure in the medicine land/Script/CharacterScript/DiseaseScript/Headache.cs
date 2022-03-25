@@ -11,10 +11,9 @@ public class Headache : Character
         faction = "Disease";
         classCharacter = "ปวดหัว";
 
-        HP = 6;
-        attackPower = 1;
-        defensePower = 1;
-
+        hp = 50;
+        attackPower = 45;
+        defensePower = 15;
 
         startSetUp();
 

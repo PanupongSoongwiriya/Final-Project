@@ -180,7 +180,7 @@ public class GameSystem : MonoBehaviour
             }
             else if (State.Equals("Use medicine with ally"))
             {
-                checkTerm = nowCharecter.attackRange;
+                checkTerm = nowCharecter.cureRange;
                 doingWhat = "support";
             }
             if (nowCharecter != null && checkTerm != -1)

@@ -1521,7 +1521,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &563466690
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5837,6 +5837,11 @@ PrefabInstance:
       objectReference: {fileID: 496960319}
     - target: {fileID: 8049314337774199886, guid: 58b86fa0e8c48c3458f0b2c2bbc13cd4,
         type: 3}
+      propertyPath: floorBonus
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8049314337774199886, guid: 58b86fa0e8c48c3458f0b2c2bbc13cd4,
+        type: 3}
       propertyPath: allStage.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -8461,172 +8466,74 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &4568446471103137052
+--- !u!1001 &323482859407498859
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -8997161890757498446, guid: 6a8df82cbcc25394492851cfedb1fc93,
-        type: 3}
-      propertyPath: icon_Medicine
-      value: 
-      objectReference: {fileID: 21300000, guid: c11b4b980ea932f49b5c66c80b839c96,
-        type: 3}
-    - target: {fileID: -8997161890757498446, guid: 6a8df82cbcc25394492851cfedb1fc93,
-        type: 3}
-      propertyPath: icon_Medicine_Select
-      value: 
-      objectReference: {fileID: 21300000, guid: c6aec33ee09db5940a7e8159cf6ea6d9,
-        type: 3}
-    - target: {fileID: -6437433224131168950, guid: 6a8df82cbcc25394492851cfedb1fc93,
-        type: 3}
-      propertyPath: icon_Medicine
-      value: 
-      objectReference: {fileID: 21300000, guid: 4a602d707c0f24144a2eba805f2bcf1e,
-        type: 3}
-    - target: {fileID: -6437433224131168950, guid: 6a8df82cbcc25394492851cfedb1fc93,
-        type: 3}
-      propertyPath: icon_Medicine_Select
-      value: 
-      objectReference: {fileID: 21300000, guid: f3396e3596f82364492186301e5ea273,
-        type: 3}
-    - target: {fileID: -6027779213922678185, guid: 6a8df82cbcc25394492851cfedb1fc93,
-        type: 3}
-      propertyPath: icon_Medicine
-      value: 
-      objectReference: {fileID: 21300000, guid: 45f60e628c67d5f41b7a11418c431dd6,
-        type: 3}
-    - target: {fileID: -6027779213922678185, guid: 6a8df82cbcc25394492851cfedb1fc93,
-        type: 3}
-      propertyPath: icon_Medicine_Select
-      value: 
-      objectReference: {fileID: 21300000, guid: f0e3a5cb4c46f7244906d3c968977940,
-        type: 3}
-    - target: {fileID: -3028157596608177981, guid: 6a8df82cbcc25394492851cfedb1fc93,
-        type: 3}
-      propertyPath: icon_Medicine
-      value: 
-      objectReference: {fileID: 21300000, guid: eb11fd1503cc3c3408f32e5752b3a366,
-        type: 3}
-    - target: {fileID: -3028157596608177981, guid: 6a8df82cbcc25394492851cfedb1fc93,
-        type: 3}
-      propertyPath: icon_Medicine_Select
-      value: 
-      objectReference: {fileID: 21300000, guid: 37f7a6cd68e251646b4d2bf30e118fc2,
-        type: 3}
-    - target: {fileID: 1515406332765429076, guid: 6a8df82cbcc25394492851cfedb1fc93,
-        type: 3}
-      propertyPath: icon_Medicine
-      value: 
-      objectReference: {fileID: 21300000, guid: 1c6fcc885ae865040986df9e01ccd874,
-        type: 3}
-    - target: {fileID: 1515406332765429076, guid: 6a8df82cbcc25394492851cfedb1fc93,
-        type: 3}
-      propertyPath: icon_Medicine_Select
-      value: 
-      objectReference: {fileID: 21300000, guid: 5872d55b465f00e46935775d7234d0ed,
-        type: 3}
-    - target: {fileID: 1754273035333511742, guid: 6a8df82cbcc25394492851cfedb1fc93,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1754273035333511742, guid: 6a8df82cbcc25394492851cfedb1fc93,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1754273035333511742, guid: 6a8df82cbcc25394492851cfedb1fc93,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1754273035333511742, guid: 6a8df82cbcc25394492851cfedb1fc93,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1754273035333511742, guid: 6a8df82cbcc25394492851cfedb1fc93,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1754273035333511742, guid: 6a8df82cbcc25394492851cfedb1fc93,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1754273035333511742, guid: 6a8df82cbcc25394492851cfedb1fc93,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1754273035333511742, guid: 6a8df82cbcc25394492851cfedb1fc93,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1754273035333511742, guid: 6a8df82cbcc25394492851cfedb1fc93,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1754273035333511742, guid: 6a8df82cbcc25394492851cfedb1fc93,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1754273035333511742, guid: 6a8df82cbcc25394492851cfedb1fc93,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2822396501616056411, guid: 6a8df82cbcc25394492851cfedb1fc93,
-        type: 3}
-      propertyPath: icon_Medicine
-      value: 
-      objectReference: {fileID: 21300000, guid: 7b7078c4a860c314391205fa6edc377e,
-        type: 3}
-    - target: {fileID: 2822396501616056411, guid: 6a8df82cbcc25394492851cfedb1fc93,
-        type: 3}
-      propertyPath: icon_Medicine_Select
-      value: 
-      objectReference: {fileID: 21300000, guid: 7b79d4345d11fe24d85505e8b8e55f51,
-        type: 3}
-    - target: {fileID: 3704880241616011003, guid: 6a8df82cbcc25394492851cfedb1fc93,
-        type: 3}
-      propertyPath: icon_Medicine
-      value: 
-      objectReference: {fileID: 21300000, guid: 44a600d571c58504a8eba387a7d10b16,
-        type: 3}
-    - target: {fileID: 3704880241616011003, guid: 6a8df82cbcc25394492851cfedb1fc93,
-        type: 3}
-      propertyPath: icon_Medicine_Select
-      value: 
-      objectReference: {fileID: 21300000, guid: 8899c726ac591bf4da53cd7498998f3f,
-        type: 3}
-    - target: {fileID: 4168044531985062311, guid: 6a8df82cbcc25394492851cfedb1fc93,
-        type: 3}
-      propertyPath: icon_Medicine
-      value: 
-      objectReference: {fileID: 21300000, guid: 2429cd64aa68ee84eae231f4e3472ff5,
-        type: 3}
-    - target: {fileID: 4168044531985062311, guid: 6a8df82cbcc25394492851cfedb1fc93,
-        type: 3}
-      propertyPath: icon_Medicine_Select
-      value: 
-      objectReference: {fileID: 21300000, guid: bed7b1219776884448d2543df24fd3e9,
-        type: 3}
-    - target: {fileID: 7595923998789941104, guid: 6a8df82cbcc25394492851cfedb1fc93,
+    - target: {fileID: 323482859454940182, guid: 6a8df82cbcc25394492851cfedb1fc93,
         type: 3}
       propertyPath: m_Name
       value: StatusList
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 0}
-    - {fileID: 0}
+    - target: {fileID: 323482859454940411, guid: 6a8df82cbcc25394492851cfedb1fc93,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 323482859454940411, guid: 6a8df82cbcc25394492851cfedb1fc93,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 323482859454940411, guid: 6a8df82cbcc25394492851cfedb1fc93,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 323482859454940411, guid: 6a8df82cbcc25394492851cfedb1fc93,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 323482859454940411, guid: 6a8df82cbcc25394492851cfedb1fc93,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 323482859454940411, guid: 6a8df82cbcc25394492851cfedb1fc93,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 323482859454940411, guid: 6a8df82cbcc25394492851cfedb1fc93,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 323482859454940411, guid: 6a8df82cbcc25394492851cfedb1fc93,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 323482859454940411, guid: 6a8df82cbcc25394492851cfedb1fc93,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 323482859454940411, guid: 6a8df82cbcc25394492851cfedb1fc93,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 323482859454940411, guid: 6a8df82cbcc25394492851cfedb1fc93,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a8df82cbcc25394492851cfedb1fc93, type: 3}
 --- !u!1001 &5420956499993825039
 PrefabInstance:

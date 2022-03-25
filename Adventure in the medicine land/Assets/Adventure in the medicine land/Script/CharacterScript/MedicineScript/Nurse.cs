@@ -1,35 +1,35 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
-public class Doctor : Character
+public class Nurse : Character
 {
     void Start()
     {
-        characterName = "โฮพ";
+        characterName = "พยาบาล";
         faction = "Medicine";
         classCharacter = "หมอ";
 
-        attackPower = 2;
-        defensePower = 1;
-        HP = 2;
+        hp = 40;
+        attackPower = 35;
+        defensePower = 15;
 
         startSetUp();
     }
-
     void Update()
     {
         moveSmoothly();
         spinToTarget();
     }
+
     void OnMouseDown()
     {
         allAction();
     }
     protected override void resetRange()
     {
-        attackRange = 3;
-        walkingDistance = 2;
+        walkingDistance = 3;
+        attackRange = 1;
+        cureRange = 2;
     }
 }

@@ -3,18 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Archer : Character
+public class Sniper : Character
 {
     void Start()
     {
-        characterName = "พลธนู";
+        characterName = "พลซุ่มยิง";
         faction = "Medicine";
         classCharacter = "จู่โจม(ธนู)";
 
-
-        HP = 3;
-        attackPower = 1;
-        defensePower = 2;
+        hp = 40;
+        attackPower = 50;
+        defensePower = 10;
 
 
         startSetUp();
@@ -31,8 +30,8 @@ public class Archer : Character
     }
     protected override void resetRange()
     {
-        attackRange = 1;
-        walkingDistance = 1;
+        walkingDistance = 2;
+        attackRange = 3;
     }
 
 }

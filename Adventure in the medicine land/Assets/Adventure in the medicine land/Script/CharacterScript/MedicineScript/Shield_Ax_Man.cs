@@ -3,35 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Shield_Swords_Man : Character
+public class Shield_Ax_Man : Character
 {
     void Start()
     {
-        characterName = "พลดาบโล่";
+        characterName = "พลขวานโล่";
         faction = "Medicine";
         classCharacter = "แทงค์";
         ClassType = "Tank";
 
-        attackPower = 2;
-        defensePower = 2;
-        HP = 10;
+        hp = 65;
+        attackPower = 35;
+        defensePower = 20;
 
         startSetUp();
     }
+
     void Update()
     {
         moveSmoothly();
         spinToTarget();
     }
-
     void OnMouseDown()
     {
         allAction();
     }
+
     protected override void resetRange()
     {
-        attackRange = 2;
         walkingDistance = 2;
+        attackRange = 1;
     }
 
 }

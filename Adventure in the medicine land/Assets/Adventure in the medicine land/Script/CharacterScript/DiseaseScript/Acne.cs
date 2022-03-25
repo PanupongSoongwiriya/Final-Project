@@ -11,10 +11,9 @@ public class Acne : Character
         faction = "Disease";
         classCharacter = "สิว";
 
-        HP = 6;
-        attackPower = 1;
-        defensePower = 1;
-
+        hp = 75;
+        attackPower = 25;
+        defensePower = 20;
 
         startSetUp();
 
@@ -32,7 +31,7 @@ public class Acne : Character
     }
     protected override void resetRange()
     {
-        walkingDistance = 3;
+        walkingDistance = 2;
         attackRange = 1;
     }
     /*

@@ -3,19 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class General : Character
+public class Hammer : Character
 {
     void Start()
     {
-        characterName = "นายพล";
+        characterName = "พลค้อน";
         faction = "Medicine";
         classCharacter = "จู่โจม";
 
-        attackPower = 2;
-        defensePower = 1;
-        HP = 3;
+        hp = 55;
+        attackPower = 40;
+        defensePower = 15;
 
         startSetUp();
+    }
+    void Update()
+    {
+        moveSmoothly();
+        spinToTarget();
     }
 
     void OnMouseDown()
@@ -24,13 +29,7 @@ public class General : Character
     }
     protected override void resetRange()
     {
-        attackRange = 2;
-        walkingDistance = 2;
-    }
-
-    void Update()
-    {
-        moveSmoothly();
-        spinToTarget();
+        walkingDistance = 3;
+        attackRange = 1;
     }
 }

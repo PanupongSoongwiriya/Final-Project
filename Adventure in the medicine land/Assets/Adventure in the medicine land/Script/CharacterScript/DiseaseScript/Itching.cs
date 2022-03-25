@@ -11,10 +11,9 @@ public class Itching : Character
         faction = "Disease";
         classCharacter = "อาการคัน";
 
-        HP = 6;
-        attackPower = 1;
-        defensePower = 1;
-
+        hp = 65;
+        attackPower = 30;
+        defensePower = 25;
 
         startSetUp();
 
@@ -32,7 +31,7 @@ public class Itching : Character
     }
     protected override void resetRange()
     {
-        walkingDistance = 3;
+        walkingDistance = 2;
         attackRange = 1;
     }
     /*

@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Shield_Ax_Man : Character
+public class Archer : Character
 {
     void Start()
     {
-        characterName = "พลขวานโล่";
+        characterName = "พลธนู";
         faction = "Medicine";
-        classCharacter = "แทงค์";
-        ClassType = "Tank";
+        classCharacter = "จู่โจม(ธนู)";
+        
+        hp = 45;
+        attackPower = 50;
+        defensePower = 15;
 
-        attackPower = 3;
-        defensePower = 1;
-        HP = 1;
 
         startSetUp();
     }
@@ -28,11 +28,10 @@ public class Shield_Ax_Man : Character
     {
         allAction();
     }
-
     protected override void resetRange()
     {
-        attackRange = 2;
         walkingDistance = 2;
+        attackRange = 2;
     }
 
 }

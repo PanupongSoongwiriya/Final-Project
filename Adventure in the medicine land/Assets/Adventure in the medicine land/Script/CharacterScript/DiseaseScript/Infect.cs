@@ -11,10 +11,9 @@ public class Infect : Character
         faction = "Disease";
         classCharacter = "ติดเชื้อ";
 
-        HP = 6;
-        attackPower = 1;
-        defensePower = 1;
-
+        hp = 45;
+        attackPower = 60;
+        defensePower = 5;
 
         startSetUp();
 

@@ -11,9 +11,9 @@ public class Hero : Character
         faction = "Medicine";
         classCharacter = "ผู้หล้า";
 
-        attackPower = 3;
-        defensePower = 3;
-        HP = 3;
+        hp = 60;
+        attackPower = 50;
+        defensePower = 20;
 
         startSetUp();
 
@@ -25,6 +25,7 @@ public class Hero : Character
         bag.Add(status.GetComponent<RunnyNose_Medicine>());
         bag.Add(status.GetComponent<SkinFungus_Medicine>());
         bag.Add(status.GetComponent<Stomachache_Medicine>());
+        bag.Add(status.GetComponent<Bandage>());
     }
 
     void Update()
@@ -38,7 +39,8 @@ public class Hero : Character
     }
     protected override void resetRange()
     {
-        attackRange = 2;
         walkingDistance = 3;
+        attackRange = 1;
+        cureRange = 3;
     }
 }

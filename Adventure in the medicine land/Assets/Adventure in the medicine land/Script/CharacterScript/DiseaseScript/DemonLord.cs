@@ -11,10 +11,9 @@ public class DemonLord : Character
         faction = "Disease";
         classCharacter = "จอมมาร";
 
-        HP = 500;
+        hp = 500;
         attackPower = 3;
         defensePower = 3;
-
 
         startSetUp();
     }
@@ -31,8 +30,8 @@ public class DemonLord : Character
 
     protected override void resetRange()
     {
-        walkingDistance = 3;
-        attackRange = 3;
+        walkingDistance = 2;
+        attackRange = 2;
     }
     /*
     public override float checkAdvantage(Character actor)

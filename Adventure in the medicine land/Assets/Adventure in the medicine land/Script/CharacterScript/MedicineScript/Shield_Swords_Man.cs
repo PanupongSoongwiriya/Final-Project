@@ -1,18 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public class Nurse : Character
+public class Shield_Swords_Man : Character
 {
     void Start()
     {
-        characterName = "พยาบาล";
+        characterName = "พลดาบโล่";
         faction = "Medicine";
-        classCharacter = "หมอ";
+        classCharacter = "แทงค์";
+        ClassType = "Tank";
 
-        HP = 10;
-        attackPower = 2;
-        defensePower = 1;
+        hp = 70;
+        attackPower = 30;
+        defensePower = 20;
+        
 
         startSetUp();
     }
@@ -28,7 +31,8 @@ public class Nurse : Character
     }
     protected override void resetRange()
     {
+        attackRange = 1;
         walkingDistance = 2;
-        attackRange = 3;
     }
+
 }

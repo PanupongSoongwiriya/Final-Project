@@ -3,33 +3,37 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Hammer : Character
+public class Ax : Character
 {
     void Start()
     {
-        characterName = "พลค้อน";
+        characterName = "พลขวาน";
         faction = "Medicine";
         classCharacter = "จู่โจม";
 
-        HP = 4;
-        attackPower = 3;
-        defensePower = 1;
+
+        hp = 55;
+        attackPower = 45;
+        defensePower = 10;
+
 
         startSetUp();
-    }
-    void Update()
-    {
-        moveSmoothly();
-        spinToTarget();
     }
 
     void OnMouseDown()
     {
         allAction();
     }
+
+    void Update()
+    {
+        moveSmoothly();
+        spinToTarget();
+    }
     protected override void resetRange()
     {
-        walkingDistance = 3;
         attackRange = 1;
+        walkingDistance = 3;
     }
+
 }
