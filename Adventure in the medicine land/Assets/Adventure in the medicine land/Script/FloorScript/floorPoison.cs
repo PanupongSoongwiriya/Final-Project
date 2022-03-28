@@ -49,12 +49,9 @@ public class floorPoison : Floor
 {
         if (characterOnIt != null)
         {
-            characterOnIt.HP(-floorBonus);
-            characterOnIt.showDMG(-floorBonus, typrFloor);
-            /*if (characterOnIt.faction.Equals("Medicine") & characterOnIt.characterStatus != null)
-            {
-                characterOnIt.characterStatus.statusEffect(characterOnIt);
-            }*/
+            int dmg = (int)(characterOnIt.MAXHP* 0.1f);
+            characterOnIt.HP(-dmg);
+            characterOnIt.showDMG(-dmg, typrFloor);
         }
     }
 }

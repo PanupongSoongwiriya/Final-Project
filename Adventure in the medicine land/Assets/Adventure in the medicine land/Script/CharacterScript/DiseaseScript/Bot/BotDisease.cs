@@ -143,8 +143,8 @@ public class BotDisease : MonoBehaviour
             if (target.Equals(medicine))
             {
                 stage = "attack";
-                target.attacked();
                 spreadGerms();
+                target.attacked();
                 break;
             }
         }
@@ -165,8 +165,8 @@ public class BotDisease : MonoBehaviour
             }
             stage = "attack";
             target = atked;
-            target.attacked();
             spreadGerms();
+            target.attacked();
         }
         else
         {
@@ -196,9 +196,8 @@ public class BotDisease : MonoBehaviour
                 }
                 if (change)
                 {
-                    Debug.Log(target.name);
                     target.CharacterStatus = chr.characterStatus;
-                    //target.CharacterStatus.statusEffect(target);
+                    target.characterStatus.statusEffect(target);
                 }
             }
         }

@@ -26,8 +26,9 @@ public class GameSystem : MonoBehaviour
     public GameObject yourTurnText;
     public GameObject whoTurnPanel;
     public GameObject endGamePanel;
-    public GameObject walkBoutton;
+    public walkButton walkBoutton;
     public attackButton attackButton;
+    public bagOptionsButton bagOptionsButton;
 
     public Animator anim;
 

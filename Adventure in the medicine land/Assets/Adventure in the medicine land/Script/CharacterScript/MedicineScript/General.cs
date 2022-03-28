@@ -16,6 +16,8 @@ public class General : Character
         defensePower = 20;
 
         startSetUp();
+        
+        bag.Add(status.GetComponent<Bandage>());
     }
 
     void OnMouseDown()

@@ -15,6 +15,8 @@ public class Nurse : Character
         defensePower = 15;
 
         startSetUp();
+        
+        bag.Add(status.GetComponent<Bandage>());
     }
     void Update()
     {

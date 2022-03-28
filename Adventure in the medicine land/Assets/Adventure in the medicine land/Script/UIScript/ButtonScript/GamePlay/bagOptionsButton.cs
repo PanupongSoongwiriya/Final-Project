@@ -8,7 +8,7 @@ public class bagOptionsButton : controlPanelButton
     public override void changeState()
     {
         activeBotton = c == 1;
-        if (gameSystem.State.Equals("waiting for orders") && ActiveBotton)
+        if (gameSystem.State.Equals("waiting for orders") && ActiveBotton & gameSystem.NowCharecter.bag.Count > 0)
         {
             ConfirmAudio.Play();
             tutorialPlus();

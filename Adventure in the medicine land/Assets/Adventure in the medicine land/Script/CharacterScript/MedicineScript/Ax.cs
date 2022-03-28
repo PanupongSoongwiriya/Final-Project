@@ -11,13 +11,13 @@ public class Ax : Character
         faction = "Medicine";
         classCharacter = "จู่โจม";
 
-
         hp = 55;
         attackPower = 45;
         defensePower = 10;
-
-
+        
         startSetUp();
+        
+        bag.Add(status.GetComponent<Bandage>());
     }
 
     void OnMouseDown()

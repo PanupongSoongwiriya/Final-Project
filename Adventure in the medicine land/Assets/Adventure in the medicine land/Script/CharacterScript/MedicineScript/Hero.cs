@@ -9,7 +9,7 @@ public class Hero : Character
     {
         characterName = "โฮพ";
         faction = "Medicine";
-        classCharacter = "ผู้หล้า";
+        classCharacter = "ผู้กล้า";
 
         hp = 60;
         attackPower = 50;

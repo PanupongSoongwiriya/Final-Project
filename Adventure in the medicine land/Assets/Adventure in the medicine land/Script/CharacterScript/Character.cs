@@ -87,8 +87,8 @@ public class Character : MonoBehaviour
         {
             showDetailDisease();
             prepare();
-            attacked();
             canCureDisease();
+            attacked();
             tutorialPlus();
         }
     }
@@ -124,6 +124,7 @@ public class Character : MonoBehaviour
         targetSpin = null;
         setColorCharacter(new Color(1, 1, 1, 1));
         animator = GetComponent<Animator>();
+        ClassType = "";
     }
 
     public void setDegree()
@@ -206,8 +207,9 @@ public class Character : MonoBehaviour
         {
             setPositionCamera();
             gameSystem.NowCharecter = this;
-            gameSystem.walkBoutton.GetComponent<walkButton>().ActiveBotton = actionPoint == 2 && !disableMove;
+            gameSystem.walkBoutton.ActiveBotton = actionPoint == 2 && !disableMove;
             gameSystem.attackButton.ActiveBotton = !disableAttack;
+            gameSystem.bagOptionsButton.ActiveBotton = bag.Count > 0;
             if (actionPoint > 0)
             {
                 gameSystem.State = "waiting for orders";
@@ -241,7 +243,18 @@ public class Character : MonoBehaviour
             }
             else if(gameSystem.selectedMedicine.statusName.Equals("ผ้าพันแผล"))
             {
-                Debug.Log("11111111111111111111111111111111111111111111");
+                /*If not a Class Hero person or a doctor, The bandage can only be used once.*/
+                if (!gameSystem.NowCharecter.classCharacter.Equals("ผู้กล้า") && !gameSystem.NowCharecter.classCharacter.Equals("หมอ"))
+                {
+                    for (int i = 0; i < gameSystem.NowCharecter.bag.Count; i++)
+                    {
+                        if (gameSystem.NowCharecter.bag[i].Type.Equals("Bandage"))
+                        {
+                            gameSystem.NowCharecter.bag.RemoveAt(i);
+                            break;
+                        }
+                    }
+                }
                 gameSystem.selectedMedicine.statusEffect(this);
             }
             gameSystem.selectedMedicine = null;
@@ -354,10 +367,10 @@ public class Character : MonoBehaviour
         specialAttack = 0;
         taunts = false;
         resetRange();
-        if (!gameSystem.State.Equals("Use medicine with ally") & faction.Equals("Medicine") & characterStatus != null)
+        /*if (!gameSystem.State.Equals("Use medicine with ally") & faction.Equals("Medicine") & characterStatus != null)
         {
             characterStatus.statusEffect(this);
-        }
+        }*/
     }
     protected virtual void resetRange()
     {

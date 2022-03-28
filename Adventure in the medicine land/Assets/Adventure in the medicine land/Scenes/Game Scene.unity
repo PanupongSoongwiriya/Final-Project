@@ -1769,12 +1769,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controlPanel: {fileID: 896668366}
   optionsPanel: {fileID: 563466689}
-  skillPanel: {fileID: 0}
   characterDetailPanel: {fileID: 1642383782}
-  skillDetailPanel: {fileID: 0}
   bagDetailPanel: {fileID: 142946383}
-  sheatheMenu: {fileID: 0}
-  sheatheData: {fileID: 0}
+  sheatheMenu: {fileID: 617138796}
+  sheatheData: {fileID: 2097609233}
   activeBotton: 0
   c: 1
   ConfirmAudio: {fileID: 496960319}
@@ -2450,9 +2448,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controlPanel: {fileID: 896668366}
   optionsPanel: {fileID: 563466689}
-  skillPanel: {fileID: 0}
   characterDetailPanel: {fileID: 1642383782}
-  skillDetailPanel: {fileID: 0}
   bagDetailPanel: {fileID: 142946383}
   sheatheMenu: {fileID: 617138796}
   sheatheData: {fileID: 2097609233}
@@ -3110,9 +3106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controlPanel: {fileID: 896668366}
   optionsPanel: {fileID: 563466689}
-  skillPanel: {fileID: 0}
   characterDetailPanel: {fileID: 1642383782}
-  skillDetailPanel: {fileID: 142946383}
   bagDetailPanel: {fileID: 142946383}
   sheatheMenu: {fileID: 617138796}
   sheatheData: {fileID: 2097609233}
@@ -3929,12 +3923,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controlPanel: {fileID: 896668366}
   optionsPanel: {fileID: 563466689}
-  skillPanel: {fileID: 0}
   characterDetailPanel: {fileID: 1642383782}
-  skillDetailPanel: {fileID: 0}
   bagDetailPanel: {fileID: 142946383}
-  sheatheMenu: {fileID: 0}
-  sheatheData: {fileID: 0}
+  sheatheMenu: {fileID: 617138796}
+  sheatheData: {fileID: 2097609233}
   activeBotton: 0
   c: 1
   ConfirmAudio: {fileID: 496960319}
@@ -4198,7 +4190,7 @@ PrefabInstance:
         type: 3}
       propertyPath: walkBoutton
       value: 
-      objectReference: {fileID: 1481522733}
+      objectReference: {fileID: 1481522735}
     - target: {fileID: 7077443505708588831, guid: 3b7410473bda60b499801773470e8aba,
         type: 3}
       propertyPath: attackButton
@@ -4225,6 +4217,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2951335023777039610, guid: 80b8649f265dc634482cdd4f9d8b9993,
         type: 3}
+    - target: {fileID: 7077443505708588831, guid: 3b7410473bda60b499801773470e8aba,
+        type: 3}
+      propertyPath: bagOptionsButton
+      value: 
+      objectReference: {fileID: 1268027719}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b7410473bda60b499801773470e8aba, type: 3}
 --- !u!1 &1216009266
@@ -4397,7 +4394,6 @@ GameObject:
   - component: {fileID: 1268027718}
   - component: {fileID: 1268027717}
   - component: {fileID: 1268027716}
-  - component: {fileID: 1268027715}
   - component: {fileID: 1268027719}
   m_Layer: 5
   m_Name: bagButton
@@ -4426,18 +4422,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1268027715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1268027713}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a5b9d8fad239af40b4889d99815485b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1268027716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4546,9 +4530,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controlPanel: {fileID: 896668366}
   optionsPanel: {fileID: 563466689}
-  skillPanel: {fileID: 0}
   characterDetailPanel: {fileID: 1642383782}
-  skillDetailPanel: {fileID: 0}
   bagDetailPanel: {fileID: 142946383}
   sheatheMenu: {fileID: 0}
   sheatheData: {fileID: 0}
@@ -5838,7 +5820,7 @@ PrefabInstance:
     - target: {fileID: 8049314337774199886, guid: 58b86fa0e8c48c3458f0b2c2bbc13cd4,
         type: 3}
       propertyPath: floorBonus
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8049314337774199886, guid: 58b86fa0e8c48c3458f0b2c2bbc13cd4,
         type: 3}
@@ -6022,12 +6004,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controlPanel: {fileID: 896668366}
   optionsPanel: {fileID: 563466689}
-  skillPanel: {fileID: 0}
   characterDetailPanel: {fileID: 1642383782}
-  skillDetailPanel: {fileID: 0}
   bagDetailPanel: {fileID: 142946383}
-  sheatheMenu: {fileID: 0}
-  sheatheData: {fileID: 0}
+  sheatheMenu: {fileID: 617138796}
+  sheatheData: {fileID: 2097609233}
   activeBotton: 0
   c: 1
   ConfirmAudio: {fileID: 496960319}

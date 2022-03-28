@@ -15,8 +15,9 @@ public class Archer : Character
         attackPower = 50;
         defensePower = 15;
 
-
         startSetUp();
+        
+        bag.Add(status.GetComponent<Bandage>());
     }
 
     void Update()

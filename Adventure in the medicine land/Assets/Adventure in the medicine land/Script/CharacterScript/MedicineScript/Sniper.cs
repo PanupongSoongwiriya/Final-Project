@@ -14,9 +14,10 @@ public class Sniper : Character
         hp = 40;
         attackPower = 50;
         defensePower = 10;
-
-
+        
         startSetUp();
+
+        bag.Add(status.GetComponent<Bandage>());
     }
 
     void Update()

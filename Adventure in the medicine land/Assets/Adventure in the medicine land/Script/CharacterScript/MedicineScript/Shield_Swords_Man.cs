@@ -10,14 +10,15 @@ public class Shield_Swords_Man : Character
         characterName = "พลดาบโล่";
         faction = "Medicine";
         classCharacter = "แทงค์";
-        ClassType = "Tank";
 
         hp = 70;
         attackPower = 30;
         defensePower = 20;
-        
 
         startSetUp();
+        ClassType = "Tank";
+        
+        bag.Add(status.GetComponent<Bandage>());
     }
     void Update()
     {

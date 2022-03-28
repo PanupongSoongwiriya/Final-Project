@@ -16,6 +16,8 @@ public class Hammer : Character
         defensePower = 15;
 
         startSetUp();
+        
+        bag.Add(status.GetComponent<Bandage>());
     }
     void Update()
     {

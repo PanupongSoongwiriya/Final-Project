@@ -9,9 +9,7 @@ public class controlPanelButton : MonoBehaviour
     protected GameSystem gameSystem;
     public GameObject controlPanel;
     public GameObject optionsPanel;
-    public GameObject skillPanel;
     public GameObject characterDetailPanel;
-    public GameObject skillDetailPanel;
     public GameObject bagDetailPanel;
     public GameObject sheatheMenu;
     public GameObject sheatheData;
@@ -51,9 +49,7 @@ public class controlPanelButton : MonoBehaviour
     {
         sheatheMenu.gameObject.SetActive(cp);
         sheatheData.gameObject.SetActive(cdp || sdp);
-        //skillDetailPanel.gameObject.SetActive(sdp);
         characterDetailPanel.gameObject.SetActive(cdp);
-        //skillPanel.gameObject.SetActive(sp);
         bagDetailPanel.gameObject.SetActive(sp);
         optionsPanel.gameObject.SetActive(op);
         controlPanel.gameObject.SetActive(cp);

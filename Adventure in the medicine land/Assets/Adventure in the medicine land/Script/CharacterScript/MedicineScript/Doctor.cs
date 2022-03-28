@@ -14,9 +14,10 @@ public class Doctor : Character
         hp = 50;
         attackPower = 30;
         defensePower = 10;
-        
 
         startSetUp();
+        
+        bag.Add(status.GetComponent<Bandage>());
     }
 
     void Update()

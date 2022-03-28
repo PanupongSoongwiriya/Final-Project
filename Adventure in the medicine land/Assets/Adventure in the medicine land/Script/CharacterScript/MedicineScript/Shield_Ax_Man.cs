@@ -10,13 +10,15 @@ public class Shield_Ax_Man : Character
         characterName = "พลขวานโล่";
         faction = "Medicine";
         classCharacter = "แทงค์";
-        ClassType = "Tank";
 
         hp = 65;
         attackPower = 35;
         defensePower = 20;
 
         startSetUp();
+        ClassType = "Tank";
+        
+        bag.Add(status.GetComponent<Bandage>());
     }
 
     void Update()
