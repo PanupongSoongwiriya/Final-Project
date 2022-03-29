@@ -6,7 +6,7 @@ public class StomachacheStatus : Status
 {
     void Start()
     {
-        startSet("ปวดท้อง", "", "disease", "Stomachache", -1, 0, new Color(1, 0, 0, 1));
+        startSet("ปวดท้อง", "", "disease", "Stomachache", -3, 0, new Color(1, 0, 0, 1));
         //name, Description, status type, effect type, numEffect, numEffect_2, color
     }
 

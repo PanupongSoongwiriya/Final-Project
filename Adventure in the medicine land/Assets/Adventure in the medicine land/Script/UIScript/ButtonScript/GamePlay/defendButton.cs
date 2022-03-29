@@ -11,7 +11,7 @@ public class defendButton : controlPanelButton
         {
             ConfirmAudio.Play();
             tutorialPlus();
-            gameSystem.NowCharecter.SP_Def += 10;
+            gameSystem.NowCharecter.SP_Def += 5;
             if (gameSystem.NowCharecter.ClassType.Equals("Tank"))
             {
                 gameSystem.NowCharecter.SP_Def += 5;

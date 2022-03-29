@@ -14,7 +14,9 @@ public class MusclePainStatus : Status
     {
         if (c.Faction.Equals("Medicine"))
         {
-            c.walkingDistance += numEffect;
+            if (c.walkingDistance != 1){
+                c.walkingDistance += numEffect;
+            }
         }
     }
 

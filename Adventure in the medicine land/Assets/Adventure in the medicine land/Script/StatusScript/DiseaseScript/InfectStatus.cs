@@ -14,8 +14,8 @@ public class InfectStatus : Status
     {
         if (c.Faction.Equals("Medicine"))
         {
-            c.HP(numEffect);
-            c.showDMG(-numEffect, "poison");
+            c.HP(-(c.hp*0.05f));
+            c.showDMG(-(c.hp*0.05f), "poison");
         }
     }
 

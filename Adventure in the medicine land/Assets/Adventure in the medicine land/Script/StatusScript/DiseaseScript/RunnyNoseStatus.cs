@@ -6,7 +6,7 @@ public class RunnyNoseStatus : Status
 {
     void Start()
     {
-        startSet("น้ำมูกไหล", "", "disease", "RunnyNose", -1, 0, new Color(1, 0, 0, 1));
+        startSet("น้ำมูกไหล", "", "disease", "RunnyNose", -3, 0, new Color(1, 0, 0, 1));
         //name, Description, status type, effect type, numEffect, numEffect_2, color
     }
 

@@ -14,7 +14,9 @@ public class SkinFungusStatus : Status
     {
         if (c.Faction.Equals("Medicine"))
         {
-            c.attackRange += numEffect;
+            if(c.attackRange != 1){
+                c.attackRange += numEffect;
+            }
         }
     }
 
