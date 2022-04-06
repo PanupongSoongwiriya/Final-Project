@@ -528,6 +528,14 @@ MonoBehaviour:
     image: {fileID: 21300000, guid: 7ce1a16477900b241a71d46309d12d8e, type: 3}
     image_Left: {fileID: 21300000, guid: 0619a9f0e533f3741af150648b759efa, type: 3}
     image_Right: {fileID: 21300000, guid: 0fe0bb1105351eb46b08ed47ebad21e1, type: 3}
+  - name: "\u0E1C\u0E39\u0E49\u0E01\u0E25\u0E49\u0E32"
+    image: {fileID: 21300000, guid: a1cb29ddfabe50d4183feaaa2cc041b9, type: 3}
+    image_Left: {fileID: 21300000, guid: 1c84af953ba6436408d71b42fa881b85, type: 3}
+    image_Right: {fileID: 21300000, guid: 837207d67c663544784913cc8604d322, type: 3}
+  - name: Party_Member_1
+    image: {fileID: 21300000, guid: 86029e4a29baad24b98a1db2ad1d0335, type: 3}
+    image_Left: {fileID: 21300000, guid: e42b541dc036abf408cc505820e12780, type: 3}
+    image_Right: {fileID: 21300000, guid: 16238f7c7f472a5488d110590fdc14c4, type: 3}
   BackgroundSprite:
   - name: Castle
     image: {fileID: 21300000, guid: c57ff1cc07898e94188d04cf01667f00, type: 3}
