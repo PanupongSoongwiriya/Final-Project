@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class TutorialSystem : GameSystem
 {
@@ -11,8 +12,17 @@ public class TutorialSystem : GameSystem
     [SerializeField]
     private List<GameObject> tdUI;
 
+    [Serializable]
+    public struct tutorialDescription
+    {
+        public string name;
+        public string description;
+        public bool FP;
+        public bool Ccl;
+        public bool Ovl;
+    }
     [SerializeField]
-    private List<string> tutorialDescription;
+    private tutorialDescription[] Description;
 
     [SerializeField]
     private GameObject ForcePress;
@@ -21,7 +31,11 @@ public class TutorialSystem : GameSystem
     private GameObject Concealed;
     [SerializeField]
     private GameObject Overlay;
-    
+    [SerializeField]
+    private GameObject General;
+    [SerializeField]
+    private GameObject DescriptionOject;
+
     [SerializeField]
     private int tutorialStep;
     void Start()
@@ -33,25 +47,24 @@ public class TutorialSystem : GameSystem
         //controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
         cf = GameObject.Find("Game Camera").GetComponent<CameraFollow>();
         TutorialStep = -1;
-        tutorialDescription.Add("เลือกตัวละครยา");
-        tutorialDescription.Add("พื้นที่มีสีขาวปรากฏขึ้นคือระยะ\nที่ตัวละครสามารถเดินไปได้");
-        tutorialDescription.Add("พื้นที่มีสีแดงปรากฏขึ้นคือระยะที่ตัวละคร\nสามารถสร้างความเสียหายให้กับศัตรูได้");
-        tutorialDescription.Add("เลือกตัวละครเชิ้อโรค");
-        tutorialDescription.Add("หลังจากที่เดินแล้วตัวละครยังกระทำอย่างอื่นได้อีก 1 อย่างที่ไม่ใช่เดิน");
     }
 
     private void setTutoria()
     {
         Debug.Log("tutorialStep: " + tutorialStep + "------------------------------");
-        ForcePress.SetActive(false);
-        Concealed.SetActive(false);
-        Overlay.SetActive(false);
+
+        General.SetActive(Description[tutorialStep].name != "");
+        DescriptionOject.SetActive(Description[tutorialStep].description != "");
+        DescriptionOject.GetComponentInChildren<Text>().text =  Description[tutorialStep].description;
+        ForcePress.SetActive(Description[tutorialStep].FP);
+        Concealed.SetActive(Description[tutorialStep].Ccl);
+        Overlay.SetActive(Description[tutorialStep].Ovl);
         setAllButtonActive(true);
         clearAllButtonDescription();
         clearTutorialDescription();
-        if (tutorialStep == 0)
+        /*if (tutorialStep == 0)
         {
-            setTutorialDescription("Bottom", 0);
+            //setTutorialDescription("Bottom", 0);
             lockCamera = true;
             ForcePress.gameObject.SetActive(true);
             cf.Target = medicineFaction[0].transform;
@@ -65,16 +78,16 @@ public class TutorialSystem : GameSystem
         }
         else if (tutorialStep == 2)
         {
-            setTutorialDescription("Right", 1);
-            setTutorialDescription("Left", 99);
+            //setTutorialDescription("Right", 1);
+            //setTutorialDescription("Left", 99);
             ForcePress.gameObject.SetActive(true);
             setAllButtonActive(false);
             cf.Target = allFloor[37].transform;
         }
         else if (tutorialStep == 3)
         {
-            setTutorialDescription("Right", 4);
-            setTutorialDescription("Bottom", 0);
+            //setTutorialDescription("Right", 4);
+            //setTutorialDescription("Bottom", 0);
             ForcePress.gameObject.SetActive(true);
             cf.Target = medicineFaction[0].transform;
         }
@@ -87,7 +100,7 @@ public class TutorialSystem : GameSystem
         }
         else if (tutorialStep == 5)
         {
-            setTutorialDescription("Bottom", 0);
+            //setTutorialDescription("Bottom", 0);
             ForcePress.gameObject.SetActive(true);
             cf.Target = medicineFaction[1].transform;
         }
@@ -105,7 +118,7 @@ public class TutorialSystem : GameSystem
         }
         else if (tutorialStep == 8)
         {
-            setTutorialDescription("Bottom", 0);
+            //setTutorialDescription("Bottom", 0);
             lockCamera = true;
             ForcePress.gameObject.SetActive(true);
             cf.Target = medicineFaction[0].transform;
@@ -119,15 +132,15 @@ public class TutorialSystem : GameSystem
         }
         else if (tutorialStep == 10)
         {
-            setTutorialDescription("Right", 2);
-            setTutorialDescription("Bottom", 3);
+            //setTutorialDescription("Right", 2);
+            //setTutorialDescription("Bottom", 3);
             ForcePress.gameObject.SetActive(true);
             setAllButtonActive(false);
             cf.Target = diseaseFaction[1].transform;
         }
         else if (tutorialStep == 11)
         {
-            setTutorialDescription("Bottom", 0);
+            //setTutorialDescription("Bottom", 0);
             ForcePress.gameObject.SetActive(true);
             cf.Target = medicineFaction[1].transform;
         }
@@ -146,11 +159,11 @@ public class TutorialSystem : GameSystem
         }
         else if (tutorialStep == 14)
         {
-            setTutorialDescription("Bottom", 3);
+            //setTutorialDescription("Bottom", 3);
             ForcePress.gameObject.SetActive(true);
             setAllButtonActive(false);
             cf.Target = diseaseFaction[0].transform;
-        }
+        }*/
     }
 
     void Update()
@@ -159,15 +172,20 @@ public class TutorialSystem : GameSystem
         {
             foreach (Character medicine in medicineFaction)
             {
-                if (medicine.name.Equals("ยาแก้ปวดกล้ามเนื้อ 1"))
+                TutorialStep = 0;
+                /*if (medicine.name.Equals("ยาแก้ปวดกล้ามเนื้อ 1"))
                 {
                     TutorialStep = 0;
-                }
+                }*/
             }
         }
         if (tutorialStep <= 14)
         {
             lockCamera = true;
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            TutorialStep += 1;
         }
     }
 
@@ -199,7 +217,7 @@ public class TutorialSystem : GameSystem
         //TutorialStep = -1;
     }
 
-    private void setTutorialDescription(string where, int index)
+    /*private void setTutorialDescription(string where, int index)
     {
         for (int i = 0; i < tdUI.Count; ++i)
         {
@@ -213,7 +231,7 @@ public class TutorialSystem : GameSystem
             }
 
         }
-    }
+    }*/
     private void clearTutorialDescription()
     {
         for (int i = 0; i < tdUI.Count; ++i)
@@ -237,13 +255,19 @@ private void setAllButtonActive(bool active)
     {
         OptionsPanel.transform.GetChild(i).GetComponent<controlPanelButton>().ActiveBotton = active;
     }
-    controlPanel.transform.GetChild(2).GetComponent<controlPanelButton>().ActiveBotton = active;
+    //controlPanel.transform.GetChild(2).GetComponent<controlPanelButton>().ActiveBotton = active;
 }
 
 public int TutorialStep
 {
     get { return tutorialStep; }
-    set { tutorialStep = Mathf.Min(value, 15); setTutoria(); }
+    set { 
+            tutorialStep = Mathf.Min(value, 15);
+            if (value > -1)
+            {
+                setTutoria();
+            }
+        }
 }
 
 }
