@@ -20,6 +20,10 @@ public class TutorialSystem : GameSystem
         public bool FP;
         public bool Ccl;
         public bool Ovl;
+        public int medicineIndex;
+        public int diseaseIndex;
+        public int floorIndex;
+        public int buttonIndex;
     }
     [SerializeField]
     private tutorialDescription[] Description;
