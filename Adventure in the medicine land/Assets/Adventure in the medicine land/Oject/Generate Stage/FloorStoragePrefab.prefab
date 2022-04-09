@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whatKindFloor: Normal
-  prefab: {fileID: 8888401754725936978, guid: ed3737c75b1db0641bda106fbcedc012, type: 3}
+  prefab: {fileID: 8888401754725936978, guid: de556e50c8f1df64380ca0e444ced5a6, type: 3}
 --- !u!114 &2814835686413464797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whatKindFloor: +ATK
-  prefab: {fileID: 2881015404660102090, guid: 15cc81cc981d8a148a25c24efb5809cb, type: 3}
+  prefab: {fileID: 2881015404660102090, guid: f129158f01d52f9439ac0651c56c154e, type: 3}
 --- !u!114 &2814835686413464796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whatKindFloor: -DEF
-  prefab: {fileID: 5110098301044078662, guid: 427ae99908e9672419d43455345e47a8, type: 3}
+  prefab: {fileID: 300347205313235474, guid: becdc0eb9b1589c49bf5601c0bfa9b36, type: 3}
 --- !u!114 &2814835686413464793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whatKindFloor: Poison
-  prefab: {fileID: 2620282756962804561, guid: a726f8f0fc71411478637cbf6557fff7, type: 3}
+  prefab: {fileID: 7046958713267179201, guid: 5e1ad09b0df84a94b808c96d670a456b, type: 3}
 --- !u!114 &2814835686413464792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whatKindFloor: Mountain
-  prefab: {fileID: 444045168723980482, guid: d8d3b168f3292ed4cbf2899bc58c2ba9, type: 3}
+  prefab: {fileID: 444045168723980482, guid: 5ddf520fc2e6d7c46a67f594c83004cb, type: 3}
 --- !u!114 &2814835686413464795
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ public class SkinFungus_Medicine : Status
 
     void Start()
     {
-        startSet("ยาฆ่าเชื้อรา", "ยาบลา ๆ", "heal", "Cure SkinFungus", 0, 0, new Color(1, 1, 1, 1));
+        startSet("ยาฆ่าเชื้อรา", "", "heal", "Cure SkinFungus", 0, 0, new Color(1, 1, 1, 1));
         //name, Description, status type, effect type, numEffect, numEffect_2, color
     }
     public override bool IsStatusEffective(Status s)

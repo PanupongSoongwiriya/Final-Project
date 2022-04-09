@@ -7,7 +7,7 @@ public class Itching_Medicine : Status
 
     void Start()
     {
-        startSet("ยาแก้คัน", "ยาบลา ๆ", "heal", "Cure Itching", 0, 0, new Color(1, 1, 1, 1));
+        startSet("ยาแก้คัน", "", "heal", "Cure Itching", 0, 0, new Color(1, 1, 1, 1));
         //name, Description, status type, effect type, numEffect, numEffect_2, color
     }
     public override bool IsStatusEffective(Status s)

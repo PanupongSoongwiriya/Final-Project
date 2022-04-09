@@ -7,7 +7,7 @@ public class Acne_Medicine : Status
 
     void Start()
     {
-        startSet("ยาฆ่าเชื้อสิว", "ยาบลา ๆ", "heal", "Cure Acne", 0, 0, new Color(1, 1, 1, 1));
+        startSet("ยาฆ่าเชื้อสิว", "", "heal", "Cure Acne", 0, 0, new Color(1, 1, 1, 1));
         //name, Description, status type, effect type, numEffect, numEffect_2, color
     }
     public override bool IsStatusEffective(Status s)

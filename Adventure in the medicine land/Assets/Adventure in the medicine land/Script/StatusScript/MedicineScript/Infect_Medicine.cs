@@ -7,7 +7,7 @@ public class Infect_Medicine : Status
     // Start is called before the first frame update
     void Start()
     {
-        startSet("ยาฆ่าเชื้อ", "ยาบลา ๆ", "heal", "Cure Infect", 0, 0, new Color(1, 1, 1, 1));
+        startSet("ยาฆ่าเชื้อ", "", "heal", "Cure Infect", 0, 0, new Color(1, 1, 1, 1));
         //name, Description, status type, effect type, numEffect, numEffect_2, color
     }
     public override bool IsStatusEffective(Status s)

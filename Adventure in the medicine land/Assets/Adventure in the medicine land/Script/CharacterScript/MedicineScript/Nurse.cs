@@ -15,7 +15,15 @@ public class Nurse : Character
         defensePower = 15;
 
         startSetUp();
-        
+
+        bag.Add(status.GetComponent<Acne_Medicine>());
+        bag.Add(status.GetComponent<Headache_Medicine>());
+        bag.Add(status.GetComponent<Infect_Medicine>());
+        bag.Add(status.GetComponent<Itching_Medicine>());
+        bag.Add(status.GetComponent<MusclePain_Medicine>());
+        bag.Add(status.GetComponent<RunnyNose_Medicine>());
+        bag.Add(status.GetComponent<SkinFungus_Medicine>());
+        bag.Add(status.GetComponent<Stomachache_Medicine>());
         bag.Add(status.GetComponent<Bandage>());
     }
     void Update()
