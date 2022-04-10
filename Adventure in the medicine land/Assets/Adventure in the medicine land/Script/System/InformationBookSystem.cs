@@ -19,6 +19,8 @@ public class InformationBookSystem : MonoBehaviour
     [SerializeField]
     private GameObject scrollHeader;
     [SerializeField]
+    private GameObject dataContent;
+    [SerializeField]
     private float nowData;
 
     [SerializeField]
@@ -109,6 +111,11 @@ public class InformationBookSystem : MonoBehaviour
                 }
                 head.GetComponent<Text>().text = ThaiFontAdjuster.Adjust(data.Book[i].header + subID);
                 info.GetComponent<Text>().text = ThaiFontAdjuster.Adjust(data.Book[i].info + "\n<color=red>" + data.Book[i].warning + "</color>");
+                RectTransform rt = dataContent.GetComponent<RectTransform>();
+                float pc = ((Screen.width * 100f / 1244f))/100f;
+                rt.sizeDelta = new Vector2(rt.sizeDelta.x, data.Book[i].heightContent * pc);
+                Debug.Log("Screen Width : " + Screen.width);
+                Debug.Log("Percent : " + pc + "%");
             }
         }
     }

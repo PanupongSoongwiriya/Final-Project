@@ -6,6 +6,7 @@ public class Info
     public string info;
     public string warning;
     public string img;
+    public float heightContent;
 }
 [System.Serializable]
 public class BookData
