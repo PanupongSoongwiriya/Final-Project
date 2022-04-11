@@ -457,10 +457,11 @@ public class Character : MonoBehaviour
     {
         if (gameSystem.name.Equals("TutorialSystem"))
         {
-            if (gameSystem.GetComponent<TutorialSystem>().TutorialStep != 7)
+            gameSystem.GetComponent<TutorialSystem>().TutorialStep++;
+            /*if (gameSystem.GetComponent<TutorialSystem>().TutorialStep != 7)
             {
                 gameSystem.GetComponent<TutorialSystem>().TutorialStep++;
-            }
+            }*/
         }
     }
     public String Faction

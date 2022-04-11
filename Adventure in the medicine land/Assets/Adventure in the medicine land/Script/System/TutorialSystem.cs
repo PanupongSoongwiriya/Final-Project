@@ -24,6 +24,7 @@ public class TutorialSystem : GameSystem
         public int diseaseIndex;
         public int floorIndex;
         public int buttonIndex;
+        public bool clearAllAP;
     }
     [SerializeField]
     private tutorialDescription[] Description;
@@ -63,9 +64,36 @@ public class TutorialSystem : GameSystem
         ForcePress.SetActive(Description[tutorialStep].FP);
         Concealed.SetActive(Description[tutorialStep].Ccl);
         Overlay.SetActive(Description[tutorialStep].Ovl);
-        setAllButtonActive(true);
         clearAllButtonDescription();
         clearTutorialDescription();
+        if (Description[tutorialStep].medicineIndex > -1)
+        {
+            cf.Target = medicineFaction[Description[tutorialStep].medicineIndex].transform;
+        }
+        else if (Description[tutorialStep].diseaseIndex > -1)
+        {
+            cf.Target = diseaseFaction[Description[tutorialStep].diseaseIndex].transform;
+        }
+        else if (Description[tutorialStep].floorIndex > -1)
+        {
+            cf.Target = allFloor[Description[tutorialStep].floorIndex-1].transform;
+        }
+        else if (Description[tutorialStep].buttonIndex > -1)
+        {
+            GameObject cancelBtn = controlPanel.transform.GetChild(1).gameObject;
+            cancelBtn.GetComponent<controlPanelButton>().ActiveBotton = false;
+            setAllButtonActive(false);
+            GameObject OptionsPanel = controlPanel.transform.GetChild(0).gameObject;
+            OptionsPanel.transform.GetChild(Description[tutorialStep].buttonIndex).GetComponent<controlPanelButton>().ActiveBotton = true;
+        }
+        if (Description[tutorialStep].clearAllAP)
+        {
+            for (int i = 0; i < medicineFaction.Count; i++)
+            {
+                medicineFaction[i].ActionPoint = 0;
+            }
+            checkChangeTurn();
+        }
         /*if (tutorialStep == 0)
         {
             //setTutorialDescription("Bottom", 0);
@@ -183,13 +211,9 @@ public class TutorialSystem : GameSystem
                 }*/
             }
         }
-        if (tutorialStep <= 14)
+        if (tutorialStep <= Description.Length)
         {
             lockCamera = true;
-        }
-        if (Input.GetMouseButtonDown(0))
-        {
-            TutorialStep += 1;
         }
     }
 
@@ -250,23 +274,22 @@ private void clearAllButtonDescription()
     {
         button.SetActive(false);
     }
-
 }
 private void setAllButtonActive(bool active)
 {
-    GameObject OptionsPanel = controlPanel.transform.GetChild(0).gameObject;
-    for (int i = 0; i < OptionsPanel.transform.childCount; ++i)
-    {
-        OptionsPanel.transform.GetChild(i).GetComponent<controlPanelButton>().ActiveBotton = active;
-    }
-    //controlPanel.transform.GetChild(2).GetComponent<controlPanelButton>().ActiveBotton = active;
+        GameObject OptionsPanel = controlPanel.transform.GetChild(0).gameObject;
+        for (int i = 0; i < OptionsPanel.transform.childCount; ++i)
+        {
+            OptionsPanel.transform.GetChild(i).GetComponent<controlPanelButton>().ActiveBotton = active;
+        }
+        //controlPanel.transform.GetChild(2).GetComponent<controlPanelButton>().ActiveBotton = active;
 }
 
 public int TutorialStep
 {
     get { return tutorialStep; }
     set { 
-            tutorialStep = Mathf.Min(value, 15);
+            tutorialStep = Mathf.Min(value, Description.Length);
             if (value > -1)
             {
                 setTutoria();
