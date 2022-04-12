@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class EndGame : MonoBehaviour
 {
@@ -14,6 +15,17 @@ public class EndGame : MonoBehaviour
     public GameObject continuousButton;
     public Animator anim;
     public SaveManager sm;
+    void Start()
+    {
+        try
+        {
+            gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
+        }
+        catch (Exception e)
+        {
+            gameSystem = GameObject.Find("TutorialSystem").GetComponent<GameSystem>();
+        }
+    }
 
     public void checkTheWin()
     {

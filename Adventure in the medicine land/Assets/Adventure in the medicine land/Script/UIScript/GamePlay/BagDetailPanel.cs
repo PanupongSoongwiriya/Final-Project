@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class BagDetailPanel : MonoBehaviour
 {
@@ -19,6 +20,14 @@ public class BagDetailPanel : MonoBehaviour
 
     void Start()
     {
+        try
+        {
+            gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
+        }
+        catch (Exception e)
+        {
+            gameSystem = GameObject.Find("TutorialSystem").GetComponent<GameSystem>();
+        }
     }
 
     void Update()
@@ -59,6 +68,18 @@ public class BagDetailPanel : MonoBehaviour
         }
     }
 
+    public void setActiveChannel(int index)
+    {
+        for (int i = 0; i < CM_List.Count; i++)
+        {
+            CM_List[i].ActiveChannel = false;
+            if (i == index)
+            {
+                CM_List[i].ActiveChannel = true;
+            }
+        }
+    }
+
     public void showPanel()
     {
         cm = null;
@@ -70,6 +91,7 @@ public class BagDetailPanel : MonoBehaviour
     {
         if (ActiveBotton)
         {
+            tutorialPlus();
             ConfirmAudio.Play();
             ActiveBotton = false;
             gameSystem.selectedMedicine = CM.Medicine;
@@ -78,6 +100,13 @@ public class BagDetailPanel : MonoBehaviour
             cm = null;
             setSelectFalse();
             cpb.switchPanel(true, false, false, false, false);//controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
+        }
+    }
+    private void tutorialPlus()
+    {
+        if (gameSystem.name.Equals("TutorialSystem"))
+        {
+            gameSystem.GetComponent<TutorialSystem>().TutorialStep++;
         }
     }
 

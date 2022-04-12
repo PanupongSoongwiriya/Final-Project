@@ -21,7 +21,10 @@ public class tutorialPlus : MonoBehaviour
     {
         if (gameSystem.name.Equals("TutorialSystem"))
         {
-            gameSystem.GetComponent<TutorialSystem>().TutorialStep++;
+            if (gameSystem.GetComponent<TutorialSystem>().TutorialStep != 13)
+            {
+                gameSystem.GetComponent<TutorialSystem>().TutorialStep++;
+            }
         }
     }
 }

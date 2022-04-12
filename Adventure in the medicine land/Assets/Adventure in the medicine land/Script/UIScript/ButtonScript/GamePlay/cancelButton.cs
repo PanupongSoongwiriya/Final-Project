@@ -7,7 +7,6 @@ public class cancelButton : controlPanelButton
     public GameObject useButton;
     public override void changeState()
     {
-        useButton.SetActive(false);
         activeBotton = c == 1;
         if (ActiveBotton)
         {
@@ -29,6 +28,7 @@ public class cancelButton : controlPanelButton
             }
             else if (gameSystem.State.Equals("Use medicine with ally") )
             {
+                useButton.SetActive(false);
                 CancelAudio.Play();
                 tutorialPlus();
                 gameSystem.State = "waiting for choose medicine";

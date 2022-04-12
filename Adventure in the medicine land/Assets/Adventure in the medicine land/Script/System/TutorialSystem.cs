@@ -24,10 +24,10 @@ public class TutorialSystem : GameSystem
         public int diseaseIndex;
         public int floorIndex;
         public int buttonIndex;
+        public int channelMedicineIndex;
         public bool clearAllAP;
+        public bool showImage;
     }
-    [SerializeField]
-    private tutorialDescription[] Description;
 
     [SerializeField]
     private GameObject ForcePress;
@@ -40,9 +40,15 @@ public class TutorialSystem : GameSystem
     private GameObject General;
     [SerializeField]
     private GameObject DescriptionOject;
+    [SerializeField]
+    private BagDetailPanel bagOject;
+    [SerializeField]
+    private GameObject img;
 
     [SerializeField]
     private int tutorialStep;
+    [SerializeField]
+    private tutorialDescription[] Description;
     void Start()
     {
         whoTurn = "Medicine";
@@ -57,15 +63,18 @@ public class TutorialSystem : GameSystem
     private void setTutoria()
     {
         Debug.Log("tutorialStep: " + tutorialStep + "------------------------------");
-
+        if (Description.Length > tutorialStep)
+        {
         General.SetActive(Description[tutorialStep].name != "");
         DescriptionOject.SetActive(Description[tutorialStep].description != "");
         DescriptionOject.GetComponentInChildren<Text>().text =  Description[tutorialStep].description;
         ForcePress.SetActive(Description[tutorialStep].FP);
         Concealed.SetActive(Description[tutorialStep].Ccl);
         Overlay.SetActive(Description[tutorialStep].Ovl);
+        img.SetActive(Description[tutorialStep].showImage);
         clearAllButtonDescription();
         clearTutorialDescription();
+        setAllButtonActive(false);
         if (Description[tutorialStep].medicineIndex > -1)
         {
             cf.Target = medicineFaction[Description[tutorialStep].medicineIndex].transform;
@@ -80,11 +89,16 @@ public class TutorialSystem : GameSystem
         }
         else if (Description[tutorialStep].buttonIndex > -1)
         {
-            GameObject cancelBtn = controlPanel.transform.GetChild(1).gameObject;
-            cancelBtn.GetComponent<controlPanelButton>().ActiveBotton = false;
-            setAllButtonActive(false);
-            GameObject OptionsPanel = controlPanel.transform.GetChild(0).gameObject;
-            OptionsPanel.transform.GetChild(Description[tutorialStep].buttonIndex).GetComponent<controlPanelButton>().ActiveBotton = true;
+            if (Description[tutorialStep].buttonIndex == 4)
+            {
+                GameObject cancelBtn = controlPanel.transform.GetChild(1).gameObject;
+                cancelBtn.GetComponent<controlPanelButton>().ActiveBotton = true;
+            }
+            else
+            {
+                GameObject OptionsPanel = controlPanel.transform.GetChild(0).gameObject;
+                OptionsPanel.transform.GetChild(Description[tutorialStep].buttonIndex).GetComponent<controlPanelButton>().ActiveBotton = true;
+            }
         }
         if (Description[tutorialStep].clearAllAP)
         {
@@ -94,108 +108,23 @@ public class TutorialSystem : GameSystem
             }
             checkChangeTurn();
         }
-        /*if (tutorialStep == 0)
+        if (Description[tutorialStep].channelMedicineIndex > -1)
         {
-            //setTutorialDescription("Bottom", 0);
-            lockCamera = true;
-            ForcePress.gameObject.SetActive(true);
-            cf.Target = medicineFaction[0].transform;
+            bagOject.setActiveChannel(Description[tutorialStep].channelMedicineIndex);
         }
-        else if (tutorialStep == 1)
-        {
-            Concealed.SetActive(true);
-            setAllButtonActive(false);
-            buttonDescription[0].SetActive(true);
-            controlPanel.transform.GetChild(0).transform.GetChild(0).GetComponent<controlPanelButton>().ActiveBotton = true;
         }
-        else if (tutorialStep == 2)
+        else
         {
-            //setTutorialDescription("Right", 1);
-            //setTutorialDescription("Left", 99);
-            ForcePress.gameObject.SetActive(true);
-            setAllButtonActive(false);
-            cf.Target = allFloor[37].transform;
+            General.SetActive(false);
+            DescriptionOject.SetActive(false);
+            ForcePress.SetActive(false);
+            Concealed.SetActive(false);
+            Overlay.SetActive(false);
+            img.SetActive(false);
+            clearAllButtonDescription();
+            clearTutorialDescription();
+            setAllButtonActive(true);
         }
-        else if (tutorialStep == 3)
-        {
-            //setTutorialDescription("Right", 4);
-            //setTutorialDescription("Bottom", 0);
-            ForcePress.gameObject.SetActive(true);
-            cf.Target = medicineFaction[0].transform;
-        }
-        else if (tutorialStep == 4)
-        {
-            Concealed.SetActive(true);
-            setAllButtonActive(false);
-            buttonDescription[1].SetActive(true);
-            controlPanel.transform.GetChild(0).transform.GetChild(2).GetComponent<controlPanelButton>().ActiveBotton = true;
-        }
-        else if (tutorialStep == 5)
-        {
-            //setTutorialDescription("Bottom", 0);
-            ForcePress.gameObject.SetActive(true);
-            cf.Target = medicineFaction[1].transform;
-        }
-        else if (tutorialStep == 6)
-        {
-            Concealed.SetActive(true);
-            setAllButtonActive(false);
-            buttonDescription[1].SetActive(true);
-            controlPanel.transform.GetChild(0).transform.GetChild(2).GetComponent<controlPanelButton>().ActiveBotton = true;
-        }
-        else if (tutorialStep == 7)
-        {
-            lockCamera = true;
-            Overlay.SetActive(true);
-        }
-        else if (tutorialStep == 8)
-        {
-            //setTutorialDescription("Bottom", 0);
-            lockCamera = true;
-            ForcePress.gameObject.SetActive(true);
-            cf.Target = medicineFaction[0].transform;
-        }
-        else if (tutorialStep == 9)
-        {
-            Concealed.SetActive(true);
-            setAllButtonActive(false);
-            buttonDescription[2].SetActive(true);
-            controlPanel.transform.GetChild(0).transform.GetChild(1).GetComponent<controlPanelButton>().ActiveBotton = true;
-        }
-        else if (tutorialStep == 10)
-        {
-            //setTutorialDescription("Right", 2);
-            //setTutorialDescription("Bottom", 3);
-            ForcePress.gameObject.SetActive(true);
-            setAllButtonActive(false);
-            cf.Target = diseaseFaction[1].transform;
-        }
-        else if (tutorialStep == 11)
-        {
-            //setTutorialDescription("Bottom", 0);
-            ForcePress.gameObject.SetActive(true);
-            cf.Target = medicineFaction[1].transform;
-        }
-        else if (tutorialStep == 12)
-        {
-            Concealed.SetActive(true);
-            setAllButtonActive(false);
-            buttonDescription[3].SetActive(true);
-            controlPanel.transform.GetChild(0).transform.GetChild(3).GetComponent<controlPanelButton>().ActiveBotton = true;
-        }
-        else if (tutorialStep == 13)
-        {
-            Concealed.SetActive(true);
-            setAllButtonActive(false);
-            buttonDescription[4].SetActive(true);
-        }
-        else if (tutorialStep == 14)
-        {
-            //setTutorialDescription("Bottom", 3);
-            ForcePress.gameObject.SetActive(true);
-            setAllButtonActive(false);
-            cf.Target = diseaseFaction[0].transform;
-        }*/
     }
 
     void Update()
@@ -205,15 +134,15 @@ public class TutorialSystem : GameSystem
             foreach (Character medicine in medicineFaction)
             {
                 TutorialStep = 0;
-                /*if (medicine.name.Equals("ยาแก้ปวดกล้ามเนื้อ 1"))
-                {
-                    TutorialStep = 0;
-                }*/
             }
         }
-        if (tutorialStep <= Description.Length)
+        if (tutorialStep < Description.Length)
         {
             lockCamera = true;
+        }
+        else
+        {
+            lockCamera = false;
         }
     }
 
@@ -244,22 +173,6 @@ public class TutorialSystem : GameSystem
         endGame = false;
         //TutorialStep = -1;
     }
-
-    /*private void setTutorialDescription(string where, int index)
-    {
-        for (int i = 0; i < tdUI.Count; ++i)
-        {
-            if (tdUI[i].name.Equals(where))
-            {
-                tdUI[i].SetActive(true);
-                if (!where.Equals("Left"))
-                {
-                    tdUI[i].GetComponent<Text>().text = ThaiFontAdjuster.Adjust(tutorialDescription[index]);
-                }
-            }
-
-        }
-    }*/
     private void clearTutorialDescription()
     {
         for (int i = 0; i < tdUI.Count; ++i)
@@ -282,8 +195,10 @@ private void setAllButtonActive(bool active)
         {
             OptionsPanel.transform.GetChild(i).GetComponent<controlPanelButton>().ActiveBotton = active;
         }
+        GameObject cancelBtn = controlPanel.transform.GetChild(1).gameObject;
+        cancelBtn.GetComponent<controlPanelButton>().ActiveBotton = active;
         //controlPanel.transform.GetChild(2).GetComponent<controlPanelButton>().ActiveBotton = active;
-}
+    }
 
 public int TutorialStep
 {
