@@ -65,53 +65,53 @@ public class TutorialSystem : GameSystem
         Debug.Log("tutorialStep: " + tutorialStep + "------------------------------");
         if (Description.Length > tutorialStep)
         {
-        General.SetActive(Description[tutorialStep].name != "");
-        DescriptionOject.SetActive(Description[tutorialStep].description != "");
-        DescriptionOject.GetComponentInChildren<Text>().text =  Description[tutorialStep].description;
-        ForcePress.SetActive(Description[tutorialStep].FP);
-        Concealed.SetActive(Description[tutorialStep].Ccl);
-        Overlay.SetActive(Description[tutorialStep].Ovl);
-        img.SetActive(Description[tutorialStep].showImage);
-        clearAllButtonDescription();
-        clearTutorialDescription();
-        setAllButtonActive(false);
-        if (Description[tutorialStep].medicineIndex > -1)
-        {
-            cf.Target = medicineFaction[Description[tutorialStep].medicineIndex].transform;
-        }
-        else if (Description[tutorialStep].diseaseIndex > -1)
-        {
-            cf.Target = diseaseFaction[Description[tutorialStep].diseaseIndex].transform;
-        }
-        else if (Description[tutorialStep].floorIndex > -1)
-        {
-            cf.Target = allFloor[Description[tutorialStep].floorIndex-1].transform;
-        }
-        else if (Description[tutorialStep].buttonIndex > -1)
-        {
-            if (Description[tutorialStep].buttonIndex == 4)
+            General.SetActive(Description[tutorialStep].name != "");
+            DescriptionOject.SetActive(Description[tutorialStep].description != "");
+            DescriptionOject.GetComponentInChildren<Text>().text =  Description[tutorialStep].description;
+            ForcePress.SetActive(Description[tutorialStep].FP);
+            Concealed.SetActive(Description[tutorialStep].Ccl);
+            Overlay.SetActive(Description[tutorialStep].Ovl);
+            img.SetActive(Description[tutorialStep].showImage);
+            clearAllButtonDescription();
+            clearTutorialDescription();
+            setAllButtonActive(false);
+            if (Description[tutorialStep].medicineIndex > -1)
             {
-                GameObject cancelBtn = controlPanel.transform.GetChild(1).gameObject;
-                cancelBtn.GetComponent<controlPanelButton>().ActiveBotton = true;
+                cf.Target = medicineFaction[Description[tutorialStep].medicineIndex].transform;
             }
-            else
+            else if (Description[tutorialStep].diseaseIndex > -1)
             {
-                GameObject OptionsPanel = controlPanel.transform.GetChild(0).gameObject;
-                OptionsPanel.transform.GetChild(Description[tutorialStep].buttonIndex).GetComponent<controlPanelButton>().ActiveBotton = true;
+                cf.Target = diseaseFaction[Description[tutorialStep].diseaseIndex].transform;
             }
-        }
-        if (Description[tutorialStep].clearAllAP)
-        {
-            for (int i = 0; i < medicineFaction.Count; i++)
+            else if (Description[tutorialStep].floorIndex > -1)
             {
-                medicineFaction[i].ActionPoint = 0;
+                cf.Target = allFloor[Description[tutorialStep].floorIndex-1].transform;
             }
-            checkChangeTurn();
-        }
-        if (Description[tutorialStep].channelMedicineIndex > -1)
-        {
-            bagOject.setActiveChannel(Description[tutorialStep].channelMedicineIndex);
-        }
+            else if (Description[tutorialStep].buttonIndex > -1)
+            {
+                if (Description[tutorialStep].buttonIndex == 4)
+                {
+                    GameObject cancelBtn = controlPanel.transform.GetChild(1).gameObject;
+                    cancelBtn.GetComponent<controlPanelButton>().ActiveBotton = true;
+                }
+                else
+                {
+                    GameObject OptionsPanel = controlPanel.transform.GetChild(0).gameObject;
+                    OptionsPanel.transform.GetChild(Description[tutorialStep].buttonIndex).GetComponent<controlPanelButton>().ActiveBotton = true;
+                }
+            }
+            if (Description[tutorialStep].clearAllAP)
+            {
+                for (int i = 0; i < medicineFaction.Count; i++)
+                {
+                    medicineFaction[i].ActionPoint = 0;
+                }
+                checkChangeTurn();
+            }
+            if (Description[tutorialStep].channelMedicineIndex > -1)
+            {
+                bagOject.setActiveChannel(Description[tutorialStep].channelMedicineIndex);
+            }
         }
         else
         {

@@ -23,7 +23,7 @@ public class GameSystem : MonoBehaviour
     public bool lockCamera = false;
 
     public GameObject dmgText;
-    public GameObject yourTurnText;
+    public YourTurn yourTurnText;
     public GameObject whoTurnPanel;
     public GameObject endGamePanel;
     public walkButton walkBoutton;
@@ -153,7 +153,7 @@ public class GameSystem : MonoBehaviour
         if (!endGame)
         {
             cf.Target = transform;
-            Instantiate(yourTurnText, new Vector3(0, 25, 33), Quaternion.Euler(73.875f, 270, 0));
+            yourTurnText.stratMove();
             whoTurnPanel.GetComponent<whoTurn>().Changed();
             lockCamera = false;
         }
