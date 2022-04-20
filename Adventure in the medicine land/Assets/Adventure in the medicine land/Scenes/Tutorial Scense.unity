@@ -6260,17 +6260,17 @@ PrefabInstance:
     - target: {fileID: 9015736955355823172, guid: 3517263a6f0256c4090c598832cd7743,
         type: 3}
       propertyPath: Description.Array.data[25].channelMedicineIndex
-      value: 4
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 9015736955355823172, guid: 3517263a6f0256c4090c598832cd7743,
         type: 3}
       propertyPath: Description.Array.data[26].channelMedicineIndex
-      value: 4
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 9015736955355823172, guid: 3517263a6f0256c4090c598832cd7743,
         type: 3}
       propertyPath: Description.Array.data[27].channelMedicineIndex
-      value: 4
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 9015736955355823172, guid: 3517263a6f0256c4090c598832cd7743,
         type: 3}
