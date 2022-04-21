@@ -34,20 +34,4 @@ public class RunnyNose : Character
         walkingDistance = 2;
         attackRange = 1;
     }
-    /*public override float checkAdvantage(Character actor)
-    {
-        if (actor.classCharacter.Equals("ยาลดน้ำมูก"))
-        {
-            return 1.5f;
-        }
-        else if (actor.classCharacter.Equals("ฮีโร่"))
-        {
-            return 1.25f;
-        }
-        else if (actor.genusPhase.Equals("ระยะใกล้"))
-        {
-            return 0.5f;
-        }
-        return 1;
-    }*/
 }

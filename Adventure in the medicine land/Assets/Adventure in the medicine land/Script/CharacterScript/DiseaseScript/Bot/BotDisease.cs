@@ -182,8 +182,25 @@ public class BotDisease : MonoBehaviour
     {
         if (chr.characterStatus != null)
         {
+            int percentSpread = 0;
+            Debug.Log("gameSystem.name: " + gameSystem.name);
+            if(gameSystem.name.Equals("GameSystem")){
+                percentSpread = Random.Range(0, 2);
+            }else if(gameSystem.name.Equals("TutorialSystem")){
+                percentSpread = 1;
+            }
+            Debug.Log("percentSpread: " + percentSpread);
+            /*try
+            {
+                gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
+            }
+            catch (Exception e)
+            {
+                gameSystem = GameObject.Find("TutorialSystem").GetComponent<GameSystem>();
+            }*/
+
             //if (Random.Range(0, 2) == 1) 
-            if (1 == 1)
+            if (percentSpread == 1)
             {
                 bool change = false;
                 if (target.characterStatus == null)

@@ -12,7 +12,7 @@ public class YourTurn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //move = false;
+        transform.localScale = new Vector3(0.1f, 0.1f, 1);
     }
 
     // Update is called once per frame
@@ -20,20 +20,21 @@ public class YourTurn : MonoBehaviour
     {
         if (move)
         {
-            Debug.Log("3333333333333333333333333333333333333333333");
-            transform.localPosition = new Vector3(0, 0, Math.Max(transform.localPosition.z-85, -300));
+            float s = Math.Min(transform.localScale.x + 0.01f, 1.5f);
+            transform.localScale = new Vector3(s, s, 1);
         }
     }
     public void stratMove()
     {
-        Debug.Log("11111111111111111111111111111111111111111111111111111");
         move = true;
         gameObject.SetActive(true);
-        Debug.Log("22222222222222222222222222222222222" + move);
-        Invoke("resetZ", 1.5f);
+        Invoke("resetS", 1.5f);
     }
-    private void resetZ()
+    private void resetS()
     {
+        transform.localScale = new Vector3(0.1f, 0.1f, 1);
+        move = false;
+        gameObject.SetActive(false);
         try
         {
             GameObject.Find("TutorialSystem").GetComponent<GameSystem>().GetComponent<TutorialSystem>().TutorialStep++;
@@ -41,9 +42,5 @@ public class YourTurn : MonoBehaviour
         catch (Exception e)
         {
         }
-        Debug.Log("44444444444444444444444444444444444444444444444");
-        transform.localPosition = new Vector3(0, 0, 10000);
-        move = false;
-        gameObject.SetActive(false);
     }
 }

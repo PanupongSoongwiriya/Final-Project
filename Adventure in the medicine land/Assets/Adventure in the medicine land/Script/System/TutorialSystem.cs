@@ -27,6 +27,7 @@ public class TutorialSystem : GameSystem
         public int channelMedicineIndex;
         public bool clearAllAP;
         public bool showImage;
+        public bool hts;
     }
 
     [SerializeField]
@@ -44,6 +45,8 @@ public class TutorialSystem : GameSystem
     private BagDetailPanel bagOject;
     [SerializeField]
     private GameObject img;
+    [SerializeField]
+    private GameObject highlightTextStatus;
 
     [SerializeField]
     private int tutorialStep;
@@ -72,6 +75,7 @@ public class TutorialSystem : GameSystem
             Concealed.SetActive(Description[tutorialStep].Ccl);
             Overlay.SetActive(Description[tutorialStep].Ovl);
             img.SetActive(Description[tutorialStep].showImage);
+            highlightTextStatus.SetActive(Description[tutorialStep].hts);
             clearAllButtonDescription();
             clearTutorialDescription();
             setAllButtonActive(false);

@@ -6,8 +6,10 @@ using System;
 public class tutorialPlus : MonoBehaviour
 {
     private GameSystem gameSystem;
+    private bool plus;
     void Start()
     {
+        plus = true;
         try
         {
             gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
@@ -23,8 +25,15 @@ public class tutorialPlus : MonoBehaviour
         {
             if (gameSystem.GetComponent<TutorialSystem>().TutorialStep != 13)
             {
-                gameSystem.GetComponent<TutorialSystem>().TutorialStep++;
+                if(plus){
+                    plus = false;
+                    gameSystem.GetComponent<TutorialSystem>().TutorialStep++;
+                    Invoke("resetPlus", 0.15f);
+                }
             }
         }
+    }
+    private void resetPlus(){
+        plus = true;
     }
 }

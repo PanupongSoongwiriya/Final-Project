@@ -262,6 +262,7 @@ public class AutoGenerateStage : MonoBehaviour
             //-DEF
             setFloorModel("-DEF", x_Coordinate, z_Coordinate);
             floorObject.AddComponent<floorDEF>().FloorBonus = -floorBonus;
+            floorObject.transform.rotation = Quaternion.Euler(floorObject.transform.rotation.x, 90 * UnityEngine.Random.Range(0, 3), floorObject.transform.rotation.z);
         }
 
         else if (((((typeColor["purple"].r - tolerancea) < pixFloor.r) && (pixFloor.r < (typeColor["purple"].r + tolerancea))) && (((typeColor["purple"].g - tolerancea) < pixFloor.g) && (pixFloor.g < (typeColor["purple"].g + tolerancea))) && (((typeColor["purple"].b - tolerancea) < pixFloor.b) && (pixFloor.b < (typeColor["purple"].b + tolerancea)))))
@@ -269,6 +270,7 @@ public class AutoGenerateStage : MonoBehaviour
             //Poison
             setFloorModel("Poison", x_Coordinate, z_Coordinate);
             floorObject.AddComponent<floorPoison>().FloorBonus = floorBonus;
+            floorObject.transform.rotation = Quaternion.Euler(floorObject.transform.rotation.x, 90 * UnityEngine.Random.Range(0, 3), floorObject.transform.rotation.z);
         }
         else if (((((typeColor["snow"].r - tolerancea) < pixFloor.r) && (pixFloor.r < (typeColor["snow"].r + tolerancea))) && (((typeColor["snow"].g - tolerancea) < pixFloor.g) && (pixFloor.g < (typeColor["snow"].g + tolerancea))) && (((typeColor["snow"].b - tolerancea) < pixFloor.b) && (pixFloor.b < (typeColor["snow"].b + tolerancea)))))
         {

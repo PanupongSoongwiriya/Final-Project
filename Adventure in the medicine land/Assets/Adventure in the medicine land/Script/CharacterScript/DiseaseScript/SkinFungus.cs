@@ -34,21 +34,4 @@ public class SkinFungus : Character
         walkingDistance = 3;
         attackRange = 1;
     }
-
-    /*public override float checkAdvantage(Character actor)
-    {
-        if (actor.classCharacter.Equals("ยาฆ่าเชื้อรา"))
-        {
-            return 1.5f;
-        }
-        else if (actor.classCharacter.Equals("ฮีโร่"))
-        {
-            return 1.25f;
-        }
-        else if (actor.genusPhase.Equals("ระยะกลาง"))
-        {
-            return 0.5f;
-        }
-        return 1;
-    }*/
 }
