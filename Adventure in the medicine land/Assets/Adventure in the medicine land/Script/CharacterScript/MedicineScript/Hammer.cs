@@ -10,6 +10,7 @@ public class Hammer : Character
         characterName = "พลค้อน";
         faction = "Medicine";
         classCharacter = "จู่โจม";
+        soundAttackType = "Blow";
 
         hp = 55;
         attackPower = 40;

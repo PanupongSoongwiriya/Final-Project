@@ -10,6 +10,7 @@ public class Shield_Swords_Man : Character
         characterName = "พลดาบโล่";
         faction = "Medicine";
         classCharacter = "แทงค์";
+        soundAttackType = "Slash";
 
         hp = 70;
         attackPower = 30;

@@ -30,6 +30,12 @@ public class StorySystem : MonoBehaviour
     private Image Character_Left;
     [SerializeField]
     private Image Character_Right;
+    [SerializeField]
+    private AudioSource Sound_Battle;
+    [SerializeField]
+    private AudioSource Sound_Bell;
+    [SerializeField]
+    private AudioSource Sound_Powerup;
 
     [Serializable]
     public struct MyDictionary
@@ -96,6 +102,20 @@ public class StorySystem : MonoBehaviour
 
             setCharacterImg(dialog.img_Left, Character_Left, "Left");
             setCharacterImg(dialog.img_Right, Character_Right, "Right");
+
+            //Play Sound
+            if (dialog.sfx.Equals("Battle"))
+            {
+                Sound_Battle.Play();
+            }
+            else if (dialog.sfx.Equals("Bell"))
+            {
+                Sound_Bell.Play();
+            }
+            else if(dialog.sfx.Equals("Powerup"))
+            {
+                Sound_Powerup.Play();
+            }
 
             foreach (MyDictionary md in BackgroundSprite)
             {

@@ -10,6 +10,7 @@ public class Stomachache : Character
         characterName = "มังกรพิษ";
         faction = "Disease";
         classCharacter = "ปวดท้อง";
+        soundAttackType = "Blow";
 
         hp = 60;
         attackPower = 40;

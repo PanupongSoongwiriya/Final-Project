@@ -10,6 +10,7 @@ public class MusclePain : Character
         characterName = "ปูกล้ามโต";
         faction = "Disease";
         classCharacter = "ปวดกล้ามเนื้อ";
+        soundAttackType = "Slash";
 
         hp = 50;
         attackPower = 50;

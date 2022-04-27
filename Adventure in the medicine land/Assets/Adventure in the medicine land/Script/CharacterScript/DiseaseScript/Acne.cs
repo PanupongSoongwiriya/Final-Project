@@ -10,6 +10,7 @@ public class Acne : Character
         characterName = "สไลม์";
         faction = "Disease";
         classCharacter = "สิว";
+        soundAttackType = "Blow";
 
         hp = 75;
         attackPower = 25;

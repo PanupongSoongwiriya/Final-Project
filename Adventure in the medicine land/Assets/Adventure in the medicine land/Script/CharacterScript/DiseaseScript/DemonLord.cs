@@ -10,6 +10,7 @@ public class DemonLord : Character
         characterName = "จอมมาร";
         faction = "Disease";
         classCharacter = "จอมมาร";
+        soundAttackType = "Slash";
 
         hp = 500;
         attackPower = 3;
@@ -30,7 +31,7 @@ public class DemonLord : Character
 
     protected override void resetRange()
     {
-        walkingDistance = 2;
+        walkingDistance = 1;
         attackRange = 2;
     }
 }

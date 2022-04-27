@@ -10,6 +10,7 @@ public class SkinFungus : Character
         characterName = "แมงมุมยักษ์";
         faction = "Disease";
         classCharacter = "เชื้อราที่ผิวหนัง";
+        soundAttackType = "Blow";
 
         hp = 45;
         attackPower = 55;

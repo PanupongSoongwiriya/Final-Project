@@ -10,6 +10,7 @@ public class Itching : Character
         characterName = "เต่าสไลม์";
         faction = "Disease";
         classCharacter = "อาการคัน";
+        soundAttackType = "Blow";
 
         hp = 65;
         attackPower = 30;

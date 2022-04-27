@@ -10,6 +10,7 @@ public class RunnyNose : Character
         characterName = "พืชกินคน";
         faction = "Disease";
         classCharacter = "น้ำมูกไหล";
+        soundAttackType = "Slash";
 
         hp = 65;
         attackPower = 35;

@@ -10,6 +10,7 @@ public class Headache : Character
         characterName = "ค้างคาวปีศาจ";
         faction = "Disease";
         classCharacter = "ปวดหัว";
+        soundAttackType = "Blow";
 
         hp = 50;
         attackPower = 45;

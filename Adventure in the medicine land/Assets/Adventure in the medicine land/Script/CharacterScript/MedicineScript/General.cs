@@ -10,6 +10,7 @@ public class General : Character
         characterName = "นายพล";
         faction = "Medicine";
         classCharacter = "จู่โจม";
+        soundAttackType = "Slash";
 
         hp = 50;
         attackPower = 40;

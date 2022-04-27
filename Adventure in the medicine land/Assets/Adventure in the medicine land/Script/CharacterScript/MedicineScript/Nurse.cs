@@ -9,6 +9,7 @@ public class Nurse : Character
         characterName = "พยาบาล";
         faction = "Medicine";
         classCharacter = "หมอ";
+        soundAttackType = "Blow";
 
         hp = 40;
         attackPower = 35;

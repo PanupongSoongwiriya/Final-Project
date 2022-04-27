@@ -10,6 +10,7 @@ public class Shield_Ax_Man : Character
         characterName = "พลขวานโล่";
         faction = "Medicine";
         classCharacter = "แทงค์";
+        soundAttackType = "Slash";
 
         hp = 65;
         attackPower = 35;

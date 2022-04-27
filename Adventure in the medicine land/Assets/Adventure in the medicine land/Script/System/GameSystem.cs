@@ -43,6 +43,20 @@ public class GameSystem : MonoBehaviour
 
     [SerializeField]
     private AudioSource clickAudio;
+    [SerializeField]
+    private AudioSource Sound_Move;
+    [SerializeField]
+    private AudioSource Sound_Blow;
+    [SerializeField]
+    private AudioSource Sound_Crossbow;
+    [SerializeField]
+    private AudioSource Sound_Slash;
+    [SerializeField]
+    private AudioSource Sound_Damage;
+    [SerializeField]
+    private AudioSource Sound_Heal;
+    
+    public AudioSource BGM;
 
     void Start()
     {
@@ -52,6 +66,8 @@ public class GameSystem : MonoBehaviour
         controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false, false, false);
         //controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
         cf = GameObject.Find("Game Camera").GetComponent<CameraFollow>();
+        BGM.Play();
+        //BGM.Stop();
     }
 
 
@@ -195,6 +211,12 @@ public class GameSystem : MonoBehaviour
     {
         bool without = true;
         chr.pressCharacter = clickAudio;
+        chr.Sound_Move = Sound_Move;
+        chr.Sound_Blow = Sound_Blow;
+        chr.Sound_Crossbow = Sound_Crossbow;
+        chr.Sound_Slash = Sound_Slash;
+        chr.Sound_Damage = Sound_Damage;
+        chr.Sound_Heal = Sound_Heal;
         if (chr.Faction.Equals("Medicine"))
         {
             medicineFaction.Add(chr);

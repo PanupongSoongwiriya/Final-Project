@@ -10,6 +10,7 @@ public class Sniper : Character
         characterName = "พลซุ่มยิง";
         faction = "Medicine";
         classCharacter = "จู่โจม(ธนู)";
+        soundAttackType = "Crossbow";
 
         hp = 40;
         attackPower = 50;

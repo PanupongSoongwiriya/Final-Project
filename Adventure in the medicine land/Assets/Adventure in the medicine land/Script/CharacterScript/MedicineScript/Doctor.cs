@@ -10,6 +10,7 @@ public class Doctor : Character
         characterName = "โฮพ";
         faction = "Medicine";
         classCharacter = "หมอ";
+        soundAttackType = "Blow";
 
         hp = 50;
         attackPower = 30;

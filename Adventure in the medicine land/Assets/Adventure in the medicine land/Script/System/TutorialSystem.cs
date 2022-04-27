@@ -61,6 +61,8 @@ public class TutorialSystem : GameSystem
         //controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
         cf = GameObject.Find("Game Camera").GetComponent<CameraFollow>();
         TutorialStep = -1;
+        BGM.Play();
+        //BGM.Stop();
     }
 
     private void setTutoria()

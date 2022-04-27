@@ -1,7 +1,7 @@
 :root {
     --border: 1px solid seagreen;
     --imageW: 900px;
-    --floorSize: 90px;
+    --floorSize: 60px;
     --floorW: calc(var(--floorSize) - 2px);
     --floorH: calc(var(--floorSize) - 2px);
     --w1: calc((var(--floorSize) * 0.6) - 2px);

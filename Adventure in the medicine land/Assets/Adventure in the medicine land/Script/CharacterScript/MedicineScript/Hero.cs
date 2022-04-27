@@ -10,6 +10,7 @@ public class Hero : Character
         characterName = "โฮพ";
         faction = "Medicine";
         classCharacter = "ผู้กล้า";
+        soundAttackType = "Slash";
 
         hp = 60;
         attackPower = 50;

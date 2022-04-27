@@ -10,6 +10,7 @@ public class Ax : Character
         characterName = "พลขวาน";
         faction = "Medicine";
         classCharacter = "จู่โจม";
+        soundAttackType = "Slash";
 
         hp = 55;
         attackPower = 45;

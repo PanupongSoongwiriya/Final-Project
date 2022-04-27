@@ -15,6 +15,10 @@ public class EndGame : MonoBehaviour
     public GameObject continuousButton;
     public Animator anim;
     public SaveManager sm;
+    [SerializeField]
+    private AudioSource sound_Win;
+    [SerializeField]
+    private AudioSource sound_Lose;
     void Start()
     {
         try
@@ -33,7 +37,14 @@ public class EndGame : MonoBehaviour
         bool checkLose = gameSystem.medicineFaction.Count == 0;
         if (checkWin)
         {
+            gameSystem.BGM.Stop();
+            sound_Win.Play();
             AutoSeve();
+        }
+        else
+        {
+            gameSystem.BGM.Stop();
+            sound_Lose.Play();
         }
         win.SetActive(checkWin);
         lose.SetActive(checkLose);

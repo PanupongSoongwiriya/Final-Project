@@ -10,6 +10,7 @@ public class Infect : Character
         characterName = "ปีศาจไวรัส";
         faction = "Disease";
         classCharacter = "ติดเชื้อ";
+        soundAttackType = "Blow";
 
         hp = 45;
         attackPower = 60;

@@ -10,6 +10,7 @@ public class Archer : Character
         characterName = "พลธนู";
         faction = "Medicine";
         classCharacter = "จู่โจม(ธนู)";
+        soundAttackType = "Crossbow";
         
         hp = 45;
         attackPower = 50;

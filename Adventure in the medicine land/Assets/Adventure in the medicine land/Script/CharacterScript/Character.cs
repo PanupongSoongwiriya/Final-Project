@@ -56,6 +56,12 @@ public class Character : MonoBehaviour
     public BotDisease botDisease;
 
     public AudioSource pressCharacter;
+    public AudioSource Sound_Move;
+    public AudioSource Sound_Blow;
+    public AudioSource Sound_Crossbow;
+    public AudioSource Sound_Slash;
+    public AudioSource Sound_Damage;
+    public AudioSource Sound_Heal;
 
     [SerializeField]
     protected List<Renderer> allRenderer = new List<Renderer>();
@@ -64,6 +70,8 @@ public class Character : MonoBehaviour
     protected Animator animator;
 
     public Sprite image;
+
+    public string soundAttackType;
 
 
     void Start()
@@ -257,6 +265,7 @@ public class Character : MonoBehaviour
                 }
                 gameSystem.selectedMedicine.statusEffect(this);
             }
+            Sound_Heal.Play();
             gameSystem.selectedMedicine = null;
             gameSystem.State = "Choose a medicine character";
             gameSystem.NowCharecter.doneIt(2);
@@ -273,6 +282,7 @@ public class Character : MonoBehaviour
         {
             gameSystem.State = "Choose a medicine character";
             gameSystem.NowCharecter.doneIt(2);
+            gameSystem.NowCharecter.playSoundAttack();
             gameSystem.NowCharecter.TargetSpin = gameObject;
             gameSystem.resetInTerm();
             gameSystem.controlPanel.GetComponent<controlPanelButton>().switchPanel(false, true, false, false, false);
@@ -281,17 +291,20 @@ public class Character : MonoBehaviour
             showDMG(-dmg, "attack");
             HP(-dmg);
             gameSystem.NowCharecter.SetAnimBool("Attack");
+            Sound_Damage.Play();
         }
         //Bot Attack
         else if (gameSystem.State.Equals("round of bots") && !gameSystem.NowCharecter.Faction.Equals(faction) && pedalFloor.InTerm)
         {
             gameSystem.NowCharecter.doneIt(2);
+            gameSystem.NowCharecter.playSoundAttack();
             gameSystem.NowCharecter.TargetSpin = gameObject;
             gameSystem.resetInTerm();
             int dmg = calculateDMG(gameSystem.NowCharecter, this); 
             showDMG(-dmg, "attack");
             HP(-dmg);
             gameSystem.NowCharecter.SetAnimBool("Attack");
+            Sound_Damage.Play();
         }
     }
 
@@ -440,6 +453,9 @@ public class Character : MonoBehaviour
                 {
                     transform.position = new Vector3((int)Math.Round(transform.position.x), y, (int)Math.Round(transform.position.z));
                     moving = false;
+                    Debug.Log("Sound_Move: " + Sound_Move.isPlaying + " 111111111111111111111111");
+                    Sound_Move.Play();
+                    Debug.Log("Sound_Move: " + Sound_Move.isPlaying + " 111111111111111111111111");
                     animator.SetBool("Walk", false);
                     if (gameSystem.NowCharecter != null)
                     {
@@ -462,6 +478,21 @@ public class Character : MonoBehaviour
             {
                 gameSystem.GetComponent<TutorialSystem>().TutorialStep++;
             }*/
+        }
+    }
+    public void playSoundAttack()
+    {
+        if (soundAttackType.Equals("Blow"))
+        {
+            Sound_Blow.Play();
+        }
+        else if (soundAttackType.Equals("Crossbow"))
+        {
+            Sound_Crossbow.Play();
+        }
+        else if (soundAttackType.Equals("Slash"))
+        {
+            Sound_Slash.Play();
         }
     }
     public String Faction
