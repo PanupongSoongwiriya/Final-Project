@@ -20,13 +20,14 @@ public class cancelButton : controlPanelButton
             }
             else if (gameSystem.State.Equals("walk") || gameSystem.State.Equals("Choose a enemy character") || gameSystem.State.Equals("waiting for choose medicine"))
             {
+                useButton.SetActive(false);
                 CancelAudio.Play();
                 tutorialPlus();
                 gameSystem.State = "waiting for orders";
                 switchPanel(true, true, false, true, false);
                 //controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
             }
-            else if (gameSystem.State.Equals("Use medicine with ally") )
+            else if (gameSystem.State.Equals("Use medicine with ally"))
             {
                 useButton.SetActive(false);
                 CancelAudio.Play();

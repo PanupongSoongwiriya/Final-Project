@@ -55,12 +55,6 @@ public class BagDetailPanel : MonoBehaviour
             cm.bdp = this;
             cm.Medicine = null;
         }
-        /*for (int i = 9; i < bag.transform.childCount; i++)
-        {
-            ChannelMedicine cm = bag.transform.GetChild(i).GetComponent<ChannelMedicine>();
-            cm.bdp = this;
-            cm.Medicine = null;
-        }*/
         for (int i = 0; i < gameSystem.NowCharecter.bag.Count; i++)
         {
             CM_List[i].Medicine = gameSystem.NowCharecter.bag[i];

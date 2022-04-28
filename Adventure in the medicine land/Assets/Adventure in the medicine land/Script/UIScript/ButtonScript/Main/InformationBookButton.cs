@@ -7,6 +7,11 @@ public class InformationBookButton : MonoBehaviour
 {
     public void changeScene()
     {
-        SceneManager.LoadScene("Information Book Scene");//Information Book Scene
+        Invoke("Change", 0.25f);
+    }
+
+    private void Change()
+    {
+        SceneManager.LoadScene("Information Book Scene");//Main Scene
     }
 }

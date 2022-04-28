@@ -14,6 +14,27 @@ public class BotDisease : MonoBehaviour
     public List<DataCompareMedicine> priorityMedicine = new List<DataCompareMedicine>();
     public GameObject dataMedicine;
     public GameObject dataFloor;
+    public bool doAtk;
+    public float delay;
+    private float timer;
+
+    void Start()
+    {
+        delay = 0.75f;
+    }
+
+    void Update()
+    {
+        timer -= Time.deltaTime;
+        if (timer <= 0 && doAtk)
+        {
+            stage = "attack";
+            target.attacked();
+            spreadGerms();
+            doAtk = false;
+        }
+    }
+
     public void botActive()
     {
         deleteData();
@@ -142,9 +163,8 @@ public class BotDisease : MonoBehaviour
         {
             if (target.Equals(medicine))
             {
-                stage = "attack";
-                spreadGerms();
-                target.attacked();
+                doAtk = true;
+                timer = delay;
                 break;
             }
         }
@@ -163,10 +183,9 @@ public class BotDisease : MonoBehaviour
                     atked = gameSystem.allMedicineInTerm[i];
                 }
             }
-            stage = "attack";
             target = atked;
-            spreadGerms();
-            target.attacked();
+            doAtk = true;
+            timer = delay;
         }
         else
         {
@@ -178,7 +197,7 @@ public class BotDisease : MonoBehaviour
         gameSystem.resetInTerm();
     }
 
-    private void spreadGerms()
+        private void spreadGerms()
     {
         if (chr.characterStatus != null)
         {
@@ -188,18 +207,7 @@ public class BotDisease : MonoBehaviour
                 percentSpread = Random.Range(0, 2);
             }else if(gameSystem.name.Equals("TutorialSystem")){
                 percentSpread = 1;
-            }
-            Debug.Log("percentSpread: " + percentSpread);
-            /*try
-            {
-                gameSystem = GameObject.Find("GameSystem").GetComponent<GameSystem>();
-            }
-            catch (Exception e)
-            {
-                gameSystem = GameObject.Find("TutorialSystem").GetComponent<GameSystem>();
-            }*/
-
-            //if (Random.Range(0, 2) == 1) 
+            } 
             if (percentSpread == 1)
             {
                 bool change = false;

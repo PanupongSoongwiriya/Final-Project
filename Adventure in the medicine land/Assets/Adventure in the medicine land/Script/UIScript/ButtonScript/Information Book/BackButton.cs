@@ -7,6 +7,11 @@ public class BackButton : MonoBehaviour
 {
     public void changeScene()
     {
+        Invoke("Change", 0.25f);
+    }
+
+    private void Change()
+    {
         SceneManager.LoadScene(0);//Main Scene
     }
 }

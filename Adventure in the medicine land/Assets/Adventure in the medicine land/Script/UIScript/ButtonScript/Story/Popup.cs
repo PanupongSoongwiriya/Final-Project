@@ -20,18 +20,36 @@ public class Popup : MonoBehaviour
     }
     public void backToMainScene()
     {
-        SceneManager.LoadScene("Main Scene");//Main Scene
+        Invoke("ChangeMS", 0.25f);
+    }
+    private void ChangeMS()
+    {
+        SceneManager.LoadScene("Main Scene");
     }
     public void restartGS()
     {
-        SceneManager.LoadScene("Game Scene");//Main Scene
+        Invoke("ChangeGS", 0.25f);
+    }
+    private void ChangeGS()
+    {
+        SceneManager.LoadScene("Game Scene");
     }
     public void restartTS()
     {
-        SceneManager.LoadScene("Tutorial Scense");//Main Scene
+        Invoke("ChangeTS", 0.25f);
+    }
+
+    private void ChangeTS()
+    {
+        SceneManager.LoadScene("Tutorial Scene");
     }
     public void exit()
     {
+        Invoke("quit", 0.25f);
+    }
+    private void quit()
+    {
         Application.Quit();
     }
+
 }

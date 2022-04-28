@@ -6,6 +6,10 @@ public class ExitGameButton : MonoBehaviour
 {
     public void exit()
     {
+        Invoke("Change", 0.25f);
+    }
+    private void Change()
+    {
         Application.Quit();
     }
 }

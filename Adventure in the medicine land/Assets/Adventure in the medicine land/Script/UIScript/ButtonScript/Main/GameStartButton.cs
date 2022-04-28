@@ -15,7 +15,7 @@ public class GameStartButton : MonoBehaviour
     {
         if (firstPlay)
         {
-            changeScene();
+            Invoke("changeScene", 0.25f);
         }
         else
         {

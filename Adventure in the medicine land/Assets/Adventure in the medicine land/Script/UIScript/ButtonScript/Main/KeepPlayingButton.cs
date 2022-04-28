@@ -13,21 +13,26 @@ public class KeepPlayingButton : MonoBehaviour
     {
         if (canChange)
         {
-            SceneManager.LoadScene("Story Scene");
+            Invoke("Change", 0.25f);
         }
     }
 
-    public bool CanChange
+    private void Change()
+    {
+        SceneManager.LoadScene("Story Scene");
+    }
+
+public bool CanChange
     {
         get { return canChange; }
         set {
             canChange = value;
-            float a = 1;
+            float c = 1;
             if (!canChange)
             {
-                a = 0.5f;
+                c = 0.5f;
             }
-            GetComponent<Image>().color = new Color(1, 1, 1, a);
+            GetComponent<Image>().color = new Color(c, c, c, 1);
         }
     }
 }

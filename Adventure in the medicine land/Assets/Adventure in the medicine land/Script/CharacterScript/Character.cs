@@ -291,10 +291,10 @@ public class Character : MonoBehaviour
             showDMG(-dmg, "attack");
             HP(-dmg);
             gameSystem.NowCharecter.SetAnimBool("Attack");
-            Sound_Damage.Play();
+            Invoke("delay_PlaySound_Damage", 0.25f);
         }
         //Bot Attack
-        else if (gameSystem.State.Equals("round of bots") && !gameSystem.NowCharecter.Faction.Equals(faction) && pedalFloor.InTerm)
+        else if (gameSystem.State.Equals("round of bots") && !gameSystem.NowCharecter.Faction.Equals(faction))// && pedalFloor.InTerm
         {
             gameSystem.NowCharecter.doneIt(2);
             gameSystem.NowCharecter.playSoundAttack();
@@ -304,7 +304,7 @@ public class Character : MonoBehaviour
             showDMG(-dmg, "attack");
             HP(-dmg);
             gameSystem.NowCharecter.SetAnimBool("Attack");
-            Sound_Damage.Play();
+            Invoke("delay_PlaySound_Damage", 0.25f);
         }
     }
 
@@ -453,9 +453,7 @@ public class Character : MonoBehaviour
                 {
                     transform.position = new Vector3((int)Math.Round(transform.position.x), y, (int)Math.Round(transform.position.z));
                     moving = false;
-                    Debug.Log("Sound_Move: " + Sound_Move.isPlaying + " 111111111111111111111111");
                     Sound_Move.Play();
-                    Debug.Log("Sound_Move: " + Sound_Move.isPlaying + " 111111111111111111111111");
                     animator.SetBool("Walk", false);
                     if (gameSystem.NowCharecter != null)
                     {
@@ -474,10 +472,6 @@ public class Character : MonoBehaviour
         if (gameSystem.name.Equals("TutorialSystem"))
         {
             gameSystem.GetComponent<TutorialSystem>().TutorialStep++;
-            /*if (gameSystem.GetComponent<TutorialSystem>().TutorialStep != 7)
-            {
-                gameSystem.GetComponent<TutorialSystem>().TutorialStep++;
-            }*/
         }
     }
     public void playSoundAttack()
@@ -494,6 +488,11 @@ public class Character : MonoBehaviour
         {
             Sound_Slash.Play();
         }
+    }
+
+    protected void delay_PlaySound_Damage()
+    {
+        Sound_Damage.Play();
     }
     public String Faction
     {
