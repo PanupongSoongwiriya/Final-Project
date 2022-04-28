@@ -7,7 +7,7 @@ public class MusclePain_Medicine : Status
     // Start is called before the first frame update
     void Start()
     {
-        startSet("ยาแก้ปวดกล้ามเนื้อ", "", "heal", "Cure MusclePain", 0, 0, new Color(1, 1, 1, 1));
+        startSet("ยาแก้ปวดกล้ามเนื้อ", "ใช้รักษาสถานะปวดกล้ามเนื้อ(ลดระยะการเดินลง 1 หน่วย)", "heal", "Cure MusclePain", 0, 0, new Color(1, 1, 1, 1));
         //name, Description, status type, effect type, numEffect, numEffect_2, color
     }
     public override bool IsStatusEffective(Status s)

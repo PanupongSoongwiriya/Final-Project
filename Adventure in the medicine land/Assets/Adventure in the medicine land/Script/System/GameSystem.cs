@@ -58,6 +58,8 @@ public class GameSystem : MonoBehaviour
     
     public AudioSource BGM;
 
+    public int saveManager;
+
     void Start()
     {
         WhoTurn = "Medicine";
@@ -67,6 +69,7 @@ public class GameSystem : MonoBehaviour
         //controlPanel, optionsPanel, skillPanel, characterDetailPanel, skillDetailPanel
         cf = GameObject.Find("Game Camera").GetComponent<CameraFollow>();
         BGM.Play();
+        endGamePanel.GetComponent<EndGame>().saveManager = saveManager;
         //BGM.Stop();
     }
 

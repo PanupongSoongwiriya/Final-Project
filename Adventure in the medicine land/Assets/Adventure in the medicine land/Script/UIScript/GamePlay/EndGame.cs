@@ -19,6 +19,7 @@ public class EndGame : MonoBehaviour
     private AudioSource sound_Win;
     [SerializeField]
     private AudioSource sound_Lose;
+    public int saveManager;
     void Start()
     {
         try
@@ -49,8 +50,8 @@ public class EndGame : MonoBehaviour
         win.SetActive(checkWin);
         lose.SetActive(checkLose);
         againButton.SetActive(checkLose);
-        continuousButton.SetActive(checkWin);
-        back2HomeButton.SetActive(true);
+        continuousButton.SetActive(checkWin && saveManager != 4);
+        back2HomeButton.SetActive(true && !(saveManager == 4 && checkWin));
         fadeToBlack();
     }
 
@@ -81,7 +82,7 @@ public class EndGame : MonoBehaviour
     }
     public void AutoSeve()
     {
-        sm.state.storyOrder = Mathf.Min(sm.state.storyOrder + 1, 3);
+        sm.state.storyOrder = Mathf.Min(sm.state.storyOrder + 1, 4);
         sm.Save();
         Debug.Log("AutoSeve");
     }

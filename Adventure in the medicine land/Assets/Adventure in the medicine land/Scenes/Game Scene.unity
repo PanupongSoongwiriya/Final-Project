@@ -3255,6 +3255,7 @@ MonoBehaviour:
   sm: {fileID: 8645261398325672233}
   sound_Win: {fileID: 392228455601178192}
   sound_Lose: {fileID: 5548203067758641821}
+  saveManager: 0
 --- !u!1 &889384148
 GameObject:
   m_ObjectHideFlags: 0
@@ -8270,7 +8271,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 673976873f7ccf946b7a36125644fe54, type: 3}
-    m_FontSize: 45
+    m_FontSize: 43
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -9270,6 +9271,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BMG
+      objectReference: {fileID: 0}
+    - target: {fileID: 2328637315452369079, guid: 93a0ddb4ba353c64ab343c234728ed24,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2328637315452369079, guid: 93a0ddb4ba353c64ab343c234728ed24,
         type: 3}

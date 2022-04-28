@@ -7,7 +7,7 @@ public class Headache_Medicine : Status
 
     void Start()
     {
-        startSet("ยาแก้ปวดหัว", "", "heal", "Cure Headache", 0, 0, new Color(1, 1, 1, 1));
+        startSet("ยาแก้ปวดหัว", "ใช้รักษาสถานะปวดหัว(ตัวละครไม่สามารถเคลื่อนไหวได้)", "heal", "Cure Headache", 0, 0, new Color(1, 1, 1, 1));
         //name, Description, status type, effect type, numEffect, numEffect_2, color
     }
     public override bool IsStatusEffective(Status s)

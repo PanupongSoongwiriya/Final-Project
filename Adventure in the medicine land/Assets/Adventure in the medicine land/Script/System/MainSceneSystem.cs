@@ -14,8 +14,8 @@ public class MainSceneSystem : MonoBehaviour
     void Start()
     {
         sm.Load();
-        kpb.CanChange = sm.state.storyOrder != -1;
-        gsb.firstPlay = sm.state.storyOrder == -1;
+        kpb.CanChange = sm.state.storyOrder != -1 || sm.state.storyOrder == 4;
+        gsb.firstPlay = sm.state.storyOrder == -1 || sm.state.storyOrder == 4;
         gsb.sm = sm;
     }
 

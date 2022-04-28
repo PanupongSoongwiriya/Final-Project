@@ -74,6 +74,7 @@ public class AutoGenerateStage : MonoBehaviour
         setColor();
         readStageImage();
         gameSystem.AGS = this;
+        gameSystem.saveManager = sm.state.storyOrder;
         GameObject.Find("Game Camera").GetComponent<PerspectivePan>().NumWidth = numWidth;
 
         
