@@ -155,6 +155,14 @@ public class BotDisease : MonoBehaviour
 
         sortPriorityFloor("priority");
 
+        foreach (DataCompareFloor Floor in priorityFloor)
+        {
+            if (Floor.floor.characterOnIt != null)
+            {
+                Debug.Log("Floor: " + Floor.floor.name);
+                Debug.Log("Char: " + Floor.floor.characterOnIt.name);
+            }
+        }
         chr.PedalFloor = priorityFloor[0].floor;
     }
     private void botAttack()

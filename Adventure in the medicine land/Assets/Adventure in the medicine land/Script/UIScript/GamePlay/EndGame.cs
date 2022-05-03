@@ -38,6 +38,10 @@ public class EndGame : MonoBehaviour
         bool checkLose = gameSystem.medicineFaction.Count == 0;
         if (checkWin)
         {
+            if (saveManager == 3)
+            {
+                Invoke("goToStoryScene", 3f);
+            }
             gameSystem.BGM.Stop();
             sound_Win.Play();
             AutoSeve();
@@ -50,8 +54,8 @@ public class EndGame : MonoBehaviour
         win.SetActive(checkWin);
         lose.SetActive(checkLose);
         againButton.SetActive(checkLose);
-        continuousButton.SetActive(checkWin && saveManager != 4);
-        back2HomeButton.SetActive(true && !(saveManager == 4 && checkWin));
+        continuousButton.SetActive(checkWin && saveManager != 3);
+        back2HomeButton.SetActive(true && !(saveManager == 3 && checkWin));
         fadeToBlack();
     }
 

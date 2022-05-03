@@ -25,6 +25,7 @@ public class Shield_Swords_Man : Character
     {
         moveSmoothly();
         spinToTarget();
+        countSetCharacterOnIt();
     }
 
     void OnMouseDown()

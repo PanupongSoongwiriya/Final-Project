@@ -24,6 +24,7 @@ public class Infect : Character
     {
         moveSmoothly();
         spinToTarget();
+        countSetCharacterOnIt();
     }
 
     void OnMouseDown()

@@ -24,6 +24,7 @@ public class Itching : Character
     {
         moveSmoothly();
         spinToTarget();
+        countSetCharacterOnIt();
     }
 
     void OnMouseDown()

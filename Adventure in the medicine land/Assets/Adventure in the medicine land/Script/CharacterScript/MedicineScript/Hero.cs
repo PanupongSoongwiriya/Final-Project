@@ -33,6 +33,7 @@ public class Hero : Character
     {
         moveSmoothly();
         spinToTarget();
+        countSetCharacterOnIt();
     }
     void OnMouseDown()
     {

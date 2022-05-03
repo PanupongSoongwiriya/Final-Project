@@ -72,8 +72,9 @@ public class StorySystem : MonoBehaviour
         data = JsonUtility.FromJson<JsonData>(jsonData.text);
         for (int i = 0; i < data.story.Length; i++)
         {
-            if (data.story[i].chapter == Mathf.Min(sm.state.storyOrder, 1))
+            if (data.story[i].chapter == sm.state.storyOrder)
             {
+                Debug.Log("sm.state.storyOrder: " + sm.state.storyOrder);
                 chapter = data.story[i];
                 break;
             }
@@ -166,7 +167,11 @@ public class StorySystem : MonoBehaviour
 
     public void changeScene()
     {
-        if (sm.state.storyOrder != -1)
+        if (sm.state.storyOrder == 4)
+        {
+            SceneManager.LoadScene("Main Scene");
+        }
+        else if(sm.state.storyOrder != -1)
         {
             SceneManager.LoadScene("Game Scene");
         }

@@ -25,6 +25,7 @@ public class Headache : Character
     {
         moveSmoothly();
         spinToTarget();
+        countSetCharacterOnIt();
     }
 
     void OnMouseDown()

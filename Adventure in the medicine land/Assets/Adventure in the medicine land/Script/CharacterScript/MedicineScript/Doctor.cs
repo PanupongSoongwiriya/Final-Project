@@ -33,6 +33,7 @@ public class Doctor : Character
     {
         moveSmoothly();
         spinToTarget();
+        countSetCharacterOnIt();
     }
     void OnMouseDown()
     {

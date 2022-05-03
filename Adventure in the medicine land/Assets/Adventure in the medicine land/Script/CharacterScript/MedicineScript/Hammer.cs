@@ -24,6 +24,7 @@ public class Hammer : Character
     {
         moveSmoothly();
         spinToTarget();
+        countSetCharacterOnIt();
     }
 
     void OnMouseDown()

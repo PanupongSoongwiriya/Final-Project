@@ -24,6 +24,7 @@ public class RunnyNose : Character
     {
         moveSmoothly();
         spinToTarget();
+        countSetCharacterOnIt();
     }
 
     void OnMouseDown()

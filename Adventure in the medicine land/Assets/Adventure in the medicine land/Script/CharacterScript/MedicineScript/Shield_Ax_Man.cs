@@ -26,6 +26,7 @@ public class Shield_Ax_Man : Character
     {
         moveSmoothly();
         spinToTarget();
+        countSetCharacterOnIt();
     }
     void OnMouseDown()
     {

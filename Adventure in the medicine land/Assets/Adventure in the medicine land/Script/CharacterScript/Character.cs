@@ -73,6 +73,9 @@ public class Character : MonoBehaviour
 
     public string soundAttackType;
 
+    public float delay;
+    protected float timer;
+
 
     void Start()
     {
@@ -83,6 +86,16 @@ public class Character : MonoBehaviour
     {
         moveSmoothly();
         spinToTarget();
+        countSetCharacterOnIt();
+    }
+    protected void countSetCharacterOnIt()
+    {
+        timer -= Time.deltaTime;
+        if (timer <= 0)
+        {
+            timer = delay;
+            pedalFloor.characterOnIt = this;
+        }
     }
 
     void OnMouseDown()
@@ -103,6 +116,8 @@ public class Character : MonoBehaviour
 
     protected void startSetUp()
     {
+        delay = 0.75f;
+        timer = delay;
         moving = false;
         maxHP = hp;
         THE_REAL_MAX_HP = hp;

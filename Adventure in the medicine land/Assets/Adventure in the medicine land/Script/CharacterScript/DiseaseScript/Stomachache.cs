@@ -25,6 +25,7 @@ public class Stomachache : Character
     {
         moveSmoothly();
         spinToTarget();
+        countSetCharacterOnIt();
     }
     void OnMouseDown()
     {

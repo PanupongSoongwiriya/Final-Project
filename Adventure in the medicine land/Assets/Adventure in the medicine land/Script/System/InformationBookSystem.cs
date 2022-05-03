@@ -25,11 +25,15 @@ public class InformationBookSystem : MonoBehaviour
 
     [SerializeField]
     private Sprite[] buttonSprite;
+
+    [SerializeField]
+    private AudioSource BGM;
     //[SerializeField]
     //private float distance;
     // Start is called before the first frame update
     void Start()
     {
+        BGM.Play();
         nowData = 1;
         loadJson();
     }

@@ -30,6 +30,7 @@ public class Ax : Character
     {
         moveSmoothly();
         spinToTarget();
+        countSetCharacterOnIt();
     }
     protected override void resetRange()
     {

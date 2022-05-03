@@ -24,6 +24,7 @@ public class SkinFungus : Character
     {
         moveSmoothly();
         spinToTarget();
+        countSetCharacterOnIt();
     }
 
     void OnMouseDown()

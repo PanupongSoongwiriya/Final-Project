@@ -149,7 +149,7 @@ public class GameSystem : MonoBehaviour
             else
             {
                 disease.GetComponent<BotDisease>().botActive();
-                yield return new WaitForSeconds(1.25f);
+                yield return new WaitForSeconds(2.25f);
             }
         }
     }

@@ -25,6 +25,7 @@ public class Archer : Character
     {
         moveSmoothly();
         spinToTarget();
+        countSetCharacterOnIt();
     }
     void OnMouseDown()
     {

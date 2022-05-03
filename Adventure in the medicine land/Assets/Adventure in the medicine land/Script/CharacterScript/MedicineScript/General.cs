@@ -35,5 +35,6 @@ public class General : Character
     {
         moveSmoothly();
         spinToTarget();
+        countSetCharacterOnIt();
     }
 }

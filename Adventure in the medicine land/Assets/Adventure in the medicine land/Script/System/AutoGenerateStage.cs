@@ -45,6 +45,11 @@ public class AutoGenerateStage : MonoBehaviour
 
     public int ChrCount;
 
+    [SerializeField]
+    private List<Texture> Bg_Image = new List<Texture>();
+    [SerializeField]
+    private Renderer Bg_Oject;
+
 
     void Start()
     {
@@ -52,6 +57,7 @@ public class AutoGenerateStage : MonoBehaviour
         Debug.Log("SaveManager: " + sm.state.storyOrder);
         CharacterPrefab = CharacterStoragePrefab.GetComponents(typeof(CharacterPrefab));
         FloorPrefab = FloorStoragePrefab.GetComponents(typeof(FloorPrefab));
+        Bg_Oject.material.mainTexture = Bg_Image[sm.state.storyOrder+1];
         if (image == null)
         {
             //image = allStage[new System.Random().Next(allStage.Count)];

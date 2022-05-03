@@ -10,13 +10,16 @@ public class MainSceneSystem : MonoBehaviour
     private KeepPlayingButton kpb;
     [SerializeField]
     private GameStartButton gsb;
+    [SerializeField]
+    private AudioSource BGM;
     // Start is called before the first frame update
     void Start()
     {
         sm.Load();
-        kpb.CanChange = sm.state.storyOrder != -1 || sm.state.storyOrder == 4;
+        kpb.CanChange = sm.state.storyOrder != -1 && sm.state.storyOrder != 4;
         gsb.firstPlay = sm.state.storyOrder == -1 || sm.state.storyOrder == 4;
         gsb.sm = sm;
+        BGM.Play();
     }
 
 }
