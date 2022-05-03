@@ -261,8 +261,11 @@ public class Character : MonoBehaviour
         {
             if (gameSystem.selectedMedicine.IsStatusEffective(characterStatus))
             {
-                CharacterStatus.retrospectiveStatus(this);
-                CharacterStatus = gameSystem.selectedMedicine;
+                if (CharacterStatus != null)
+                {
+                    CharacterStatus.retrospectiveStatus(this);
+                    CharacterStatus = gameSystem.selectedMedicine;
+                }
             }
             else if(gameSystem.selectedMedicine.statusName.Equals("ผ้าพันแผล"))
             {
