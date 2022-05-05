@@ -65,10 +65,10 @@ public class floorDEF : Floor
         if (characterOnIt != null)
         {
             characterOnIt.SP_Def = floorBonus;
-            /*if (characterOnIt.faction.Equals("Medicine") & characterOnIt.characterStatus != null)
+            if (characterOnIt.faction.Equals("Medicine") & characterOnIt.characterStatus != null)
             {
                 characterOnIt.characterStatus.statusEffect(characterOnIt);
-            }*/
+            }
         }
     }
 }

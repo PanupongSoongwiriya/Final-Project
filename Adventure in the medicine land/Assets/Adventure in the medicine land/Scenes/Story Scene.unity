@@ -548,6 +548,10 @@ MonoBehaviour:
     image_Left: {fileID: 21300000, guid: 0619a9f0e533f3741af150648b759efa, type: 3}
     image_Right: {fileID: 21300000, guid: 0fe0bb1105351eb46b08ed47ebad21e1, type: 3}
   BackgroundSprite:
+  - name: 
+    image: {fileID: 21300000, guid: 349bcaf538920af43a0991a20f5b20de, type: 3}
+    image_Left: {fileID: 0}
+    image_Right: {fileID: 0}
   - name: Castle
     image: {fileID: 21300000, guid: c57ff1cc07898e94188d04cf01667f00, type: 3}
     image_Left: {fileID: 0}
@@ -946,7 +950,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 1.125
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208

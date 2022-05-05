@@ -126,6 +126,10 @@ public class StorySystem : MonoBehaviour
                     break;
                 }
             }
+            if (Background.sprite == null)
+            {
+                Background.sprite = BackgroundSprite[0].image;
+            }
 
             /*Debug.Log("id: " + dialog.id);
             Debug.Log("actor: " + dialog.actor);

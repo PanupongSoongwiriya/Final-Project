@@ -13,7 +13,7 @@ public class DemonLord : Character
         soundAttackType = "Slash";
 
         hp = 500;
-        attackPower = 35;
+        attackPower = 40;
         defensePower = 10;
 
         startSetUp();

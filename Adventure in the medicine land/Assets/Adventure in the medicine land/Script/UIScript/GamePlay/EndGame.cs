@@ -40,7 +40,7 @@ public class EndGame : MonoBehaviour
         {
             if (saveManager == 3)
             {
-                Invoke("goToStoryScene", 3f);
+                Invoke("goToStoryScene", 4f);
             }
             gameSystem.BGM.Stop();
             sound_Win.Play();

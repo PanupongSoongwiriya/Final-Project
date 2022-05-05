@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class InfectStatus : Status
 {
+    Character chr;
+
     void Start()
     {
-        startSet("ติดเชื้อ", "", "disease", "Infect", -1, 0, new Color(1, 0, 0, 1));
+        startSet("ติดเชื้อ", "", "disease", "Infect", 0, 0, new Color(1, 0, 0, 1));
         //name, Description, status type, effect type, numEffect, numEffect_2, color
     }
 
@@ -14,9 +17,16 @@ public class InfectStatus : Status
     {
         if (c.Faction.Equals("Medicine"))
         {
-            c.HP((int)-(c.hp*0.05f));
-            c.showDMG((int)-(c.hp*0.05f), "poison");
+            chr = null;
+            chr = c;
+            c.HP(Math.Min((int)-(c.hp*0.05f), -1));
+            Invoke("delayShowPoison", 1f);
         }
+    }
+
+    private void delayShowPoison()
+    {
+        chr.showDMG(Math.Min((int)-(chr.hp * 0.05f), -1), "poison");
     }
 
     public override bool IsStatusEffective(Status s)

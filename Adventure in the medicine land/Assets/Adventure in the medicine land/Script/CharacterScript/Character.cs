@@ -328,9 +328,6 @@ public class Character : MonoBehaviour
 
     public void showDMG(int dmg, String typeDMG)
     {
-        if (dmg < 0)
-        {
-        }
         if (dmgText != null)
         {
             dmgText.GetComponent<DamageText>().num = dmg;
@@ -398,10 +395,14 @@ public class Character : MonoBehaviour
         specialAttack = 0;
         taunts = false;
         resetRange();
-        /*if (!gameSystem.State.Equals("Use medicine with ally") & faction.Equals("Medicine") & characterStatus != null)
+        if (characterStatus != null)
         {
+            Debug.Log(name + ": " + specialAttack);
+            Debug.Log(name + ": " + specialDefense);
             characterStatus.statusEffect(this);
-        }*/
+            Debug.Log(name + ": " + specialAttack);
+            Debug.Log(name + ": " + specialDefense);
+        }
     }
     protected virtual void resetRange()
     {
@@ -524,7 +525,7 @@ public class Character : MonoBehaviour
     }
     public void HP(int value)
     {
-        hp = Math.Min(MAXHP, hp + value);
+        hp = Math.Max(Math.Min(MAXHP, hp + value), 0);
         if (value < 0)
         {
             StartCoroutine(checkHP());

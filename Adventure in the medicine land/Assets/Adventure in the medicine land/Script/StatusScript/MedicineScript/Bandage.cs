@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Bandage : Status
 {
@@ -14,8 +15,8 @@ public class Bandage : Status
     {
         if (c.Faction.Equals("Medicine"))
         {
+            c.showDMG(Math.Min(numEffect, c.MAXHP - c.hp), "heal");
             c.HP(numEffect);
-            c.showDMG(numEffect, "heal");
         }
     }
 

@@ -6,7 +6,7 @@ public class SkinFungusStatus : Status
 {
     void Start()
     {
-        startSet("เชื้อราที่ผิวหนัง", "", "disease", "SkinFungus", -1, 0, new Color(1, 0, 0, 1));
+        startSet("เชื้อราที่ผิวหนัง", "", "disease", "SkinFungus", 1, 0, new Color(1, 0, 0, 1));
         //name, Description, status type, effect type, numEffect, numEffect_2, color
     }
 
@@ -15,14 +15,14 @@ public class SkinFungusStatus : Status
         if (c.Faction.Equals("Medicine"))
         {
             if(c.attackRange != 1){
-                c.attackRange += numEffect;
+                c.attackRange -= numEffect;
             }
         }
     }
 
     public override void retrospectiveStatus(Character c)
     {
-        c.attackRange -= numEffect;
+        c.attackRange += numEffect;
     }
 
     public override bool IsStatusEffective(Status s)

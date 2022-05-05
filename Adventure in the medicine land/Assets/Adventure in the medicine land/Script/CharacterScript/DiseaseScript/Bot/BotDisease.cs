@@ -163,7 +163,22 @@ public class BotDisease : MonoBehaviour
                 Debug.Log("Char: " + Floor.floor.characterOnIt.name);
             }
         }
-        chr.PedalFloor = priorityFloor[0].floor;
+
+        if (priorityFloor.Count != 0)
+        {
+            chr.PedalFloor = priorityFloor[0].floor;
+        }
+        else {
+            gameSystem.botChackInTerm(gameSystem.NowCharecter.attackRange, "bad for the enemy");
+            if (gameSystem.allMedicineInTerm.Count != 0)
+            {
+                if (target == null)
+                {
+                    target = priorityMedicine[0].character;
+                }
+                botAttack();
+            }
+        }
     }
     private void botAttack()
     {

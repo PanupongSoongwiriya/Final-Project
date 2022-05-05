@@ -66,10 +66,10 @@ public class floorATK : Floor
         if (characterOnIt != null)
         {
             characterOnIt.SP_Atk = floorBonus;
-            /*if (characterOnIt.faction.Equals("Medicine") & characterOnIt.characterStatus != null)
+            if (characterOnIt.faction.Equals("Medicine") & characterOnIt.characterStatus != null)
             {
                 characterOnIt.characterStatus.statusEffect(characterOnIt);
-            }*/
+            }
         }
     }
 
