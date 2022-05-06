@@ -15,6 +15,7 @@ public class MainSceneSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Application.targetFrameRate = 120;
         sm.Load();
         kpb.CanChange = sm.state.storyOrder != -1 && sm.state.storyOrder != 4;
         gsb.firstPlay = sm.state.storyOrder == -1 || sm.state.storyOrder == 4;

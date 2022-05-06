@@ -54,6 +54,7 @@ public class TutorialSystem : GameSystem
     private tutorialDescription[] Description;
     void Start()
     {
+        Application.targetFrameRate = 120;
         whoTurn = "Medicine";
         state = "Choose a medicine character";
         turn = 0;

@@ -33,6 +33,7 @@ public class InformationBookSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Application.targetFrameRate = 120;
         BGM.Play();
         nowData = 1;
         loadJson();

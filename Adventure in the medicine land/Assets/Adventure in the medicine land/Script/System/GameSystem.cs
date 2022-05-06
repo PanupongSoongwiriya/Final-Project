@@ -62,6 +62,7 @@ public class GameSystem : MonoBehaviour
 
     void Start()
     {
+        Application.targetFrameRate = 120;
         WhoTurn = "Medicine";
         state = "Choose a medicine character";
         turn = 0;

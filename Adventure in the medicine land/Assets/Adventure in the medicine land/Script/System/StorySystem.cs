@@ -53,6 +53,7 @@ public class StorySystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Application.targetFrameRate = 120;
         sm.Load();
         loadJson();
         index = 0;
