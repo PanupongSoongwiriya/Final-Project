@@ -12,8 +12,8 @@ public class Infect : Character
         classCharacter = "ติดเชื้อ";
         soundAttackType = "Blow";
 
-        hp = 45;
-        attackPower = 60;
+        hp = 50;
+        attackPower = 55;
         defensePower = 5;
 
         startSetUp();

@@ -13,8 +13,8 @@ public class Acne : Character
         soundAttackType = "Blow";
 
         hp = 75;
-        attackPower = 25;
-        defensePower = 20;
+        attackPower = 30;
+        defensePower = 15;
 
         startSetUp();
 

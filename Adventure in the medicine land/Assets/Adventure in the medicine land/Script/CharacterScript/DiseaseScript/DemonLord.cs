@@ -12,9 +12,9 @@ public class DemonLord : Character
         classCharacter = "จอมมาร";
         soundAttackType = "Slash";
 
-        hp = 500;
-        attackPower = 40;
-        defensePower = 10;
+        hp = 300;
+        attackPower = 45;
+        defensePower = 15;
 
         startSetUp();
     }
