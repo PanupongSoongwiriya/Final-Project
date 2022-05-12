@@ -2060,7 +2060,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1487907415}
         m_TargetAssemblyTypeName: Popup, Assembly-CSharp
-        m_MethodName: exit
+        m_MethodName: backToMainScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3761,7 +3761,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1487907415}
         m_TargetAssemblyTypeName: Popup, Assembly-CSharp
-        m_MethodName: backToMainScene
+        m_MethodName: exit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
