@@ -1063,7 +1063,7 @@
                     "img_Left": null,
                     "img_Right": null,
                     "val": "ปีศาจตวัดดาบของมันสร้างคลื่นดาบมาทางกลุ่มของนายพล",
-                    "sfx": null,
+                    "sfx": "Slash.ogg",
                     "bg": "RuinsTown"
                 },{
                     "id": 2,
@@ -1095,7 +1095,7 @@
                     "img_Left": "ปีศาจ",
                     "img_Right": null,
                     "val": "งั้นรับอันที่แรงกว่านี้ ไปอีกที!",
-                    "sfx": null,
+                    "sfx": "Slash.ogg",
                     "bg": "RuinsTown"
                 },{
                     "id": 6,
@@ -1135,7 +1135,7 @@
                     "img_Left": "นายพล",
                     "img_Right": null,
                     "val": "อ๊าก!!",
-                    "sfx": null,
+                    "sfx": "Damage.ogg",
                     "bg": "RuinsTown"
                 },{
                     "id": 11,
@@ -1343,7 +1343,7 @@
                     "img_Left": null,
                     "img_Right": null,
                     "val": "แสงสว่างจ้าออกมาจากอาวุธของโฮพ อาวุธกลายเป็นดาบ ตามความตั้งใจของโฮพ",
-                    "sfx": null,
+                    "sfx": "Powerup.ogg",
                     "bg": "Forest1"
                 },{
                     "id": 37,
@@ -1700,7 +1700,7 @@
                     "img_Left": null,
                     "img_Right": null,
                     "val": "กริ๊ง…",
-                    "sfx": null,
+                    "sfx": "Bell.ogg",
                     "bg": "Town1"
                 },{
                     "id": 7,
