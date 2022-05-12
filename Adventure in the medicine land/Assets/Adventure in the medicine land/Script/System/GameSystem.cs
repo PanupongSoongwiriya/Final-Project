@@ -126,6 +126,10 @@ public class GameSystem : MonoBehaviour
                     medicine.ActionPoint = 2;
                 }
                 ++Turn;
+                foreach (Character disease in diseaseFaction)
+                {
+                    disease.botDisease.deleteData();
+                }
             }
             else
             {

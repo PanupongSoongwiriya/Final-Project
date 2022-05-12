@@ -383,10 +383,10 @@ public class Character : MonoBehaviour
     {
         ActionPoint = Math.Max(ActionPoint - apUse, 0);
         gameSystem.checkChangeTurn();
-        if (Faction.Equals("Disease"))
+        /*if (Faction.Equals("Disease"))
         {
             botDisease.deleteData();
-        }
+        }*/
     }
 
     public void resetSP()

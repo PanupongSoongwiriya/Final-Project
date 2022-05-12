@@ -37,7 +37,6 @@ public class BotDisease : MonoBehaviour
 
     public void botActive()
     {
-        deleteData();
         dataMedicine = new GameObject("Data Medicine: " + chr.classCharacter + " " + chr.ID);
         dataFloor = new GameObject("Data Floor: " + chr.classCharacter + " " + chr.ID);
         priorityMedicine = new List<DataCompareMedicine>();

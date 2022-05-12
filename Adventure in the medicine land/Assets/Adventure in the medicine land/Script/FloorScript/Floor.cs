@@ -35,7 +35,7 @@ public class Floor : MonoBehaviour
         floorColor = Color.white;
         GetComponent<Renderer>().material.SetColor("_Color", floorColor);
     }
-    void OnMouseDown()
+    void OnMouseUpAsButton()
     {
         if (gameSystem.State.Equals("walk") && inTerm)
         {
