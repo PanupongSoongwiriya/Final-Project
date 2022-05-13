@@ -12,6 +12,7 @@ public class CameraFollow : MonoBehaviour
     public float smoothSpeed = 0.1f;
 
     public bool changTarget = false;
+    public bool botWork = false;
 
     public float differenceX = 10;
 
@@ -32,6 +33,7 @@ public class CameraFollow : MonoBehaviour
         {
             if (target == null)
             {
+                botWork = false;
                 changTarget = false;
             }
             Vector3 desiredPosition = new Vector3(target.position.x + differenceX, target.position.y, target.position.z);
@@ -42,12 +44,16 @@ public class CameraFollow : MonoBehaviour
             bool equalsZ = 0.1 > Math.Abs(transform.position.z - target.position.z);
             if (equalsX && equalsZ || (Input.GetMouseButtonDown(0)) && !gameSystem.lockCamera)
             {
-                changTarget = false;
+                if (!gameSystem.State.Equals("round of bots"))
+                {
+                    changTarget = false;
+                }
                 if (gameSystem.NowCharecter != null)
                 {
                     //When the camera arrives, Bot it works.
-                    if (gameSystem.NowCharecter.botDisease != null & gameSystem.State.Equals("round of bots"))
+                    if (botWork && gameSystem.NowCharecter.botDisease != null & gameSystem.State.Equals("round of bots"))
                     {
+                        botWork = false;
                         gameSystem.NowCharecter.botDisease.botWork();
                     }
                 }
@@ -58,6 +64,6 @@ public class CameraFollow : MonoBehaviour
     public Transform Target
     {
         get { return target; }
-        set { target = value; changTarget = true; }
+        set { target = value; changTarget = true; botWork = true; }
     }
 }

@@ -14,8 +14,11 @@ public class AcneStatus : Status
     {
         if (c.Faction.Equals("Medicine"))
         {
-            c.hp = Mathf.Min((int)Mathf.Round(c.MAXHP * 0.75f), c.hp);
-            c.MAXHP = (int)Mathf.Round(c.MAXHP*0.75f);
+            if (c.hp == c.MAXHP)
+            {
+                c.hp = Mathf.Min((int)Mathf.Round(c.MAXHP * 0.75f), c.hp);
+                c.MAXHP = (int)Mathf.Round(c.MAXHP * 0.75f);
+            }
         }
     }
 
