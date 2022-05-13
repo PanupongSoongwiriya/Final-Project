@@ -444,7 +444,7 @@ public class Character : MonoBehaviour
         {
             animator.SetBool("Walk", true);
             float topPos = 4;
-            float smoothSpeed = 3f;
+            float smoothSpeed = 4f;
             bool equalsX = 0.1 > Math.Abs(transform.position.x - pedalFloor.transform.position.x);
             bool equalsZ = 0.1 > Math.Abs(transform.position.z - pedalFloor.transform.position.z);
             if (!(equalsX && equalsZ))
@@ -676,6 +676,7 @@ public class Character : MonoBehaviour
         get { return actionPoint; }
         set
         {
+            Debug.Log(name + ": " + value);
             actionPoint = value;
             float newC = 1;
             if (value == 0)
