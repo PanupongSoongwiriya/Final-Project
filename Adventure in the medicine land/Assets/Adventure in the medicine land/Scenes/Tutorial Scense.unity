@@ -7053,7 +7053,7 @@ Transform:
   m_GameObject: {fileID: 1181422523}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0.7071068, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 50}
-  m_LocalScale: {x: 15, y: 1, z: 9}
+  m_LocalScale: {x: 17, y: 1, z: 11}
   m_Children: []
   m_Father: {fileID: 200963448}
   m_RootOrder: 2
@@ -7609,7 +7609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57aa69648281c174da3a3a1662e3b686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  popup: {fileID: 0}
+  popup: {fileID: 1487907415}
 --- !u!4 &1271274698
 Transform:
   m_ObjectHideFlags: 0
@@ -8801,6 +8801,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StoryPanel: {fileID: 1487907413}
+  clickBtn: {fileID: 433402442}
+  clickBtnCancel: {fileID: 731229526}
 --- !u!114 &1487907416
 MonoBehaviour:
   m_ObjectHideFlags: 0

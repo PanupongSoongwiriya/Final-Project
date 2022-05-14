@@ -352,7 +352,6 @@ public class Character : MonoBehaviour
     }
     public int calculateDMG(Character attacker, Character victim)
     {
-        //return Math.Max(1, (int)(((attacker.attackPower + attacker.specialAttack) * victim.checkAdvantage(attacker)) - (victim.defensePower + victim.specialDefense)));
         return Math.Max(1, (int)((attacker.attackPower + attacker.specialAttack) - (victim.defensePower + victim.specialDefense)));
     }
 
@@ -362,6 +361,8 @@ public class Character : MonoBehaviour
         {
             SetAnimBool("Die");
             gameSystem.memberRemove(this);
+            Destroy(GetComponent<Rigidbody>());
+            Destroy(GetComponent<CapsuleCollider>());
             yield return new WaitForSeconds(3);
             selfDestruct();
         }
@@ -383,10 +384,6 @@ public class Character : MonoBehaviour
     {
         ActionPoint = Math.Max(ActionPoint - apUse, 0);
         gameSystem.checkChangeTurn();
-        /*if (Faction.Equals("Disease"))
-        {
-            botDisease.deleteData();
-        }*/
     }
 
     public void resetSP()
@@ -397,11 +394,7 @@ public class Character : MonoBehaviour
         resetRange();
         if (characterStatus != null)
         {
-            Debug.Log(name + ": " + specialAttack);
-            Debug.Log(name + ": " + specialDefense);
             characterStatus.statusEffect(this);
-            Debug.Log(name + ": " + specialAttack);
-            Debug.Log(name + ": " + specialDefense);
         }
     }
     protected virtual void resetRange()
@@ -443,7 +436,7 @@ public class Character : MonoBehaviour
         if (moving)
         {
             animator.SetBool("Walk", true);
-            float topPos = 4;
+            float topPos = 1f;
             float smoothSpeed = 4f;
             bool equalsX = 0.1 > Math.Abs(transform.position.x - pedalFloor.transform.position.x);
             bool equalsZ = 0.1 > Math.Abs(transform.position.z - pedalFloor.transform.position.z);
@@ -463,10 +456,11 @@ public class Character : MonoBehaviour
             }
             if (equalsX && equalsZ)
             {
+                /*
                 float y = 0;
                 if (transform.position.y > y)
                 {
-                    transform.position = new Vector3(transform.position.x, Math.Max(transform.position.y - smoothSpeed, y), transform.position.z);
+                    transform.position = new Vector3(transform.position.x, Math.Max(transform.position.y - 10, y), transform.position.z);
                 }
                 else
                 {
@@ -482,7 +476,20 @@ public class Character : MonoBehaviour
                             gameSystem.NowCharecter.gameObject.GetComponent<BotDisease>().afterWolk();
                         }
                     }
+                }*/
+                transform.position = new Vector3((int)Math.Round(transform.position.x), 0, (int)Math.Round(transform.position.z));
+                moving = false;
+                Sound_Move.Play();
+                animator.SetBool("Walk", false);
+                if (gameSystem.NowCharecter != null)
+                {
+                    gameSystem.NowCharecter.doneIt(1);
+                    if (gameSystem.NowCharecter.Faction.Equals("Disease"))
+                    {
+                        gameSystem.NowCharecter.gameObject.GetComponent<BotDisease>().afterWolk();
+                    }
                 }
+                
             }
         }
     }

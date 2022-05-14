@@ -9,6 +9,10 @@ public class Popup : MonoBehaviour
 
     [SerializeField]
     private GameObject StoryPanel;
+    [SerializeField]
+    private AudioSource clickBtn;
+    [SerializeField]
+    private AudioSource clickBtnCancel;
 
     public void openPopup()
     {
@@ -17,9 +21,11 @@ public class Popup : MonoBehaviour
     public void closePopup()
     {
         StoryPanel.SetActive(false);
+        clickBtnCancel.Play();
     }
     public void backToMainScene()
     {
+        clickBtn.Play();
         Invoke("ChangeMS", 0.25f);
     }
     private void ChangeMS()
@@ -28,6 +34,7 @@ public class Popup : MonoBehaviour
     }
     public void restartGS()
     {
+        clickBtn.Play();
         Invoke("ChangeGS", 0.25f);
     }
     private void ChangeGS()
@@ -36,6 +43,7 @@ public class Popup : MonoBehaviour
     }
     public void restartTS()
     {
+        clickBtn.Play();
         Invoke("ChangeTS", 0.25f);
     }
 
@@ -45,6 +53,7 @@ public class Popup : MonoBehaviour
     }
     public void exit()
     {
+        clickBtn.Play();
         Invoke("quit", 0.25f);
     }
     private void quit()
