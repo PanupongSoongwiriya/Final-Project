@@ -36,6 +36,10 @@ public class StorySystem : MonoBehaviour
     private AudioSource Sound_Bell;
     [SerializeField]
     private AudioSource Sound_Powerup;
+    [SerializeField]
+    private AudioSource Sound_Slash;
+    [SerializeField]
+    private AudioSource Sound_Damage;
 
     [Serializable]
     public struct MyDictionary
@@ -58,15 +62,6 @@ public class StorySystem : MonoBehaviour
         loadJson();
         index = 0;
         setDialog();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        /*if (Input.GetMouseButtonDown(0))
-        {
-            setDialog();
-        }*/
     }
     private void loadJson()
     {
@@ -118,6 +113,14 @@ public class StorySystem : MonoBehaviour
             {
                 Sound_Powerup.Play();
             }
+            else if(dialog.sfx.Equals("Slash"))
+            {
+                Sound_Slash.Play();
+            }
+            else if(dialog.sfx.Equals("Damage"))
+            {
+                Sound_Damage.Play();
+            }
 
             foreach (MyDictionary md in BackgroundSprite)
             {
@@ -131,14 +134,6 @@ public class StorySystem : MonoBehaviour
             {
                 Background.sprite = BackgroundSprite[0].image;
             }
-
-            /*Debug.Log("id: " + dialog.id);
-            Debug.Log("actor: " + dialog.actor);
-            Debug.Log("img_Left: " + dialog.img_Left);
-            Debug.Log("img_Right: " + dialog.img_Right);
-            Debug.Log("val: " + dialog.val);
-            Debug.Log("sfx: " + dialog.sfx);
-            Debug.Log("bg: " + dialog.bg);*/
         }
     }
 
