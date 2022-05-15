@@ -1833,7 +1833,7 @@ RectTransform:
   - {fileID: 1807681044}
   - {fileID: 1262166270}
   m_Father: {fileID: 1136305122}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2565,7 +2565,7 @@ RectTransform:
   - {fileID: 1430300087}
   - {fileID: 1530598890}
   m_Father: {fileID: 1136305122}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.65418077, y: 0.11322223}
   m_AnchorMax: {x: 1, y: 1}
@@ -3192,7 +3192,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1136305122}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.92055553}
   m_AnchorMax: {x: 0.20058037, y: 1}
@@ -3601,7 +3601,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1136305122}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.43687883, y: 0.87900007}
   m_AnchorMax: {x: 0.568, y: 0.96400005}
@@ -6755,6 +6755,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 209376609}
+  - {fileID: 1214421482}
   - {fileID: 1435310893}
   - {fileID: 514664776}
   - {fileID: 687118910}
@@ -6764,7 +6765,6 @@ RectTransform:
   - {fileID: 1168240501}
   - {fileID: 273410599}
   - {fileID: 1908795082}
-  - {fileID: 1214421482}
   - {fileID: 904803624}
   - {fileID: 496089617}
   - {fileID: 228874761}
@@ -7012,7 +7012,7 @@ RectTransform:
   - {fileID: 2000409746}
   - {fileID: 23904274}
   m_Father: {fileID: 1136305122}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -7152,7 +7152,7 @@ PrefabInstance:
     - target: {fileID: 6991284038106496006, guid: 36999345e86c1c0429da4544bc172f27,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6991284038106496006, guid: 36999345e86c1c0429da4544bc172f27,
         type: 3}
@@ -7212,27 +7212,27 @@ PrefabInstance:
     - target: {fileID: 6991284038106496006, guid: 36999345e86c1c0429da4544bc172f27,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6991284038106496006, guid: 36999345e86c1c0429da4544bc172f27,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9901157
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6991284038106496006, guid: 36999345e86c1c0429da4544bc172f27,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.14025314
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6991284038106496006, guid: 36999345e86c1c0429da4544bc172f27,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6991284038106496006, guid: 36999345e86c1c0429da4544bc172f27,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6991284038106496006, guid: 36999345e86c1c0429da4544bc172f27,
         type: 3}
@@ -8091,7 +8091,7 @@ RectTransform:
   - {fileID: 1679147440}
   - {fileID: 1957257040}
   m_Father: {fileID: 1136305122}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.65365994, y: 0.11322223}
   m_AnchorMax: {x: 1, y: 1}
@@ -8418,7 +8418,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1136305122}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.43215156, y: 0.80700004}
   m_AnchorMax: {x: 0.5711516, y: 1}
@@ -9077,7 +9077,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1487907415}
         m_TargetAssemblyTypeName: Popup, Assembly-CSharp
-        m_MethodName: restartGS
+        m_MethodName: restartTS
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10726,7 +10726,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1136305122}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -11170,7 +11170,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1136305122}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.03716488, y: 0.4}
   m_AnchorMax: {x: 0.27179167, y: 0.8208519}

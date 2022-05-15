@@ -49,7 +49,7 @@ public class Popup : MonoBehaviour
 
     private void ChangeTS()
     {
-        SceneManager.LoadScene("Tutorial Scene");
+        SceneManager.LoadScene("Tutorial Scense");
     }
     public void exit()
     {

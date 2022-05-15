@@ -2763,8 +2763,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StoryPanel: {fileID: 2083334921}
-  clickBtn: {fileID: 0}
-  clickBtnCancel: {fileID: 0}
+  clickBtn: {fileID: 2031644538}
+  clickBtnCancel: {fileID: 3964420}
 --- !u!114 &2083334924
 MonoBehaviour:
   m_ObjectHideFlags: 0
