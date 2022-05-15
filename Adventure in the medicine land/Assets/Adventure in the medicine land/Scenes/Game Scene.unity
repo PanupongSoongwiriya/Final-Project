@@ -6470,7 +6470,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Bg_Image.Array.data[4]
       value: 
-      objectReference: {fileID: 2800000, guid: 87bd695243e38ed4ba1e5cac7628c1ea, type: 3}
+      objectReference: {fileID: 2800000, guid: 97cedca2a42d9b44cb4d2398cc2b492e, type: 3}
     - target: {fileID: 8049314337774199886, guid: 58b86fa0e8c48c3458f0b2c2bbc13cd4,
         type: 3}
       propertyPath: Bg_Image.Array.data[5]
