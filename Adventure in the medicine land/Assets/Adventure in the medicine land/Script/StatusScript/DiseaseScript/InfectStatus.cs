@@ -19,14 +19,14 @@ public class InfectStatus : Status
         {
             chr = null;
             chr = c;
-            c.HP(Math.Min((int)-(c.hp*0.05f), -1));
+            c.HP(Math.Min((int)-(c.hp*0.1f), -1));
             Invoke("delayShowPoison", 1f);
         }
     }
 
     private void delayShowPoison()
     {
-        chr.showDMG(Math.Min((int)-(chr.hp * 0.05f), -1), "poison");
+        chr.showDMG(Math.Min((int)-(chr.hp * 0.1f), -1), "poison");
     }
 
     public override bool IsStatusEffective(Status s)
